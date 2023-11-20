@@ -4,7 +4,6 @@ import Header from "./components/Common/Header";
 import Cart from "./pages/Cart";
 import Complete from "./pages/Complete";
 import Detail from "./pages/Detail";
-import List from "./pages/List";
 import Main from "./pages/Main";
 import MyPage from "./pages/MyPage";
 import NotFound from "./pages/NotFound";
@@ -20,7 +19,6 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/list/" element={<List />} />
         <Route path="/detail/" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
