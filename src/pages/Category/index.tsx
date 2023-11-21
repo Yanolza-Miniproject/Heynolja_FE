@@ -1,22 +1,12 @@
 import axios from "axios";
+import * as Styled from "./Category.styles";
 import { useQuery } from "@tanstack/react-query";
+import { CategoryProps } from "./Category.types";
+import CategoryItem from "../../components/Category/CatgoryItem";
 
 const fetchCatgory = async () => {
-  const data = await axios.get("/api/v1/listitems?page=3");
+  const data = await axios.get("/api/v1/accommodations?page=2");
   return data.data;
-};
-
-type CategoryProps = {
-  accommodation_id: string;
-  address: string;
-  likes: number;
-  likes_available: boolean;
-  name: string;
-  phone_number: string;
-  price: number;
-  room_counts: number;
-  view: number;
-  picture: string;
 };
 
 const Category = () => {
@@ -26,12 +16,14 @@ const Category = () => {
   });
 
   return (
-    <div>
-      {data &&
-        data.map((item: CategoryProps) => {
-          return <div key={item.name}>{item.name}</div>;
-        })}
-    </div>
+    <Styled.CategoryContainer>
+      <Styled.ItemWrapper>
+        {data &&
+          data.data.map((item: CategoryProps) => {
+            return <CategoryItem key={item.name} data={item} />;
+          })}
+      </Styled.ItemWrapper>
+    </Styled.CategoryContainer>
   );
 };
 
