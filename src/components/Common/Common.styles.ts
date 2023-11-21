@@ -28,8 +28,6 @@ export const globalStyle = css`
 `;
 
 export const outletStyle = styled.div`
-  height: 700px;
-
   background-color: white;
 `;
 
