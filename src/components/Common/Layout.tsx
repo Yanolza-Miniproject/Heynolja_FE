@@ -11,6 +11,7 @@ function Layout() {
       <div css={outletStyle}>
         <Outlet />
       </div>
+      <div css={outletStyle2}></div>
       <Footer />
     </>
   );
@@ -22,3 +23,8 @@ const outletStyle = css`
   height: 700px;
   background-color: white;
 `;
+
+const outletStyle2 = {
+  height: "700px",
+  backgroundColor: "white",
+};

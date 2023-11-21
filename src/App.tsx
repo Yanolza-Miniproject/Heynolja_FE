@@ -9,6 +9,7 @@ import Payment from "./pages/Payment";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Layout from "./components/Common/Layout";
+import Category from "./pages/Category";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "payment", element: <Payment /> },
       { path: "complete", element: <Complete /> },
       { path: "mypage", element: <MyPage /> },
+      { path: "category", element: <Category /> },
     ],
   },
   {
