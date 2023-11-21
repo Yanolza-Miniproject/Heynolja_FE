@@ -1,54 +1,32 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import * as Styled from "./Common.styles";
+import Logo from "../../assets/image/logo.png";
+import SearchIcon from "../../assets/svg/search-icon.svg";
+import CartIcon from "../../assets/svg/cart-icon.svg";
+import UserIcon from "../../assets/svg/user-icon.svg";
+import SignupIcon from "../../assets/svg/signup-icon.svg";
 
 const Header = () => {
   return (
-    <div css={headerStyle}>
-      <h3>
-        <a css={linkStyle} href="/">
-          Logo
+    <Styled.headerContainer>
+      <a href="/">
+        <img src={Logo} alt="logo" style={{ width: "8em", height: "1.5em" }} />
+      </a>{" "}
+      <Styled.headerWrapper>
+        <a href="search">
+          <img src={SearchIcon} alt="search" />
         </a>
-      </h3>
-      <h5>
-        <a css={linkStyle} href="cart">
-          Cart
+        <a href="cart">
+          <img src={CartIcon} alt="cart" />
         </a>{" "}
-        |{" "}
-        <a css={linkStyle} href="signin">
-          Login
+        <a href="mypage">
+          <img src={UserIcon} alt="mypage" />
         </a>{" "}
-        |{" "}
-        <a css={linkStyle} href="signup">
-          Signup
+        <a href="signup">
+          <img src={SignupIcon} alt="logout" />
         </a>
-      </h5>
-    </div>
+      </Styled.headerWrapper>
+    </Styled.headerContainer>
   );
 };
 
 export default Header;
-
-const headerStyle = css`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5em;
-  background-color: #f6f6f6;
-  border-bottom: 1px solid #f6f6f6;
-  height: 50px;
-
-  h5 {
-    font-weight: 300;
-  }
-`;
-
-const linkStyle = css`
-  text-decoration: none;
-  color: black;
-  font-weight: 400;
-  &:hover {
-    text-decoration: none;
-    color: #ff5100;
-  }
-`;

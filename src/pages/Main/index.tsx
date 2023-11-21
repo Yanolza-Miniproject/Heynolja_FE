@@ -1,8 +1,13 @@
+import * as Styled from "./Main.styles";
+
 const Main = () => {
   return (
-    <div>
-      <h1>메인 페이지</h1>
-    </div>
+    <Styled.Container>
+      <Styled.Banner>
+        거기어때?
+        <br /> 지금 둘러보세요.👀
+      </Styled.Banner>
+    </Styled.Container>
   );
 };
 
