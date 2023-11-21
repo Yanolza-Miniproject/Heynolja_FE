@@ -1,7 +1,7 @@
 import { CategoryProps } from "../../../pages/Category/Category.types";
+import HeartClick from "../HeartClick";
 
 import * as Styled from "./CategoryItem.styles";
-import HeartSVGComponent from "./HeartIcon";
 
 type CategoryItemProps = {
   data: CategoryProps;
@@ -11,19 +11,16 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
   return (
     <Styled.CategoryItemContainer>
       <Styled.CategoryItemWrapper>
-        <Styled.CategoryImage src={data.thumbnail_url} alt={data.name} />
+        <Styled.CategoryImage src={data.picture} alt={data.name} />
         <Styled.CategoryTextWrapper>
           <Styled.CategoryName>{data.name}</Styled.CategoryName>
-          <Styled.CategoryView>
-            구매한 사람 {data.view_count}명
-          </Styled.CategoryView>
+          <Styled.CategoryView>구매한 사람 {data.view}명</Styled.CategoryView>
           <Styled.CategoryDownWrapper>
             <Styled.CategoryPrice>￦{data.price}000원</Styled.CategoryPrice>
-            <Styled.CategorySvgWrapper>
-              {/* <Styled.CategorySvgImage src={Heart} alt="heart" /> */}
-              <HeartSVGComponent />
-              <Styled.CategorySvgText>{data.like_count}</Styled.CategorySvgText>
-            </Styled.CategorySvgWrapper>
+            <HeartClick
+              likes={data.likes}
+              likes_clicked={data.likes_available}
+            />
           </Styled.CategoryDownWrapper>
         </Styled.CategoryTextWrapper>
       </Styled.CategoryItemWrapper>

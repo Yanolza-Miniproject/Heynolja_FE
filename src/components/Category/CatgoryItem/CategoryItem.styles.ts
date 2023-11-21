@@ -74,8 +74,8 @@ export const CategorySvgWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 18px;
-  height: 18px;
+  width: 36px;
+  height: 36px;
 `;
 
 export const CategorySvgImage = styled.img`
