@@ -18,21 +18,11 @@ export const Container = styled.div`
   background-color: #191554;
 `;
 
-export const Wrapper = styled.div`
-  ${flexCenter}
-
-  width: 50%;
-  max-width: 600px;
-  height: 50%;
-
-  background-color: #fff;
-  border-radius: 10px;
-`;
-
 export const SigninBox = styled(Box)`
   ${flexCenter}
 
   width: 50%;
+  max-width: 600px;
 
   padding: 2rem;
 
@@ -46,6 +36,8 @@ export const SignForm = styled.form`
   width: 100%;
   gap: 1rem;
 `;
+
+export const LoginForm = SignForm.withComponent("form");
 
 export const SigninHeader = styled.h1`
   font-size: 36px;
