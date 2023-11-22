@@ -1,7 +1,9 @@
+import * as Styled from "./SearchButton.styles";
+
 const SearchButton = () => {
   return (
     <>
-      <button>검색</button>
+      <Styled.SearchButton>원하는 검색지를 찾아보세요 🕵️‍♀️</Styled.SearchButton>
     </>
   );
 };

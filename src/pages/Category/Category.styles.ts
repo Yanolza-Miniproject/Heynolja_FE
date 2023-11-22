@@ -7,9 +7,8 @@ export const CategoryContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 100%;
 
-  overflow: auto;
+  padding: 1rem;
 `;
 
 export const ItemWrapper = styled.div`

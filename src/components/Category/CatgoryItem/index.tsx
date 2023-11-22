@@ -4,6 +4,7 @@ import HeartClick from "../HeartClick";
 import * as Styled from "./CategoryItem.styles";
 
 import { useRef } from "react";
+import { random } from "lodash";
 
 type CategoryItemProps = {
   data: CategoryProps;
@@ -17,7 +18,11 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
       <Styled.CategoryItemWrapper
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
+        transition={{
+          duration: random(0.7, 1.7),
+          delay: 0.2,
+          ease: "easeInOut",
+        }}
       >
         <Styled.CategoryImage src={data.thumbnail_url} alt={data.name} />
         <Styled.CategoryTextWrapper>

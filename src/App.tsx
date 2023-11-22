@@ -4,6 +4,7 @@ import Complete from "./pages/Complete";
 import Detail from "./pages/Detail";
 import Main from "./pages/Main";
 import MyPage from "./pages/MyPage";
+import MyOrder from "./pages/MyPage/MyOrder";
 import NotFound from "./pages/NotFound";
 import Payment from "./pages/Payment";
 import Signin from "./pages/Signin";
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: "complete", element: <Complete /> },
       { path: "mypage", element: <MyPage /> },
       { path: "category", element: <Category /> },
+      { path: "mypage/myorder", element: <MyOrder /> },
     ],
   },
   {

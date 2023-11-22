@@ -6,6 +6,7 @@ import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 import formatNumber from "../../../utils/formatNumber";
 import * as Styled from "./Estimate.styles";
 import { EstimateProps } from "./Estimate.types";
+import Button from "../../Common/Button";
 import { handleBuyClick } from "./Estimate.utils";
 
 const Estimate = ({ estimatedPrice }: EstimateProps) => {
@@ -40,15 +41,17 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
         <Styled.Empty />
         <span>{formatNumber(totalPrice)}원</span>
       </Styled.Bottom>
-      <Styled.Button
+      <Button
+        text="구매하기"
+        type="orange"
+        size="lg"
+        style={{ width: "100%" }}
         onClick={() => {
           handleBuyClick(estimatedPrice, setPurchaseList);
           if (estimatedPrice.length > 0) navigate("/payment");
           else alert("선택해주세요");
         }}
-      >
-        구매하기
-      </Styled.Button>
+      />
     </Styled.Container>
   );
 };
