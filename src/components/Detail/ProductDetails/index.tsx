@@ -1,6 +1,7 @@
 import * as Styled from "./ProductDetail.styles";
+import { ProductDetailsProps } from "./ProductDetail.types";
 
-const ProductDetails = ({ roomName, name }) => (
+const ProductDetails: React.FC<ProductDetailsProps> = ({ roomName, name }) => (
   <Styled.DetailsContainer>
     <Styled.ProductName>{name}</Styled.ProductName>
     <Styled.RoomName>{roomName}</Styled.RoomName>
