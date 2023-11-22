@@ -130,6 +130,7 @@ export const footerRightWrapper = styled.div`
 
   gap: 5em;
 
+  width: 28em;
   height: 100px;
   background-color: #f6f6f6;
 
