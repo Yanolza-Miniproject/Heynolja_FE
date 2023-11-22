@@ -36,7 +36,7 @@ const Signup = () => {
             })}
             <Styled.SigninButton type="submit">회원가입</Styled.SigninButton>
           </Styled.SignForm>
-          <Styled.SigninOutButton>돌아가기</Styled.SigninOutButton>
+          <Styled.SigninOutButton></Styled.SigninOutButton>
         </Styled.SigninMotionDiv>
       </Styled.SigninBox>
     </Styled.Container>
