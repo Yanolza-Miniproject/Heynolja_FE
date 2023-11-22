@@ -5,6 +5,7 @@ import * as Styled from "./Calendar.styles.ts";
 import "./Calendar.css";
 import { ko } from "date-fns/locale";
 import { CalendarProps } from "./Calendar.types.ts";
+import formatNumber from "../../../utils/formatNumber";
 
 const Calendar: React.FC<CalendarProps> = ({ price }) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
@@ -21,7 +22,7 @@ const Calendar: React.FC<CalendarProps> = ({ price }) => {
     <>
       <Styled.TextContainer>
         <Styled.SelectDatesText>날짜 선택</Styled.SelectDatesText>
-        <Styled.PriceText>1박 가격 ￦ {price}</Styled.PriceText>
+        <Styled.PriceText>1박 가격 ￦ {formatNumber(price)}</Styled.PriceText>
       </Styled.TextContainer>
       <DatePicker
         selected={startDate}

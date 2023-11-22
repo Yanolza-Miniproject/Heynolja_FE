@@ -30,7 +30,7 @@ const Detail = () => {
             <ProductDetails
               roomName={room.name}
               name={accommodation.name}
-              price={`${room.price.toLocaleString()}원`}
+              price={room.price}
             />
             <StockStatusBanner stock={room.stock} />
           </Styled.HorizontalContainer>
@@ -40,7 +40,7 @@ const Detail = () => {
             onQuantityChange={(newQuantity) => console.log(newQuantity)}
             price={room.price}
           />
-          <PriceDisplay price={`${room.price.toLocaleString()}원`} />
+          <PriceDisplay price={room.price} />
           <ActionButtonGroup
             onAddToCart={() => console.log("Add to Cart clicked")}
           />

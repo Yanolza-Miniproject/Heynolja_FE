@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as Styled from "./QuantitySelector.styles";
 import { QuantitySelectorProps } from "./QuantitySelector.types";
+import formatNumber from "../../../utils/formatNumber";
 
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   initialQuantity,
@@ -27,7 +28,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
         {" "}
         {/* 새로운 컨테이너 추가 */}
         <Styled.LabelText>숙박 인원 선택</Styled.LabelText>
-        <Styled.PriceText>1인당 가격 ￦{price}</Styled.PriceText>
+        <Styled.PriceText>1인당 가격 ￦{formatNumber(price)}</Styled.PriceText>
       </Styled.InfoContainer>
       <Styled.ControlContainer>
         {" "}
