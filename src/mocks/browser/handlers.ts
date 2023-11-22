@@ -7,19 +7,34 @@ export const handlers = [
   http.get("/api/v1/accommodations", ({ request }) => {
     const url = new URL(request.url);
     const page = Number(url.searchParams.get("page")) || 0;
-    const location = url.searchParams.get("region-name") || "";
+    const type = Number(url.searchParams.get("type")) || 0;
 
-    const dataIncludeLocation = _.filter(MockUpData, (item) => {
-      return item.address.startsWith(location);
-    });
-    const limit = 20;
-    const startIndex = page * limit;
-    const endIndex = startIndex + limit;
-    const viewData = dataIncludeLocation.slice(startIndex, endIndex);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const pagingData = (data: any[], type: number) => {
+      if (type === 99) {
+        const filterData = data;
+        const limit = 20;
+        const startIndex = page * limit;
+        const endIndex = startIndex + limit;
+        const viewData = filterData.slice(startIndex, endIndex);
+        return viewData;
+      }
+
+      const filterData = _.filter(data, (item) => {
+        return item.type === type;
+      });
+      const limit = 20;
+      const startIndex = page * limit;
+      const endIndex = startIndex + limit;
+      const viewData = filterData.slice(startIndex, endIndex);
+      return viewData;
+    };
 
     return HttpResponse.json({
       message: "성공",
-      data: viewData,
+      data: pagingData(MockUpData, type),
     });
   }),
 ];
+
+//region=${region}&page=${pageParam}&type=${type}
