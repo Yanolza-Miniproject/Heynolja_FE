@@ -47,7 +47,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
         size="lg"
         style={{ width: "100%" }}
         onClick={() => {
-          handleBuyClick(estimatedPrice, setPurchaseList);
+          handleBuyClick(estimatedPrice, setPurchaseList, totalPrice);
           if (estimatedPrice.length > 0) navigate("/payment");
           else alert("선택해주세요");
         }}
