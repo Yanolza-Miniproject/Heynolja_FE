@@ -4,9 +4,9 @@ import { useRecoilState } from "recoil";
 import { purchaseState } from "../../../store/purchaseAtom";
 import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 import formatNumber from "../../../utils/formatNumber";
+import Button from "../../Common/Button";
 import * as Styled from "./Estimate.styles";
 import { EstimateProps } from "./Estimate.types";
-import Button from "../../Common/Button";
 import { handleBuyClick } from "./Estimate.utils";
 
 const Estimate = ({ estimatedPrice }: EstimateProps) => {
@@ -47,7 +47,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
         size="lg"
         style={{ width: "100%" }}
         onClick={() => {
-          handleBuyClick(estimatedPrice, setPurchaseList);
+          handleBuyClick(estimatedPrice, setPurchaseList, totalPrice);
           if (estimatedPrice.length > 0) navigate("/payment");
           else alert("선택해주세요");
         }}

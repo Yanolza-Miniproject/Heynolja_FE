@@ -3,7 +3,11 @@ import { CartItemType } from "../../../types";
 
 export const handleBuyClick = (
   estimatedPrice: CartItemType[],
-  setPurchaseList: SetterOrUpdater<CartItemType[]>,
+  setPurchaseList: SetterOrUpdater<{
+    totalPrice: number;
+    data: CartItemType[];
+  }>,
+  totalPrice: number,
 ) => {
-  setPurchaseList([...estimatedPrice]);
+  setPurchaseList({ totalPrice: totalPrice, data: [...estimatedPrice] });
 };

@@ -16,6 +16,10 @@ export const Container = styled.div`
   padding: 0 5em;
 `;
 
+export const WrapTitle = styled.p`
+  padding: 1rem 0;
+`;
+
 export const AllSelect = styled.div`
   display: flex;
 
