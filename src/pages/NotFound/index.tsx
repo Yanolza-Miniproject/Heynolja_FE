@@ -1,9 +1,13 @@
+import * as Styled from "./NotFound.styles";
+
 const NotFound = () => {
   return (
-    <>
-      <h1>404</h1>
-      <>없는 페이지임......</>
-    </>
+    <Styled.Container>
+      <Styled.Wrapper>
+        <p>404</p>
+        <p>없는 페이지임...</p>
+      </Styled.Wrapper>
+    </Styled.Container>
   );
 };
 
