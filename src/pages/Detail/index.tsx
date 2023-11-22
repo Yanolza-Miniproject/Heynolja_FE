@@ -5,7 +5,7 @@ import QuantitySelector from "../../components/Detail/QuantitySelector";
 import PriceDisplay from "../../components/Detail/PriceDisplay";
 import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
 import Calendar from "../../components/Detail/Calendar";
-// import StockStatusBanner from "../../components/Detail/StockStatusBanner/index.tsx";
+import StockStatusBanner from "../../components/Detail/StockStatusBaner";
 const productData = {
   // images: [
   //   "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/fd904255-0d68-46df-a091-18d6efc6427f",
@@ -32,6 +32,7 @@ const Detail = () => {
               name={productData.name}
               price={productData.price}
             />
+            <StockStatusBanner />
           </Styled.HorizontalContainer>
           <Calendar price={productData.price} />
           <QuantitySelector
