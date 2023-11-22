@@ -8,3 +8,13 @@ export interface CartItemType {
   check_in_at: string;
   check_out_at: string;
 }
+
+export interface RoomDetailType {
+  accommodation_name: string;
+  room_image_url: string[];
+  room_name: string;
+  price: number;
+  number_guests: number;
+  check_in_at: string;
+  check_out_at: string;
+}
