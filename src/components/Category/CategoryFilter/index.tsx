@@ -1,12 +1,11 @@
 import * as Styled from "./CategoryFilter.styles";
+import CategoryFilterPopUp from "./CategoryFilterPopUp";
 
 const CategoryFilter = () => {
   return (
     <Styled.CategoryFilterContainer>
       <Styled.CategoryFilterWrapper>
-        <Styled.CategoryButton size="lg" type="button">
-          버튼 1
-        </Styled.CategoryButton>
+        <CategoryFilterPopUp />
       </Styled.CategoryFilterWrapper>
     </Styled.CategoryFilterContainer>
   );
