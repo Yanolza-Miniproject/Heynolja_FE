@@ -1,7 +1,9 @@
 import { useState } from "react";
 import CartItem from "../../components/Cart/CartItem";
+import CartZero from "../../components/Cart/CartZero";
 import Checkbox from "../../components/Cart/Checkbox";
 import Estimate from "../../components/Cart/Estimate";
+import Button from "../../components/Common/Button";
 import { cartList } from "../../mock/myPageData";
 import { CartItemType } from "../../types";
 import * as Styled from "./Cart.styles";
@@ -13,10 +15,14 @@ const Cart = () => {
   const [allSelected, setAllSelected] = useState(false);
   const [estimatedPrice, setEstimatedPrice] = useState<CartItemType[]>([]);
 
+  if (cart.length === 0) {
+    return <CartZero />;
+  }
+
   return (
     <Styled.Container>
       <Styled.ListWrapper>
-        <p>장바구니 목록</p>
+        <Styled.WrapTitle>장바구니 목록</Styled.WrapTitle>
 
         <Styled.AllSelect>
           <Checkbox
@@ -36,7 +42,10 @@ const Cart = () => {
             전채 선택({selected}/{cart.length})
           </label>
           <Styled.Empty />
-          <button
+          <Button
+            text="선택삭제"
+            type="blue"
+            size="sm"
             onClick={() => {
               handleSelectDeleteClick(
                 cart,
@@ -46,9 +55,7 @@ const Cart = () => {
                 setSelected,
               );
             }}
-          >
-            선택삭제
-          </button>
+          />
         </Styled.AllSelect>
 
         {cart.map((item: CartItemType) => (
@@ -66,7 +73,7 @@ const Cart = () => {
       </Styled.ListWrapper>
 
       <Styled.EstimateWrapper>
-        <p>예상 구매 내역</p>
+        <Styled.WrapTitle>예상 구매 내역</Styled.WrapTitle>
         <Estimate estimatedPrice={estimatedPrice} />
       </Styled.EstimateWrapper>
     </Styled.Container>

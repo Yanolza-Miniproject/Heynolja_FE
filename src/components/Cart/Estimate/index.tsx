@@ -4,9 +4,9 @@ import { useRecoilState } from "recoil";
 import { purchaseState } from "../../../store/purchaseAtom";
 import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 import formatNumber from "../../../utils/formatNumber";
+import Button from "../../Common/Button";
 import * as Styled from "./Estimate.styles";
 import { EstimateProps } from "./Estimate.types";
-import Button from "../../Common/Button";
 import { handleBuyClick } from "./Estimate.utils";
 
 const Estimate = ({ estimatedPrice }: EstimateProps) => {
