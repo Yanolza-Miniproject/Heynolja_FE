@@ -1,24 +1,18 @@
-/** @jsxImportSource @emotion/react */
+import * as Styled from "./Common.styles";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import { css } from "@emotion/react";
 
 function Layout() {
   return (
     <>
       <Header />
-      <div css={outletStyle}>
+      <Styled.outletStyle>
         <Outlet />
-      </div>
+      </Styled.outletStyle>
       <Footer />
     </>
   );
 }
 
 export default Layout;
-
-const outletStyle = css`
-  height: 700px;
-  background-color: white;
-`;
