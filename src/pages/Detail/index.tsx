@@ -1,12 +1,11 @@
-import React from "react";
 import * as Styled from "./Detail.styles.ts";
 import ProductGallery from "../../components/Detail/ProductGallery";
 import ProductDetails from "../../components/Detail/ProductDetails";
 import QuantitySelector from "../../components/Detail/QuantitySelector";
-import PriceDisplay from "../../components/Detail/PriceDisplay";
-import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
-import Calendar from "../../components/Detail/Calendar/index.tsx";
-import StockStatusBanner from "../../components/Detail/StockStatusBanner/index.tsx";
+// import PriceDisplay from "../../components/Detail/PriceDisplay";
+// import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
+// import Calendar from "../../components/Detail/Calendar/index.tsx";
+// import StockStatusBanner from "../../components/Detail/StockStatusBanner/index.tsx";
 // 상품 상세 정보와 이미지를 가정한 데이터입니다.
 const productData = {
   // images: [
@@ -34,17 +33,11 @@ const Detail = () => {
               name={productData.name}
               price={productData.price}
             />
-            <StockStatusBanner />
           </Styled.HorizontalContainer>
-          <Calendar price={productData.price} />
           <QuantitySelector
             initialQuantity={productData.quantity}
             onQuantityChange={(newQuantity) => console.log(newQuantity)}
             price={productData.price}
-          />
-          <PriceDisplay price={productData.price} />
-          <ActionButtonGroup
-            onAddToCart={() => console.log("Add to Cart clicked")}
           />
         </Styled.DetailsContainer>
       </Styled.Layout>
