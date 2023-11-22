@@ -5,7 +5,6 @@ type InfiniteScrollerProps = {
   length: number | undefined;
   fn: () => void;
   hasNextPage: boolean;
-  height: number;
 };
 
 const InfiniteScroller = ({
@@ -13,14 +12,12 @@ const InfiniteScroller = ({
   length,
   fn,
   hasNextPage,
-  height,
 }: InfiniteScrollerProps) => {
   return (
     <Styled.InfiniteScrollWrapper
       dataLength={length || 0}
       next={() => fn()}
       hasMore={hasNextPage}
-      height={height}
       loader={<h4>Loading...</h4>}
       scrollThreshold={0.95}
     >
