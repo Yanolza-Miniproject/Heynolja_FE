@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import * as Styled from "./QuantitySelector.styles";
+import { QuantitySelectorProps } from "./QuantitySelector.types";
 
-const QuantitySelector = ({ initialQuantity, onQuantityChange, price }) => {
+const QuantitySelector: React.FC<QuantitySelectorProps> = ({
+  initialQuantity,
+  onQuantityChange,
+  price,
+}) => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
   const handleDecrease = () => {
