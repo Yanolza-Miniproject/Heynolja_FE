@@ -1,6 +1,7 @@
 import * as Styled from "./PriceDisplay.styles";
 import { PriceDisplayProps } from "./PriceDisplay.types";
 import formatNumber from "../../../utils/formatNumber";
+// import calculateNightCount from "../../../utils/calculateNightCount";
 
 const PriceDisplay: React.FC<PriceDisplayProps> = ({ price }) => (
   <Styled.PriceContainer>

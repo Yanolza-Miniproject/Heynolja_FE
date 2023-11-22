@@ -7,23 +7,9 @@ const { persistAtom } = recoilPersist({
   storage: sessionStorage,
 });
 
-export const roomDetailState = atom<{
-  price: number;
-  roomDetail: RoomDetailType;
-}>({
+export const roomDetailState = atom<{ price: number; data: RoomDetailType[] }>({
   key: "roomDetailState",
-  default: {
-    price: 0,
-    roomDetail: {
-      accommodation_name: "",
-      room_image_url: [],
-      room_name: "",
-      price: 0,
-      number_guests: 0,
-      check_in_at: "",
-      check_out_at: "",
-    },
-  },
-  //   default: { price: 0, roomDetail: {} },
+
+  default: { price: 0, data: [] },
   effects_UNSTABLE: [persistAtom],
 });

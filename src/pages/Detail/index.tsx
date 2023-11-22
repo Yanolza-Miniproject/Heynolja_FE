@@ -7,10 +7,21 @@ import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
 import Calendar from "../../components/Detail/Calendar";
 import StockStatusBanner from "../../components/Detail/StockStatusBaner";
 import { roomDetail } from "../../mock/detailPageData.ts";
+import { useSetRecoilState } from "recoil";
+import { useEffect } from "react";
+import { roomDetailState } from "../../store/roomDetailAtom.ts";
 
 const Detail = () => {
+  const setRoomDetail = useSetRecoilState(roomDetailState);
   const { accommodation_name, room_name, price, stock, room_image_url } =
     roomDetail;
+  useEffect(() => {
+    setRoomDetail({
+      price: price,
+      data: [{ accommodation_name, room_name, room_image_url, price }],
+    });
+  }, [setRoomDetail, accommodation_name, room_name, price, room_image_url]);
+
   return (
     <Styled.container>
       <Styled.Layout>
