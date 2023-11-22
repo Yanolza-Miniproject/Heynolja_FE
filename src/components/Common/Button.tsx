@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { CSSProperties, ReactNode } from "react";
+import { Button } from "@mui/material";
 
 interface ButtonProps {
   text?: string;
@@ -25,10 +26,16 @@ interface SizeTheme {
   };
 }
 
+interface HoverTheme {
+  [type: string]: {
+    backgroundColor: string;
+  };
+}
+
 const border: Theme = {
   default: "1px solid #E6E6E6",
   blue: "1px solid #001650",
-  orange: "1px solid #FF5100",
+  orange: "none",
 };
 
 const color: Theme = {
@@ -58,7 +65,19 @@ const sizeStyle: SizeTheme = {
   },
 };
 
-const Button = ({
+const hoverAction: HoverTheme = {
+  default: {
+    backgroundColor: "#dcdcdc",
+  },
+  blue: {
+    backgroundColor: "#dcdcdc",
+  },
+  orange: {
+    backgroundColor: "#e64a19",
+  },
+};
+
+const ActionButton = ({
   text,
   type,
   size,
@@ -67,7 +86,7 @@ const Button = ({
   style,
 }: ButtonProps) => {
   return (
-    <button
+    <Button
       css={{
         borderRadius: "3px",
         border: border[type],
@@ -79,12 +98,13 @@ const Button = ({
         appearance: "none",
         userSelect: "none",
         ...style,
+        "&:hover": hoverAction[type],
       }}
       onClick={onClick}
     >
       {children || text}
-    </button>
+    </Button>
   );
 };
 
-export default Button;
+export default ActionButton;
