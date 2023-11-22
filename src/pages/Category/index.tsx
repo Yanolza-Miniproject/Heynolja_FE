@@ -1,29 +1,18 @@
-import axios from "axios";
 import * as Styled from "./Category.styles";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { CategoryProps } from "./Category.types";
 import CategoryItem from "../../components/Category/CatgoryItem";
 import InfiniteScroller from "../../components/Category/InfiniteScroller";
+import { useCategoryInfiniteQuery } from "../../hooks/useCategoryInfiniteQuery";
 
-type fetchCatgoryProps = {
+export type fetchCatgoryProps = {
   pageParam: number;
-};
-
-const fetchCatgory = async ({ pageParam }: fetchCatgoryProps) => {
-  const data = await axios.get("/api/v1/accommodations?page=" + pageParam);
-  return data.data;
+  region?: number;
+  type?: number;
 };
 
 const Category = () => {
-  const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery({
-    queryKey: ["category"],
-    queryFn: fetchCatgory,
-    initialPageParam: 0,
-    getNextPageParam: (lastPage, allPages, lastPageParam) => {
-      if (lastPage.data.length === 0) return undefined;
-      return lastPageParam + 1;
-    },
-  });
+  const { data, fetchNextPage, hasNextPage, isLoading } =
+    useCategoryInfiniteQuery();
 
   if (isLoading) {
     console.log("loading");

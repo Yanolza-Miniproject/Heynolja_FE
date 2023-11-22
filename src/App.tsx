@@ -10,6 +10,8 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Layout from "./components/Common/Layout";
 import Category from "./pages/Category";
+import { Global } from "@emotion/react";
+import { globalStyle } from "./components/Common/Common.styles";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <Global styles={globalStyle} />
       <RouterProvider router={router} />
     </>
   );

@@ -19,14 +19,16 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
       >
-        <Styled.CategoryImage src={data.picture} alt={data.name} />
+        <Styled.CategoryImage src={data.thumbnail_url} alt={data.name} />
         <Styled.CategoryTextWrapper>
           <Styled.CategoryName>{data.name}</Styled.CategoryName>
-          <Styled.CategoryView>구매한 사람 {data.view}명</Styled.CategoryView>
+          <Styled.CategoryView>
+            구매한 사람 {data.view_count}명
+          </Styled.CategoryView>
           <Styled.CategoryDownWrapper>
             <Styled.CategoryPrice>￦{data.price}000원</Styled.CategoryPrice>
             <HeartClick
-              likes={data.likes}
+              likes={data.like_count}
               likes_clicked={data.likes_available}
             />
           </Styled.CategoryDownWrapper>
