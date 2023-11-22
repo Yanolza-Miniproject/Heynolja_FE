@@ -8,12 +8,17 @@ export const CategoryContainer = styled.div`
 
   width: 100%;
 
-  padding: 1rem;
+  box-sizing: border-box;
 `;
 
 export const ItemWrapper = styled.div`
+  position: relative;
+
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  item-align: center;
+
+  width: 60%;
 `;
 
 export const InfiniteScrollWrapper = styled(InfiniteScroll)`

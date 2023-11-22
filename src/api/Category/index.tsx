@@ -1,5 +1,5 @@
 import axios from "axios";
-import { fetchCatgoryProps } from "../../pages/Category";
+import { fetchCatgoryProps } from "../../pages/Category/Category.types";
 
 export const fetchCatgory = async ({
   pageParam,

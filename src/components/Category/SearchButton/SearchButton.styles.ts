@@ -5,6 +5,8 @@ export const SearchButton = styled(Button)`
   display: flex;
   justify-content: center;
 
+  max-width: object-fit;
+
   height: 3rem;
   padding: 0 5em;
 

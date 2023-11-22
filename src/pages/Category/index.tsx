@@ -4,12 +4,7 @@ import { useCategoryInfiniteQuery } from "../../hooks/useCategoryInfiniteQuery";
 import CategoryItemWrapper from "../../components/Category/CategoryItemWrapper";
 import CategoryBanner from "../../components/Category/CategoryBanner";
 import { useNavigate } from "react-router-dom";
-
-export type fetchCatgoryProps = {
-  pageParam: number;
-  region?: number;
-  type?: number;
-};
+import CategoryFilter from "../../components/Category/CategoryFilter";
 
 const Category = () => {
   const { data, fetchNextPage, hasNextPage, isLoading } =
@@ -28,6 +23,7 @@ const Category = () => {
     <Styled.CategoryContainer>
       <CategoryBanner searchFn={handleClickSearch} />
       <Styled.ItemWrapper>
+        <CategoryFilter />
         <InfiniteScroller
           length={data?.pages.length}
           fn={fetchNextPage}

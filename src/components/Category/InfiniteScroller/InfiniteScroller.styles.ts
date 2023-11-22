@@ -6,13 +6,20 @@ export const InfiniteScrollWrapper = styled(InfiniteScroll)`
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
 
+  width: 100%;
   height: object-fit;
+
+  margin-top: 1.5rem;
 
   padding: 1rem;
 
   gap: 1rem;
 
   overflow: auto;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   ::-webkit-scrollbar {
     display: none;

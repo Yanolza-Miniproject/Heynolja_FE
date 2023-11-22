@@ -3,10 +3,10 @@
 import { CSSProperties, ReactNode } from "react";
 
 interface ButtonProps {
-  text: string;
+  text?: string;
   type: string;
   size: string;
-  onClick: (evnet: React.MouseEvent) => void;
+  onClick?: (evnet: React.MouseEvent) => void;
   children?: ReactNode;
   style?: CSSProperties;
 }

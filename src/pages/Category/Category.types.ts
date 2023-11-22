@@ -16,3 +16,9 @@ export type CategoryProps = {
   category_cooking: number;
   category_pickup: number;
 };
+
+export type fetchCatgoryProps = {
+  pageParam: number;
+  region?: number;
+  type?: number;
+};
