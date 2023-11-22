@@ -4,13 +4,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import * as Styled from "./Calendar.styles.ts";
 import "./Calendar.css";
 import { ko } from "date-fns/locale";
+import { CalendarProps } from "./Calendar.types.ts";
 
-const Calendar = ({ price }) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
+const Calendar: React.FC<CalendarProps> = ({ price }) => {
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [endDate, setEndDate] = useState<Date | null>(null);
 
   // 날짜 변경 핸들러
-  const handleChange = (dates) => {
+  const handleChange = (dates: Date[]) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
