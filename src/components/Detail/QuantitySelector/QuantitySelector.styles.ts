@@ -21,21 +21,16 @@ export const ControlContainer = styled.div`
   align-items: center;
 `;
 
-// export const TextContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   gap: 8px;
-// `;
-
-// export const QuantityButton = styled(Button)`
-//   background-color: #e0e0e0;
-//   color: #757575;
-// `;
-
 export const QuantityText = styled.div`
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+
   color: #222;
-  font-family: Noto Sans KR;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
@@ -43,12 +38,6 @@ export const QuantityText = styled.div`
   letter-spacing: -0.05625rem;
   border: 1px solid #f4f4f4;
   border-radius: 4;
-  width: 2.5rem;
-  height: 2.5rem;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const LabelText = styled.div`

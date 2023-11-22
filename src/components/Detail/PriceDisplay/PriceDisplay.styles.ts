@@ -9,7 +9,6 @@ export const PriceContainer = styled.div`
 
 export const SumText = styled.div`
   color: #222;
-  font-family: Noto Sans KR;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
@@ -19,7 +18,6 @@ export const SumText = styled.div`
 
 export const PriceText = styled.div`
   color: #222;
-  font-family: Noto Sans KR;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;

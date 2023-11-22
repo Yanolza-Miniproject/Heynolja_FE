@@ -6,6 +6,7 @@ export const TextContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 40px;
+
   margin-bottom: 10px;
 `;
 
