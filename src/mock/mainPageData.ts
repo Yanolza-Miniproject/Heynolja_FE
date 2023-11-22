@@ -5,7 +5,7 @@ export const mainAccomList = [
     type: 1,
     picture: "",
     likes: 32,
-    likes_available: "true",
+    likes_available: true,
     view: 2151,
   },
   {
@@ -14,7 +14,7 @@ export const mainAccomList = [
     type: 0,
     picture: "",
     likes: 15,
-    likes_available: "true",
+    likes_available: true,
     view: 1240,
   },
   {
@@ -23,7 +23,7 @@ export const mainAccomList = [
     type: 2,
     picture: "",
     likes: 78,
-    likes_available: "true",
+    likes_available: true,
     view: 3022,
   },
   {
@@ -32,7 +32,7 @@ export const mainAccomList = [
     type: 3,
     picture: "",
     likes: 54,
-    likes_available: "true",
+    likes_available: true,
     view: 1833,
   },
   {
@@ -41,7 +41,7 @@ export const mainAccomList = [
     type: 1,
     picture: "",
     likes: 47,
-    likes_available: "true",
+    likes_available: true,
     view: 2765,
   },
   {
@@ -50,7 +50,7 @@ export const mainAccomList = [
     type: 0,
     picture: "",
     likes: 20,
-    likes_available: "true",
+    likes_available: true,
     view: 935,
   },
   {
@@ -59,7 +59,7 @@ export const mainAccomList = [
     type: 2,
     picture: "",
     likes: 65,
-    likes_available: "true",
+    likes_available: true,
     view: 1457,
   },
   {
@@ -68,7 +68,7 @@ export const mainAccomList = [
     type: 3,
     picture: "",
     likes: 51,
-    likes_available: "true",
+    likes_available: true,
     view: 1988,
   },
   {
@@ -77,7 +77,7 @@ export const mainAccomList = [
     type: 1,
     picture: "",
     likes: 36,
-    likes_available: "true",
+    likes_available: true,
     view: 2580,
   },
   {
@@ -86,7 +86,7 @@ export const mainAccomList = [
     type: 0,
     picture: "",
     likes: 42,
-    likes_available: "true",
+    likes_available: true,
     view: 1112,
   },
   {
@@ -95,7 +95,7 @@ export const mainAccomList = [
     type: 0,
     picture: "",
     likes: 24,
-    likes_available: "true",
+    likes_available: true,
     view: 967,
   },
   {
@@ -104,7 +104,7 @@ export const mainAccomList = [
     type: 1,
     picture: "",
     likes: 51,
-    likes_available: "true",
+    likes_available: true,
     view: 3241,
   },
   {
@@ -113,7 +113,7 @@ export const mainAccomList = [
     type: 2,
     picture: "",
     likes: 68,
-    likes_available: "true",
+    likes_available: true,
     view: 2876,
   },
   {
@@ -122,7 +122,7 @@ export const mainAccomList = [
     type: 3,
     picture: "",
     likes: 42,
-    likes_available: "true",
+    likes_available: true,
     view: 1590,
   },
   {
@@ -131,7 +131,7 @@ export const mainAccomList = [
     type: 1,
     picture: "",
     likes: 37,
-    likes_available: "true",
+    likes_available: true,
     view: 2783,
   },
   {
@@ -140,7 +140,7 @@ export const mainAccomList = [
     type: 0,
     picture: "",
     likes: 19,
-    likes_available: "true",
+    likes_available: true,
     view: 1022,
   },
   {
@@ -149,7 +149,7 @@ export const mainAccomList = [
     type: 2,
     picture: "",
     likes: 73,
-    likes_available: "true",
+    likes_available: true,
     view: 1635,
   },
   {
@@ -158,7 +158,7 @@ export const mainAccomList = [
     type: 3,
     picture: "",
     likes: 58,
-    likes_available: "true",
+    likes_available: true,
     view: 1844,
   },
   {
@@ -167,7 +167,7 @@ export const mainAccomList = [
     type: 1,
     picture: "",
     likes: 46,
-    likes_available: "true",
+    likes_available: true,
     view: 2210,
   },
   {
@@ -176,7 +176,7 @@ export const mainAccomList = [
     type: 0,
     picture: "",
     likes: 21,
-    likes_available: "true",
+    likes_available: true,
     view: 854,
   },
 ];

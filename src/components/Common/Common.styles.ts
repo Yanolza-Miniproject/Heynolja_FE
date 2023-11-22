@@ -6,13 +6,12 @@ export const globalStyle = css`
   ${emotionReset}
 
   @font-face {
-    font-family: "PretendardVariable";
-    src: url("../assets/font/PretendardVariable.woff2")
-      format("woff2-variations");
+    font-family: "Noto Sans KR";
+    src: url("../assets/font/NotoSans-Regular.woff2") format("woff2-variations");
   }
 
   body {
-    font-family: "Pretendard", sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     color: black;
   }
 
@@ -172,4 +171,72 @@ export const footerLine = styled.hr`
 
   border: none;
   background-color: #d9d9d9;
+`;
+
+export const SidebarContainer = styled.aside`
+  position: fixed;
+  right: 1em;
+  bottom: 0;
+
+  border-radius: 0.625rem;
+
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+`;
+
+export const SidebarWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NavButton = styled.button`
+  display: block;
+
+  padding: 0.5em;
+
+  outline: none;
+  appearance: none;
+  border: none;
+  background-color: #e6e6e6;
+
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ff5100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    display: block;
+    width: 6em;
+    height: 2em;
+    margin: auto;
+  }
+
+  font-size: 0.8em;
+  font-weight: 600;
+  text-align: center;
+  color: black;
+`;
+
+export const RecentlyViewedItem = styled.div`
+  padding: 1em;
+
+  width: 5em;
+  height: 7em;
+
+  font-size: 0.8em;
 `;
