@@ -1,37 +1,36 @@
 import styled from "@emotion/styled";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export const CategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: auto;
+`;
+
+export const ItemWrapper = styled.div`
+  display: flex;
   justify-content: center;
 
   width: 100%;
   height: 100%;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
-export const ItemWrapper = styled.div`
+export const InfiniteScrollWrapper = styled(InfiniteScroll)`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  place-items: center;
 
-  padding: 2rem;
+  padding: 1rem;
 
-  row-gap: 1rem;
-  column-gap: 1rem;
-
-  overflow-y: scroll;
-  overflow-x: hidden;
-
-  @media (max-width: 1280px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media (max-width: 1080px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  overflow: auto;
 
   ::-webkit-scrollbar {
     display: none;

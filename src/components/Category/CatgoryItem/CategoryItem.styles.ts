@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { flexCenter } from "../../../pages/Signin/Signin.styles";
+import { motion } from "framer-motion";
 
 export const CategoryItemContainer = styled.div`
   ${flexCenter};
@@ -21,7 +22,7 @@ export const CategoryItemContainer = styled.div`
   }
 `;
 
-export const CategoryItemWrapper = styled.div`
+export const CategoryItemWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,28 +67,6 @@ export const CategoryDownWrapper = styled.div`
   align-items: center;
 
   width: 100%;
-`;
-
-export const CategorySvgWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width: 36px;
-  height: 36px;
-`;
-
-export const CategorySvgImage = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
-export const CategorySvgText = styled.span`
-  font-size: 12px;
-  font-weight: 400;
-
-  color: #ff5100;
 `;
 
 export const CategoryPrice = CategoryName.withComponent("span");

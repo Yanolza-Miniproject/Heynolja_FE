@@ -8,8 +8,7 @@ export const handlers = [
     const url = new URL(request.url);
     const page = Number(url.searchParams.get("page")) || 0;
     const location = url.searchParams.get("region-name") || "";
-    console.log(location);
-    console.log(MockUpData[0].address);
+
     const dataIncludeLocation = _.filter(MockUpData, (item) => {
       return item.address.startsWith(location);
     });
@@ -17,6 +16,7 @@ export const handlers = [
     const startIndex = page * limit;
     const endIndex = startIndex + limit;
     const viewData = dataIncludeLocation.slice(startIndex, endIndex);
+
     return HttpResponse.json({
       message: "성공",
       data: viewData,
