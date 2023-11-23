@@ -51,31 +51,31 @@ export const regionTypes = [
     value: 99,
   },
   {
-    label: "서울",
+    label: "서울시",
     value: 0,
   },
   {
-    label: "경기",
+    label: "경기도",
     value: 1,
   },
   {
-    label: "강원",
+    label: "강원도",
     value: 2,
   },
   {
-    label: "충청",
+    label: "충청도",
     value: 3,
   },
   {
-    label: "전라",
+    label: "전라도",
     value: 4,
   },
   {
-    label: "경상",
+    label: "경상도",
     value: 5,
   },
   {
-    label: "제주",
+    label: "제주시",
     value: 6,
   },
 ];

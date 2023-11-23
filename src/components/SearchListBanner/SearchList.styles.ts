@@ -20,3 +20,10 @@ export const SearchListContainer = styled.div`
 
   transform: translateY(-50%);
 `;
+
+export const SearchListText = styled.p`
+  font-size: 1.2rem;
+
+  font-weight: 700;
+  color: #ff5100;
+`;
