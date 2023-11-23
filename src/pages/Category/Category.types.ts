@@ -19,6 +19,9 @@ export type CategoryProps = {
 
 export type fetchCatgoryProps = {
   pageParam: number;
-  region?: number;
-  type?: number;
+  region: number;
+  type: number;
+  category_parking: number;
+  category_cooking: number;
+  category_pickup: number;
 };

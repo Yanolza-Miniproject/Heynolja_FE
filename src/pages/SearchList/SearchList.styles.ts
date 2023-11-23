@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const CategoryContainer = styled.div`
+export const SearchResultContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

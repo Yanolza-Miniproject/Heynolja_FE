@@ -9,9 +9,10 @@ export const InfiniteScrollWrapper = styled(InfiniteScroll)`
   width: 100%;
   height: object-fit;
 
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 
-  padding: 1rem;
+  box-sizing: border-box;
+  padding: 1rem 1rem;
 
   gap: 1rem;
 

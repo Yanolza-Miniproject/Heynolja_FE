@@ -1,5 +1,22 @@
+import { useNavigate } from "react-router-dom";
+import CategoryBanner from "../../components/Category/CategoryBanner";
+import CategoryQuery from "../../components/Category/CategoryQuery";
+import * as Styled from "./SearchList.styles";
+
 const SearchList = () => {
-  return <div>index</div>;
+  const router = useNavigate();
+
+  const handleClickSearch = () => {
+    router("/search");
+  };
+  return (
+    <Styled.SearchResultContainer>
+      <CategoryBanner searchFn={handleClickSearch} />
+      <Styled.ItemWrapper>
+        <CategoryQuery />
+      </Styled.ItemWrapper>
+    </Styled.SearchResultContainer>
+  );
 };
 
 export default SearchList;
