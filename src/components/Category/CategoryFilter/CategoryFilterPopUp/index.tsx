@@ -1,13 +1,38 @@
 import { useState } from "react";
 import * as Styled from "./CategoryFilterPopUp.styles";
-import { accommoationTypes } from "../CategoryFilter.constants";
+import { categoryQueryAtom } from "../../../../store/categoryQueryAtom";
+import { CategoryFilterPopUpProps } from "./CategoryFilterPopUp.types";
+import { useRecoilState } from "recoil";
 
-type CategoryFilterPopUpProps = {
-  buttonText: string;
+type CategoryQueryType = {
+  region_name: string;
+  region: number;
+  type_name: string;
+  type: number;
 };
 
-const CategoryFilterPopUp = ({ buttonText }: CategoryFilterPopUpProps) => {
-  const [selected, setSelected] = useState("전체보기");
+const getInitialState = (
+  categoryQuery: CategoryQueryType,
+  buttonText: string,
+) => {
+  if (buttonText === "원하는 숙소를 찾아보세요") {
+    const initialState = categoryQuery.type_name;
+    return initialState;
+  } else {
+    const initialState = categoryQuery.region_name;
+    return initialState;
+  }
+};
+
+const CategoryFilterPopUp = ({
+  buttonText,
+  listData,
+}: CategoryFilterPopUpProps) => {
+  const [categoryQuery, setCategoryQuery] = useRecoilState(categoryQueryAtom);
+
+  const [selected, setSelected] = useState(
+    getInitialState(categoryQuery, buttonText),
+  );
   const [isOpen, setIsOpen] = useState(false);
   // const staggerMenuItems = stagger(1.5, { startDelay: 1.55 });
 
@@ -17,7 +42,15 @@ const CategoryFilterPopUp = ({ buttonText }: CategoryFilterPopUpProps) => {
 
   const categoryClick = (e: React.MouseEvent<HTMLLIElement>) => {
     const { innerText } = e.target as HTMLLIElement;
+    const { value } = e.target as HTMLLIElement;
     setSelected(innerText);
+    setCategoryQuery((prev) => {
+      if (buttonText === "원하는 숙소를 찾아보세요") {
+        return { ...prev, type: value, type_name: innerText };
+      } else {
+        return { ...prev, region: value, region_name: innerText };
+      }
+    });
     handleClick();
   };
 
@@ -27,8 +60,12 @@ const CategoryFilterPopUp = ({ buttonText }: CategoryFilterPopUpProps) => {
         {buttonText}
       </Styled.CategoryButton>
       <Styled.CategoryPopUp isOpen={isOpen}>
-        {accommoationTypes.map((type) => (
-          <Styled.CategoryPopUpItem key={type.value} onClick={categoryClick}>
+        {listData.map((type) => (
+          <Styled.CategoryPopUpItem
+            key={type.value}
+            value={type.value}
+            onClick={categoryClick}
+          >
             {type.label}
           </Styled.CategoryPopUpItem>
         ))}

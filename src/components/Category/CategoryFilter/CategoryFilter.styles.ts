@@ -24,7 +24,7 @@ export const CategoryFilterContainer = styled.div`
 
 export const CategoryFilterWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   width: 80%;
 `;

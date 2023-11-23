@@ -44,3 +44,38 @@ export const accommoationTypes = [
     value: 9,
   },
 ];
+
+export const regionTypes = [
+  {
+    label: "전체보기",
+    value: 99,
+  },
+  {
+    label: "서울",
+    value: 0,
+  },
+  {
+    label: "경기",
+    value: 1,
+  },
+  {
+    label: "강원",
+    value: 2,
+  },
+  {
+    label: "충청",
+    value: 3,
+  },
+  {
+    label: "전라",
+    value: 4,
+  },
+  {
+    label: "경상",
+    value: 5,
+  },
+  {
+    label: "제주",
+    value: 6,
+  },
+];

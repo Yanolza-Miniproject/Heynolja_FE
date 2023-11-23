@@ -5,10 +5,16 @@ import CategoryItemWrapper from "../../components/Category/CategoryItemWrapper";
 import CategoryBanner from "../../components/Category/CategoryBanner";
 import { useNavigate } from "react-router-dom";
 import CategoryFilter from "../../components/Category/CategoryFilter";
+import { categoryQueryAtom } from "../../store/categoryQueryAtom";
+import { useRecoilValue } from "recoil";
 
 const Category = () => {
+  const atomState = useRecoilValue(categoryQueryAtom);
+  const regionNumber = atomState.region;
+  const accommodationNumber = atomState.type;
+
   const { data, fetchNextPage, hasNextPage, isLoading } =
-    useCategoryInfiniteQuery(0, 99);
+    useCategoryInfiniteQuery(regionNumber, accommodationNumber);
   const router = useNavigate();
 
   if (isLoading) {
