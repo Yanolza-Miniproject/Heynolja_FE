@@ -12,6 +12,7 @@ import Signup from "./pages/Signup";
 import Layout from "./components/Common/Layout";
 import { Global } from "@emotion/react";
 import { globalStyle } from "./components/Common/Common.styles";
+import Search from "./pages/Search";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: "complete", element: <Complete /> },
       { path: "mypage", element: <MyPage /> },
       { path: "mypage/myorder", element: <MyOrder /> },
+      { path: "search", element: <Search /> },
     ],
   },
   {
