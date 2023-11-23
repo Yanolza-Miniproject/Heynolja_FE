@@ -6,16 +6,34 @@ export const handlers = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   http.get("/api/v1/accommodations", ({ request }) => {
     const url = new URL(request.url);
-    console.log(url);
     const page = Number(url.searchParams.get("page")) || 0;
-    const type = Number(url.searchParams.get("type")) || null;
-    const region = Number(url.searchParams.get("region")) || null;
+    const typeParam = url.searchParams.get("type");
+    const type =
+      typeParam !== null && typeParam !== undefined ? Number(typeParam) : null;
+
+    const regionParam = url.searchParams.get("region");
+    const region =
+      regionParam !== null && regionParam !== undefined
+        ? Number(regionParam)
+        : null;
+
+    const categoryParkingParam = url.searchParams.get("category_parking");
     const category_parking =
-      Number(url.searchParams.get("category_parking")) || null;
+      categoryParkingParam !== null && categoryParkingParam !== undefined
+        ? Number(categoryParkingParam)
+        : null;
+
+    const categoryCookingParam = url.searchParams.get("category_cooking");
     const category_cooking =
-      Number(url.searchParams.get("category_cooking")) || null;
+      categoryCookingParam !== null && categoryCookingParam !== undefined
+        ? Number(categoryCookingParam)
+        : null;
+
+    const categoryPickupParam = url.searchParams.get("category_pickup");
     const category_pickup =
-      Number(url.searchParams.get("category_pickup")) || null;
+      categoryPickupParam !== null && categoryPickupParam !== undefined
+        ? Number(categoryPickupParam)
+        : null;
 
     const categoryData = (
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

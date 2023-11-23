@@ -11,8 +11,6 @@ type CategoryItemWrapperProps = {
 };
 
 const CategoryItemWrapper = ({ data }: CategoryItemWrapperProps) => {
-  console.log(data[0].data);
-
   return (
     <>
       {data[0].data.length !== 0 ? (

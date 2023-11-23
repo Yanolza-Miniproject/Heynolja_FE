@@ -11,7 +11,14 @@ export const useCategoryInfiniteQuery = ({
   category_pickup,
 }: CategoryFilterParams) => {
   const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery({
-    queryKey: ["category", region, type],
+    queryKey: [
+      "category",
+      region,
+      type,
+      category_parking,
+      category_cooking,
+      category_pickup,
+    ],
     queryFn: ({ pageParam }) =>
       fetchCatgory({
         pageParam,
