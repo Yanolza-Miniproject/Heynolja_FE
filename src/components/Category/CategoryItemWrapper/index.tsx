@@ -11,13 +11,19 @@ type CategoryItemWrapperProps = {
 };
 
 const CategoryItemWrapper = ({ data }: CategoryItemWrapperProps) => {
+  console.log(data[0].data);
+
   return (
     <>
-      {data.map((pageData) => {
-        return pageData.data.map((item: CategoryProps) => {
-          return <CategoryItem key={item.name} data={item} />;
-        });
-      })}
+      {data[0].data.length !== 0 ? (
+        data.map((pageData) => {
+          return pageData.data.map((item: CategoryProps) => {
+            return <CategoryItem key={item.name} data={item} />;
+          });
+        })
+      ) : (
+        <h1>검색 결과가 없습니다.</h1>
+      )}
     </>
   );
 };

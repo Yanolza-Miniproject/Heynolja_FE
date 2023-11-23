@@ -2,11 +2,11 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchCatgory } from "../api/Category";
 
 export const useCategoryInfiniteQuery = (
-  region: number = 99,
-  type: number = 99,
-  category_parking: number = 2,
-  category_cooking: number = 2,
-  category_pickup: number = 2,
+  region: number,
+  type: number,
+  category_parking: number,
+  category_cooking: number,
+  category_pickup: number,
 ) => {
   const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery({
     queryKey: ["category", region, type],

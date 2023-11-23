@@ -2,7 +2,7 @@ import { useCategoryInfiniteQuery } from "../../../hooks/useCategoryInfiniteQuer
 import InfiniteScroller from "../InfiniteScroller";
 import CategoryItemWrapper from "../CategoryItemWrapper";
 
-type CategoryQueryProps = {
+export type CategoryQueryProps = {
   regionNumber: number;
   accommodationNumber: number;
   category_parking?: number;
@@ -11,8 +11,8 @@ type CategoryQueryProps = {
 };
 
 const CategoryQuery = ({
-  regionNumber,
-  accommodationNumber,
+  regionNumber = 99,
+  accommodationNumber = 99,
   category_parking = 2,
   category_cooking = 2,
   category_pickup = 2,
