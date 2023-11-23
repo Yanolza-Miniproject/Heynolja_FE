@@ -18,13 +18,13 @@ const CategoryQuery = ({
   category_pickup = 2,
 }: CategoryQueryProps) => {
   const { data, fetchNextPage, hasNextPage, isLoading } =
-    useCategoryInfiniteQuery(
-      regionNumber,
-      accommodationNumber,
-      category_parking,
-      category_cooking,
-      category_pickup,
-    );
+    useCategoryInfiniteQuery({
+      region: regionNumber,
+      type: accommodationNumber,
+      category_parking: category_parking,
+      category_cooking: category_cooking,
+      category_pickup: category_pickup,
+    });
 
   if (isLoading) {
     return <h1>Loading...</h1>;

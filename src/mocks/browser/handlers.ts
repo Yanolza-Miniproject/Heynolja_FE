@@ -6,34 +6,33 @@ export const handlers = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   http.get("/api/v1/accommodations", ({ request }) => {
     const url = new URL(request.url);
+    console.log(url);
     const page = Number(url.searchParams.get("page")) || 0;
-    const type = Number(url.searchParams.get("type")) || 0;
-    const region = Number(url.searchParams.get("region")) || 0;
+    const type = Number(url.searchParams.get("type")) || null;
+    const region = Number(url.searchParams.get("region")) || null;
     const category_parking =
-      Number(url.searchParams.get("category_parking")) || 2;
+      Number(url.searchParams.get("category_parking")) || null;
     const category_cooking =
-      Number(url.searchParams.get("category_cooking")) || 2;
+      Number(url.searchParams.get("category_cooking")) || null;
     const category_pickup =
-      Number(url.searchParams.get("category_pickup")) || 2;
+      Number(url.searchParams.get("category_pickup")) || null;
 
     const categoryData = (
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       data: any[], // 데이터 배열
-      category_parking: number,
-      category_cooking: number,
-      category_pickup: number,
+      category_parking: number | null,
+      category_cooking: number | null,
+      category_pickup: number | null,
     ) => {
       const filterData = _.filter(data, (item) => {
         return (
-          (category_parking !== 2
+          (category_parking
             ? item.category_parking === category_parking
             : true) &&
-          (category_cooking !== 2
+          (category_cooking
             ? item.category_cooking === category_cooking
             : true) &&
-          (category_pickup !== 2
-            ? item.category_pickup === category_pickup
-            : true)
+          (category_pickup ? item.category_pickup === category_pickup : true)
         );
       });
 
@@ -48,7 +47,7 @@ export const handlers = [
     );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const regionData = (data: any[], region: number) => {
+    const regionData = (data: any[], region: number | null) => {
       switch (region) {
         case 0:
           return _.filter(data, (item) => {
@@ -78,14 +77,17 @@ export const handlers = [
           return _.filter(data, (item) => {
             return item.address.includes("제주");
           });
+        case null:
+          return data;
+
         default:
           return data;
       }
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const pagingData = (data: any[], type: number) => {
-      if (type === 99) {
+    const pagingData = (data: any[], type: number | null) => {
+      if (type === null) {
         const filterData = data;
         const limit = 20;
         const startIndex = page * limit;

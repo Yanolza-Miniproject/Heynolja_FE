@@ -3,6 +3,7 @@ import CategoryBanner from "../../components/Category/CategoryBanner";
 import CategoryQuery from "../../components/Category/CategoryQuery";
 import * as Styled from "./SearchList.styles";
 import useGetValidParams from "../../hooks/useGetValidParams";
+import SearchListBanner from "../../components/SearchListBanner";
 
 const SearchList = () => {
   const validParams = useGetValidParams();
@@ -16,6 +17,7 @@ const SearchList = () => {
     <Styled.SearchResultContainer>
       <CategoryBanner searchFn={handleClickSearch} />
       <Styled.ItemWrapper>
+        <SearchListBanner validParams={validParams} />
         <CategoryQuery
           regionNumber={validParams.region}
           accommodationNumber={validParams.type}

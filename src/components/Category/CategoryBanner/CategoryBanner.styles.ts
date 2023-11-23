@@ -15,7 +15,7 @@ export const Banner = styled.div`
 export const CategoryBannerTextMotion = styled(motion.div)`
   max-width: 500px;
   width: 100%;
-  margin-top: 1.2rem;
+  margin-top: 3rem;
 
   font-size: 3em;
   color: white;
