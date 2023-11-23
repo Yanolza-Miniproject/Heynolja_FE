@@ -23,7 +23,7 @@ const Complete = () => {
     <Styled.Container>
       <CompleteMessage data={data} totalPrice={totalPrice} />
       <Styled.Line></Styled.Line>
-      <PaymentItems />
+      <PaymentItems data={data} />
     </Styled.Container>
   );
 };

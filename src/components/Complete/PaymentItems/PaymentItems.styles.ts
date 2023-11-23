@@ -10,3 +10,5 @@ export const TextWrapper = styled.div`
   font-weight: bold;
   color: #222;
 `;
+
+export const itemWrapper = styled.div``;
