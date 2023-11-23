@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import * as Styled from "./Calendar.styles.ts";
@@ -11,7 +11,7 @@ import { roomDetailState } from "../../../store/roomDetailAtom";
 
 const Calendar: React.FC<CalendarProps> = ({ price }) => {
   const setRoomDetail = useSetRecoilState(roomDetailState);
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
   // 날짜를 로컬시간대로 변환하고, yyyy-mm-dd 형식으로 변환.
@@ -42,18 +42,6 @@ const Calendar: React.FC<CalendarProps> = ({ price }) => {
       },
     }));
   };
-
-  // 컴포넌트 마운트 시 기본 체크인 및 체크아웃 날짜 설정
-  useEffect(() => {
-    setRoomDetail((currentState) => ({
-      ...currentState,
-      roomDetail: {
-        ...currentState.roomDetail,
-        check_in_at: formatDate(startDate),
-        check_out_at: formatDate(endDate),
-      },
-    }));
-  }, [setRoomDetail, startDate, endDate]);
 
   return (
     <>
