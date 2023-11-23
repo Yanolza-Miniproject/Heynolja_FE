@@ -6,6 +6,14 @@ export interface SearchType {
   category_pickup: boolean;
 }
 
+export interface TypeImages {
+  [key: number]: string;
+}
+
+export interface OptionImages {
+  [key: number]: string;
+}
+
 export interface RegionItemProps {
   selected: boolean;
 }
