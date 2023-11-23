@@ -8,14 +8,24 @@ import Calendar from "../../components/Detail/Calendar";
 import StockStatusBanner from "../../components/Detail/StockStatusBaner";
 import { roomDetail } from "../../mock/detailPageData.ts";
 import { useSetRecoilState } from "recoil";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { roomDetailState } from "../../store/roomDetailAtom.ts";
 
 const Detail = () => {
   const setRoomDetail = useSetRecoilState(roomDetailState);
-  const { accommodation_name, room_name, price, stock, room_image_url } =
-    roomDetail;
+  const [initialPrice, setInitialPrice] = useState(0); // 초기 가격을 위한 상태
+
+  const {
+    accommodation_name,
+    room_name,
+    price,
+    stock,
+    room_image_url,
+    number_guests,
+  } = roomDetail;
+
   useEffect(() => {
+    setInitialPrice(price); // 초기 가격 설정
     setRoomDetail({
       price: price,
       data: [{ accommodation_name, room_name, room_image_url, price }],
@@ -31,15 +41,14 @@ const Detail = () => {
             <ProductDetails
               roomName={room_name}
               name={accommodation_name}
-              price={price}
+              initialPrice={initialPrice}
             />
             <StockStatusBanner stock={stock} />
           </Styled.HorizontalContainer>
           <Calendar price={price} />
           <QuantitySelector
-            initialQuantity={1}
-            onQuantityChange={(newQuantity) => console.log(newQuantity)}
-            price={price}
+            initialQuantity={number_guests}
+            initialPrice={initialPrice}
           />
           <PriceDisplay price={price} />
           <ActionButtonGroup

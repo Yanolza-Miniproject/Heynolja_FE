@@ -11,6 +11,7 @@ const ActionButtonGroup = () => {
     // setRoomDetail((currentState) => ({
     //   ...currentState,
     // }));
+    // post 요청
     console.log("장바구니 클릭");
   };
 
