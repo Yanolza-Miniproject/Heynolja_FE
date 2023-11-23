@@ -70,13 +70,13 @@ export const Info = styled.div`
   flex-grow: 1;
 
   & > p {
-    margin: 0;
+    margin: 0.3rem 0;
   }
 
-  & > p:nth-of-type(2),
-  & > p:nth-of-type(3) {
+  & > p > span {
     font-weight: 600;
   }
+
   & > p:last-of-type {
     display: flex;
     align-items: flex-end;

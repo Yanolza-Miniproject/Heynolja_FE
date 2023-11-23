@@ -69,12 +69,16 @@ const CartItem = ({
       <Styled.itemBottom>
         <Styled.Image></Styled.Image>
         <Styled.Info>
-          <p>{item.room_name}</p>
           <p>
-            숙박일:{item.check_in_at} ~ {item.check_out_at} |{" "}
+            <span>방 타입</span>: {item.room_name}
+          </p>
+          <p>
+            <span>숙박일</span>: {item.check_in_at} ~ {item.check_out_at} |{" "}
             {calculateNightCount(item.check_in_at, item.check_out_at)}박
           </p>
-          <p>숙박인원:{item.number_guests}명</p>
+          <p>
+            <span>숙박인원</span>: {item.number_guests}명
+          </p>
           <p>{formatNumber(item.price)}원</p>
         </Styled.Info>
       </Styled.itemBottom>
