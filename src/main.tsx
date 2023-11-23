@@ -6,15 +6,22 @@ import { RecoilRoot } from "recoil";
 import App from "./App.tsx";
 import "./index.css";
 
-const queryClient = new QueryClient();
+async function deferRender() {
+  const { worker } = await import("./mocks/browser/browser.ts");
+  return worker.start();
+}
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={true} />
-      <RecoilRoot>
-        <App />
-      </RecoilRoot>
-    </QueryClientProvider>
-  </React.StrictMode>,
-);
+deferRender().then(() => {
+  const queryClient = new QueryClient();
+
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={true} />
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
+      </QueryClientProvider>
+    </React.StrictMode>,
+  );
+});
