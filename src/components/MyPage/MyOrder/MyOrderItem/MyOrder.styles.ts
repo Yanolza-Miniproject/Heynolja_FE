@@ -7,7 +7,7 @@ export const ItemWrapper = styled.ul`
   background: #fff;
   display: flex;
   flex-direction: column;
-  padding: 1.19rem 0.81rem 2.19rem 2.81rem;
+  padding: 1.19rem 0.81rem 2.19rem 1.81rem;
 
   cursor: pointer;
   &:hover {
@@ -22,6 +22,7 @@ export const ItemTitle = styled.p`
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.05625rem;
+  margin-bottom: 1rem;
 `;
 
 export const ItemContent = styled.div`

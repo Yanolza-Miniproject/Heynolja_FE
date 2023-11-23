@@ -7,8 +7,15 @@ const { persistAtom } = recoilPersist({
   storage: sessionStorage,
 });
 
-export const purchaseState = atom<CartItemType[]>({
-  key: "purchaseState",
-  default: [],
-  effects_UNSTABLE: [persistAtom],
+export const purchaseState = atom<{ totalPrice: number; data: CartItemType[] }>(
+  {
+    key: "purchaseState",
+    default: { totalPrice: 0, data: [] },
+    effects_UNSTABLE: [persistAtom],
+  },
+);
+
+export const termsState = atom({
+  key: "termsState",
+  default: false,
 });
