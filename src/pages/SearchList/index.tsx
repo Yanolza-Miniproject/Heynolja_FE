@@ -4,18 +4,32 @@ import CategoryQuery from "../../components/Category/CategoryQuery";
 import * as Styled from "./SearchList.styles";
 import useGetValidParams from "../../hooks/useGetValidParams";
 import SearchListBanner from "../../components/SearchListBanner";
+import { resultsSearchQueryAtom } from "../../store/resultsSearchQueryAtom";
+import { useSetRecoilState } from "recoil";
+import { useEffect } from "react";
 
 const SearchList = () => {
   const validParams = useGetValidParams();
-  console.log(validParams);
+  const setResultsSearchQuery = useSetRecoilState(resultsSearchQueryAtom);
+
+  const firstText = "숙소를";
+  const secondText = "찾으셨나요?";
   const router = useNavigate();
+
+  useEffect(() => {
+    setResultsSearchQuery(validParams);
+  }, [validParams, setResultsSearchQuery]);
 
   const handleClickSearch = () => {
     router("/search");
   };
   return (
     <Styled.SearchResultContainer>
-      <CategoryBanner searchFn={handleClickSearch} />
+      <CategoryBanner
+        firstText={firstText}
+        secondText={secondText}
+        searchFn={handleClickSearch}
+      />
       <Styled.ItemWrapper>
         <SearchListBanner validParams={validParams} />
         <CategoryQuery

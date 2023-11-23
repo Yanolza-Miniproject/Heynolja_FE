@@ -1,14 +1,11 @@
-import {
-  SearchListBannerProps,
-  exportText,
-} from "../../utils/filterTextDecoder";
+import { SearchListBannerProps } from "../../utils/filterTextDecoder";
 import * as Styled from "./SearchList.styles";
 
 const SearchListBanner = ({ validParams }: SearchListBannerProps) => {
-  const fullText = exportText({ validParams });
+  console.log(validParams);
   return (
     <Styled.SearchListContainer>
-      <Styled.SearchListText>{fullText}</Styled.SearchListText>
+      <Styled.SearchListText>{` `}</Styled.SearchListText>
     </Styled.SearchListContainer>
   );
 };
