@@ -1,16 +1,30 @@
-import { useRecoilValue } from "recoil";
-import { categoryQueryAtom } from "../../../store/categoryQueryAtom";
 import { useCategoryInfiniteQuery } from "../../../hooks/useCategoryInfiniteQuery";
 import InfiniteScroller from "../InfiniteScroller";
 import CategoryItemWrapper from "../CategoryItemWrapper";
 
-const CategoryQuery = () => {
-  const atomState = useRecoilValue(categoryQueryAtom);
-  const regionNumber = atomState.region;
-  const accommodationNumber = atomState.type;
+type CategoryQueryProps = {
+  regionNumber: number;
+  accommodationNumber: number;
+  category_parking?: number;
+  category_cooking?: number;
+  category_pickup?: number;
+};
 
+const CategoryQuery = ({
+  regionNumber,
+  accommodationNumber,
+  category_parking = 2,
+  category_cooking = 2,
+  category_pickup = 2,
+}: CategoryQueryProps) => {
   const { data, fetchNextPage, hasNextPage, isLoading } =
-    useCategoryInfiniteQuery(regionNumber, accommodationNumber);
+    useCategoryInfiniteQuery(
+      regionNumber,
+      accommodationNumber,
+      category_parking,
+      category_cooking,
+      category_pickup,
+    );
 
   if (isLoading) {
     return <h1>Loading...</h1>;

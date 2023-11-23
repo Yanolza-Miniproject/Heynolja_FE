@@ -3,8 +3,13 @@ import CategoryBanner from "../../components/Category/CategoryBanner";
 import { useNavigate } from "react-router-dom";
 import CategoryFilter from "../../components/Category/CategoryFilter";
 import CategoryQuery from "../../components/Category/CategoryQuery";
+import { categoryQueryAtom } from "../../store/categoryQueryAtom";
+import { useRecoilValue } from "recoil";
 
 const Category = () => {
+  const atomState = useRecoilValue(categoryQueryAtom);
+  const regionNumber = atomState.region;
+  const accommodationNumber = atomState.type;
   const router = useNavigate();
 
   const handleClickSearch = () => {
@@ -16,7 +21,10 @@ const Category = () => {
       <CategoryBanner searchFn={handleClickSearch} />
       <Styled.ItemWrapper>
         <CategoryFilter />
-        <CategoryQuery />
+        <CategoryQuery
+          regionNumber={regionNumber}
+          accommodationNumber={accommodationNumber}
+        />
       </Styled.ItemWrapper>
     </Styled.CategoryContainer>
   );

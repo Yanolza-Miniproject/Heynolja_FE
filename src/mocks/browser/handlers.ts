@@ -9,6 +9,43 @@ export const handlers = [
     const page = Number(url.searchParams.get("page")) || 0;
     const type = Number(url.searchParams.get("type")) || 0;
     const region = Number(url.searchParams.get("region")) || 0;
+    const category_parking =
+      Number(url.searchParams.get("category_parking")) || 2;
+    const category_cooking =
+      Number(url.searchParams.get("category_cooking")) || 2;
+    const category_pickup =
+      Number(url.searchParams.get("category_pickup")) || 2;
+
+    const categoryData = (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      data: any[], // 데이터 배열
+      category_parking: number,
+      category_cooking: number,
+      category_pickup: number,
+    ) => {
+      const filterData = _.filter(data, (item) => {
+        return (
+          (category_parking !== 2
+            ? item.category_parking === category_parking
+            : true) &&
+          (category_cooking !== 2
+            ? item.category_cooking === category_cooking
+            : true) &&
+          (category_pickup !== 2
+            ? item.category_pickup === category_pickup
+            : true)
+        );
+      });
+
+      return filterData;
+    };
+
+    const allCategoryData = categoryData(
+      MockUpData,
+      category_parking,
+      category_cooking,
+      category_pickup,
+    );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const regionData = (data: any[], region: number) => {
@@ -69,9 +106,7 @@ export const handlers = [
 
     return HttpResponse.json({
       message: "성공",
-      data: pagingData(regionData(MockUpData, region), type),
+      data: pagingData(regionData(allCategoryData, region), type),
     });
   }),
 ];
-
-//region=${region}&page=${pageParam}&type=${type}

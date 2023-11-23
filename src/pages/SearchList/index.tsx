@@ -13,7 +13,7 @@ const SearchList = () => {
     <Styled.SearchResultContainer>
       <CategoryBanner searchFn={handleClickSearch} />
       <Styled.ItemWrapper>
-        <CategoryQuery />
+        <CategoryQuery regionNumber={1} accommodationNumber={1} />
       </Styled.ItemWrapper>
     </Styled.SearchResultContainer>
   );
