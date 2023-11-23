@@ -1,3 +1,4 @@
+import { memo } from "react";
 import SearchButton from "../SearchButton";
 import * as Styled from "./CategoryBanner.styles";
 
@@ -5,7 +6,7 @@ type CategoryBannerProps = {
   searchFn: () => void;
 };
 
-const CategoryBanner = ({ searchFn }: CategoryBannerProps) => {
+const CategoryBanner = memo(({ searchFn }: CategoryBannerProps) => {
   return (
     <>
       <Styled.Banner>
@@ -28,6 +29,6 @@ const CategoryBanner = ({ searchFn }: CategoryBannerProps) => {
       </Styled.Banner>
     </>
   );
-};
+});
 
 export default CategoryBanner;
