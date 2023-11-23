@@ -18,7 +18,11 @@ const Category = () => {
 
   return (
     <Styled.CategoryContainer>
-      <CategoryBanner searchFn={handleClickSearch} />
+      <CategoryBanner
+        firstText="거기어때?"
+        secondText="지금 둘러보세요."
+        searchFn={handleClickSearch}
+      />
       <Styled.ItemWrapper>
         <CategoryFilter />
         <CategoryQuery

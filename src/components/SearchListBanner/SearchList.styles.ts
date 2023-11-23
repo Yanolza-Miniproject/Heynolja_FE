@@ -27,7 +27,7 @@ export const SearchListWrapper = styled.div`
   gap: 1rem;
 `;
 
-export const SearchListButton = styled(motion.button)`
+export const SearchListButton = styled(motion.div)`
   padding: 0.5rem 1rem;
 
   font-size: 1.2rem;
@@ -38,7 +38,6 @@ export const SearchListButton = styled(motion.button)`
   border-radius: 5px;
 
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: #ff5100;

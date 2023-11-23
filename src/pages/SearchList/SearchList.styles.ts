@@ -7,6 +7,8 @@ export const SearchResultContainer = styled.div`
 
   width: 100%;
 
+  min-height: 700px;
+
   box-sizing: border-box;
 `;
 

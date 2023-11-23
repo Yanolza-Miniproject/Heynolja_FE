@@ -22,6 +22,13 @@ const SearchListBanner = ({ validParams }: SearchListBannerProps) => {
               <Styled.SearchListButton
                 key={item.label}
                 onClick={() => handleClickSearch(item.url)}
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  duration: 0.1,
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10,
+                }}
               >
                 {item.label}
                 <br />
