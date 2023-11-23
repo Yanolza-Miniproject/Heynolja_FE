@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { MockUpData } from "./constant";
+import { cartData, cartList, orderData } from "../../mock/myPageData";
 import * as _ from "lodash";
 
 export const handlers = [
@@ -70,6 +71,81 @@ export const handlers = [
     return HttpResponse.json({
       message: "성공",
       data: pagingData(regionData(MockUpData, region), type),
+    });
+  }),
+
+  // 주문 관련 post 요청
+  http.post("/api/v1/rooms/:room_id/orders", async ({ request }) => {
+    const newPost = (await request.json()) as {
+      check_in_at: string;
+      check_out_at: string;
+      number_guests: number;
+    };
+
+    const data = {
+      room_basket_id: 1,
+      accommdation_name: "최고 호텔",
+      room_name: "스위트룸",
+      price: 40000,
+      number_guests: newPost.number_guests,
+      check_in_at: newPost.check_in_at,
+      check_out_at: newPost.check_out_at,
+    };
+
+    return HttpResponse.json({
+      message: "성공",
+      order_id: 1,
+      data: data,
+    });
+  }),
+
+  http.post("/api/v1/baskets/orders", async () => {
+    const data = [cartData[1], cartData[2]];
+
+    return HttpResponse.json({
+      message: "성공",
+      order_id: 2,
+      data: data,
+    });
+  }),
+
+  http.post("/api/v1/rooms/:room_id", async ({ request }) => {
+    const newPost = (await request.json()) as {
+      check_in_at: string;
+      check_out_at: string;
+      number_guests: number;
+    };
+
+    const data = {
+      room_basket_id: 1,
+      accommdation_name: "최고 호텔",
+      room_name: "스위트룸",
+      price: 40000,
+      number_guests: newPost.number_guests,
+      check_in_at: newPost.check_in_at,
+      check_out_at: newPost.check_out_at,
+    };
+
+    return HttpResponse.json({
+      message: "성공",
+      data: data,
+    });
+  }),
+
+  http.get("/api/v1/baskets", async () => {
+    return HttpResponse.json({
+      message: "성공",
+      basket_id: 1,
+      order_datas: cartList,
+    });
+  }),
+
+  http.get("/api/v1/orders/:order_id", async ({ params }) => {
+    const { order_id } = params;
+    const newData = orderData.filter((data) => data.order_id === ~~order_id)[0];
+    return HttpResponse.json({
+      message: "성공",
+      order_datas: newData.order_datas,
     });
   }),
 ];

@@ -153,3 +153,72 @@ export const likeData = [
     view_count: 11111,
   },
 ];
+
+export const cartData = [
+  {
+    room_basket_id: 1,
+    accomodation_name: "라마다 제주시티 호텔",
+    room_name: "스위트 더블",
+    price: 210000,
+    number_guests: 2,
+    check_in_at: "2023-11-30",
+    check_out_at: "2023-12-02",
+  },
+  {
+    room_basket_id: 2,
+    accomodation_name: "라마다 제주시티 호텔",
+    room_name: "스탠다드 트윈",
+    price: 95000,
+    number_guests: 2,
+    check_in_at: "2023-11-26",
+    check_out_at: "2023-11-28",
+  },
+  {
+    room_basket_id: 3,
+    accomodation_name: "제주 홍스랜드펜션",
+    room_name: "402동",
+    price: 120000,
+    number_guests: 2,
+    check_in_at: "2023-12-02",
+    check_out_at: "2023-12-07",
+  },
+  {
+    room_basket_id: 4,
+    accomodation_name: "제주 홍스랜드펜션",
+    room_name: "402동",
+    price: 120000,
+    number_guests: 2,
+    check_in_at: "2023-11-25",
+    check_out_at: "2023-11-27",
+  },
+  {
+    room_basket_id: 5,
+    accomodation_name: "부산 앙코르 호텔",
+    room_name: "스위트룸",
+    price: 300000,
+    number_guests: 2,
+    check_in_at: "2023-12-25",
+    check_out_at: "2023-12-26",
+  },
+];
+
+export const orderData = [
+  {
+    order_id: 1,
+    order_datas: [
+      {
+        room_basket_id: 1,
+        accommdation_name: "최고 호텔",
+        room_name: "스위트룸",
+        price: 40000,
+        number_guests: 2,
+        check_in_at: "2023-12-25",
+        check_out_at: "2023-12-26",
+      },
+    ],
+  },
+  {
+    order_id: 2,
+    order_datas: [cartList[1], cartList[2]],
+  },
+];

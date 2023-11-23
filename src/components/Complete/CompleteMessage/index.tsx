@@ -3,13 +3,13 @@ import * as Styled from "./CompleteMessage.styles";
 import { CompleteMessageProps } from "./CompleteMessage.types";
 import { leftDateUntilTheTrip } from "./CompleteMessage.utils";
 
-const CompleteMessage = ({ item }: CompleteMessageProps) => {
+const CompleteMessage = ({ data, totalPrice }: CompleteMessageProps) => {
   return (
     <Styled.Container>
       <Styled.TextWrapper>
         <Styled.TextTop>결제 완료🎉</Styled.TextTop>
         <Styled.TextMid>
-          첫번째 여행까지 <span>{leftDateUntilTheTrip(item.data)}일</span>{" "}
+          첫번째 여행까지 <span>{leftDateUntilTheTrip(data)}일</span>{" "}
           남았습니다.
         </Styled.TextMid>
         <Styled.TextMid>
@@ -18,7 +18,7 @@ const CompleteMessage = ({ item }: CompleteMessageProps) => {
       </Styled.TextWrapper>
       <Styled.AmountWrapper>
         <span>총 결제 금액</span>
-        <span>{formatNumber(item.totalPrice)}원</span>
+        <span>{formatNumber(totalPrice)}원</span>
       </Styled.AmountWrapper>
     </Styled.Container>
   );
