@@ -2,7 +2,7 @@ import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist({
-  key: "sessionStorage", // 고유한 key 값
+  key: "sessionStorage",
   storage: sessionStorage,
 });
 
