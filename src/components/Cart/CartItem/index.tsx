@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import exitLogo from "../../../assets/exit.svg";
 import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
@@ -6,6 +6,7 @@ import Checkbox from "../Checkbox";
 import * as Styled from "./CartItem.styles";
 import { CartItemProps } from "./CartItem.type";
 import { handeleDelete, handleCheck } from "./CartItems.utils";
+import { useDeleteCartItem } from "../../../hooks/useCartFetch";
 
 const CartItem = ({
   item, // 해당 아이템에 대한 정보
@@ -18,7 +19,28 @@ const CartItem = ({
   setEstimatedPrice,
   setCart,
 }: CartItemProps) => {
+  const deleteCartMutation = useDeleteCartItem();
   const [check, setCheck] = useState(select[index]); // 디자인을 위한 체크 상태 여부
+
+  // 장바구니에서 해당 상품 제거
+  const fetch = () => {
+    deleteCartMutation.mutate(
+      { room_basket_id: item.room_basket_id },
+      {
+        onSuccess: (responseData) => {
+          console.log(responseData.data);
+          handeleDelete(
+            item,
+            cart,
+            estimatedPrice,
+            setCart,
+            setSelected,
+            setEstimatedPrice,
+          );
+        },
+      },
+    );
+  };
 
   // 해당 아이템이 체크 여부 지속적인 확인
   useEffect(() => {
@@ -32,7 +54,7 @@ const CartItem = ({
         <Checkbox
           id={item.room_basket_id.toString()}
           checked={check}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => {
+          onChange={(event) => {
             handleCheck(
               event,
               setCheck,
@@ -54,16 +76,7 @@ const CartItem = ({
           src={exitLogo}
           alt="exit"
           style={{ cursor: "pointer", scale: "0.7" }}
-          onClick={() => {
-            handeleDelete(
-              item,
-              cart,
-              estimatedPrice,
-              setCart,
-              setSelected,
-              setEstimatedPrice,
-            );
-          }}
+          onClick={fetch}
         />
       </Styled.itemTop>
       <Styled.itemBottom>

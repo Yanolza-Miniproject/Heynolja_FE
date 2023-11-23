@@ -1,35 +1,37 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useRecoilState } from "recoil";
+import { usePostOrders } from "../../../hooks/useCartFetch";
 import { purchaseState } from "../../../store/purchaseAtom";
 import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 import formatNumber from "../../../utils/formatNumber";
 import Button from "../../Common/Button";
 import * as Styled from "./Estimate.styles";
 import { EstimateProps } from "./Estimate.types";
+
 const Estimate = ({ estimatedPrice }: EstimateProps) => {
+  const postOrdersMutation = usePostOrders();
   const navigate = useNavigate();
   const [, setPurchaseList] = useRecoilState(purchaseState);
-
   const [totalPrice, setTotalPrice] = useState(0);
 
-  //  장바구니 선택된 객실 주문 임시 요청 함수
+  // 장바구니에서 체크한 상품 주문 요청 함수
   const fetch = () => {
-    axios
-      .post("/api/v1/baskets/orders", {
-        number_guests: 1,
-        check_in_at: "2023-12-23",
-        check_out_at: "2023-12-26",
-      })
-      .then((res) => {
-        setPurchaseList({
-          totalPrice: totalPrice,
-          order_id: res.data.order_id,
-        });
-      });
+    postOrdersMutation.mutate(
+      { id: 1 },
+      {
+        onSuccess: (responseData) => {
+          setPurchaseList({
+            totalPrice: totalPrice,
+            order_id: responseData.data.order_id,
+          });
+          navigate("/payment");
+        },
+      },
+    );
   };
 
+  // 총 함계 가격 계산
   useEffect(() => {
     setTotalPrice(calculateTotalPrice(estimatedPrice));
   }, [estimatedPrice]);
@@ -64,10 +66,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
         onClick={() => {
           if (estimatedPrice.length > 0) {
             fetch();
-            navigate("/payment");
           } else alert("선택해주세요");
-          // fetch1();
-          // fetch3();
         }}
       />
     </Styled.Container>
