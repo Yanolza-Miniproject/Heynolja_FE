@@ -129,4 +129,16 @@ export const handlers = [
       data: pagingData(regionData(allCategoryData, region), type),
     });
   }),
+
+  http.post("/api/vi/wish/:accommodationId", () => {
+    return HttpResponse.json({
+      message: "좋아요 성공",
+    });
+  }),
+
+  http.delete("/api/vi/wish/:accommodationId", () => {
+    return HttpResponse.json({
+      message: "좋아요 취소",
+    });
+  }),
 ];
