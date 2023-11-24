@@ -17,7 +17,6 @@ const Calendar: React.FC<CalendarProps> = ({ price }) => {
   const [checkInDate, setCheckInDate] = useRecoilState(checkInDateState);
   const [checkOutDate, setCheckOutDate] = useRecoilState(checkOutDateState);
 
-  // 날짜 변경 핸들러
   const handleChange = (dates: [Date, Date]) => {
     const [start, end] = dates;
     setCheckInDate(start);
