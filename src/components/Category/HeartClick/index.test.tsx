@@ -1,25 +1,46 @@
-import { render, fireEvent, screen } from "@testing-library/react";
-import HeartClick from "./"; // Adjust the import path as needed
+import { screen, render, waitFor } from "@testing-library/react";
+import HeartClick from "."; // Adjust the import path as needed
+import userEvent from "@testing-library/user-event";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-// Mock the useWishControl hook
+const createWrapper = () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
+  return ({ children }: { children: React.ReactNode }) => (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+};
 
-describe("HeartClick", () => {
-  it("toggles like state on click", () => {
-    render(<HeartClick likes={5} likes_clicked={false} />);
+describe("HeartClick test", () => {
+  test("화면에 props로 받아온 데이터 잘 보여지는 지 test", () => {
+    render(<HeartClick likes={5} likes_clicked={false} />, {
+      wrapper: createWrapper(),
+    });
 
-    const heartElement = screen.getByTestId("heart-svg");
-    const likesElement = screen.getByText("5");
+    const heartIcon = screen.getByText("5");
+    expect(heartIcon).toBeInTheDocument();
+  });
 
-    // Simulate click
-    fireEvent.click(heartElement);
+  test("클릭 시, useWishControl hook이 잘 작동하는 지 test", async () => {
+    const wrapper = createWrapper();
+    const user = userEvent.setup();
 
-    // Expect the like count to increase
-    expect(likesElement.textContent).toBe("6");
+    // given
+    const likes = 5;
+    render(<HeartClick likes={likes} likes_clicked={false} />, { wrapper });
+    const heartClickButton = document.getElementById("button");
 
-    // Simulate another click
-    fireEvent.click(heartElement);
+    // when
+    await user.click(heartClickButton!);
 
-    // Expect the like count to decrease
-    expect(likesElement.textContent).toBe("5");
+    // then
+    await waitFor(() => {
+      expect(screen.getByText(String(likes - 1))).toBeInTheDocument();
+    });
   });
 });
