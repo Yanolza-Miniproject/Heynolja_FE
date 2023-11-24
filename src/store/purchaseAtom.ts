@@ -14,3 +14,8 @@ export const purchaseState = atom<{ totalPrice: number; data: CartItemType[] }>(
     effects_UNSTABLE: [persistAtom],
   },
 );
+
+export const termsState = atom({
+  key: "termsState",
+  default: false,
+});
