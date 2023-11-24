@@ -54,7 +54,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
           return (
             <Styled.Item key={item.room_basket_id}>
               <div>
-                <p>{item.accomodation_name}</p>
+                <p>{item.accommodation_name}</p>
                 <p>{item.room_name}</p>
               </div>
               <Styled.Empty />
