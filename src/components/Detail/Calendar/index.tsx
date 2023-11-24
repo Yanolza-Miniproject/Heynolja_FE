@@ -13,16 +13,14 @@ import {
 } from "../../../store/checkInCheckOutAtom.ts";
 import formatDate from "../../../utils/formatDate";
 
-const Calendar: React.FC<CalendarProps> = ({ price }) => {
+const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
   const [checkInDate, setCheckInDate] = useRecoilState(checkInDateState);
   const [checkOutDate, setCheckOutDate] = useRecoilState(checkOutDateState);
 
-  // 유효한 날짜 확인 함수
   const isValidDate = (date: Date | null) => {
     return date instanceof Date && !isNaN(date.getTime());
   };
 
-  // DatePicker의 startDate와 endDate에 대한 유효성 검사
   const validCheckInDate = isValidDate(checkInDate) ? checkInDate : null;
   const validCheckOutDate = isValidDate(checkOutDate) ? checkOutDate : null;
 
@@ -30,6 +28,8 @@ const Calendar: React.FC<CalendarProps> = ({ price }) => {
     const [start, end] = dates;
     setCheckInDate(start);
     setCheckOutDate(end);
+
+    onDateChange(start, end);
 
     console.log("체크인 날짜:", formatDate(start));
     console.log("체크아웃 날짜:", formatDate(end));
