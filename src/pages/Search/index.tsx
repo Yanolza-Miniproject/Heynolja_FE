@@ -98,31 +98,30 @@ const Search = () => {
     }
   };
 
-  const fetchData = async () => {
+  const sendSearchQuery = () => {
     const optionsMap: Record<number, string> = {
       0: "categoryParking",
       1: "categoryCooking",
       2: "categoryPickup",
     };
 
-    let queryParams: QueryParams = {
-      categoryParking: "0",
-      categoryCooking: "0",
-      categoryPickup: "0",
-    };
+    let queryParams: QueryParams = {};
 
-    for (const option of selectedOptions) {
-      if (option !== 99) {
-        const key = optionsMap[option];
+    selectedOptions.forEach((optionValue) => {
+      if (optionValue !== 99) {
+        const key = optionsMap[optionValue];
         queryParams[key] = "1";
       }
+    });
+
+    if (selectedRegion !== 99) {
+      queryParams["region"] = selectedRegion.toString();
+    }
+    if (selectedType !== 99) {
+      queryParams["type"] = selectedType.toString();
     }
 
-    const queryString = new URLSearchParams({
-      region: selectedRegion !== 99 ? selectedRegion.toString() : "0",
-      type: selectedType !== 99 ? selectedType.toString() : "0",
-      ...queryParams,
-    }).toString();
+    const queryString = new URLSearchParams(queryParams).toString();
 
     navigate(`/results?${queryString}`);
   };
@@ -313,7 +312,7 @@ const Search = () => {
               </Styled.SelectedItemDisplay>
             )}
           </Styled.SearchCardWrapper>
-          <SearchButton onClick={fetchData} />
+          <SearchButton onClick={sendSearchQuery} />
         </Styled.SearchCard>
       </Styled.Container>
     </>
