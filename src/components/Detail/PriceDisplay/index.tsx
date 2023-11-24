@@ -1,23 +1,31 @@
 import * as Styled from "./PriceDisplay.styles";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   checkInDateState,
   checkOutDateState,
 } from "../../../store/checkInCheckOutAtom";
 import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
+import { purchaseState } from "../../../store/purchaseAtom";
+// import formatDate from "../../../utils/formatDate";
 
 const PriceDisplay: React.FC<{ pricePerNight: number }> = ({
   pricePerNight,
 }) => {
   const checkInDate = useRecoilValue(checkInDateState);
   const checkOutDate = useRecoilValue(checkOutDateState);
+  const setPurchase = useSetRecoilState(purchaseState);
 
   let totalPrice = pricePerNight;
 
   if (checkInDate && checkOutDate) {
     const nightCount = calculateNightCount(checkInDate, checkOutDate);
     totalPrice = nightCount * pricePerNight;
+
+    setPurchase((prev) => ({
+      ...prev,
+      totalPrice: totalPrice,
+    }));
   }
 
   console.log("체크인 날짜:", checkInDate);

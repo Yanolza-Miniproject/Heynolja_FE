@@ -17,6 +17,15 @@ const Calendar: React.FC<CalendarProps> = ({ price }) => {
   const [checkInDate, setCheckInDate] = useRecoilState(checkInDateState);
   const [checkOutDate, setCheckOutDate] = useRecoilState(checkOutDateState);
 
+  // 유효한 날짜 확인 함수
+  const isValidDate = (date: Date | null) => {
+    return date instanceof Date && !isNaN(date.getTime());
+  };
+
+  // DatePicker의 startDate와 endDate에 대한 유효성 검사
+  const validCheckInDate = isValidDate(checkInDate) ? checkInDate : null;
+  const validCheckOutDate = isValidDate(checkOutDate) ? checkOutDate : null;
+
   const handleChange = (dates: [Date, Date]) => {
     const [start, end] = dates;
     setCheckInDate(start);
@@ -33,10 +42,10 @@ const Calendar: React.FC<CalendarProps> = ({ price }) => {
         <Styled.PriceText>1박 가격 ￦ {formatNumber(price)}</Styled.PriceText>
       </Styled.TextContainer>
       <DatePicker
-        selected={checkInDate}
+        selected={validCheckInDate}
         onChange={handleChange}
-        startDate={checkInDate}
-        endDate={checkOutDate}
+        startDate={validCheckInDate}
+        endDate={validCheckOutDate}
         monthsShown={2}
         selectsRange
         inline

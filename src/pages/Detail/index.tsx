@@ -32,6 +32,7 @@ const Detail = () => {
           />
           <PriceDisplay pricePerNight={price} />
           <ActionButtonGroup
+            roomDetail={roomDetail}
             onAddToCart={() => console.log("Add to Cart clicked")}
           />
         </Styled.DetailsContainer>
