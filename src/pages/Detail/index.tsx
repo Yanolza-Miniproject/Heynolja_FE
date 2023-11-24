@@ -6,42 +6,31 @@ import PriceDisplay from "../../components/Detail/PriceDisplay";
 import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
 import Calendar from "../../components/Detail/Calendar";
 import StockStatusBanner from "../../components/Detail/StockStatusBaner";
-const productData = {
-  // images: [
-  //   "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/fd904255-0d68-46df-a091-18d6efc6427f",
-  // ],
-  images: [
-    // "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/27596864-e5a9-4c79-9dea-f45b77a4a6d8",
-    "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/2c0134f2-6ba3-434c-8dca-6d5831bf6e24",
-    "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/fd904255-0d68-46df-a091-18d6efc6427f",
-  ],
-  name: "그랜드 하얏트 제주",
-  roomName: "디럭스룸",
-  price: "239,000원",
-  quantity: 1,
-};
+import { roomDetail } from "../../mock/detailPageData.ts";
 
 const Detail = () => {
+  const { accommodation_name, room_name, price, room_image_url } = roomDetail;
+  console.log("방 가격:", price);
   return (
     <Styled.container>
       <Styled.Layout>
-        <ProductGallery images={productData.images} />
+        <ProductGallery images={room_image_url} />
         <Styled.DetailsContainer>
           <Styled.HorizontalContainer>
             <ProductDetails
-              roomName={productData.roomName}
-              name={productData.name}
-              price={productData.price}
+              roomName={room_name}
+              name={accommodation_name}
+              price={price}
             />
             <StockStatusBanner />
           </Styled.HorizontalContainer>
-          <Calendar price={productData.price} />
+          <Calendar price={price} />
           <QuantitySelector
-            initialQuantity={productData.quantity}
+            initialQuantity={1}
             onQuantityChange={(newQuantity) => console.log(newQuantity)}
-            price={productData.price}
+            price={price}
           />
-          <PriceDisplay price={productData.price} />
+          <PriceDisplay pricePerNight={price} />
           <ActionButtonGroup
             onAddToCart={() => console.log("Add to Cart clicked")}
           />
