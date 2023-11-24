@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
-export const CategoryContainer = styled.div`
+export const SearchResultContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  min-height: 700px;
-
   width: 100%;
+
+  min-height: 700px;
 
   box-sizing: border-box;
 `;
