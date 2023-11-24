@@ -1,12 +1,12 @@
 import * as Styled from "./PaymentItems.styles";
-import { PaymentItemsProps } from "./PaymentItems.types";
-import Item from "../../Payment/Item";
+// import { PaymentItemsProps } from "./PaymentItems.types";
+// import Item from "../../Payment/Item";
 
-const PaymentItems = ({ data }: PaymentItemsProps) => {
+const PaymentItems = () => {
   return (
     <Styled.Container>
       <Styled.TextWrapper>결제항목</Styled.TextWrapper>
-      <Styled.itemWrapper>
+      {/* <Styled.itemWrapper>
         {data.map((item) => {
           return (
             <div key={item.room_basket_id} style={{ marginBottom: "1.5rem" }}>
@@ -14,7 +14,7 @@ const PaymentItems = ({ data }: PaymentItemsProps) => {
             </div>
           );
         })}
-      </Styled.itemWrapper>
+      </Styled.itemWrapper> */}
     </Styled.Container>
   );
 };

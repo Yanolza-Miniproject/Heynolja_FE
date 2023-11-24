@@ -18,7 +18,7 @@ const InfiniteScroller = ({
       dataLength={length || 0}
       next={() => fn()}
       hasMore={hasNextPage}
-      loader={<h4>Loading...</h4>}
+      loader={<></>}
       scrollThreshold={0.95}
     >
       {children}

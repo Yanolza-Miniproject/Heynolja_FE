@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 
 export const BtnWrapper = styled.div`
-  position: absolute;
-  right: 0%;
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 1.3rem;
+
   display: flex;
-  margin-top: 1.3rem;
   gap: 0.63rem;
+  flex-direction: row-reverse;
 `;
 
 export const BackToCart = styled.button`
@@ -42,11 +44,23 @@ export const GoToPay = styled.button`
   justify-content: center;
 
   cursor: pointer;
-
   &:hover {
     border: 1px solid #ff5100;
     background-color: #fff;
     color: #ff5100;
+  }
+
+  &:disabled {
+    border: 1px solid #d9d9d9;
+    background-color: #d9d9d9;
+    color: #646464;
+    cursor: default;
+
+    &:hover {
+      border: 1px solid #d9d9d9;
+      background-color: #d9d9d9;
+      color: #646464;
+    }
   }
 `;
 
