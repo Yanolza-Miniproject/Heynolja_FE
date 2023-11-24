@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": ["vite/client", "node", "jest", "@testing-library/jest-dom"],
 
     /* Linting */
     "strict": true,
@@ -22,6 +23,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/mockServiceWorker.js"],
+  "include": ["src", "src/mockServiceWorker.js", "jest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
