@@ -8,6 +8,7 @@ import {
 } from "../../mock/myPageData";
 import * as _ from "lodash";
 
+// 전체 숙소 보기 + 필터링
 export const handlers = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   http.get("/api/v1/accommodations", ({ request }) => {
@@ -285,12 +286,14 @@ export const handlers = [
     });
   }),
 
+  // 숙소 좋아요 버튼 눌렀을 때 요청
   http.post("/api/vi/wish/:accommodationId", () => {
     return HttpResponse.json({
       message: "좋아요 성공",
     });
   }),
 
+  // 숙소 좋아요 취소 시 요청
   http.delete("/api/vi/wish/:accommodationId", () => {
     return HttpResponse.json({
       message: "좋아요 취소",
