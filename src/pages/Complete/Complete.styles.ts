@@ -10,7 +10,7 @@ const flexCenter = `
 export const Container = styled.div`
   ${flexCenter}
 
-  padding: 0 5em;
+  padding: 0 5rem;
 `;
 
 export const Line = styled.div`

@@ -1,7 +1,7 @@
 export const cartList = [
   {
     room_basket_id: 1,
-    accommdation_name: "라마다 제주시티 호텔",
+    accommodation_name: "라마다 제주시티 호텔",
     room_image_url: [""],
     room_name: "스위트 더블",
     price: 210000,
@@ -11,7 +11,7 @@ export const cartList = [
   },
   {
     room_basket_id: 2,
-    accommdation_name: "라마다 제주시티 호텔",
+    accommodation_name: "라마다 제주시티 호텔",
     room_image_url: [""],
     room_name: "스탠다드 트윈",
     price: 95000,
@@ -21,7 +21,7 @@ export const cartList = [
   },
   {
     room_basket_id: 3,
-    accommdation_name: "제주 홍스랜드펜션",
+    accommodation_name: "제주 홍스랜드펜션",
     room_image_url: [""],
     room_name: "402동",
     price: 120000,
@@ -31,7 +31,7 @@ export const cartList = [
   },
   {
     room_basket_id: 4,
-    accommdation_name: "제주 홍스랜드펜션",
+    accommodation_name: "제주 홍스랜드펜션",
     room_image_url: [""],
     room_name: "402동",
     price: 120000,
@@ -41,7 +41,7 @@ export const cartList = [
   },
   {
     room_basket_id: 5,
-    accommdation_name: "부산 앙코르 호텔",
+    accommodation_name: "부산 앙코르 호텔",
     room_image_url: [""],
     room_name: "스위트룸",
     price: 300000,
@@ -54,7 +54,7 @@ export const cartList = [
 export const bookedList = [
   {
     room_basket_id: 1,
-    accommdation_name: "제주 헤이, 서귀포",
+    accommodation_name: "제주 헤이, 서귀포",
     room_name: "디럭스 더블",
     price: 70000,
     number_guests: 3,
@@ -64,7 +64,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 2,
-    accommdation_name: "제주 컬리넌 호텔",
+    accommodation_name: "제주 컬리넌 호텔",
     room_name: "로얄 스위트",
     price: 80000,
     number_guests: 4,
@@ -74,7 +74,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 3,
-    accommdation_name: "부산 앙코르 호텔",
+    accommodation_name: "부산 앙코르 호텔",
     room_name: "스위트룸",
     price: 300000,
     number_guests: 2,
@@ -84,7 +84,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 4,
-    accommdation_name: "신라민박",
+    accommodation_name: "신라민박",
     room_name: "거지존",
     price: 100,
     number_guests: 5,
@@ -94,7 +94,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 5,
-    accommdation_name: "제주 헤이, 서귀포",
+    accommodation_name: "제주 헤이, 서귀포",
     room_name: "디럭스 더블",
     price: 70000,
     number_guests: 3,
@@ -104,7 +104,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 6,
-    accommdation_name: "제주 컬리넌 호텔",
+    accommodation_name: "제주 컬리넌 호텔",
     room_name: "로얄 스위트",
     price: 80000,
     number_guests: 4,
@@ -114,7 +114,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 7,
-    accommdation_name: "부산 앙코르 호텔",
+    accommodation_name: "부산 앙코르 호텔",
     room_name: "스위트룸",
     price: 300000,
     number_guests: 2,
@@ -124,7 +124,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 8,
-    accommdation_name: "신라민박",
+    accommodation_name: "신라민박",
     room_name: "거지존",
     price: 100,
     number_guests: 5,
@@ -134,7 +134,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 9,
-    accommdation_name: "제주 헤이, 서귀포",
+    accommodation_name: "제주 헤이, 서귀포",
     room_name: "디럭스 더블",
     price: 70000,
     number_guests: 3,
@@ -144,7 +144,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 10,
-    accommdation_name: "제주 컬리넌 호텔",
+    accommodation_name: "제주 컬리넌 호텔",
     room_name: "로얄 스위트",
     price: 80000,
     number_guests: 4,
@@ -154,7 +154,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 11,
-    accommdation_name: "부산 앙코르 호텔",
+    accommodation_name: "부산 앙코르 호텔",
     room_name: "스위트룸",
     price: 300000,
     number_guests: 2,
@@ -164,7 +164,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 12,
-    accommdation_name: "신라민박",
+    accommodation_name: "신라민박",
     room_name: "거지존",
     price: 100,
     number_guests: 5,
@@ -174,7 +174,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 13,
-    accommdation_name: "제주 헤이, 서귀포",
+    accommodation_name: "제주 헤이, 서귀포",
     room_name: "디럭스 더블",
     price: 70000,
     number_guests: 3,
@@ -184,7 +184,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 14,
-    accommdation_name: "제주 컬리넌 호텔",
+    accommodation_name: "제주 컬리넌 호텔",
     room_name: "로얄 스위트",
     price: 80000,
     number_guests: 4,
@@ -194,7 +194,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 15,
-    accommdation_name: "부산 앙코르 호텔",
+    accommodation_name: "부산 앙코르 호텔",
     room_name: "스위트룸",
     price: 300000,
     number_guests: 2,
@@ -204,7 +204,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 16,
-    accommdation_name: "신라민박",
+    accommodation_name: "신라민박",
     room_name: "거지존",
     price: 100,
     number_guests: 5,
@@ -214,7 +214,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 17,
-    accommdation_name: "제주 헤이, 서귀포",
+    accommodation_name: "제주 헤이, 서귀포",
     room_name: "디럭스 더블",
     price: 70000,
     number_guests: 3,
@@ -224,7 +224,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 18,
-    accommdation_name: "제주 컬리넌 호텔",
+    accommodation_name: "제주 컬리넌 호텔",
     room_name: "로얄 스위트",
     price: 80000,
     number_guests: 4,
@@ -234,7 +234,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 19,
-    accommdation_name: "부산 앙코르 호텔",
+    accommodation_name: "부산 앙코르 호텔",
     room_name: "스위트룸",
     price: 300000,
     number_guests: 2,
@@ -244,7 +244,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 20,
-    accommdation_name: "신라민박",
+    accommodation_name: "신라민박",
     room_name: "거지존",
     price: 100,
     number_guests: 5,
@@ -254,7 +254,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 21,
-    accommdation_name: "제주 헤이, 서귀포",
+    accommodation_name: "제주 헤이, 서귀포",
     room_name: "디럭스 더블",
     price: 70000,
     number_guests: 3,
@@ -264,7 +264,7 @@ export const bookedList = [
   },
   {
     room_basket_id: 22,
-    accommdation_name: "제주 컬리넌 호텔",
+    accommodation_name: "제주 컬리넌 호텔",
     room_name: "로얄 스위트",
     price: 80000,
     number_guests: 4,
@@ -337,7 +337,7 @@ export const likeData = [
 export const cartData = [
   {
     room_basket_id: 1,
-    accomodation_name: "라마다 제주시티 호텔",
+    accommodation_name: "라마다 제주시티 호텔",
     room_name: "스위트 더블",
     price: 210000,
     number_guests: 2,
@@ -346,7 +346,7 @@ export const cartData = [
   },
   {
     room_basket_id: 2,
-    accomodation_name: "라마다 제주시티 호텔",
+    accommodation_name: "라마다 제주시티 호텔",
     room_name: "스탠다드 트윈",
     price: 95000,
     number_guests: 2,
@@ -355,7 +355,7 @@ export const cartData = [
   },
   {
     room_basket_id: 3,
-    accomodation_name: "제주 홍스랜드펜션",
+    accommodation_name: "제주 홍스랜드펜션",
     room_name: "402동",
     price: 120000,
     number_guests: 2,
@@ -364,7 +364,7 @@ export const cartData = [
   },
   {
     room_basket_id: 4,
-    accomodation_name: "제주 홍스랜드펜션",
+    accommodation_name: "제주 홍스랜드펜션",
     room_name: "402동",
     price: 120000,
     number_guests: 2,
@@ -373,7 +373,7 @@ export const cartData = [
   },
   {
     room_basket_id: 5,
-    accomodation_name: "부산 앙코르 호텔",
+    accommodation_name: "부산 앙코르 호텔",
     room_name: "스위트룸",
     price: 300000,
     number_guests: 2,
@@ -388,7 +388,7 @@ export const orderData = [
     order_datas: [
       {
         room_basket_id: 1,
-        accommdation_name: "최고 호텔",
+        accommodation_name: "최고 호텔",
         room_image_url: [""],
         room_name: "스위트룸",
         price: 40000,

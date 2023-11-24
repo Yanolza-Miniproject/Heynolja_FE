@@ -299,4 +299,21 @@ export const handlers = [
       message: "좋아요 취소",
     });
   }),
+
+  // 숙소 좋아요 리스트 조회 (무작위로 1~40개의 데이터를 보내줌)
+  http.get("/api/v1/wish", ({ request }) => {
+    const url = new URL(request.url);
+    console.log(url);
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const randomSizeData = (data: any[]) => {
+      const randomData = _.sampleSize(data, _.random(1, 40));
+      return randomData;
+    };
+
+    return HttpResponse.json({
+      message: "좋아요 리스트 조회 성공",
+      data: randomSizeData(MockUpData),
+    });
+  }),
 ];

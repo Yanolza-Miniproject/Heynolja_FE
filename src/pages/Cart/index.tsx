@@ -45,23 +45,25 @@ const Cart = () => {
         <Styled.WrapTitle>장바구니 목록</Styled.WrapTitle>
 
         <Styled.AllSelect>
-          <Checkbox
-            id="all"
-            checked={allSelected}
-            onChange={(event) => {
-              handleAllCheck(
-                event,
-                cart,
-                cart.length,
-                setSelected,
-                setAllSelected,
-                setEstimatedPrice,
-                setSelect,
-              );
-            }}
-          />
+          <Styled.CheckBoxWrapper>
+            <Checkbox
+              id="all"
+              checked={allSelected}
+              onChange={(event) => {
+                handleAllCheck(
+                  event,
+                  cart,
+                  cart.length,
+                  setSelected,
+                  setAllSelected,
+                  setEstimatedPrice,
+                  setSelect,
+                );
+              }}
+            />
+          </Styled.CheckBoxWrapper>
           <label htmlFor="all">
-            전채 선택({selected}/{cart.length})
+            전체 선택({selected}/{cart.length})
           </label>
           <Styled.Empty />
           <Button

@@ -132,7 +132,6 @@ export const footerRightWrapper = styled.div`
 
   width: 28em;
   height: 100px;
-  background-color: #f6f6f6;
 
   font-size: 0.8em;
   line-height: 1.7em;
@@ -157,8 +156,6 @@ export const footerWrapper = styled.div`
 export const footerBottomWrapper = styled.div`
   padding: 1em 8em;
   margin-bottom: 2em;
-
-  background-color: #f6f6f6;
 
   text-align: left;
   font-size: 0.8em;
