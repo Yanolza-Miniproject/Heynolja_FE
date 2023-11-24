@@ -3,7 +3,6 @@ import { postClickHeart, deleteClickHeart } from "../api/Category";
 
 // postClickHeart, deleteClickHeart 함수의 매개변수 타입
 type WishControlParams = {
-  accommodationId: string;
   queryFnType: "post" | "delete";
 };
 
@@ -15,13 +14,11 @@ const queryFn = {
 
 // 하트 클릭시 즐겨찾기 추가 및 삭제
 // accommodationId는 숙소 id, queryFnType은 post 또는 delete
-export const useWishControl = ({
-  accommodationId,
-  queryFnType,
-}: WishControlParams) => {
+export const useWishControl = ({ queryFnType }: WishControlParams) => {
   const mutation = useMutation({
-    mutationKey: ["wishControl", queryFnType, accommodationId],
-    mutationFn: () => queryFn[queryFnType](accommodationId),
+    mutationKey: ["wishControl", queryFnType],
+    mutationFn: (accommodationId: string) =>
+      queryFn[queryFnType](accommodationId),
     onSuccess: (data: { message: string }) => {
       console.log(data);
     },
