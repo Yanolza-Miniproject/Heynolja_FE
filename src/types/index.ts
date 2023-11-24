@@ -1,6 +1,6 @@
 export interface CartItemType {
   room_basket_id: number;
-  accommdation_name: string;
+  accommodation_name: string;
   room_image_url: string[];
   room_name: string;
   price: number;
