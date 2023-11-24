@@ -13,7 +13,7 @@ import Type6 from "../../assets/image/type6.png";
 import Type7 from "../../assets/image/type7.jpg";
 import Type8 from "../../assets/image/type8.png";
 import Type9 from "../../assets/image/type9.png";
-import { OptionImages, TypeImages } from "./Search.types";
+import { OptionImages, QueryParams, TypeImages } from "./Search.types";
 import Option0 from "../../assets/svg/option0.svg";
 import Option1 from "../../assets/svg/option1.svg";
 import Option2 from "../../assets/svg/option2.svg";
@@ -21,6 +21,7 @@ import {
   SearchButton,
   SearchResetButton,
 } from "../../components/Search/Button";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [selectedRegion, setSelectedRegion] = useState(99);
@@ -33,6 +34,8 @@ const Search = () => {
   const [isTypeHovered, setIsTypeHovered] = useState(false);
   const [isOptionSelected, setIsOptionSelected] = useState(false);
   const [isOptionHovered, setIsOptionHovered] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleResetSearch = () => {
     setSelectedRegion(99);
@@ -95,6 +98,35 @@ const Search = () => {
     }
   };
 
+  const fetchData = async () => {
+    const optionsMap: Record<number, string> = {
+      0: "categoryParking",
+      1: "categoryCooking",
+      2: "categoryPickup",
+    };
+
+    let queryParams: QueryParams = {
+      categoryParking: "0",
+      categoryCooking: "0",
+      categoryPickup: "0",
+    };
+
+    for (const option of selectedOptions) {
+      if (option !== 99) {
+        const key = optionsMap[option];
+        queryParams[key] = "1";
+      }
+    }
+
+    const queryString = new URLSearchParams({
+      region: selectedRegion !== 99 ? selectedRegion.toString() : "0",
+      type: selectedType !== 99 ? selectedType.toString() : "0",
+      ...queryParams,
+    }).toString();
+
+    navigate(`/results?${queryString}`);
+  };
+
   const [regions] = useState([
     { name: "전국", value: 99 },
     { name: "서울시", value: 0 },
@@ -150,7 +182,9 @@ const Search = () => {
     <>
       <Styled.Container>
         <Styled.SearchHeader>
-          <h2>원하시는 숙소를 찾아드릴게요 👀 ❤️</h2>
+          <Styled.SearchTitle>
+            <h2>원하시는 숙소를 찾아드릴게요 👀 ❤️</h2>
+          </Styled.SearchTitle>
           <Styled.SearchParamsWrapper>
             <Styled.SearchParams>
               <div className="region">
@@ -212,6 +246,7 @@ const Search = () => {
           <Styled.SearchCardWrapper
             onMouseEnter={() => setIsTypeHovered(true)}
             onMouseLeave={() => setIsTypeHovered(false)}
+            isType={true}
           >
             <span>
               Check 2<h2>숙소 타입</h2>
@@ -278,7 +313,7 @@ const Search = () => {
               </Styled.SelectedItemDisplay>
             )}
           </Styled.SearchCardWrapper>
-          <SearchButton />
+          <SearchButton onClick={fetchData} />
         </Styled.SearchCard>
       </Styled.Container>
     </>

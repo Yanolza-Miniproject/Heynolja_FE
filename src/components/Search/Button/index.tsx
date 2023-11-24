@@ -1,11 +1,11 @@
 import * as Styled from "./Button.styles";
 import ResetIcon from "../../../assets/svg/reset-btn.svg";
 import SearchIcon from "../../../assets/svg/search-icon.svg";
-import { SearchResetButtonProps } from "./Button.types";
+import { SearchButtonProps, SearchResetButtonProps } from "./Button.types";
 
-export const SearchButton = () => {
+export const SearchButton: React.FC<SearchButtonProps> = ({ onClick }) => {
   return (
-    <Styled.SearchButton>
+    <Styled.SearchButton onClick={onClick}>
       <img src={SearchIcon} alt="search" />
       검색
     </Styled.SearchButton>

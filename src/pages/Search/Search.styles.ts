@@ -3,14 +3,16 @@ import {
   OptionItemProps,
   RegionItemProps,
   TypeItemProps,
+  TypeWrapperProps,
 } from "./Search.types";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
+  max-width: 55rem;
   padding: 2em;
   margin: 0 auto;
 
@@ -31,12 +33,17 @@ export const SearchHeader = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: 3em;
+  gap: 1em;
 
   h2 {
-    margin-right: 2em;
+    margin-right: 1em;
   }
 `;
+
+export const SearchTitle = styled.div`
+  width: 20em;
+`;
+
 export const SearchParamsWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -53,7 +60,7 @@ export const SearchParams = styled.div`
   align-items: center;
   flex: 1 0 40%;
 
-  gap: 1em;
+  gap: 0.5em;
 
   font-size: 1.1em;
   font-weight: 500;
@@ -68,7 +75,7 @@ export const SearchParams = styled.div`
     display: flex;
     flex-direction: row;
 
-    gap: 1em;
+    gap: 0.5em;
   }
 
   .option-each {
@@ -94,7 +101,7 @@ export const SearchCard = styled.div`
   border-radius: 1em;
 `;
 
-export const SearchCardWrapper = styled.div`
+export const SearchCardWrapper = styled.div<TypeWrapperProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,7 +120,7 @@ export const SearchCardWrapper = styled.div`
   transition: all 0.5s;
   cursor: pointer;
   &:hover {
-    flex: 4;
+    flex: ${({ isType }) => (isType ? "4.5" : "2.5")};
 
     background-color: white;
     border: 1px solid #ff5100;
@@ -220,7 +227,7 @@ export const TypeItem = styled.div<TypeItemProps>`
   }
 
   img {
-    width: 3.5em;
+    width: 3.4em;
     height: 3.4em;
     border-radius: 0 0.625rem 0.625rem 0;
     filter: ${({ selected }) => (selected ? "none" : "grayscale(100%)")};
@@ -249,7 +256,7 @@ export const OptionItem = styled.div<OptionItemProps>`
 
   padding: 1em;
 
-  width: 20em;
+  width: 15em;
   height: 3em;
   border-radius: 0.5em;
   border: ${({ selected }) =>

@@ -23,6 +23,15 @@ export interface TypeItemProps {
   isFullWidth?: boolean;
 }
 
+export interface TypeWrapperProps {
+  isType?: boolean;
+  isRegionHovered?: boolean;
+}
+
 export interface OptionItemProps {
   selected: boolean;
+}
+
+export interface QueryParams {
+  [key: string]: string;
 }
