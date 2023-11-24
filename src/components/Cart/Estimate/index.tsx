@@ -1,20 +1,48 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useRecoilState } from "recoil";
+import { usePostOrders } from "../../../hooks/useCartFetch";
 import { purchaseState } from "../../../store/purchaseAtom";
 import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 import formatNumber from "../../../utils/formatNumber";
 import Button from "../../Common/Button";
 import * as Styled from "./Estimate.styles";
 import { EstimateProps } from "./Estimate.types";
-import { handleBuyClick } from "./Estimate.utils";
 
 const Estimate = ({ estimatedPrice }: EstimateProps) => {
+  const postOrdersMutation = usePostOrders();
   const navigate = useNavigate();
   const [, setPurchaseList] = useRecoilState(purchaseState);
-
   const [totalPrice, setTotalPrice] = useState(0);
 
+  // 장바구니에서 체크한 상품 주문 요청 함수
+  const fetch = () => {
+    postOrdersMutation.mutate(
+      { id: 1 },
+      {
+        onSuccess: (responseData) => {
+          setPurchaseList({
+            totalPrice: totalPrice,
+            order_id: responseData.data.order_id,
+            data: [
+              {
+                room_basket_id: 4,
+                accommdation_name: "제주 라마다 호텔",
+                room_name: "스위트룸",
+                check_in_at: "11-11-11",
+                check_out_at: "11-11-11",
+                number_guests: 3,
+                price: 1233,
+              },
+            ],
+          });
+          navigate("/payment");
+        },
+      },
+    );
+  };
+
+  // 총 함계 가격 계산
   useEffect(() => {
     setTotalPrice(calculateTotalPrice(estimatedPrice));
   }, [estimatedPrice]);
@@ -47,9 +75,9 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
         size="lg"
         style={{ width: "100%" }}
         onClick={() => {
-          handleBuyClick(estimatedPrice, setPurchaseList, totalPrice);
-          if (estimatedPrice.length > 0) navigate("/payment");
-          else alert("선택해주세요");
+          if (estimatedPrice.length > 0) {
+            fetch();
+          } else alert("선택해주세요");
         }}
       />
     </Styled.Container>

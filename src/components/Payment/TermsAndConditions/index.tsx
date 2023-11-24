@@ -43,6 +43,7 @@ const TermsAndConditions = () => {
     if (checkItems.length === data.length) {
       setTermsAllChecked(true);
     } else setTermsAllChecked(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checkItems]);
 
   return (
