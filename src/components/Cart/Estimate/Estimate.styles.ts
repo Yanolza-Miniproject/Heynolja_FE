@@ -15,7 +15,7 @@ export const Item = styled.div`
 
   & > div > p:last-of-type {
     font-weight: normal;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 `;
 

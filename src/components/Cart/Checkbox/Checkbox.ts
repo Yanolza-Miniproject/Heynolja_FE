@@ -6,8 +6,8 @@ export const CheckBox = styled.input`
   margin-right: 0.5rem;
   margin-left: 0;
 
-  width: .9rem;
-  height: .9rem;
+  width: 0.9rem;
+  height: 0.9rem;
 
   border: 2px solid #ececec;
   border-radius: 3px;

@@ -48,8 +48,8 @@ export const DotWrap = styled.div`
 const Dot = styled.div`
   margin: 0 0.3rem;
 
-  width: .8rem;
-  height: .8rem;
+  width: 0.8rem;
+  height: 0.8rem;
 
   border-radius: 50%;
   background-color: #222;

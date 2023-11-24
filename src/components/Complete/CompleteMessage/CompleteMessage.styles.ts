@@ -13,7 +13,7 @@ export const TextWrapper = styled.div`
   margin-top: 3rem;
 
   width: 100%;
-  height: 281px;
+  height: 17rem;
 
   border: 1px solid #e6e6e6;
   border-radius: 10px;
@@ -22,14 +22,14 @@ export const TextWrapper = styled.div`
 export const TextTop = styled.p`
   margin-bottom: 1.5rem;
 
-  font-size: 30px;
+  font-size: 1.9rem;
   font-weight: bold;
 `;
 
 export const TextMid = styled.p`
   padding: 0.2rem;
 
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 500;
 
   & > span {
