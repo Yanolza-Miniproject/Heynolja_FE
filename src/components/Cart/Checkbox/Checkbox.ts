@@ -6,11 +6,11 @@ export const CheckBox = styled.input`
   margin-right: 0.5rem;
   margin-left: 0;
 
-  width: 15px;
-  height: 15px;
+  width: .9rem;
+  height: .9rem;
 
   border: 2px solid #ececec;
-  border-radius: 0.2rem;
+  border-radius: 3px;
 
   &:checked {
     border-color: #ff5100;

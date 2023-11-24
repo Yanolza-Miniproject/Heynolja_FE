@@ -13,7 +13,7 @@ export const Empty = styled.div`
 export const Container = styled.div`
   display: flex;
 
-  padding: 0 5em;
+  padding: 0 5rem;
 `;
 
 export const WrapTitle = styled.p`
@@ -26,34 +26,24 @@ export const AllSelect = styled.div`
   position: relative;
   margin-bottom: 1rem;
 
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: normal;
 
   & > input {
     margin-right: 0.5rem;
   }
+
+  & > label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
-export const CheckBox = styled.input`
-  appearance: none;
-
-  margin-right: 0.5rem;
-  margin-left: 0;
-
-  width: 15px;
-  height: 15px;
-
-  border: 2px solid #ececec;
-  border-radius: 0.2rem;
-
-  &:checked {
-    border-color: #ff5100;
-    background-image: url("./src/assets/checkbox.svg");
-
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
-  }
+export const CheckBoxWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ListWrapper = styled(Wrapper)`

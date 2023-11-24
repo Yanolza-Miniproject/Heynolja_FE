@@ -15,13 +15,13 @@ export const Item = styled.div`
 
   & > div > p:last-of-type {
     font-weight: normal;
-    font-size: 12px;
+    font-size: .8rem;
   }
 `;
 
 export const Container = styled.div`
   position: sticky;
-  top: 30px;
+  top: 2rem;
   left: 0;
 
   padding: 1rem;

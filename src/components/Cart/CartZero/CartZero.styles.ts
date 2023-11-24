@@ -20,7 +20,7 @@ export const Container = styled.div`
   ${flexCenter}
   flex-direction: column;
 
-  padding: 0 5em;
+  padding: 0 5rem;
 
   height: calc(100vh - 80px - 300px);
 `;
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
 
   margin-bottom: 2rem;
 
-  height: 70px;
+  height: 4rem;
 `;
 
 export const P = styled.div`
@@ -48,8 +48,8 @@ export const DotWrap = styled.div`
 const Dot = styled.div`
   margin: 0 0.3rem;
 
-  width: 13px;
-  height: 13px;
+  width: .8rem;
+  height: .8rem;
 
   border-radius: 50%;
   background-color: #222;
@@ -78,7 +78,7 @@ export const Text = styled.div`
   & > p:first-of-type {
     margin-bottom: 0.3rem;
 
-    font-size: 20px;
+    font-size: 1.3rem;
     font-weight: 500;
   }
 `;
