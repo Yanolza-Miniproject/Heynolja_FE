@@ -69,7 +69,7 @@ const CartItem = ({
           }}
         />
         <label htmlFor={item.room_basket_id.toString()}>
-          {item.accommdation_name}
+          {item.accomodation_name}
         </label>
         <Styled.Empty />
         <img
@@ -92,7 +92,7 @@ const CartItem = ({
           <p>
             <span>숙박인원</span>: {item.number_guests}명
           </p>
-          <p>{formatNumber(item.price)}원</p>
+          <p>₩{formatNumber(item.price)}</p>
         </Styled.Info>
       </Styled.itemBottom>
     </Styled.Container>
