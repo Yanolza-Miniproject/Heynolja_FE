@@ -105,7 +105,7 @@ const Search = () => {
       2: "categoryPickup",
     };
 
-    let queryParams: QueryParams = {};
+    const queryParams: QueryParams = {};
 
     selectedOptions.forEach((optionValue) => {
       if (optionValue !== 99) {
