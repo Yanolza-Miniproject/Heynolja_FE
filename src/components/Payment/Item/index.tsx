@@ -1,30 +1,46 @@
 import * as Styled from "./Item.styles";
+import { PaymentItemProps } from "./Item.types";
+import calculateNightCount from "../../../utils/calculateNightCount";
+import formatNumber from "../../../utils/formatNumber";
 
-const index = () => {
+const index = ({
+  name,
+  type,
+  checkIn,
+  checkOut,
+  guests,
+  price,
+}: PaymentItemProps) => {
   return (
     <Styled.ItemWrapper>
-      <Styled.ItemTitle>제주도 호텔</Styled.ItemTitle>
+      <Styled.ItemTitle>{name}</Styled.ItemTitle>
       <Styled.ItemContent>
         <Styled.ItemImg></Styled.ItemImg>
         <Styled.ItemInfo>
           <Styled.ItemValueWrapper>
             <Styled.Title>방 타입: </Styled.Title>
-            <Styled.Content>디럭스 룸</Styled.Content>
+            <Styled.Content>{type}</Styled.Content>
           </Styled.ItemValueWrapper>
           <Styled.ItemValueWrapper>
             <Styled.Title>숙박일: </Styled.Title>
-            <Styled.Content>2023.11.11(월) ~ 2023.11.15(금) </Styled.Content>
-            <Styled.Content> | 3박</Styled.Content>
+            <Styled.Content>
+              {" "}
+              {checkIn} ~ {checkOut}{" "}
+            </Styled.Content>
+            <Styled.Content>
+              {" "}
+              | {calculateNightCount(checkIn, checkOut)}박
+            </Styled.Content>
           </Styled.ItemValueWrapper>
           <Styled.ItemValueWrapper>
             <Styled.Title>숙박인원: </Styled.Title>
-            <Styled.Content>3 </Styled.Content>
+            <Styled.Content>{guests} </Styled.Content>
           </Styled.ItemValueWrapper>
         </Styled.ItemInfo>
       </Styled.ItemContent>
       <Styled.ItemPriceWrapper>
         <span>₩</span>
-        <Styled.ItemPrice>39,000</Styled.ItemPrice>
+        <Styled.ItemPrice>{formatNumber(price)}</Styled.ItemPrice>
       </Styled.ItemPriceWrapper>
     </Styled.ItemWrapper>
   );
