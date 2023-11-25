@@ -1,5 +1,6 @@
 import { useGetMyWishList } from "../../../../api/MyPage/query";
 import { CategoryProps } from "../../../../pages/Category/Category.types";
+import CategoryItem from "../../../Category/CatgoryItem";
 
 const MyWishList = () => {
   const { data, isLoading, error } = useGetMyWishList();
@@ -11,11 +12,7 @@ const MyWishList = () => {
       <div>
         {data &&
           data.data.map((item: CategoryProps) => {
-            return (
-              <div key={item.name}>
-                <div>{item.name}</div>
-              </div>
-            );
+            return <CategoryItem key={item.name} data={item} />;
           })}
       </div>
       {isLoading && <div>로딩중</div>}

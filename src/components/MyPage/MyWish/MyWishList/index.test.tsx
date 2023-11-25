@@ -1,7 +1,8 @@
-import { render, renderHook, screen } from "@testing-library/react";
+import { render, renderHook, screen, waitFor } from "@testing-library/react";
 import MyWishs from "../../../../pages/MyPage/MyWishs";
 import { createWrapper } from "../../../../test/test.utils";
 import { useGetMyWishList } from "../../../../api/MyPage/query";
+import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 const testData = {
   message: "success",
@@ -69,8 +70,6 @@ const testData = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mockedUseGetMyWishList = useGetMyWishList as jest.Mock<any>;
 
-console.log(mockedUseGetMyWishList);
-
 jest.mock("../../../../api/MyPage/query");
 
 describe("MyWish 쿼리 받아오기 테스트", () => {
@@ -97,8 +96,10 @@ describe("MyWish 쿼리 받아오기 테스트", () => {
 
     const { result } = renderHook(() => useGetMyWishList(), { wrapper });
 
-    expect(result.current.isLoading).toBe(true);
-    expect(screen.getByText("로딩중")).toBeInTheDocument();
+    waitFor(() => {
+      expect(result.current.isLoading).toBe(true);
+      expect(screen.getByText("로딩중")).toBeInTheDocument();
+    });
   });
 
   test("로딩중이 아닐 때 로딩중이라는 문구가 보여서는 안된다.", () => {
@@ -113,8 +114,10 @@ describe("MyWish 쿼리 받아오기 테스트", () => {
 
     const { result } = renderHook(() => useGetMyWishList(), { wrapper });
 
-    expect(result.current.isLoading).toBe(false);
-    expect(screen.queryByText("로딩중")).not.toBeInTheDocument();
+    waitFor(() => {
+      expect(result.current.isLoading).toBe(false);
+      expect(screen.queryByText("로딩중")).not.toBeInTheDocument();
+    });
   });
 
   test("데이터를 받아오면 데이터의 길이가 3이어야 한다.", () => {
@@ -126,10 +129,38 @@ describe("MyWish 쿼리 받아오기 테스트", () => {
 
     const wrapper = createWrapper();
 
-    render(<MyWishs />, { wrapper });
+    if ("IntersectionObserver" in window) {
+      render(<MyWishs />, { wrapper });
 
-    const { result } = renderHook(() => useGetMyWishList(), { wrapper });
+      const { result } = renderHook(() => useGetMyWishList(), { wrapper });
 
-    expect(result.current.data.data.length).toBe(3);
+      waitFor(() => {
+        expect(result.current.data.data.length).toBe(3);
+      });
+    }
+  });
+
+  test("데이터가 뷰포트안에 들어오면 데이터의 opacity가 1이어야 한다.", () => {
+    mockedUseGetMyWishList.mockImplementation(() => ({
+      isLoading: false,
+      error: false,
+      data: testData,
+    }));
+
+    const wrapper = createWrapper();
+
+    if ("IntersectionObserver" in window) {
+      render(<MyWishs />, { wrapper });
+
+      const { result } = renderHook(() => useGetMyWishList(), { wrapper });
+      mockAllIsIntersecting(true);
+
+      waitFor(() => {
+        expect(result.current.data.data.length).toBe(3);
+        expect(screen.getByText("비진도 바다이야기 펜션")).toHaveStyle(
+          "font-size: 100000px",
+        );
+      });
+    }
   });
 });
