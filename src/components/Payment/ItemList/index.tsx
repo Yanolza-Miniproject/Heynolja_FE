@@ -19,7 +19,7 @@ const ItemList = () => {
         {orderList?.map((item) => (
           <Item
             key={item.room_basket_id}
-            name={item.accommdation_name}
+            name={item.accommodation_name}
             type={item.room_name}
             checkIn={item.check_in_at}
             checkOut={item.check_out_at}

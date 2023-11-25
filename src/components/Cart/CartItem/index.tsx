@@ -69,7 +69,7 @@ const CartItem = ({
           }}
         />
         <label htmlFor={item.room_basket_id.toString()}>
-          {item.accommdation_name}
+          {item.accommodation_name}
         </label>
         <Styled.Empty />
         <img

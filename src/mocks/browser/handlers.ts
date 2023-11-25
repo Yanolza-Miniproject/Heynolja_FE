@@ -148,7 +148,7 @@ export const handlers = [
 
     const data = {
       room_basket_id: 1,
-      accommdation_name: "최고 호텔",
+      accommodation_name: "최고 호텔",
       room_name: "스위트룸",
       price: 40000,
       number_guests: newPost.number_guests,
@@ -184,7 +184,7 @@ export const handlers = [
 
     const data = {
       room_basket_id: 1,
-      accommdation_name: "최고 호텔",
+      accommodation_name: "최고 호텔",
       room_name: "스위트룸",
       price: 40000,
       number_guests: newPost.number_guests,
