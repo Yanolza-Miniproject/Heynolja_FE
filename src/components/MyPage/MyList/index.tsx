@@ -9,7 +9,6 @@ const index = () => {
         <Styled.MyBox>
           <Styled.Content>
             <Styled.Title>💵 결제 내역</Styled.Title>
-            <Styled.Count>3</Styled.Count>
           </Styled.Content>
           <img src={Arrow}></img>
         </Styled.MyBox>
@@ -18,7 +17,6 @@ const index = () => {
         <Styled.MyBox>
           <Styled.Content>
             <Styled.Title>🛒 장바구니</Styled.Title>
-            <Styled.Count>3</Styled.Count>
           </Styled.Content>
           <img src={Arrow}></img>
         </Styled.MyBox>
@@ -27,7 +25,6 @@ const index = () => {
       <Styled.MyBox>
         <Styled.Content>
           <Styled.Title>❤️ 찜한 목록</Styled.Title>
-          <Styled.Count>3</Styled.Count>
         </Styled.Content>
         <img src={Arrow}></img>
       </Styled.MyBox>
