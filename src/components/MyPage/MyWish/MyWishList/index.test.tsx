@@ -152,15 +152,33 @@ describe("MyWish 쿼리 받아오기 테스트", () => {
     if ("IntersectionObserver" in window) {
       render(<MyWishs />, { wrapper });
 
-      const { result } = renderHook(() => useGetMyWishList(), { wrapper });
       mockAllIsIntersecting(true);
+      const dataTestElement = document.getElementById("itemTest");
 
       waitFor(() => {
-        expect(result.current.data.data.length).toBe(3);
-        expect(screen.getByText("비진도 바다이야기 펜션")).toHaveStyle(
-          "font-size: 100000px",
-        );
+        expect(dataTestElement).toHaveStyle("opacity: 1");
       });
     }
+  });
+
+  test("데이터의 length값이 찜한 목록의 숫자와 같게하는 test", () => {
+    mockedUseGetMyWishList.mockImplementation(() => ({
+      isLoading: false,
+      error: false,
+      data: testData,
+    }));
+
+    const wrapper = createWrapper();
+
+    render(<MyWishs />, { wrapper });
+
+    const { result } = renderHook(() => useGetMyWishList(), { wrapper });
+
+    const wishCountElement = screen.getByTestId("wishCount");
+
+    waitFor(() => {
+      expect(result.current.data.data.length).toBe(3);
+      expect(wishCountElement).toHaveTextContent("3");
+    });
   });
 });
