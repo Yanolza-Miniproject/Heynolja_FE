@@ -10,7 +10,7 @@ export const accommodationDetail = {
     "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/2c0134f2-6ba3-434c-8dca-6d5831bf6e24",
   categoryParking: true,
   categoryCooking: false,
-  categoryPickup: true,
+  categoryPickup: false,
   categoryAmenities: false,
   categoryDiningArea: true,
   checkIn: "14:00:00",

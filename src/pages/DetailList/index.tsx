@@ -1,3 +1,4 @@
+import CardList from "../../components/DetailList/CardList/index.tsx";
 import ProductImage from "../../components/DetailList/ProductImage";
 import ProductInfo from "../../components/DetailList/ProductInfo/index.tsx";
 import ProductTitle from "../../components/DetailList/ProductTitle";
@@ -15,7 +16,11 @@ const DetailList = () => {
     homepage,
     checkIn,
     checkOut,
+    categoryParking,
+    categoryCooking,
+    categoryPickup,
   } = accommodationDetail;
+
   return (
     <Styled.container>
       <Styled.Layout>
@@ -35,6 +40,11 @@ const DetailList = () => {
           />
         </Styled.DetailsContainer>
       </Styled.Layout>
+      <CardList
+        parking={categoryParking}
+        cooking={categoryCooking}
+        pickup={categoryPickup}
+      />
     </Styled.container>
   );
 };
