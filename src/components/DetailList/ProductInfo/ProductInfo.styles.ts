@@ -4,10 +4,10 @@ import { Box } from "@mui/material";
 export const DetailsContainer = styled(Box)`
   display: flex;
   flex-direction: column;
-  gap: 110px;
+  justify-content: space-between;
 
   margin-top: 10px;
-  height: 60vh;
+  height: 50vh;
 
   overflow-y: auto;
 `;
