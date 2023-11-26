@@ -53,7 +53,7 @@ const CartItem = ({
       <Styled.itemTop>
         <Checkbox
           id={item.room_basket_id.toString()}
-          checked={check}
+          checked={select.length > 0 ? select[index] : false}
           onChange={(event) => {
             handleCheck(
               event,
