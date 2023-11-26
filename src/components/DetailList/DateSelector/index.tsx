@@ -3,15 +3,27 @@ import * as Styled from "./DateSelector.styles.ts";
 import formatDate from "../../../utils/formatDate.ts";
 import calendarIcon from "../../../assets/svg/calendar-icon.svg";
 import arrowDownIcon from "../../../assets/svg/arrow-down-icon.svg";
+import { useRecoilValue } from "recoil";
+import {
+  checkInDateState,
+  checkOutDateState,
+} from "../../../store/checkInCheckOutAtom.ts";
 
 const DateSelector = React.forwardRef(({ onClick }, ref) => {
-  const today = new Date();
-  const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+  const storedCheckInDate = useRecoilValue(checkInDateState);
+  const storedCheckOutDate = useRecoilValue(checkOutDateState);
 
-  const formattedToday = formatDate(today).slice(5);
-  const formattedTomorrow = formatDate(tomorrow).slice(5);
+  const checkInDate = storedCheckInDate
+    ? new Date(storedCheckInDate)
+    : new Date();
+  const checkOutDate = storedCheckOutDate
+    ? new Date(storedCheckOutDate)
+    : new Date(checkInDate.getTime() + 24 * 60 * 60 * 1000);
 
-  const dateRange = `${formattedToday}~${formattedTomorrow}`;
+  const formattedCheckInDate = formatDate(checkInDate).slice(5);
+  const formattedCheckOutDate = formatDate(checkOutDate).slice(5);
+
+  const dateRange = `${formattedCheckInDate}~${formattedCheckOutDate}`;
 
   return (
     <Styled.Container>

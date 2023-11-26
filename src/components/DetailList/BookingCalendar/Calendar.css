@@ -24,6 +24,7 @@
   border-radius: 35px;
   background-color: transparent;
 }
+
 .react-datepicker__input-container > input:focus {
   outline: white;
 }
@@ -43,6 +44,7 @@
   height: 10px;
   font-size: 10px;
   background-color: #a3a2a2;
+  display: none;
 }
 .react-datepicker__month-container {
   min-height: 300px;
