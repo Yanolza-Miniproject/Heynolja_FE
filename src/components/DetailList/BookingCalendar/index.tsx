@@ -17,6 +17,13 @@ const Calendar = () => {
   const [checkInDate, setCheckInDate] = useRecoilState(checkInDateState);
   const [checkOutDate, setCheckOutDate] = useRecoilState(checkOutDateState);
 
+  const isValidDate = (date: Date | null) => {
+    return date instanceof Date && !isNaN(date.getTime());
+  };
+
+  const validCheckInDate = isValidDate(checkInDate) ? checkInDate : null;
+  const validCheckOutDate = isValidDate(checkOutDate) ? checkOutDate : null;
+
   const handleChange = (dates) => {
     const [start, end] = dates;
     setCheckInDate(start);
@@ -26,10 +33,10 @@ const Calendar = () => {
   return (
     <div className="calendar-container">
       <DatePicker
-        selected={checkInDate}
+        selected={validCheckInDate}
         onChange={handleChange}
-        startDate={checkInDate}
-        endDate={checkOutDate}
+        startDate={validCheckInDate}
+        endDate={validCheckOutDate}
         monthsShown={2}
         selectsRange
         inline={false}
