@@ -7,9 +7,10 @@ import Checkbox from "../Checkbox";
 import Estimate from "../Estimate";
 import * as Styled from "./CartList.styles";
 import { CartListProps } from "./CartList.types";
-import { handleAllCheck, handleSelectDeleteClick } from "./CartLust.utils";
+import { handleAllCheck, handleSelectDeleteClick } from "./CartList.utils";
 
-const CartList = ({ cart, setCart }: CartListProps) => {
+const CartList = ({ data }: CartListProps) => {
+  const [cart, setCart] = useState<CartItemType[]>([]); // 실제 api로 받을 데이터
   const [selected, setSelected] = useState<number>(0); // 선택된 아이템 개수
   const [allSelected, setAllSelected] = useState(true); // 전체 선택 여부
   const [estimatedPrice, setEstimatedPrice] = useState<CartItemType[]>([]); // 예상 구매 내역 리스트
@@ -17,19 +18,19 @@ const CartList = ({ cart, setCart }: CartListProps) => {
 
   // 데이터 저장
   useEffect(() => {
-    if (cart) {
-      setSelected(cart.length);
-      setEstimatedPrice([...cart]);
-      setSelect(Array.from({ length: cart.length }, () => true));
+    if (data) {
+      setCart([...data]);
+      setSelected(data.length);
+      setEstimatedPrice([...data]);
+      setSelect(Array.from({ length: data.length }, () => true));
     }
-  }, [cart]);
+  }, [data]);
 
   // 개별 아이템 중 1개라도 체크 해제 시 전체 채크 비활성
   useEffect(() => {
     if (select.includes(false)) setAllSelected(false);
   }, [select]);
 
-  // 카트 아이템 없을 시 다른 화면 리턴
   if (cart.length === 0) {
     return <CartZero />;
   }
@@ -69,6 +70,8 @@ const CartList = ({ cart, setCart }: CartListProps) => {
               handleSelectDeleteClick(
                 cart,
                 estimatedPrice,
+                select,
+                setSelect,
                 setCart,
                 setEstimatedPrice,
                 setSelected,
