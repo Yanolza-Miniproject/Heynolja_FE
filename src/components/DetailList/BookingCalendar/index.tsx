@@ -1,7 +1,7 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import * as Styled from "./BookingCalendar.styles.ts";
-import "../../Detail/Calendar/Calendar.css";
+import "./Calendar.css";
 import { ko } from "date-fns/locale";
 // import { CalendarProps } from "./Calendar.types.ts";
 // import formatNumber from "../../../utils/formatNumber";
@@ -33,6 +33,7 @@ const Calendar = () => {
         monthsShown={2}
         selectsRange
         inline={false}
+        minDate={new Date()}
         locale={ko}
         dateFormat="yyyy/MM/dd"
         isClearable={true}
