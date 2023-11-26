@@ -2,6 +2,7 @@ import CardList from "../../components/DetailList/CardList/index.tsx";
 import ProductImage from "../../components/DetailList/ProductImage";
 import ProductInfo from "../../components/DetailList/ProductInfo/index.tsx";
 import ProductTitle from "../../components/DetailList/ProductTitle";
+import RoomList from "../../components/DetailList/RoomList/index.tsx";
 import { accommodationDetail } from "../../mock/detailListPageData.ts";
 import * as Styled from "./DetailList.styles.ts";
 
@@ -45,6 +46,7 @@ const DetailList = () => {
         cooking={categoryCooking}
         pickup={categoryPickup}
       />
+      <RoomList />
     </Styled.container>
   );
 };

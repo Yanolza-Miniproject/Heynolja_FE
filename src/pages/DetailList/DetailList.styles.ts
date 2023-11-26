@@ -12,8 +12,9 @@ export const Layout = styled.div`
   }
 `;
 export const container = styled.div`
-  padding: 0 5em;
-  margin-top: 20px;
+  // padding: 0 10em;
+  // margin-top: 20px;
+  padding: 3.19rem 12.5rem 3.18rem 12.5rem;
 `;
 export const DetailsContainer = styled.div`
   display: flex;

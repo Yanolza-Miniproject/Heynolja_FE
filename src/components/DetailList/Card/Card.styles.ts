@@ -6,7 +6,7 @@ export const Card = styled(Box)<{ isActive: boolean }>`
   align-items: center;
   justify-content: center;
 
-  width: 26vw;
+  width: 20vw;
   height: 12vh;
 
   border-radius: 4px;
