@@ -59,7 +59,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
       <Styled.Top>
         {estimatedPrice.map((item) => {
           return (
-            <Styled.Item key={item.room_basket_id}>
+            <Styled.Item key={item.room_basket_id} data-testid="estimate-item">
               <div>
                 <p>{item.accommodation_name}</p>
                 <p>{item.room_name}</p>
