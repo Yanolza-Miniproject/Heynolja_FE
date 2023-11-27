@@ -54,6 +54,7 @@ const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
         dateFormat="yyyy/MM/dd"
         isClearable={true}
         showPopperArrow={false}
+        className="react-datepicker-first"
       />
     </>
   );

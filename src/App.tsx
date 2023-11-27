@@ -16,6 +16,7 @@ import { globalStyle } from "./components/Common/Common.styles";
 import Search from "./pages/Search";
 import SearchList from "./pages/SearchList";
 import MyWishs from "./pages/MyPage/MyWishs";
+import DetailList from "./pages/DetailList";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: "signin", element: <Signin /> },
       { path: "signup", element: <Signup /> },
       { path: "detail", element: <Detail /> },
+      { path: "detailList", element: <DetailList /> },
       { path: "cart", element: <Cart /> },
       { path: "payment", element: <Payment /> },
       { path: "complete", element: <Complete /> },
