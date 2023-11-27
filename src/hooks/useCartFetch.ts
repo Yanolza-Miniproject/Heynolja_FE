@@ -12,9 +12,8 @@ export const useGetMyCart = () => {
 // 카트 선택 상품 주문요청
 export const usePostOrders = () => {
   return useMutation({
-    mutationFn: (data: { id: number }) => {
-      console.log(data);
-      return axios.post("/api/v1/baskets/orders");
+    mutationFn: (data: { room_basket_id: number[] }) => {
+      return axios.post("/api/v1/baskets/orders", data);
     },
   });
 };

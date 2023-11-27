@@ -7,7 +7,7 @@ const NotFound = () => {
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
-  }
+  };
   return (
     <Styled.Container>
       <Styled.IconWrapper>
