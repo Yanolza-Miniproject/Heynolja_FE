@@ -8,7 +8,7 @@ const Cart = () => {
     return <div>로딩중</div>;
   }
 
-  return data && <CartList data={data.data.order_datas} />;
+  return data && <CartList data={data.data.data.rooms} />;
 };
 
 export default Cart;
