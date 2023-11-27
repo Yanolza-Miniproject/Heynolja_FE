@@ -1,4 +1,4 @@
-import * as Styled from "./InfiniteScroller.styles";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 type InfiniteScrollerProps = {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ const InfiniteScroller = ({
   hasNextPage,
 }: InfiniteScrollerProps) => {
   return (
-    <Styled.InfiniteScrollWrapper
+    <InfiniteScroll
       dataLength={length || 0}
       next={() => fn()}
       hasMore={hasNextPage}
@@ -22,7 +22,7 @@ const InfiniteScroller = ({
       scrollThreshold={0.95}
     >
       {children}
-    </Styled.InfiniteScrollWrapper>
+    </InfiniteScroll>
   );
 };
 

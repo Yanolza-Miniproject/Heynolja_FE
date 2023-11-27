@@ -3,7 +3,7 @@ import CategoryQuery from "./index";
 import { createWrapper } from "../../../test/test.utils";
 
 describe("CategoryQuery", () => {
-  it("renders CategoryQuery component", () => {
+  it("renders CategoryQuery component", async () => {
     const wrapper = createWrapper();
 
     render(
