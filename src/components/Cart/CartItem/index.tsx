@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import exitLogo from "../../../assets/exit.svg";
+import { useDeleteCartItem } from "../../../hooks/useCartFetch";
 import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
 import Checkbox from "../Checkbox";
 import * as Styled from "./CartItem.styles";
 import { CartItemProps } from "./CartItem.type";
 import { handeleDelete, handleCheck } from "./CartItems.utils";
-import { useDeleteCartItem } from "../../../hooks/useCartFetch";
 
 const CartItem = ({
   item, // 해당 아이템에 대한 정보
@@ -33,6 +33,9 @@ const CartItem = ({
             item,
             cart,
             estimatedPrice,
+            index,
+            select,
+            setSelect,
             setCart,
             setSelected,
             setEstimatedPrice,
@@ -45,15 +48,14 @@ const CartItem = ({
   // 해당 아이템이 체크 여부 지속적인 확인
   useEffect(() => {
     setCheck(select[index]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [select]);
+  }, [select, index]);
 
   return (
     <Styled.Container check={check}>
       <Styled.itemTop>
         <Checkbox
           id={item.room_basket_id.toString()}
-          checked={check}
+          checked={select.length > 0 ? select[index] : false}
           onChange={(event) => {
             handleCheck(
               event,
