@@ -5,6 +5,7 @@ import {
   cartList,
   orderData,
   roomDetail,
+  paymentData,
 } from "../../mock/myPageData";
 import * as _ from "lodash";
 
@@ -237,6 +238,14 @@ export const handlers = [
     return HttpResponse.json({
       message: "성공",
       order_datas: newData,
+    });
+  }),
+
+  // 결제 내역 전체 조회
+  http.get("/api/v1/payment", async () => {
+    return HttpResponse.json({
+      message: "성공",
+      data: paymentData,
     });
   }),
 

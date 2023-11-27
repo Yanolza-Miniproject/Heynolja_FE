@@ -1,0 +1,10 @@
+export interface MyOrderItemWrapperProps {
+  room_basket_id: number;
+  accommodation_name: string;
+  room_name: string;
+  price: number;
+  number_guests: number;
+  check_in_at: string;
+  check_out_at: string;
+  room_image_url: string;
+}

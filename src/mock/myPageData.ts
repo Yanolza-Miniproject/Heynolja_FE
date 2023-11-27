@@ -452,3 +452,62 @@ export const roomDetail = {
     },
   ],
 };
+
+export const paymentData = [
+  {
+    payment_id: 1,
+    total_price: 30000,
+    total_count: 2,
+    payment_at: "2023-11-21T12:00:01",
+    rooms: [
+      {
+        room_basket_id: 1,
+        accommodation_name: "부산 앙코르 호텔",
+        room_name: "스위트룸",
+        price: 300000,
+        number_guests: 2,
+        check_in_at: "2023-12-25",
+        check_out_at: "2023-12-26",
+        room_image_url: "www.accommodation1.com/thumbnail.jpg",
+      },
+      {
+        room_basket_id: 2,
+        accommodation_name: "신라민박",
+        room_name: "거지존",
+        price: 100,
+        number_guests: 1,
+        check_in_at: "2023-12-25",
+        check_out_at: "2023-12-26",
+        room_image_url: "www.accommodation1.com/thumbnail.jpg",
+      },
+    ],
+  },
+  {
+    payment_id: 2,
+    total_price: 50000,
+    total_count: 2,
+    payment_at: "2023-11-21T12:00:01",
+    rooms: [
+      {
+        room_basket_id: 1,
+        accommodation_name: "부산 앙코르 호텔",
+        room_name: "스위트룸",
+        price: 300000,
+        number_guests: 2,
+        check_in_at: "2023-12-25",
+        check_out_at: "2023-12-26",
+        room_image_url: "www.accommodation1.com/thumbnail.jpg",
+      },
+      {
+        room_basket_id: 2,
+        accommodation_name: "신라민박",
+        room_name: "거지존",
+        price: 100,
+        number_guests: 1,
+        check_in_at: "2023-12-25",
+        check_out_at: "2023-12-26",
+        room_image_url: "www.accommodation1.com/thumbnail.jpg",
+      },
+    ],
+  },
+];
