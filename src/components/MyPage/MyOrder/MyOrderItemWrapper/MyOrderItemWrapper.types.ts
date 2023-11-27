@@ -1,9 +1,10 @@
-export interface OrderItem {
+export interface MyOrderItemWrapperProps {
   room_basket_id: number;
   accommodation_name: string;
   room_name: string;
+  price: number;
+  number_guests: number;
   check_in_at: string;
   check_out_at: string;
-  number_guests: number;
-  price: number;
+  room_image_url: string;
 }
