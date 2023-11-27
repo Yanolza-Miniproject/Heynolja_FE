@@ -1,6 +1,4 @@
 export interface ActionButtonGroupProps {
-  onAddToCart: () => void;
-  onBuyNow: () => void;
   checkInAt: string;
   checkOutAt: string;
   numberGuests: number;
@@ -12,4 +10,6 @@ export interface ActionButtonGroupProps {
     stock: number;
     room_image_url: string[];
   };
+  onAddToCart: () => void;
+  handleBuyNow: () => void;
 }
