@@ -52,6 +52,8 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
 
+  snapshotSerializers: ["@emotion/jest/serializer"],
+
   verbose: true,
   testTimeout: 30000,
 };
