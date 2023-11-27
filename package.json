@@ -10,8 +10,7 @@
     "lint": "eslint . --ext .ts, .tsx --fix --ignore-path .gitignore",
     "prepare": "husky install",
     "preview": "vite preview",
-    "test": "jest",
-    "test:unit": "jest --watch"
+    "test": "jest"
   },
   "lint-staged": {
     "*.{css,md,json}": [
