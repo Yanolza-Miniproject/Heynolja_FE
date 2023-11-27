@@ -33,11 +33,8 @@ const router = createBrowserRouter([
       { path: "mypage/myorder", element: <MyOrder /> },
       { path: "search", element: <Search /> },
       { path: "results", element: <SearchList /> },
+      { path: "*", element: <NotFound /> },
     ],
-  },
-  {
-    path: "*",
-    element: <NotFound />,
   },
 ]);
 
