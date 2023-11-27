@@ -5,6 +5,7 @@ import {
   cartList,
   orderData,
   roomDetail,
+  paymentData,
 } from "../../mock/myPageData";
 import * as _ from "lodash";
 
@@ -148,7 +149,7 @@ export const handlers = [
 
     const data = {
       room_basket_id: 1,
-      accommdation_name: "최고 호텔",
+      accommodation_name: "최고 호텔",
       room_name: "스위트룸",
       price: 40000,
       number_guests: newPost.number_guests,
@@ -184,7 +185,7 @@ export const handlers = [
 
     const data = {
       room_basket_id: 1,
-      accommdation_name: "최고 호텔",
+      accommodation_name: "최고 호텔",
       room_name: "스위트룸",
       price: 40000,
       number_guests: newPost.number_guests,
@@ -237,6 +238,14 @@ export const handlers = [
     return HttpResponse.json({
       message: "성공",
       order_datas: newData,
+    });
+  }),
+
+  // 결제 내역 전체 조회
+  http.get("/api/v1/payment", async () => {
+    return HttpResponse.json({
+      message: "성공",
+      data: paymentData,
     });
   }),
 
