@@ -16,7 +16,7 @@ const Complete = () => {
       setData([...res.data.data[0].rooms]);
       setTotalPrice(res.data.data[0].total_price);
     });
-  }, []);
+  }, [id]);
 
   return (
     <Styled.Container>
