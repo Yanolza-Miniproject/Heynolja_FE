@@ -5,8 +5,8 @@ import { RoomItemProps } from "./RoomItem.types";
 import personIcon from "../../../assets/svg/person-icon.svg";
 
 const RoomItem: React.FC<RoomItemProps> = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  id,
+  // // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // id,
   name,
   price,
   capacity,
