@@ -1,21 +1,21 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import * as Styled from "./BookingCalendar.styles.ts";
-import "./Calendar.css";
 import { ko } from "date-fns/locale";
-// import { CalendarProps } from "./Calendar.types.ts";
-// import formatNumber from "../../../utils/formatNumber";
+import "./Calendar.css";
 import { useRecoilState } from "recoil";
 import {
   checkInDateState,
   checkOutDateState,
 } from "../../../store/checkInCheckOutAtom.ts";
-// import formatDate from "../../../utils/formatDate";
+import { useRef } from "react";
 import DateSelector from "../DateSelector/index.tsx";
 
 const Calendar = () => {
   const [checkInDate, setCheckInDate] = useRecoilState(checkInDateState);
   const [checkOutDate, setCheckOutDate] = useRecoilState(checkOutDateState);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const datePickerRef = useRef<any>(null);
 
   const isValidDate = (date: Date | null) => {
     return date instanceof Date && !isNaN(date.getTime());
@@ -28,6 +28,12 @@ const Calendar = () => {
     const [start, end] = dates;
     setCheckInDate(start);
     setCheckOutDate(end);
+  };
+
+  const handleDateSelectorClick = () => {
+    if (datePickerRef.current) {
+      datePickerRef.current.setOpen(true);
+    }
   };
 
   return (
@@ -43,7 +49,7 @@ const Calendar = () => {
       locale={ko}
       dateFormat="yyyy/MM/dd"
       isClearable={true}
-      customInput={<DateSelector />}
+      customInput={<DateSelector onClick={handleDateSelectorClick} />}
       className="react-datepicker-second"
     />
   );
