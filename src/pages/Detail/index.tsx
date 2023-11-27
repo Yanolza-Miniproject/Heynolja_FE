@@ -72,8 +72,12 @@ const Detail = () => {
           />
           <PriceDisplay pricePerNight={price} />
           <ActionButtonGroup
-            checkInAt={selectedCheckInDate}
-            checkOutAt={selectedCheckOutDate}
+            checkInAt={
+              selectedCheckInDate ? selectedCheckInDate.toISOString() : ""
+            }
+            checkOutAt={
+              selectedCheckOutDate ? selectedCheckOutDate.toISOString() : ""
+            }
             numberGuests={selectedGuests}
             roomDetail={roomDetail}
             onAddToCart={() => console.log("Add to Cart clicked")}
