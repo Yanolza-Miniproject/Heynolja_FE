@@ -7,7 +7,7 @@ const NotFound = () => {
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
-  };
+  }
   return (
     <Styled.Container>
       <Styled.IconWrapper>
@@ -15,7 +15,7 @@ const NotFound = () => {
         <img src={NotFoundArrow} alt="page-not-found" className="arrow-icon" />
       </Styled.IconWrapper>
       <Styled.TextWrapper>
-        <span className="main-text">🥲 헉.. 숙소를 찾을 수 없어요! </span>
+        <span className="main-text">🥲 헉.. 숙소를 찾을 수 없어요!</span>
         <span className="text">다른 도움이 필요하세요?</span>
         <div className="text-btn">
           <button onClick={handleGoBack}>뒤로가기</button>
