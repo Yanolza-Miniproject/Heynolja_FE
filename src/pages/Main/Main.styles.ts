@@ -35,7 +35,6 @@ export const Container = styled.div`
 `;
 
 export const Banner = styled.div`
-width: 100%;
   height: 100px;
   padding: 5rem 10rem;
 
@@ -49,6 +48,7 @@ width: 100%;
 export const Title = styled.h3`
   margin: 1rem;
 
+  font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
 `;
@@ -71,7 +71,7 @@ export const MyAreaAccomList = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    grid-template-columns:repeat(2, auto);
+    grid-template-columns:repeat(1, auto);
   }
 `;
 
@@ -93,17 +93,30 @@ export const TopLikedAccomList = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    grid-template-columns:repeat(2, auto);
+    grid-template-columns:repeat(1, auto);
   }
 `;
 
 export const ParkingAccomList = styled(motion.div)`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   justify-content: center;
   align-items: center;
 
-  gap: 1rem;
-  margin-bottom: 3rem;
+  gap: 1em;
+  margin-bottom: 3em;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns:repeat(1, auto);
+  }
 `;
 
 export const NormalAccomList = styled(motion.div)`
@@ -124,7 +137,7 @@ export const NormalAccomList = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(1, auto);
   }
 `;
 
@@ -159,8 +172,8 @@ export const ItemPicture = styled(motion.div)`
   overflow: hidden;
 
   img {
-    width: 10rem;
-    height: 10rem;
+    width: 13rem;
+    height: 13rem;
     object-fit: cover;
   }
 `;
@@ -174,7 +187,7 @@ export const ItemInfo = styled.div`
   margin-top: 0.5rem;
   width: 100%;
 
-  font-size: 0.8rem;
+  font-size: 1rem;
 
   h3 {
     cursor: pointer;
