@@ -225,6 +225,13 @@ export const handlers = [
     });
   }),
 
+  // 결제시 주문 취소 요청
+  http.delete("/api/v1/orders/:order_id", () => {
+    return HttpResponse.json({
+      message: "주문 취소 성공",
+    });
+  }),
+
   // 장바구니 조회
   http.get("/api/v1/baskets", async () => {
     return HttpResponse.json({
