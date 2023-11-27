@@ -58,7 +58,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
                 <p>{item.room_name}</p>
               </div>
               <Styled.Empty />
-              <span>{formatNumber(item.price)}원</span>
+              <span>₩{formatNumber(item.price)}</span>
             </Styled.Item>
           );
         })}
@@ -67,7 +67,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
       <Styled.Bottom>
         <span>총 합계</span>
         <Styled.Empty />
-        <span>{formatNumber(totalPrice)}원</span>
+        <span>₩{formatNumber(totalPrice)}</span>
       </Styled.Bottom>
       <Button
         text="구매하기"

@@ -16,6 +16,7 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
   return (
     <Styled.CategoryItemContainer ref={ref}>
       <Styled.CategoryItemWrapper
+        id="itemTest"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{

@@ -337,7 +337,7 @@ export const likeData = [
 export const cartData = [
   {
     room_basket_id: 1,
-    accomodation_name: "라마다 제주시티 호텔",
+    accommodation_name: "라마다 제주시티 호텔",
     room_name: "스위트 더블",
     price: 210000,
     number_guests: 2,
@@ -346,7 +346,7 @@ export const cartData = [
   },
   {
     room_basket_id: 2,
-    accomodation_name: "라마다 제주시티 호텔",
+    accommodation_name: "라마다 제주시티 호텔",
     room_name: "스탠다드 트윈",
     price: 95000,
     number_guests: 2,
@@ -355,7 +355,7 @@ export const cartData = [
   },
   {
     room_basket_id: 3,
-    accomodation_name: "제주 홍스랜드펜션",
+    accommodation_name: "제주 홍스랜드펜션",
     room_name: "402동",
     price: 120000,
     number_guests: 2,
@@ -364,7 +364,7 @@ export const cartData = [
   },
   {
     room_basket_id: 4,
-    accomodation_name: "제주 홍스랜드펜션",
+    accommodation_name: "제주 홍스랜드펜션",
     room_name: "402동",
     price: 120000,
     number_guests: 2,
@@ -373,7 +373,7 @@ export const cartData = [
   },
   {
     room_basket_id: 5,
-    accomodation_name: "부산 앙코르 호텔",
+    accommodation_name: "부산 앙코르 호텔",
     room_name: "스위트룸",
     price: 300000,
     number_guests: 2,

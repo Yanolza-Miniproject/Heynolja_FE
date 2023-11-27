@@ -10,7 +10,7 @@ const index = () => {
           <Styled.Content>
             <Styled.Title>💵 결제 내역</Styled.Title>
           </Styled.Content>
-          <img src={Arrow}></img>
+          <img alt="화살표" src={Arrow}></img>
         </Styled.MyBox>
       </Link>
       <Link to="/cart" style={{ textDecoration: "none" }}>
@@ -18,7 +18,7 @@ const index = () => {
           <Styled.Content>
             <Styled.Title>🛒 장바구니</Styled.Title>
           </Styled.Content>
-          <img src={Arrow}></img>
+          <img alt="화살표" src={Arrow}></img>
         </Styled.MyBox>
       </Link>
       {/* <Link to="/wish"> */}
@@ -26,7 +26,7 @@ const index = () => {
         <Styled.Content>
           <Styled.Title>❤️ 찜한 목록</Styled.Title>
         </Styled.Content>
-        <img src={Arrow}></img>
+        <img alt="화살표" src={Arrow}></img>
       </Styled.MyBox>
       {/* </Link> */}
     </Styled.MyList>

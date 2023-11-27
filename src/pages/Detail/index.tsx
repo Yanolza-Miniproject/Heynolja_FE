@@ -6,43 +6,73 @@ import PriceDisplay from "../../components/Detail/PriceDisplay";
 import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
 import Calendar from "../../components/Detail/Calendar";
 import StockStatusBanner from "../../components/Detail/StockStatusBaner";
-const productData = {
-  // images: [
-  //   "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/fd904255-0d68-46df-a091-18d6efc6427f",
-  // ],
-  images: [
-    // "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/27596864-e5a9-4c79-9dea-f45b77a4a6d8",
-    "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/2c0134f2-6ba3-434c-8dca-6d5831bf6e24",
-    "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/fd904255-0d68-46df-a091-18d6efc6427f",
-  ],
-  name: "그랜드 하얏트 제주",
-  roomName: "디럭스룸",
-  price: "239,000원",
-  quantity: 1,
-};
+import { roomDetail } from "../../mock/detailPageData.ts";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useGetRoomDetail } from "../../hooks/useDetailFetch.ts";
 
 const Detail = () => {
+  const { roomId } = useParams(); // URL에서 room_id 추출
+  const { data, isLoading, error } = useGetRoomDetail(parseInt(roomId, 10));
+  const { accommodation_name, room_name, price, room_image_url } = roomDetail; // 이부분 나중에 삭제
+  const [selectedGuests, setSelectedGuests] = useState(1);
+  const [selectedCheckInDate, setSelectedCheckInDate] = useState<Date | null>(
+    null,
+  );
+  const [selectedCheckOutDate, setSelectedCheckOutDate] = useState<Date | null>(
+    null,
+  );
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!data) {
+    return <div>객실 정보가 없습니다.</div>;
+  }
+  console.log("roomId", roomId);
+  console.log("데이터:", data);
+  // const roomDetails = data.data;
+
+  // Calendar 컴포넌트에서 선택한 날짜가 변경될 때 호출되는 콜백 함수
+  const handleDateChange = (
+    checkInDate: Date | null,
+    checkOutDate: Date | null,
+  ) => {
+    setSelectedCheckInDate(checkInDate);
+    setSelectedCheckOutDate(checkOutDate);
+  };
+
   return (
     <Styled.container>
       <Styled.Layout>
-        <ProductGallery images={productData.images} />
+        <ProductGallery images={room_image_url} />
+        {/* <ProductGallery images={roomDetails.room_image_url} /> */}
         <Styled.DetailsContainer>
           <Styled.HorizontalContainer>
             <ProductDetails
-              roomName={productData.roomName}
-              name={productData.name}
-              price={productData.price}
+              roomName={room_name}
+              // roomName={roomDetails.name}
+              name={accommodation_name}
+              price={price}
             />
             <StockStatusBanner />
           </Styled.HorizontalContainer>
-          <Calendar price={productData.price} />
+          <Calendar price={price} onDateChange={handleDateChange} />
           <QuantitySelector
-            initialQuantity={productData.quantity}
-            onQuantityChange={(newQuantity) => console.log(newQuantity)}
-            price={productData.price}
+            initialQuantity={selectedGuests}
+            onQuantityChange={(newQuantity) => setSelectedGuests(newQuantity)}
+            price={price}
           />
-          <PriceDisplay price={productData.price} />
+          <PriceDisplay pricePerNight={price} />
           <ActionButtonGroup
+            checkInAt={selectedCheckInDate}
+            checkOutAt={selectedCheckOutDate}
+            numberGuests={selectedGuests}
+            roomDetail={roomDetail}
             onAddToCart={() => console.log("Add to Cart clicked")}
           />
         </Styled.DetailsContainer>
