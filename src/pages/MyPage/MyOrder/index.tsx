@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../../../components/MyPage/MyOrder/Header/index";
 import ItemList from "../../../components/MyPage/MyOrder/MyOrderList/index";
 import * as Styled from "./MyOrder.styles";

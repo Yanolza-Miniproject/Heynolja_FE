@@ -45,10 +45,9 @@ export const Title = styled.span`
   letter-spacing: -0.05rem;
 `;
 
-export const ItemImg = styled.div`
+export const ItemImg = styled.img`
   width: 8.25rem;
   height: 8.5625rem;
-  background: #d9d9d9;
   margin-right: 1.81rem;
 `;
 

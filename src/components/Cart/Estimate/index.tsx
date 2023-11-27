@@ -27,7 +27,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
             data: [
               {
                 room_basket_id: 4,
-                accommdation_name: "제주 라마다 호텔",
+                accommodation_name: "제주 라마다 호텔",
                 room_name: "스위트룸",
                 check_in_at: "11-11-11",
                 check_out_at: "11-11-11",

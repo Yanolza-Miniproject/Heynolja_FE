@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import * as Styled from "./Header.styles";
-import { bookedList } from "../../../../mock/myPageData";
+import { useGetMyOrder } from "../../../../hooks/usePayment";
 
-const index = () => {
+const Header = () => {
+  const { data } = useGetMyOrder(); // 결제 이력 데이터 요청
   return (
     <Styled.Header>
-      <span>결제내역 {bookedList.length}</span>
+      <span>결제내역 {data?.data.data.length}</span>
       <Link to="/mypage" style={{ textDecoration: "none" }}>
         <Styled.BackToMyPageBtn>돌아가기</Styled.BackToMyPageBtn>
       </Link>
@@ -13,4 +14,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Header;
