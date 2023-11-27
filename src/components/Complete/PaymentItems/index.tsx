@@ -9,7 +9,11 @@ const PaymentItems = ({ data }: PaymentItemsProps) => {
       <Styled.itemWrapper>
         {data.map((item) => {
           return (
-            <div key={item.room_basket_id} style={{ marginBottom: "1.5rem" }}>
+            <div
+              key={item.room_basket_id}
+              style={{ marginBottom: "1.5rem" }}
+              data-testid="payment_list"
+            >
               <Item
                 name={item.accommodation_name}
                 type={item.room_name}
