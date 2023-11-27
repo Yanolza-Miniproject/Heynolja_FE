@@ -17,18 +17,22 @@ const Complete = () => {
     );
   }
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return <div>로딩중</div>;
   }
 
   return (
     <Styled.Container>
-      <CompleteMessage
-        data={data?.data.data[0].rooms}
-        totalPrice={data?.data.data[0].total_price}
-      />
-      <Styled.Line></Styled.Line>
-      <PaymentItems data={data?.data.data[0].rooms} />
+      {data && (
+        <>
+          <CompleteMessage
+            data={data?.data.data[0].rooms}
+            totalPrice={data?.data.data[0].total_price}
+          />
+          <Styled.Line></Styled.Line>
+          <PaymentItems data={data?.data.data[0].rooms} />
+        </>
+      )}
     </Styled.Container>
   );
 };
