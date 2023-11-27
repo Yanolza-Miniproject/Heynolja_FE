@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 
-// interface BannerProps {
-//   lowStock?: boolean;
-//   outOfStock?: boolean;
-// }
+interface BannerProps {
+  lowStock?: boolean;
+  outOfStock?: boolean;
+}
 
-export const Banner = styled.div`
+export const Banner = styled.div<BannerProps>`
   display: inline-block;
 
   margin-bottom: 16px;
