@@ -1,20 +1,23 @@
-import * as Styled from "./Detail.styles.ts";
-import ProductGallery from "../../components/Detail/ProductGallery";
-import ProductDetails from "../../components/Detail/ProductDetails";
-import QuantitySelector from "../../components/Detail/QuantitySelector";
-import PriceDisplay from "../../components/Detail/PriceDisplay";
-import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
-import Calendar from "../../components/Detail/Calendar";
-import StockStatusBanner from "../../components/Detail/StockStatusBaner";
-import { roomDetail } from "../../mock/detailPageData.ts";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
+import Calendar from "../../components/Detail/Calendar";
+import PriceDisplay from "../../components/Detail/PriceDisplay";
+import ProductDetails from "../../components/Detail/ProductDetails";
+import ProductGallery from "../../components/Detail/ProductGallery";
+import QuantitySelector from "../../components/Detail/QuantitySelector";
+import StockStatusBanner from "../../components/Detail/StockStatusBaner";
 import { useGetRoomDetail } from "../../hooks/useDetailFetch.ts";
+import { roomDetail } from "../../mock/detailPageData.ts";
+import * as Styled from "./Detail.styles.ts";
 
 const Detail = () => {
-  const { roomId } = useParams(); // URL에서 room_id 추출
-  const { data, isLoading, error } = useGetRoomDetail(parseInt(roomId, 10));
-  const { accommodation_name, room_name, price, room_image_url } = roomDetail; // 이부분 나중에 삭제
+  const { roomId } = useParams();
+  const roomIdNumber = parseInt(roomId || "0", 10);
+
+  const { data, isLoading, error } = useGetRoomDetail(roomIdNumber);
+
+  const { accommodation_name, room_name, price, room_image_url } = roomDetail; // 이부분 나중에 삭제 예정
   const [selectedGuests, setSelectedGuests] = useState(1);
   const [selectedCheckInDate, setSelectedCheckInDate] = useState<Date | null>(
     null,
