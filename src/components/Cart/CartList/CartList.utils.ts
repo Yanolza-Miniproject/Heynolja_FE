@@ -37,13 +37,17 @@ export const handleAllCheck = (
 export const handleSelectDeleteClick = (
   cart: CartItemType[],
   estimatedPrice: CartItemType[],
+  select: boolean[],
+  setSelect: React.Dispatch<React.SetStateAction<boolean[]>>,
   setCart: React.Dispatch<React.SetStateAction<CartItemType[]>>,
   setEstimatedPrice: React.Dispatch<React.SetStateAction<CartItemType[]>>,
   setSelected: React.Dispatch<React.SetStateAction<number>>,
 ) => {
   const set = new Set(estimatedPrice.map((item) => JSON.stringify(item)));
   const filtered = cart.filter((item) => !set.has(JSON.stringify(item)));
+  const newSelect = select.filter((item) => item === false);
 
+  setSelect(newSelect);
   setSelected(0);
   setCart(filtered);
   setEstimatedPrice([]);
