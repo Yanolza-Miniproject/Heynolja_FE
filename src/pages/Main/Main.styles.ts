@@ -46,7 +46,7 @@ export const Banner = styled.div`
 `;
 
 export const Title = styled.h3`
-  margin: 1rem;
+  margin: 1.5rem;
 
   font-size: 1.3rem;
   font-weight: 700;

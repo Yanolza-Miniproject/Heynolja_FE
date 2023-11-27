@@ -176,7 +176,8 @@ export const SidebarContainer = styled.aside`
   right: 1rem;
   bottom: 0;
 
-  border-radius: 0.625rem;
+  border-radius: 1.5rem;
+  background-color: white;
 
   transform: translateY(-50%);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -220,7 +221,7 @@ export const NavButton = styled.button`
   img {
     display: block;
     width: 5rem;
-    height: 2rem;
+    height: 1rem;
     margin: auto;
   }
 
