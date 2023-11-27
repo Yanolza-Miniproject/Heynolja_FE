@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "format": "prettier --write --cache .",
-    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx .",
+    "lint": "eslint --cache",
     "prepare": "husky install",
     "test": "jest"
   },
