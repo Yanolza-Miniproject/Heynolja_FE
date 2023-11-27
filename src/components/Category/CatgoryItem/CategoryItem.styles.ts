@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export const CategoryItemContainer = styled.div`
   ${flexCenter};
 
-  width: 230px;
+  width: 195px;
   height: 330px;
 
   padding: 1rem;

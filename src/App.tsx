@@ -15,6 +15,7 @@ import { Global } from "@emotion/react";
 import { globalStyle } from "./components/Common/Common.styles";
 import Search from "./pages/Search";
 import SearchList from "./pages/SearchList";
+import MyWishs from "./pages/MyPage/MyWishs";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { path: "category", element: <Category /> },
       { path: "mypage/myorder", element: <MyOrder /> },
       { path: "search", element: <Search /> },
+      { path: "mypage/mywish", element: <MyWishs /> },
       { path: "results", element: <SearchList /> },
       { path: "*", element: <NotFound /> },
     ],

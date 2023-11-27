@@ -49,6 +49,9 @@ export const handeleDelete = (
   item: CartItemType,
   cart: CartItemType[],
   estimatedPrice: CartItemType[],
+  index: number,
+  select: boolean[],
+  setSelect: React.Dispatch<React.SetStateAction<boolean[]>>,
   setCart: React.Dispatch<React.SetStateAction<CartItemType[]>>,
   setSelected: React.Dispatch<React.SetStateAction<number>>,
   setEstimatedPrice: React.Dispatch<React.SetStateAction<CartItemType[]>>,
@@ -60,6 +63,10 @@ export const handeleDelete = (
   const filteredEst = estimatedPrice.filter(
     (value) => value.room_basket_id !== item.room_basket_id,
   );
+
+  const newSelect = select.slice(0, index).concat(select.slice(index + 1));
+
+  setSelect(newSelect);
 
   if (
     estimatedPrice.find((value) => value.room_basket_id === item.room_basket_id)
