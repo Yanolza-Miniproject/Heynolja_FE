@@ -24,7 +24,7 @@ const Calendar = () => {
   const validCheckInDate = isValidDate(checkInDate) ? checkInDate : null;
   const validCheckOutDate = isValidDate(checkOutDate) ? checkOutDate : null;
 
-  const handleChange = (dates) => {
+  const handleChange = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
     setCheckInDate(start);
     setCheckOutDate(end);
