@@ -6,11 +6,12 @@
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
-    "format": "prettier --write --cache .",
-    "lint": "eslint",
+    "format": "prettier . --write --ignore-path .gitignore && git update-index --again",
+    "lint": "eslint . --ext .ts, .tsx --fix --ignore-path .gitignore",
     "prepare": "husky install",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "test:unit": "jest --watch"
   },
   "lint-staged": {
     "*.{css,md,json}": [
