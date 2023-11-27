@@ -8,7 +8,6 @@ import * as Styled from "./Complete.styles";
 const Complete = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useGetCompleteData(id as string);
-  console.log(data);
 
   if (data?.data.data.length === 0 || isError) {
     return (
