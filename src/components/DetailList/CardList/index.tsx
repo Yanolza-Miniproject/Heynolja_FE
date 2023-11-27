@@ -4,8 +4,9 @@ import * as Styled from "./CardList.styles.ts";
 import pickupIcon from "../../../assets/svg/pickup-icon.svg";
 import parkingIcon from "../../../assets/svg/automobile-icon.svg";
 import cookingIcon from "../../../assets/svg/cooking-icon.svg";
+import { CardListProps } from "./CardList.types.ts";
 
-const CardList: React.FC = ({ parking, cooking, pickup }) => {
+const CardList: React.FC<CardListProps> = ({ parking, cooking, pickup }) => {
   const cardData = [
     {
       icon: <Styled.IconImage src={parkingIcon} isActive={parking} />,
@@ -27,7 +28,6 @@ const CardList: React.FC = ({ parking, cooking, pickup }) => {
   return (
     <>
       <Styled.CardTitleText>우리 숙소는요,</Styled.CardTitleText>{" "}
-      {/* 수정된 부분 */}
       <Styled.CardListContainer>
         {cardData.map((card, index) => (
           <Card
