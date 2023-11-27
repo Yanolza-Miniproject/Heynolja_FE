@@ -80,7 +80,6 @@ const Detail = () => {
             }
             numberGuests={selectedGuests}
             roomDetail={roomDetail}
-            onAddToCart={() => console.log("Add to Cart clicked")}
           />
         </Styled.DetailsContainer>
       </Styled.Layout>
