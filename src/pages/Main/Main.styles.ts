@@ -8,8 +8,8 @@ export const ContainerVariants = {
     opacity: 1,
     scale: 1,
     transition: {
-      delayChildren: 0.1,
-      staggerChildren: 0.1,
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -27,7 +27,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-  gap: 0.8em;
+  gap: 0.8rem;
   height: auto;
   min-height: 100%;
 
@@ -35,39 +35,66 @@ export const Container = styled.div`
 `;
 
 export const Banner = styled.div`
+width: 100%;
   height: 100px;
-  padding: 2em 5em;
+  padding: 5rem 10rem;
 
   background-color: #191554;
 
-  font-size: 3em;
+  font-size: 3rem;
   color: white;
   font-weight: 800;
 `;
 
 export const Title = styled.h3`
-  margin: 1em;
+  margin: 1rem;
 
   font-weight: 700;
   text-align: center;
 `;
 
 export const MyAreaAccomList = styled(motion.div)`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-items: center;
 
-  gap: 1em;
-  margin-bottom: 3em;
+  gap: 1rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns:repeat(2, auto);
+  }
 `;
 
 export const TopLikedAccomList = styled(motion.div)`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-items: center;
 
   gap: 1em;
   margin-bottom: 3em;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns:repeat(2, auto);
+  }
 `;
 
 export const ParkingAccomList = styled(motion.div)`
@@ -75,8 +102,8 @@ export const ParkingAccomList = styled(motion.div)`
   justify-content: center;
   align-items: center;
 
-  gap: 1em;
-  margin-bottom: 3em;
+  gap: 1rem;
+  margin-bottom: 3rem;
 `;
 
 export const NormalAccomList = styled(motion.div)`
@@ -85,24 +112,24 @@ export const NormalAccomList = styled(motion.div)`
   justify-content: center;
   align-items: start;
 
-  gap: 1em;
-  margin-bottom: 6em;
+  gap: 1rem;
+  margin-bottom: 6rem;
 
   @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, auto);
   }
 `;
 
 export const ItemContainer = styled.div`
-  padding: 0.8em;
+  padding: 0.8rem;
 
   border: 1px solid #e6e6e6;
   border-radius: 0.625rem;
@@ -132,8 +159,8 @@ export const ItemPicture = styled(motion.div)`
   overflow: hidden;
 
   img {
-    width: 10em;
-    height: 10em;
+    width: 10rem;
+    height: 10rem;
     object-fit: cover;
   }
 `;
@@ -144,18 +171,18 @@ export const ItemInfo = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  margin-top: 0.5em;
+  margin-top: 0.5rem;
   width: 100%;
 
-  font-size: 0.8em;
+  font-size: 0.8rem;
 
   h3 {
     cursor: pointer;
   }
 
   img {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.5rem;
+    height: 1.5rem;
     cursor: pointer;
   }
 `;

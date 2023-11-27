@@ -36,7 +36,7 @@ export const headerContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 5em;
+  padding: 0 5rem;
 
   background-color: white;
   border-bottom: 1px solid #f6f6f6;
@@ -49,7 +49,7 @@ export const headerWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 1.2em;
+  gap: 1.2rem;
 
   a {
     position: relative;
@@ -57,23 +57,23 @@ export const headerWrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    &:nth-child(2)::after,
-    &:nth-child(3)::after,
-    &:last-child::after {
+    &:nth-of-type(2)::after,
+    &:nth-of-type(3)::after,
+    &:nth-last-child(1)::after {
       content: "";
       position: absolute;
       left: -10px;
-      height: 0.8em;
+      height: 0.8rem;
       top: 50%;
-      margin-top: -0.4em;
+      margin-top: -0.4rem;
       color: #b3b3b3;
       border-left: 1px solid #dbdbdb;
     }
   }
 
   img {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.4rem;
+    height: 1.4rem;
     transition:
       filter 0.2s,
       transform 0.1s;
@@ -92,7 +92,7 @@ export const footerContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 5em;
+  padding: 0 5rem;
 
   height: 200px;
 
@@ -105,14 +105,14 @@ export const footerLeftWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
-  padding: 0 2em;
-  gap: 1em;
+  padding: 0 2rem;
+  gap: 1rem;
 
   height: 100px;
   background-color: #f6f6f6;
 
-  font-size: 0.8em;
-  line-height: 1.7em;
+  font-size: 0.8rem;
+  line-height: 1.4rem;
   font-weight: 400;
   color: #646464;
 
@@ -128,13 +128,13 @@ export const footerRightWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
-  gap: 5em;
+  gap: 5rem;
 
-  width: 28em;
+  width: 25rem;
   height: 100px;
 
-  font-size: 0.8em;
-  line-height: 1.7em;
+  font-size: 0.8rem;
+  line-height: 1.3rem;
   font-weight: 400;
   color: #646464;
 
@@ -150,20 +150,20 @@ export const footerWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
-  gap: 1em;
+  gap: 1rem;
 `;
 
 export const footerBottomWrapper = styled.div`
-  padding: 1em 8em;
-  margin-bottom: 2em;
+  padding: 1rem 6.5rem;
+  margin-bottom: 2rem;
 
   text-align: left;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   color: #646464;
 `;
 
 export const footerLine = styled.hr`
-  margin: 0 6em;
+  margin: 0 6rem;
 
   height: 1px;
 
@@ -173,7 +173,7 @@ export const footerLine = styled.hr`
 
 export const SidebarContainer = styled.aside`
   position: fixed;
-  right: 1em;
+  right: 1rem;
   bottom: 0;
 
   border-radius: 0.625rem;
@@ -193,7 +193,7 @@ export const SidebarWrapper = styled.div`
 export const NavButton = styled.button`
   display: block;
 
-  padding: 0.5em;
+  padding: 0.5rem;
 
   outline: none;
   appearance: none;
@@ -219,22 +219,22 @@ export const NavButton = styled.button`
 
   img {
     display: block;
-    width: 6em;
-    height: 2em;
+    width: 5rem;
+    height: 2rem;
     margin: auto;
   }
 
-  font-size: 0.8em;
+  font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
   color: black;
 `;
 
 export const RecentlyViewedItem = styled.div`
-  padding: 1em;
+  padding: 1rem;
 
-  width: 5em;
-  height: 7em;
+  width: 4rem;
+  height: 6rem;
 
-  font-size: 0.8em;
+  font-size: 0.8rem;
 `;
