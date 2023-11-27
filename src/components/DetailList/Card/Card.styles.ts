@@ -10,7 +10,7 @@ export const Card = styled(Box)<{ isActive: boolean }>`
   height: 12vh;
 
   border-radius: 4px;
-  padding: 0 20px; // 양쪽에 20px의 패딩 추가
+  padding: 0 20px;
   border: ${({ isActive }) =>
     isActive ? "1px solid #D3D3D3" : "1px solid #E6E6E6"};
 `;

@@ -31,22 +31,21 @@ const Calendar = () => {
   };
 
   return (
-    <div className="calendar-container">
-      <DatePicker
-        selected={validCheckInDate}
-        onChange={handleChange}
-        startDate={validCheckInDate}
-        endDate={validCheckOutDate}
-        monthsShown={2}
-        selectsRange
-        inline={false}
-        minDate={new Date()}
-        locale={ko}
-        dateFormat="yyyy/MM/dd"
-        isClearable={true}
-        customInput={<DateSelector />}
-      />
-    </div>
+    <DatePicker
+      selected={validCheckInDate}
+      onChange={handleChange}
+      startDate={validCheckInDate}
+      endDate={validCheckOutDate}
+      monthsShown={2}
+      selectsRange
+      inline={false}
+      minDate={new Date()}
+      locale={ko}
+      dateFormat="yyyy/MM/dd"
+      isClearable={true}
+      customInput={<DateSelector />}
+      className="react-datepicker-second"
+    />
   );
 };
 

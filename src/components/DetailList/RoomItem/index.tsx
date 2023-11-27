@@ -1,6 +1,6 @@
 import React from "react";
-import * as Styled from "./RoomItem.styles"; // 해당 스타일 파일을 적절히 작성해야 합니다.
-import formatNumber from "../../../utils/formatNumber"; // 가격 포맷팅 함수
+import * as Styled from "./RoomItem.styles";
+import formatNumber from "../../../utils/formatNumber";
 import { RoomItemProps } from "./RoomItem.types";
 import personIcon from "../../../assets/svg/person-icon.svg";
 

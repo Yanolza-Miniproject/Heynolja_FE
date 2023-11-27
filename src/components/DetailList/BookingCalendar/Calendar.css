@@ -6,6 +6,18 @@
   width: 40vw;
   border: transparent;
   border-radius: 15px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  /* border: 1px solid #d3d3d3; */
+}
+
+.react-datepicker-second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 40vw;
+  border: transparent;
+  border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #d3d3d3;
 }
