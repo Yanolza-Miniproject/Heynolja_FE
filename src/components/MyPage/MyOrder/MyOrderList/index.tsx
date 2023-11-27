@@ -9,23 +9,27 @@ const MyOrderList = () => {
 
   return (
     <Styled.MyOrderList>
-      {data?.data.data
-        .sort((a: MyOrderListProps, b: MyOrderListProps) => {
-          const dateA = new Date(a.payment_at).getTime();
-          const dateB = new Date(b.payment_at).getTime();
+      {data?.data.data ? (
+        data?.data.data
+          .sort((a: MyOrderListProps, b: MyOrderListProps) => {
+            const dateA = new Date(a.payment_at).getTime();
+            const dateB = new Date(b.payment_at).getTime();
 
-          return dateB - dateA;
-        })
-        .map((item: MyOrderListProps) => (
-          <MyOrderItemWrapper
-            key={item.payment_id}
-            payment_id={item.payment_id}
-            total_price={item.total_price}
-            total_count={item.total_count}
-            payment_at={item.payment_at}
-            rooms={item.rooms}
-          />
-        ))}
+            return dateB - dateA;
+          })
+          .map((item: MyOrderListProps) => (
+            <MyOrderItemWrapper
+              key={item.payment_id}
+              payment_id={item.payment_id}
+              total_price={item.total_price}
+              total_count={item.total_count}
+              payment_at={item.payment_at}
+              rooms={item.rooms}
+            />
+          ))
+      ) : (
+        <div>로딩중...</div>
+      )}
     </Styled.MyOrderList>
   );
 };
