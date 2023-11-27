@@ -1,12 +1,12 @@
 import { CategoryProps } from "../../../pages/Category/Category.types";
 import CategoryItem from "../CatgoryItem";
 
-type CategoryItemPageProps = {
+export type CategoryItemPageProps = {
   message: string;
   data: CategoryProps[];
 };
 
-type CategoryItemWrapperProps = {
+export type CategoryItemWrapperProps = {
   data: CategoryItemPageProps[];
 };
 

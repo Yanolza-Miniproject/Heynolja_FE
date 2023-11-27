@@ -32,6 +32,7 @@ export const useCategoryInfiniteQuery = ({
       }),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages, lastPageParam) => {
+      console.log(allPages);
       if (lastPage.data.length === 0) return undefined;
       return lastPageParam + 1;
     },
