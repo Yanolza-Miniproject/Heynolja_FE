@@ -1,10 +1,15 @@
-import * as Styled from "./ActionButtonGroup.styles";
-import { useSetRecoilState } from "recoil";
-import { purchaseState } from "../../../store/purchaseAtom";
 import { useNavigate } from "react-router-dom";
-import { usePostRoomToCart, usePostOrder } from "../../../hooks/useDetailFetch";
+import { useSetRecoilState } from "recoil";
+import { usePostOrder, usePostRoomToCart } from "../../../hooks/useDetailFetch";
+import { purchaseState } from "../../../store/purchaseAtom";
+import * as Styled from "./ActionButtonGroup.styles";
+import { ActionButtonGroupProps } from "./ActionButtonGroup.types";
 
-const ActionButtonGroup = ({ checkInAt, checkOutAt, numberGuests }) => {
+const ActionButtonGroup = ({
+  checkInAt,
+  checkOutAt,
+  numberGuests,
+}: ActionButtonGroupProps) => {
   const setPurchase = useSetRecoilState(purchaseState);
   const navigate = useNavigate();
   const postRoomToCart = usePostRoomToCart();

@@ -18,8 +18,13 @@ const PriceDisplay: React.FC<{ pricePerNight: number }> = ({
 
   let totalPrice = pricePerNight;
 
-  if (checkInDate && checkOutDate) {
-    const nightCount = calculateNightCount(checkInDate, checkOutDate);
+  if (checkInDate instanceof Date && checkOutDate instanceof Date) {
+    const formattedCheckInDate = checkInDate.toISOString();
+    const formattedCheckOutDate = checkOutDate.toISOString();
+    const nightCount = calculateNightCount(
+      formattedCheckInDate,
+      formattedCheckOutDate,
+    );
     totalPrice = nightCount * pricePerNight;
 
     setPurchase((prev) => ({
