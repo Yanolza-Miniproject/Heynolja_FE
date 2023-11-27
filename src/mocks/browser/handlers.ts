@@ -279,6 +279,9 @@ export const handlers = [
     const { room_id } = params;
 
     const resData = roomDetail.rooms.filter((room) => room.id === ~~room_id);
+    // const resData = roomDetail.rooms.find(
+    //   (room) => room.id === Number(room_id),
+    // );
 
     return HttpResponse.json({
       message: "성공",
