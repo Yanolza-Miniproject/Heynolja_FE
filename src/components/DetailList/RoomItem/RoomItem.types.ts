@@ -5,6 +5,6 @@ export interface RoomItemProps {
   capacity: number;
   roomImageUrl?: string | undefined;
   RoomInventory?: { date: string; inventory: number }[];
-  checkInDate: Date;
-  checkOutDate: Date;
+  checkInDate: Date | null;
+  checkOutDate: Date | null;
 }
