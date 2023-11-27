@@ -1,5 +1,4 @@
 import * as Styled from "./Category.styles";
-import React from "react";
 import CategoryBanner from "../../components/Category/CategoryBanner";
 import { useNavigate } from "react-router-dom";
 import CategoryFilter from "../../components/Category/CategoryFilter";
