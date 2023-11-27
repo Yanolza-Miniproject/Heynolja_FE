@@ -3,6 +3,8 @@ export interface RoomItemProps {
   name: string;
   price: number;
   capacity: number;
-  inventory: number;
-  roomImageUrl: string | undefined;
+  roomImageUrl?: string | undefined;
+  RoomInventory?: { date: string; inventory: number }[];
+  checkInDate: Date;
+  checkOutDate: Date;
 }

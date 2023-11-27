@@ -6,7 +6,7 @@ import {
   checkInDateState,
   checkOutDateState,
 } from "../../../store/checkInCheckOutAtom.ts";
-import formatDate from "../../../utils/formatDate.ts";
+import { formatDate } from "../../../utils/formatDate.ts";
 import * as Styled from "./DateSelector.styles.ts";
 import { DateSelectorProps } from "./DateSelector.types.ts";
 

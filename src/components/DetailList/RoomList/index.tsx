@@ -1,27 +1,70 @@
+import { useRecoilValue } from "recoil";
+import { accommodationDetail } from "../../../mock/detailListPageData";
+import {
+  checkInDateState,
+  checkOutDateState,
+} from "../../../store/checkInCheckOutAtom";
 import RoomItem from "../RoomItem";
 import * as Styled from "./RoomList.styles";
-import { accommodationDetail } from "../../../mock/detailListPageData";
+import { RoomType } from "./RoomList.types";
 
 const RoomList = () => {
+  const checkInDate = useRecoilValue(checkInDateState);
+  const checkOutDate = useRecoilValue(checkOutDateState);
   const { rooms } = accommodationDetail;
+
+  console.log("체크인 날짜:", checkInDate);
+  console.log("체크아웃 날짜:", checkOutDate);
+
+  const isInventoryAvailable = (room: RoomType) => {
+    if (!checkInDate || !checkOutDate) return true;
+
+    const startDate = new Date(checkInDate);
+    const endDate = new Date(checkOutDate);
+
+    if (room.RoomInventory) {
+      for (const inventoryInfo of room.RoomInventory) {
+        const formattedDate = "20" + inventoryInfo.date;
+        const inventoryDate = new Date(formattedDate + "T00:00:00.000Z");
+
+        if (
+          inventoryDate >= startDate &&
+          inventoryDate < endDate &&
+          inventoryInfo.inventory <= 0
+        ) {
+          return false;
+        }
+      }
+    }
+    console.log(`방 ID: ${room.id}, 재고 상태:`, room.RoomInventory);
+    return true;
+  };
+  const filteredRooms = rooms.filter(isInventoryAvailable);
+
+  console.log("필터링된 방 목록:", filteredRooms);
 
   return (
     <Styled.RoomList>
-      {rooms.map((room) => (
-        <RoomItem
-          key={room.id}
-          id={room.id}
-          name={room.name}
-          price={room.price}
-          capacity={room.capacity}
-          inventory={room.inventory}
-          roomImageUrl={
-            Array.isArray(room.room_image_url)
-              ? room.room_image_url[0]
-              : undefined
-          }
-        />
-      ))}
+      {filteredRooms.map(
+        (room) =>
+          room.RoomInventory !== undefined && (
+            <RoomItem
+              key={room.id}
+              id={room.id}
+              name={room.name}
+              price={room.price}
+              capacity={room.capacity}
+              RoomInventory={room.RoomInventory}
+              roomImageUrl={
+                Array.isArray(room.room_image_url)
+                  ? room.room_image_url[0]
+                  : undefined
+              }
+              checkInDate={checkInDate}
+              checkOutDate={checkOutDate}
+            />
+          ),
+      )}
     </Styled.RoomList>
   );
 };
