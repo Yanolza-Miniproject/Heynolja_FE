@@ -1,28 +1,35 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CompleteMessage from "../../components/Complete/CompleteMessage";
 import PaymentItems from "../../components/Complete/PaymentItems";
-import { CartItemType } from "../../types";
+import { useGetCompleteData } from "../../hooks/useGetCompleteData";
+import NotFound from "../NotFound";
 import * as Styled from "./Complete.styles";
 
 const Complete = () => {
   const { id } = useParams();
-  const [data, setData] = useState<CartItemType[]>([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const { data, isLoading, isError } = useGetCompleteData(id as string);
+  console.log(data);
 
-  useEffect(() => {
-    axios.get(`/api/v1/payment/${id}`).then((res) => {
-      setData([...res.data.data[0].rooms]);
-      setTotalPrice(res.data.data[0].total_price);
-    });
-  }, [id]);
+  if (data?.data.data.length === 0 || isError) {
+    return (
+      <Styled.Container>
+        <NotFound />
+      </Styled.Container>
+    );
+  }
+
+  if (isLoading) {
+    return <div>로딩중</div>;
+  }
 
   return (
     <Styled.Container>
-      <CompleteMessage data={data} totalPrice={totalPrice} />
+      <CompleteMessage
+        data={data?.data.data[0].rooms}
+        totalPrice={data?.data.data[0].total_price}
+      />
       <Styled.Line></Styled.Line>
-      <PaymentItems data={data} />
+      <PaymentItems data={data?.data.data[0].rooms} />
     </Styled.Container>
   );
 };
