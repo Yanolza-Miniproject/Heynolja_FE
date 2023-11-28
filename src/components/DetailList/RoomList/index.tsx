@@ -3,7 +3,7 @@ import { accommodationDetail } from "../../../mock/detailListPageData";
 import {
   checkInDateState,
   checkOutDateState,
-} from "../../../store/checkInCheckOutAtom";
+} from "../../../store/checkinCheckOutAtom";
 import RoomItem from "../RoomItem";
 import * as Styled from "./RoomList.styles";
 import isInventoryAvailable from "./RoomList.utils";
