@@ -41,7 +41,7 @@ const authInterceptors = (instance: AxiosInstance) => {
   );
   instance.interceptors.response.use(
     (response) => response,
-    logErrorInterceptor,
+    (error) => logErrorInterceptor(error),
   );
 };
 
