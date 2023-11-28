@@ -9,7 +9,8 @@ const CompleteMessage = ({ data, totalPrice }: CompleteMessageProps) => {
       <Styled.TextWrapper>
         <Styled.TextTop>결제 완료🎉</Styled.TextTop>
         <Styled.TextMid>
-          첫번째 여행까지 <span>{leftDateUntilTheTrip(data)}일</span>{" "}
+          첫번째 여행까지{" "}
+          <span data-testid="day">{leftDateUntilTheTrip(data)}일</span>{" "}
           남았습니다.
         </Styled.TextMid>
         <Styled.TextMid>
