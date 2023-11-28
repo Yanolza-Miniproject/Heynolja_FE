@@ -3,7 +3,7 @@ import ResetIcon from "../../../assets/svg/reset-btn.svg";
 import SearchIcon from "../../../assets/svg/search-icon.svg";
 import { SearchButtonProps, SearchResetButtonProps } from "./Button.types";
 
-export const SearchButton: React.FC<SearchButtonProps> = ({ onClick }) => {
+export const SearchButton = ({ onClick }: SearchButtonProps) => {
   return (
     <Styled.SearchButton onClick={onClick}>
       <img src={SearchIcon} alt="search" />
@@ -12,9 +12,9 @@ export const SearchButton: React.FC<SearchButtonProps> = ({ onClick }) => {
   );
 };
 
-export const SearchResetButton: React.FC<SearchResetButtonProps> = ({
-  onClick,
-}) => {
+export const SearchResetButton = ({
+  onClick
+}: SearchResetButtonProps) => {
   return (
     <Styled.SearchResetButton onClick={onClick}>
       다시 검색하기

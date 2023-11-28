@@ -6,15 +6,15 @@ export const SearchButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 5em;
+  width: 10rem;
   height: 100%;
-  gap: 0.5em;
+  gap: 0.5rem;
 
   background-color: #e6e6e6;
   border: 1px solid #e6e6e6;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 
-  font-size: 2em;
+  font-size: 2rem;
   transition:
     background-color 0.3s,
     color 0.1s,
@@ -31,12 +31,12 @@ export const SearchButton = styled.div`
   }
 
   img {
-    width: 2em;
-    height: 2em;
+    width: 5rem;
+    height: 4rem;
   }
 
   &:active {
-    transform: translateX(0.05em) translateY(0.05em);
+    transform: translateX(0.15rem) translateY(0.15rem);
   }
 `;
 
@@ -46,10 +46,10 @@ export const SearchResetButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  width: 7em;
-  height: 5em;
+  width: 7rem;
+  height: 5rem;
   padding: 0;
-  margin-left: 1em;
+  margin-left: 1rem;
 
   background-color: transparent;
   appearance: none;
@@ -59,12 +59,12 @@ export const SearchResetButton = styled.button`
   overflow: hidden;
 
   img {
-    padding: 0.2em;
+    padding: 0.2rem;
 
     border-radius: 2rem;
 
-    width: 3em;
-    height: 3em;
+    width: 3rem;
+    height: 2.5rem;
     transition:
       transform 0.3s,
       scale 0.3s,
