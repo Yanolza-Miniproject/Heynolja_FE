@@ -10,7 +10,7 @@ import { useRecoilState } from "recoil";
 import {
   checkInDateState,
   checkOutDateState,
-} from "../../../store/checkInCheckOutAtom.ts";
+} from "../../../store/checkinCheckOutAtom.ts";
 import formatDate from "../../../utils/formatDate";
 
 const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
