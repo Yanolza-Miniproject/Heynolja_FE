@@ -1,5 +1,6 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { createWrapper } from "../../../test/test.utils";
+import userEvent from "@testing-library/user-event";
 import CategoryItem from "./";
 
 const testData = {
@@ -23,12 +24,25 @@ const testData = {
 };
 
 describe("CategoryItem Test", () => {
-  {
-    test("CategoryItem", () => {
-      if ("IntersectionObserver" in window) {
-        const wrapper = createWrapper();
-        render(<CategoryItem data={testData} />, { wrapper });
-      }
-    });
-  }
+  test("CategoryItem", () => {
+    if ("IntersectionObserver" in window) {
+      const wrapper = createWrapper();
+      render(<CategoryItem data={testData} />, { wrapper });
+    }
+  });
+
+  test("카테고리 아이템을 누르면 해당 숙소의 상세페이지로 이동합니다.", () => {
+    if ("IntersectionObserver" in window) {
+      const router = jest.fn();
+      const user = userEvent;
+      const wrapper = createWrapper();
+
+      render(<CategoryItem data={testData} />, { wrapper });
+
+      const button = screen.getByTestId("individual-item");
+      user.click(button);
+
+      expect(router).toHaveBeenCalledWith(testData.id);
+    }
+  });
 });
