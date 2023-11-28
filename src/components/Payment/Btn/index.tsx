@@ -23,18 +23,7 @@ const Btn = () => {
         { payment_type: "card" },
         {
           onSuccess: async (response) => {
-            console.log(response);
             const data = response.data.data;
-            console.log("w", data.payment_id);
-            // 리코일 저장(payment_id만 url넘겨주기로 변경)
-            // SetPaymentCompleted({
-            //   payment_at: data.payment_at,
-            //   payment_id: data.payment_id,
-            //   payment_status: data.payment_status,
-            //   payment_type: "card",
-            //   total_price: data.total_price,
-            //   order_datas: data.order_data,
-            // });
             await navigate("/Complete/" + data.payment_id);
             sessionStorage.clear();
           },

@@ -1,6 +1,14 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
+// 숙소 상세 정보 조회
+export const useGetAccommodationDetail = (accommodationId: number) => {
+  return useQuery({
+    queryKey: ["accommodationDetail", accommodationId],
+    queryFn: () => axios.get(`/api/v1/accommodations/${accommodationId}`),
+  });
+};
+
 // 객실 상세 정보 조회
 export const useGetRoomDetail = (roomId: number) => {
   return useQuery({

@@ -5,8 +5,8 @@ import calendarIcon from "../../../assets/svg/calendar-icon.svg";
 import {
   checkInDateState,
   checkOutDateState,
-} from "../../../store/checkInCheckOutAtom.ts";
-import formatDate from "../../../utils/formatDate.ts";
+} from "../../../store/checkinCheckOutAtom.ts";
+import { formatDate } from "../../../utils/formatDate.ts";
 import * as Styled from "./DateSelector.styles.ts";
 import { DateSelectorProps } from "./DateSelector.types.ts";
 

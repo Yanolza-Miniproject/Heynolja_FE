@@ -8,8 +8,8 @@ export const ContainerVariants = {
     opacity: 1,
     scale: 1,
     transition: {
-      delayChildren: 0.1,
-      staggerChildren: 0.1,
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -27,7 +27,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-  gap: 0.8em;
+  gap: 0.8rem;
   height: auto;
   min-height: 100%;
 
@@ -35,48 +35,88 @@ export const Container = styled.div`
 `;
 
 export const Banner = styled.div`
-  height: 100px;
-  padding: 2em 5em;
+  height: 100%;
+  padding: 5rem 10rem;
 
   background-color: #191554;
 
-  font-size: 3em;
+  font-size: 3rem;
   color: white;
   font-weight: 800;
 `;
 
 export const Title = styled.h3`
-  margin: 1em;
+  margin: 1.5rem;
 
+  font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
 `;
 
 export const MyAreaAccomList = styled(motion.div)`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-items: center;
 
-  gap: 1em;
-  margin-bottom: 3em;
+  gap: 1rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, auto);
+  }
 `;
 
 export const TopLikedAccomList = styled(motion.div)`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-items: center;
 
   gap: 1em;
   margin-bottom: 3em;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, auto);
+  }
 `;
 
 export const ParkingAccomList = styled(motion.div)`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-items: center;
 
   gap: 1em;
   margin-bottom: 3em;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, auto);
+  }
 `;
 
 export const NormalAccomList = styled(motion.div)`
@@ -85,24 +125,24 @@ export const NormalAccomList = styled(motion.div)`
   justify-content: center;
   align-items: start;
 
-  gap: 1em;
-  margin-bottom: 6em;
+  gap: 1rem;
+  margin-bottom: 6rem;
 
   @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, auto);
   }
 `;
 
 export const ItemContainer = styled.div`
-  padding: 0.8em;
+  padding: 0.8rem;
 
   border: 1px solid #e6e6e6;
   border-radius: 0.625rem;
@@ -132,8 +172,8 @@ export const ItemPicture = styled(motion.div)`
   overflow: hidden;
 
   img {
-    width: 10em;
-    height: 10em;
+    width: 13rem;
+    height: 13rem;
     object-fit: cover;
   }
 `;
@@ -144,18 +184,44 @@ export const ItemInfo = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  margin-top: 0.5em;
+  margin-top: 0.5rem;
   width: 100%;
-
-  font-size: 0.8em;
 
   h3 {
     cursor: pointer;
   }
 
+  .item-name {
+    font-size: 0.9rem;
+  }
+  .item-price {
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
   img {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.2rem;
+    height: 1.2rem;
     cursor: pointer;
   }
+`;
+
+export const ItemInfoFirstColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 0.4rem;
+`;
+
+export const ItemInfoSecondColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  gap: 0.2rem;
+
+  font-size: 0.8rem;
 `;
