@@ -1,35 +1,24 @@
 import * as Styled from "./Main.styles";
-import { useState } from "react";
-import LikeIcon from "../../assets/svg/like-icon.svg";
-import LikedIcon from "../../assets/svg/liked-icon.svg";
 import HotelDefaultImg from "../../assets/image/hotel-default.jpg";
 import Sidebar from "../../components/Common/Sidebar";
 import {
-  useFetchAccomByRegion,
+  // useFetchAccomByRegion,
   useFetchTopLikedAccom,
   useFetchAccomWithParking,
   useFetchAllAccommodations,
 } from "../../hooks/useMainListFetch";
 import { CategoryProps } from "../Category/Category.types";
+import HeartClick from "../../components/Category/HeartClick";
 
 const Main = () => {
-  const { data: regionAccomData } = useFetchAccomByRegion(0);
+  // const { data: regionAccomData } = useFetchAccomByRegion(0);
   const { data: topLikedAccomData } = useFetchTopLikedAccom();
   const topThreeLikedAccomData = topLikedAccomData
     ? topLikedAccomData.slice(0, 3)
     : [];
   const { data: parkingAccomData } = useFetchAccomWithParking(1);
-  const parkingAvailableAccomData = parkingAccomData?.slice(0, 2);
+  const parkingAvailableAccomData = parkingAccomData?.slice(0, 3);
   const { data: randomAccomData } = useFetchAllAccommodations();
-
-  const [likedItems, setLikedItems] = useState<{ [key: number]: boolean }>({});
-
-  const toLike = (id: number) => {
-    setLikedItems((prevLikedItems) => ({
-      ...prevLikedItems,
-      [id]: !prevLikedItems[id],
-    }));
-  };
 
   return (
     <>
@@ -55,20 +44,17 @@ const Main = () => {
                   </Styled.ItemPicture>
                 </Styled.ItemLink>
                 <Styled.ItemInfo>
-                  <h3>{item.name}</h3>
-                  {likedItems[item.id] ? (
-                    <img
-                      src={LikedIcon}
-                      alt="liked"
-                      onClick={() => toLike(item.id)}
+                  <Styled.ItemInfoFirstColumn>
+                    <h3 className="item-name">{item.name}</h3>
+                    {/* <h3>{item.price}</h3> */}
+                    <h3 className="item-price">~ ₩110,000 부터</h3>
+                  </Styled.ItemInfoFirstColumn>
+                  <Styled.ItemInfoSecondColumn>
+                    <HeartClick
+                      likes={item.like_count}
+                      likes_clicked={item.likes_available}
                     />
-                  ) : (
-                    <img
-                      src={LikeIcon}
-                      alt="like"
-                      onClick={() => toLike(item.id)}
-                    />
-                  )}
+                  </Styled.ItemInfoSecondColumn>
                 </Styled.ItemInfo>
               </Styled.ItemContainer>
             ))}
@@ -89,20 +75,17 @@ const Main = () => {
                   </Styled.ItemPicture>
                 </Styled.ItemLink>
                 <Styled.ItemInfo>
-                  <h3>{item.name}</h3>
-                  {likedItems[item.id] ? (
-                    <img
-                      src={LikedIcon}
-                      alt="liked"
-                      onClick={() => toLike(item.id)}
+                  <Styled.ItemInfoFirstColumn>
+                    <h3 className="item-name">{item.name}</h3>
+                    {/* <h3>{item.price}</h3> */}
+                    <h3 className="item-price">~ ₩110,000 부터</h3>
+                  </Styled.ItemInfoFirstColumn>
+                  <Styled.ItemInfoSecondColumn>
+                    <HeartClick
+                      likes={item.like_count}
+                      likes_clicked={item.likes_available}
                     />
-                  ) : (
-                    <img
-                      src={LikeIcon}
-                      alt="like"
-                      onClick={() => toLike(item.id)}
-                    />
-                  )}
+                  </Styled.ItemInfoSecondColumn>
                 </Styled.ItemInfo>
               </Styled.ItemContainer>
             ))}
@@ -125,20 +108,17 @@ const Main = () => {
                   </Styled.ItemPicture>
                 </Styled.ItemLink>
                 <Styled.ItemInfo>
-                  <h3>{item.name}</h3>
-                  {likedItems[item.id] ? (
-                    <img
-                      src={LikedIcon}
-                      alt="liked"
-                      onClick={() => toLike(item.id)}
+                  <Styled.ItemInfoFirstColumn>
+                    <h3 className="item-name">{item.name}</h3>
+                    {/* <h3>{item.price}</h3> */}
+                    <h3 className="item-price">~ ₩110,000 부터</h3>
+                  </Styled.ItemInfoFirstColumn>
+                  <Styled.ItemInfoSecondColumn>
+                    <HeartClick
+                      likes={item.like_count}
+                      likes_clicked={item.likes_available}
                     />
-                  ) : (
-                    <img
-                      src={LikeIcon}
-                      alt="like"
-                      onClick={() => toLike(item.id)}
-                    />
-                  )}
+                  </Styled.ItemInfoSecondColumn>
                 </Styled.ItemInfo>
               </Styled.ItemContainer>
             ))}
@@ -159,20 +139,17 @@ const Main = () => {
                   </Styled.ItemPicture>
                 </Styled.ItemLink>
                 <Styled.ItemInfo>
-                  <h3>{item.name}</h3>
-                  {likedItems[item.id] ? (
-                    <img
-                      src={LikedIcon}
-                      alt="liked"
-                      onClick={() => toLike(item.id)}
+                  <Styled.ItemInfoFirstColumn>
+                    <h3 className="item-name">{item.name}</h3>
+                    {/* <h3>{item.price}</h3> */}
+                    <h3 className="item-price">~ ₩110,000 부터</h3>
+                  </Styled.ItemInfoFirstColumn>
+                  <Styled.ItemInfoSecondColumn>
+                    <HeartClick
+                      likes={item.like_count}
+                      likes_clicked={item.likes_available}
                     />
-                  ) : (
-                    <img
-                      src={LikeIcon}
-                      alt="like"
-                      onClick={() => toLike(item.id)}
-                    />
-                  )}
+                  </Styled.ItemInfoSecondColumn>
                 </Styled.ItemInfo>
               </Styled.ItemContainer>
             ))}

@@ -71,7 +71,7 @@ export const MyAreaAccomList = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    grid-template-columns:repeat(1, auto);
+    grid-template-columns: repeat(1, auto);
   }
 `;
 
@@ -93,13 +93,13 @@ export const TopLikedAccomList = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    grid-template-columns:repeat(1, auto);
+    grid-template-columns: repeat(1, auto);
   }
 `;
 
 export const ParkingAccomList = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-items: center;
 
@@ -107,7 +107,7 @@ export const ParkingAccomList = styled(motion.div)`
   margin-bottom: 3em;
 
   @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(3, auto);
   }
 
   @media (max-width: 768px) {
@@ -115,7 +115,7 @@ export const ParkingAccomList = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    grid-template-columns:repeat(1, auto);
+    grid-template-columns: repeat(1, auto);
   }
 `;
 
@@ -187,15 +187,41 @@ export const ItemInfo = styled.div`
   margin-top: 0.5rem;
   width: 100%;
 
-  font-size: 1rem;
-
   h3 {
     cursor: pointer;
   }
 
+  .item-name {
+    font-size: 0.9rem;
+  }
+  .item-price {
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
   img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
     cursor: pointer;
   }
+`;
+
+export const ItemInfoFirstColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 0.4rem;
+`;
+
+export const ItemInfoSecondColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  gap: 0.2rem;
+
+  font-size: 0.8rem;
 `;
