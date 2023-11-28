@@ -17,9 +17,16 @@ export const SearchButton = styled(Button)`
   font-weight: 700;
   font-size: 1.2rem;
 
+  white-space: nowrap;
+
   &:hover {
     background-color: #191554;
     border: 1px solid white;
     color: white;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 0.8rem;
+    width: 100%;
   }
 `;
