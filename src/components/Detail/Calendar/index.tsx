@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import {
   checkInDateState,
   checkOutDateState,
-} from "../../../store/checkInCheckOutAtom.ts";
+} from "../../../store/checkinCheckOutAtom.ts";
 import formatNumber from "../../../utils/formatNumber";
 import "./Calendar.css";
 import * as Styled from "./Calendar.styles.ts";
