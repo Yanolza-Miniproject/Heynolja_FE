@@ -4,7 +4,7 @@ import Card from "./";
 
 describe("Card", () => {
   const testIcon = <div>Test Icon</div>;
-  it("active 상태가 true일때 카드 스타일 테스트", () => {
+  test("active 상태가 true일때 카드 스타일 테스트", () => {
     const testDescription = "Active Description";
     render(
       <Card icon={testIcon} description={testDescription} isActive={true} />,
@@ -14,7 +14,7 @@ describe("Card", () => {
     expect(descriptionElement).toHaveStyle("color: black");
   });
 
-  it("active 상태가 false일때 카드 스타일 테스트", () => {
+  test("active 상태가 false일때 카드 스타일 테스트", () => {
     const testDescription = "Inactive Description";
     render(
       <Card icon={testIcon} description={testDescription} isActive={false} />,

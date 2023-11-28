@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import CardList from "./";
 
 describe("CardList", () => {
-  it("카드가 텍스트를 랜더링하고 상태에 따라 다른 스타일을 적용한다.", () => {
+  test("카드가 텍스트를 랜더링하고 상태에 따라 다른 스타일을 적용한다.", () => {
     render(<CardList parking={true} cooking={false} pickup={true} />);
 
     expect(screen.getByText("주차 가능해요")).toBeInTheDocument();
