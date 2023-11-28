@@ -1,7 +1,7 @@
 {
   "name": "mini-1",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "homepage": "https://yanolza-mini.netlify.app/",
   "type": "module",
   "scripts": {
