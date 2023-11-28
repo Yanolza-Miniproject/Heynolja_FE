@@ -1,6 +1,6 @@
 import { useCategoryInfiniteQuery } from "../../../hooks/useCategoryInfiniteQuery";
 import InfiniteScroll from "react-infinite-scroll-component";
-import CategoryItemWrapper from "../CategoryItemWrapper";
+import CategoryItemWrapper from "../CategoryItemWrapper/index";
 
 export type CategoryQueryProps = {
   regionNumber: number;
@@ -32,8 +32,10 @@ const CategoryQuery = ({
 
   console.log(data);
 
+  console.log(fetchNextPage);
+
   return (
-    <>
+    <div>
       <InfiniteScroll
         dataLength={data?.pages.length || 0}
         next={fetchNextPage}
@@ -43,7 +45,7 @@ const CategoryQuery = ({
       >
         {data && <CategoryItemWrapper data={data.pages} />}
       </InfiniteScroll>
-    </>
+    </div>
   );
 };
 

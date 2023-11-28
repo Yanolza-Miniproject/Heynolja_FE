@@ -13,6 +13,11 @@ export const Banner = styled.div`
 `;
 
 export const CategoryBannerTextMotion = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+
   margin-top: 2%;
   margin-left: 20%;
 

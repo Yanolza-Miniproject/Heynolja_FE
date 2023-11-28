@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { CategoryProps } from "../pages/Category/Category.types";
 import { CategoryItemPageProps } from "../components/Category/CategoryItemWrapper";
+import { RecoilRoot } from "recoil";
 
 export const createWrapper = () => {
   const queryClient = new QueryClient({
@@ -12,6 +13,12 @@ export const createWrapper = () => {
   });
   return ({ children }: { children: React.ReactNode }) => (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+};
+
+export const createRecoilWrapper = () => {
+  return ({ children }: { children: React.ReactNode }) => (
+    <RecoilRoot>{children}</RecoilRoot>
   );
 };
 

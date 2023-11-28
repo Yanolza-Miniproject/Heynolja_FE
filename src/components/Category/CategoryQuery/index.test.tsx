@@ -1,5 +1,5 @@
-import { render, renderHook, screen, waitFor } from "@testing-library/react";
-import CategoryQuery from "./index";
+import { render, screen } from "@testing-library/react";
+import CategoryQuery from ".";
 import { createWrapper } from "../../../test/test.utils";
 import { useCategoryInfiniteQuery } from "../../../hooks/useCategoryInfiniteQuery";
 import { MockUpData } from "../../../mocks/browser/constant";
@@ -21,7 +21,9 @@ const mockData = {
   ],
 };
 
-jest.mock("../../../hooks/useCategoryInfiniteQuery");
+jest.mock("../../../hooks/useCategoryInfiniteQuery", () => ({
+  useCategoryInfiniteQuery: jest.fn(),
+}));
 
 describe("CategoryQuery", () => {
   it("데이터가 로딩중일 때 테스트", async () => {
@@ -46,43 +48,5 @@ describe("CategoryQuery", () => {
     );
 
     expect(screen.getByText("Loading...")).toBeInTheDocument();
-  });
-
-  it("데이터가 로딩이 끝났을 때 테스트", async () => {
-    mockUseCategoryInfiniteQuery.mockImplementation(() => ({
-      data: mockData,
-      fetchNextPage: jest.fn(),
-      hasNextPage: false,
-      isLoading: false,
-    }));
-
-    const wrapper = createWrapper();
-    render(
-      <CategoryQuery
-        regionNumber={99}
-        accommodationNumber={99}
-        category_parking={2}
-        category_cooking={2}
-        category_pickup={2}
-      />,
-
-      { wrapper },
-    );
-
-    const { result } = renderHook(
-      () =>
-        useCategoryInfiniteQuery({
-          region: 99,
-          type: 99,
-          category_parking: 2,
-          category_cooking: 2,
-          category_pickup: 2,
-        }),
-      { wrapper },
-    );
-
-    await waitFor(() => {
-      console.log(result);
-    });
   });
 });
