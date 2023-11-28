@@ -2,10 +2,9 @@
   "name": "mini-1",
   "version": "0.0.0",
   "private": false,
-  "homepage": "https://yanolza-mini.netlify.app/",
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "vite build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "format": "prettier . --write --ignore-path .gitignore && git update-index --again",
