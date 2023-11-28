@@ -73,10 +73,14 @@ const Detail = () => {
           <PriceDisplay pricePerNight={price} />
           <ActionButtonGroup
             checkInAt={
-              selectedCheckInDate ? selectedCheckInDate.toISOString() : ""
+              selectedCheckInDate
+                ? new Date(selectedCheckInDate).toISOString()
+                : ""
             }
             checkOutAt={
-              selectedCheckOutDate ? selectedCheckOutDate.toISOString() : ""
+              selectedCheckOutDate
+                ? new Date(selectedCheckOutDate).toISOString()
+                : ""
             }
             numberGuests={selectedGuests}
             roomDetail={roomDetail}
