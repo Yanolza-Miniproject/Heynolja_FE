@@ -21,14 +21,14 @@ const index = () => {
           <img alt="화살표" src={Arrow}></img>
         </Styled.MyBox>
       </Link>
-      {/* <Link to="/wish"> */}
-      <Styled.MyBox>
-        <Styled.Content>
-          <Styled.Title>❤️ 찜한 목록</Styled.Title>
-        </Styled.Content>
-        <img alt="화살표" src={Arrow}></img>
-      </Styled.MyBox>
-      {/* </Link> */}
+      <Link to="/mypage/mywish">
+        <Styled.MyBox>
+          <Styled.Content>
+            <Styled.Title>❤️ 찜한 목록</Styled.Title>
+          </Styled.Content>
+          <img alt="화살표" src={Arrow}></img>
+        </Styled.MyBox>
+      </Link>
     </Styled.MyList>
   );
 };

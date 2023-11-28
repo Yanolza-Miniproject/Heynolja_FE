@@ -18,3 +18,12 @@ export const useGetMyOrder = () => {
     queryKey: ["payment"],
   });
 };
+
+// 주문 취소
+export const useDeleteOrder = (orderId: number) => {
+  return useMutation({
+    mutationFn: () => {
+      return axios.delete(`/api/v1/orders/${orderId}`);
+    },
+  });
+};
