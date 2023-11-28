@@ -14,7 +14,7 @@ export const checkCategoryQueryUrl = ({
   categoryPickup,
 }: CategoryFilterParams) => {
   const queryObjects = {
-    regionUrl: region !== 99 && region !== null ? `&region=${region}` : "",
+    regionUrl: region !== 99 && region !== null ? `&region01=${region}` : "",
     typeUrl: type !== 99 && type !== null ? `&type=${type}` : "",
     categoryParkingUrl:
       categoryParking !== 2 && categoryParking !== null

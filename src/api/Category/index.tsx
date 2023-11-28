@@ -10,7 +10,7 @@ export const fetchCatgory = async ({
   categoryPickupUrl,
 }: fetchCatgoryProps) => {
   const data = await axios.get(
-    `/api/v1/accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
+    `/api/accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
   );
   return data.data;
 };

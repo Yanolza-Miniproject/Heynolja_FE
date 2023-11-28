@@ -20,11 +20,7 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
   };
 
   return (
-    <Styled.CategoryItemContainer
-      ref={ref}
-      data-testid="individual-item"
-      onClick={handleClick}
-    >
+    <Styled.CategoryItemContainer ref={ref}>
       <Styled.CategoryItemWrapper
         id="itemTest"
         initial={{ opacity: 0 }}
@@ -35,16 +31,23 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
           ease: "easeInOut",
         }}
       >
-        <Styled.CategoryImage src={data.thumbnail_url} alt={data.name} />
+        <Styled.CategoryImage
+          src={data.thumbnailUrl}
+          alt={data.name}
+          onClick={handleClick}
+          data-testid="individual-item"
+        />
         <Styled.CategoryTextWrapper>
           <Styled.CategoryName>{data.name}</Styled.CategoryName>
           <Styled.CategoryView>
-            구매한 사람 {data.view_count}명
+            구매한 사람 {data.viewCount}명
           </Styled.CategoryView>
           <Styled.CategoryDownWrapper>
-            <Styled.CategoryPrice>￦{data.price}000원</Styled.CategoryPrice>
+            <Styled.CategoryPrice>
+              ￦{data.lowest_price}원 부터
+            </Styled.CategoryPrice>
             <HeartClick
-              likes={data.like_count}
+              likes={data.wishCount}
               likes_clicked={data.likes_available}
             />
           </Styled.CategoryDownWrapper>

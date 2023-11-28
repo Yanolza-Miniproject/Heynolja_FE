@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vite build",
     "deploy": "gh-pages -d dist",
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0 --port 5174",
     "format": "prettier . --write --ignore-path .gitignore && git update-index --again",
     "lint": "eslint . --ext .ts, .tsx --fix --ignore-path .gitignore",
     "prepare": "husky install",

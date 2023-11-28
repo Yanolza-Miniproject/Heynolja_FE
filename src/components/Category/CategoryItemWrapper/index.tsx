@@ -9,7 +9,7 @@ const CategoryItemWrapper = ({ data }: CategoryItemWrapperProps) => {
       {data[0].data.length !== 0 ? (
         data.map((pageData) => {
           return pageData.data.map((item: CategoryProps) => {
-            return <CategoryItem key={item.name} data={item} />;
+            return <CategoryItem key={item.id} data={item} />;
           });
         })
       ) : (

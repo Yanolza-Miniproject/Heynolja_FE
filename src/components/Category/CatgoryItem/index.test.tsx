@@ -9,17 +9,17 @@ const testData = {
   address: "경상남도 통영시 한산면 외항길 78",
   phone_number: "055-642-6171",
   type: 4,
-  like_count: 644,
-  thumbnail_url:
+  wishCount: 644,
+  thumbnailUrl:
     "https://res.cloudinary.com/dtf6uf7vi/image/upload/v1700183654/Home/testid.jpg",
-  price: 488,
+  lowest_price: 488,
   likes_available: true,
   categoryParking: 1,
   categoryCooking: 1,
   categoryPickup: 1,
-  view_count: 707,
-  check_in: "18:00",
-  check_out: "12:00",
+  viewCount: 707,
+  checkIn: "18:00",
+  checkOut: "12:00",
   room_counts: 8,
 };
 

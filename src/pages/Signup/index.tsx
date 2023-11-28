@@ -1,8 +1,27 @@
 import InputText from "../../components/Signin/InputText";
 import * as Styled from "./Signup.styles";
+import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Inputs } from "./Signup.types";
 import { InputProps } from "./Signup.constant";
+
+const fetchSignup = async (data: Inputs) => {
+  const response = await axios.post(
+    "/api/members/join",
+    {
+      email: data.email,
+      password: data.password,
+      nickname: data.nickname,
+      phoneNumber: data.phone,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    },
+  );
+  return response.data;
+};
 
 const Signup = () => {
   const {
@@ -11,8 +30,10 @@ const Signup = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) =>
-    console.log("로그인 데이터 전송", data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    fetchSignup(data).then((res) => console.log(res));
+  };
 
   return (
     <Styled.Container>
