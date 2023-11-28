@@ -65,13 +65,13 @@ const CategoryFilterPopUp = memo(
               key={type.value}
               value={type.value}
               onClick={categoryClick}
-              data-testId="CategoryPopUpItem"
+              data-testid="CategoryPopUpItem"
             >
               {type.label}
             </Styled.CategoryPopUpItem>
           ))}
         </Styled.CategoryPopUp>
-        <Styled.CategoryChoiceValue data-testId="CategorySelected">
+        <Styled.CategoryChoiceValue data-testid="CategorySelected">
           {selected}
         </Styled.CategoryChoiceValue>
       </Styled.CategoryFilterPopUpContainer>

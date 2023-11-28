@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { CategoryProps } from "../pages/Category/Category.types";
 import { CategoryItemPageProps } from "../components/Category/CategoryItemWrapper";
 import { RecoilRoot } from "recoil";
+import { BrowserRouter } from "react-router-dom";
 
 export const createWrapper = () => {
   const queryClient = new QueryClient({
@@ -18,7 +19,9 @@ export const createWrapper = () => {
 
 export const createRecoilWrapper = () => {
   return ({ children }: { children: React.ReactNode }) => (
-    <RecoilRoot>{children}</RecoilRoot>
+    <BrowserRouter>
+      <RecoilRoot>{children}</RecoilRoot>
+    </BrowserRouter>
   );
 };
 

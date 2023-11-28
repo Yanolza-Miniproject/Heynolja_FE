@@ -18,7 +18,6 @@ export const CategoryItemContainer = styled.div`
   &:hover {
     cursor: pointer;
     border: 1px solid #ff5100;
-    scale: 1.05;
   }
 `;
 
