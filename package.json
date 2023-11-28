@@ -1,15 +1,26 @@
 {
   "name": "mini-1",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "dev": "vite",
+    "format": "prettier . --write --ignore-path .gitignore && git update-index --again",
+    "lint": "eslint . --ext .ts, .tsx --fix --ignore-path .gitignore",
+    "prepare": "husky install",
     "preview": "vite preview",
-    "format": "prettier --write --cache .",
-    "lint": "eslint src/**/*.{ts,tsx} --fix",
-    "prepare": "husky install"
+    "test": "jest --watchAll --verbose"
+  },
+  "lint-staged": {
+    "*.{css,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "eslint",
+      "prettier --write"
+    ],
+    "package.json": "npx sort-package-json"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -33,14 +44,15 @@
     "react-intersection-observer": "^9.5.3",
     "react-router-dom": "^6.19.0",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1",
     "recoil": "^0.7.7",
-    "recoil-persist": "^5.1.0"
+    "recoil-persist": "^5.1.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
+    "@emotion/jest": "^11.11.0",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
