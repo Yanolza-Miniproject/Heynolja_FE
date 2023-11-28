@@ -14,27 +14,23 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
   const navigate = useNavigate();
   const [, setPurchaseList] = useRecoilState(purchaseState);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [purchaseId, setPurchaseId] = useState<number[]>([
+    ...estimatedPrice.map((item) => item.room_basket_id),
+  ]);
+
+  useEffect(() => {
+    setPurchaseId([...estimatedPrice.map((item) => item.room_basket_id)]);
+  }, [estimatedPrice]);
 
   // 장바구니에서 체크한 상품 주문 요청 함수
   const fetch = () => {
     postOrdersMutation.mutate(
-      { id: 1 },
+      { room_basket_id: [...purchaseId] },
       {
         onSuccess: (responseData) => {
           setPurchaseList({
             totalPrice: totalPrice,
-            order_id: responseData.data.order_id,
-            data: [
-              {
-                room_basket_id: 4,
-                accommdation_name: "제주 라마다 호텔",
-                room_name: "스위트룸",
-                check_in_at: "11-11-11",
-                check_out_at: "11-11-11",
-                number_guests: 3,
-                price: 1233,
-              },
-            ],
+            order_id: responseData.data.data,
           });
           navigate("/payment");
         },
@@ -52,7 +48,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
       <Styled.Top>
         {estimatedPrice.map((item) => {
           return (
-            <Styled.Item key={item.room_basket_id}>
+            <Styled.Item key={item.room_basket_id} data-testid="estimate-item">
               <div>
                 <p>{item.accommodation_name}</p>
                 <p>{item.room_name}</p>

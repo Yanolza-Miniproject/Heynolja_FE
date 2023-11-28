@@ -9,11 +9,11 @@ export const ItemWrapper = styled.ul`
   flex-direction: column;
   padding: 1.19rem 0.81rem 2.19rem 1.81rem;
 
-  cursor: pointer;
+  /* cursor: pointer;
   &:hover {
     border: 1px solid #ff5100;
     box-shadow: 0px 0px 20px 0px rgba(255, 81, 0, 0.05);
-  }
+  } */
 `;
 
 export const ItemTitle = styled.p`
@@ -45,10 +45,9 @@ export const Title = styled.span`
   letter-spacing: -0.05rem;
 `;
 
-export const ItemImg = styled.div`
+export const ItemImg = styled.img`
   width: 8.25rem;
   height: 8.5625rem;
-  background: #d9d9d9;
   margin-right: 1.81rem;
 `;
 

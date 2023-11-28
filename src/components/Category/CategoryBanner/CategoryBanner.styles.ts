@@ -13,6 +13,11 @@ export const Banner = styled.div`
 `;
 
 export const CategoryBannerTextMotion = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+
   margin-top: 2%;
   margin-left: 20%;
 
@@ -21,9 +26,20 @@ export const CategoryBannerTextMotion = styled(motion.div)`
   font-size: 3em;
   color: white;
   font-weight: 800;
+
+  @media (max-width: 800px) {
+    margin-top: 2rem;
+    margin-left: 2rem;
+
+    font-size: 2rem;
+  }
 `;
 
 export const CategoryBannerSearchMotion = styled(motion.div)`
   width: object-fit;
   margin-top: 1.2rem;
+
+  @media (max-width: 800px) {
+    width: 80%;
+  }
 `;

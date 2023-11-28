@@ -8,8 +8,6 @@ export const MyWishsContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: lightblue;
-
   width: 100%;
   min-height: 70vh;
 

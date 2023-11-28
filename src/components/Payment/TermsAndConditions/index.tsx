@@ -15,7 +15,7 @@ const TermsAndConditions = () => {
   const setTermsAllChecked = useSetRecoilState(termsState);
 
   //체크박스 단일 선택
-  const handleSingleCheck = (e) => {
+  const handleSingleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setCheckItems([...checkItems, Number(e.target.id)]);
     } else {
@@ -24,7 +24,7 @@ const TermsAndConditions = () => {
   };
 
   //체크박스 전체 선택
-  const handleAllCheck = (e) => {
+  const handleAllCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       const items: number[] = [];
       Object.entries(data).map((item, i) => {

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export const CategoryItemContainer = styled.div`
   ${flexCenter};
 
-  width: 230px;
+  width: 195px;
   height: 330px;
 
   padding: 1rem;
@@ -18,7 +18,6 @@ export const CategoryItemContainer = styled.div`
   &:hover {
     cursor: pointer;
     border: 1px solid #ff5100;
-    scale: 1.05;
   }
 `;
 

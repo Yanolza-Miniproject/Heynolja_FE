@@ -12,7 +12,7 @@ function Sidebar() {
   return (
     <Styled.SidebarContainer>
       <Styled.SidebarWrapper>
-        <Styled.RecentlyViewedItem>최근 본 상품</Styled.RecentlyViewedItem>
+        <Styled.RecentlyViewedItem>방금 본 숙소</Styled.RecentlyViewedItem>
         <Styled.NavButton onClick={scrollToTop}>
           <img src={ScrollToTopIcon} onClick={scrollToTop} />
           TOP

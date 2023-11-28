@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
-import InfiniteScroll from "react-infinite-scroll-component";
 
-export const InfiniteScrollWrapper = styled(InfiniteScroll)`
+export const ListGridItemWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
 
-  width: 100%;
+  width: 60%;
   height: object-fit;
 
   margin-top: 2rem;

@@ -1,29 +1,38 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useParams } from "react-router-dom";
 import CompleteMessage from "../../components/Complete/CompleteMessage";
 import PaymentItems from "../../components/Complete/PaymentItems";
-import { purchaseState } from "../../store/purchaseAtom";
-import { CartItemType } from "../../types";
+import { useGetCompleteData } from "../../hooks/useGetCompleteData";
+import NotFound from "../NotFound";
 import * as Styled from "./Complete.styles";
 
 const Complete = () => {
-  const { totalPrice, order_id } = useRecoilValue(purchaseState);
-  const [data, setData] = useState<CartItemType[]>([]);
+  const { id } = useParams();
+  const { data, isLoading, isError } = useGetCompleteData(id as string);
 
-  useEffect(() => {
-    axios.get(`/api/v1/orders/${order_id}`).then((res) => {
-      setData([...res.data.order_datas]);
-    });
+  if (data?.data.data.length === 0 || isError) {
+    return (
+      <Styled.Container>
+        <NotFound />
+      </Styled.Container>
+    );
+  }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  if (isLoading || !data) {
+    return <div>로딩중</div>;
+  }
 
   return (
     <Styled.Container>
-      <CompleteMessage data={data} totalPrice={totalPrice} />
-      <Styled.Line></Styled.Line>
-      <PaymentItems data={data} />
+      {data && (
+        <>
+          <CompleteMessage
+            data={data?.data.data[0].rooms}
+            totalPrice={data?.data.data[0].total_price}
+          />
+          <Styled.Line></Styled.Line>
+          <PaymentItems data={data?.data.data[0].rooms} />
+        </>
+      )}
     </Styled.Container>
   );
 };

@@ -1,40 +1,24 @@
 import * as Styled from "./Main.styles";
-import { useEffect, useState } from "react";
-import { mainAccomList } from "../../mock/mainPageData";
-import LikeIcon from "../../assets/svg/like-icon.svg";
-import LikedIcon from "../../assets/svg/liked-icon.svg";
-import { AccomData } from "./Main.types";
 import HotelDefaultImg from "../../assets/image/hotel-default.jpg";
 import Sidebar from "../../components/Common/Sidebar";
+import {
+  // useFetchAccomByRegion,
+  useFetchTopLikedAccom,
+  useFetchAccomWithParking,
+  useFetchAllAccommodations,
+} from "../../hooks/useMainListFetch";
+import { CategoryProps } from "../Category/Category.types";
+import HeartClick from "../../components/Category/HeartClick";
 
 const Main = () => {
-  const [randomAccoms, setRandomAccoms] = useState<AccomData[]>([]);
-  const [myAreaAccoms, setMyAreaAccoms] = useState<AccomData[]>([]);
-  const [topLikedAccoms, setTopLikedAccoms] = useState<AccomData[]>([]);
-  const [parkingAccoms, setParkingAccoms] = useState<AccomData[]>([]);
-  const [likedItems, setLikedItems] = useState<{ [key: number]: boolean }>({});
-
-  useEffect(() => {
-    const accomData = [...mainAccomList].sort(() => Math.random() - 0.5);
-    const myAreaAccoms = accomData.slice(0, 3);
-    const topLikedAccoms = accomData
-      .sort((a, b) => b.likes - a.likes)
-      .slice(0, 3);
-    const parkingAccoms = accomData.slice(0, 2);
-    const randomAccoms = accomData.slice(0, 10);
-
-    setMyAreaAccoms(myAreaAccoms);
-    setTopLikedAccoms(topLikedAccoms);
-    setParkingAccoms(parkingAccoms);
-    setRandomAccoms(randomAccoms);
-  }, []);
-
-  const toLike = (id: number) => {
-    setLikedItems((prevLikedItems) => ({
-      ...prevLikedItems,
-      [id]: !prevLikedItems[id],
-    }));
-  };
+  // const { data: regionAccomData } = useFetchAccomByRegion(0);
+  const { data: topLikedAccomData } = useFetchTopLikedAccom();
+  const topThreeLikedAccomData = topLikedAccomData
+    ? topLikedAccomData.slice(0, 3)
+    : [];
+  const { data: parkingAccomData } = useFetchAccomWithParking(1);
+  const parkingAvailableAccomData = parkingAccomData?.slice(0, 3);
+  const { data: randomAccomData } = useFetchAllAccommodations();
 
   return (
     <>
@@ -51,31 +35,29 @@ const Main = () => {
           animate="visible"
           variants={Styled.ContainerVariants}
         >
-          {myAreaAccoms.map((item) => (
-            <Styled.ItemContainer key={item.id}>
-              <Styled.ItemLink to={`/accommodations/${item.id}`}>
-                <Styled.ItemPicture variants={Styled.ItemVariants}>
-                  <img src={HotelDefaultImg} alt={item.name} />
-                </Styled.ItemPicture>
-              </Styled.ItemLink>
-              <Styled.ItemInfo>
-                <h3>{item.name}</h3>
-                {likedItems[item.id] ? (
-                  <img
-                    src={LikedIcon}
-                    alt="liked"
-                    onClick={() => toLike(item.id)}
-                  />
-                ) : (
-                  <img
-                    src={LikeIcon}
-                    alt="like"
-                    onClick={() => toLike(item.id)}
-                  />
-                )}
-              </Styled.ItemInfo>
-            </Styled.ItemContainer>
-          ))}
+          {topThreeLikedAccomData &&
+            topThreeLikedAccomData?.map((item: CategoryProps) => (
+              <Styled.ItemContainer key={item.id}>
+                <Styled.ItemLink to={`/accommodations/${item.id}`}>
+                  <Styled.ItemPicture variants={Styled.ItemVariants}>
+                    <img src={HotelDefaultImg} alt={item.name} />
+                  </Styled.ItemPicture>
+                </Styled.ItemLink>
+                <Styled.ItemInfo>
+                  <Styled.ItemInfoFirstColumn>
+                    <h3 className="item-name">{item.name}</h3>
+                    {/* <h3>{item.price}</h3> */}
+                    <h3 className="item-price">~ ₩110,000 부터</h3>
+                  </Styled.ItemInfoFirstColumn>
+                  <Styled.ItemInfoSecondColumn>
+                    <HeartClick
+                      likes={item.like_count}
+                      likes_clicked={item.likes_available}
+                    />
+                  </Styled.ItemInfoSecondColumn>
+                </Styled.ItemInfo>
+              </Styled.ItemContainer>
+            ))}
         </Styled.MyAreaAccomList>
 
         <Styled.Title>🔥🔥 바로 여기! 요즘 제일 핫한 숙소</Styled.Title>
@@ -84,31 +66,29 @@ const Main = () => {
           animate="visible"
           variants={Styled.ContainerVariants}
         >
-          {topLikedAccoms.map((item) => (
-            <Styled.ItemContainer key={item.id}>
-              <Styled.ItemLink to={`/accommodations/${item.id}`}>
-                <Styled.ItemPicture variants={Styled.ItemVariants}>
-                  <img src={HotelDefaultImg} alt={item.name} />
-                </Styled.ItemPicture>
-              </Styled.ItemLink>
-              <Styled.ItemInfo>
-                <h3>{item.name}</h3>
-                {likedItems[item.id] ? (
-                  <img
-                    src={LikedIcon}
-                    alt="liked"
-                    onClick={() => toLike(item.id)}
-                  />
-                ) : (
-                  <img
-                    src={LikeIcon}
-                    alt="like"
-                    onClick={() => toLike(item.id)}
-                  />
-                )}
-              </Styled.ItemInfo>
-            </Styled.ItemContainer>
-          ))}
+          {topThreeLikedAccomData &&
+            topThreeLikedAccomData?.map((item: CategoryProps) => (
+              <Styled.ItemContainer key={item.id}>
+                <Styled.ItemLink to={`/accommodations/${item.id}`}>
+                  <Styled.ItemPicture variants={Styled.ItemVariants}>
+                    <img src={HotelDefaultImg} alt={item.name} />
+                  </Styled.ItemPicture>
+                </Styled.ItemLink>
+                <Styled.ItemInfo>
+                  <Styled.ItemInfoFirstColumn>
+                    <h3 className="item-name">{item.name}</h3>
+                    {/* <h3>{item.price}</h3> */}
+                    <h3 className="item-price">~ ₩110,000 부터</h3>
+                  </Styled.ItemInfoFirstColumn>
+                  <Styled.ItemInfoSecondColumn>
+                    <HeartClick
+                      likes={item.like_count}
+                      likes_clicked={item.likes_available}
+                    />
+                  </Styled.ItemInfoSecondColumn>
+                </Styled.ItemInfo>
+              </Styled.ItemContainer>
+            ))}
         </Styled.TopLikedAccomList>
 
         <Styled.Title>
@@ -119,31 +99,29 @@ const Main = () => {
           animate="visible"
           variants={Styled.ContainerVariants}
         >
-          {parkingAccoms.map((item) => (
-            <Styled.ItemContainer key={item.id}>
-              <Styled.ItemLink to={`/accommodations/${item.id}`}>
-                <Styled.ItemPicture variants={Styled.ItemVariants}>
-                  <img src={HotelDefaultImg} alt={item.name} />
-                </Styled.ItemPicture>
-              </Styled.ItemLink>
-              <Styled.ItemInfo>
-                <h3>{item.name}</h3>
-                {likedItems[item.id] ? (
-                  <img
-                    src={LikedIcon}
-                    alt="liked"
-                    onClick={() => toLike(item.id)}
-                  />
-                ) : (
-                  <img
-                    src={LikeIcon}
-                    alt="like"
-                    onClick={() => toLike(item.id)}
-                  />
-                )}
-              </Styled.ItemInfo>
-            </Styled.ItemContainer>
-          ))}
+          {parkingAvailableAccomData &&
+            parkingAvailableAccomData?.map((item: CategoryProps) => (
+              <Styled.ItemContainer key={item.id}>
+                <Styled.ItemLink to={`/accommodations/${item.id}`}>
+                  <Styled.ItemPicture variants={Styled.ItemVariants}>
+                    <img src={HotelDefaultImg} alt={item.name} />
+                  </Styled.ItemPicture>
+                </Styled.ItemLink>
+                <Styled.ItemInfo>
+                  <Styled.ItemInfoFirstColumn>
+                    <h3 className="item-name">{item.name}</h3>
+                    {/* <h3>{item.price}</h3> */}
+                    <h3 className="item-price">~ ₩110,000 부터</h3>
+                  </Styled.ItemInfoFirstColumn>
+                  <Styled.ItemInfoSecondColumn>
+                    <HeartClick
+                      likes={item.like_count}
+                      likes_clicked={item.likes_available}
+                    />
+                  </Styled.ItemInfoSecondColumn>
+                </Styled.ItemInfo>
+              </Styled.ItemContainer>
+            ))}
         </Styled.ParkingAccomList>
 
         <Styled.Title>더 많은 숙소를 둘러보실 수 있어요.</Styled.Title>
@@ -152,31 +130,29 @@ const Main = () => {
           animate="visible"
           variants={Styled.ContainerVariants}
         >
-          {randomAccoms.map((item) => (
-            <Styled.ItemContainer key={item.id}>
-              <Styled.ItemLink to={`/accommodations/${item.id}`}>
-                <Styled.ItemPicture variants={Styled.ItemVariants}>
-                  <img src={HotelDefaultImg} alt={item.name} />
-                </Styled.ItemPicture>
-              </Styled.ItemLink>
-              <Styled.ItemInfo>
-                <h3>{item.name}</h3>
-                {likedItems[item.id] ? (
-                  <img
-                    src={LikedIcon}
-                    alt="liked"
-                    onClick={() => toLike(item.id)}
-                  />
-                ) : (
-                  <img
-                    src={LikeIcon}
-                    alt="like"
-                    onClick={() => toLike(item.id)}
-                  />
-                )}
-              </Styled.ItemInfo>
-            </Styled.ItemContainer>
-          ))}
+          {randomAccomData &&
+            randomAccomData.map((item: CategoryProps) => (
+              <Styled.ItemContainer key={item.id}>
+                <Styled.ItemLink to={`/accommodations/${item.id}`}>
+                  <Styled.ItemPicture variants={Styled.ItemVariants}>
+                    <img src={HotelDefaultImg} alt={item.name} />
+                  </Styled.ItemPicture>
+                </Styled.ItemLink>
+                <Styled.ItemInfo>
+                  <Styled.ItemInfoFirstColumn>
+                    <h3 className="item-name">{item.name}</h3>
+                    {/* <h3>{item.price}</h3> */}
+                    <h3 className="item-price">~ ₩110,000 부터</h3>
+                  </Styled.ItemInfoFirstColumn>
+                  <Styled.ItemInfoSecondColumn>
+                    <HeartClick
+                      likes={item.like_count}
+                      likes_clicked={item.likes_available}
+                    />
+                  </Styled.ItemInfoSecondColumn>
+                </Styled.ItemInfo>
+              </Styled.ItemContainer>
+            ))}
         </Styled.NormalAccomList>
       </Styled.Container>
     </>

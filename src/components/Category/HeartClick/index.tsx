@@ -28,7 +28,7 @@ const HeartClick = ({ likes, likes_clicked }: HeartClickProps) => {
   };
 
   return (
-    <Styled.CategorySvgWrapper onClick={handleHeartClick}>
+    <Styled.CategorySvgWrapper id="button" onClick={handleHeartClick}>
       <HeartSVGComponent clicked={!clicked} />
       <Styled.CategorySvgText>{like}</Styled.CategorySvgText>
     </Styled.CategorySvgWrapper>

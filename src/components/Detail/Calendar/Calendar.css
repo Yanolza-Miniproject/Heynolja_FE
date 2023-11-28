@@ -1,14 +1,14 @@
-.react-datepicker {
-  display: flex; /* flexbox 레이아웃을 사용 */
-  justify-content: center; /* 중앙 정렬 */
-  align-items: center; /* 수직 중앙 정렬 */
+.react-datepicker-first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 40vw; /* 필요에 따라 가로 길이 조정 */
+  width: 40vw;
   border: transparent;
   border-radius: 15px;
 }
 
-.react-datepicker__input-container > input {
+.react-datepicker-first__input-container > input {
   position: absolute;
   text-align: center;
   color: transparent;
@@ -22,18 +22,18 @@
   border-radius: 35px;
   background-color: transparent;
 }
-.react-datepicker__input-container > input:focus {
+.react-datepicker-first__input-container > input:focus {
   outline: white;
 }
 
-.react-datepicker__header {
+.react-datepicker-first__header {
   margin-top: 20px;
   margin-left: 20px;
   background-color: transparent;
   border: transparent;
 }
 
-.react-datepicker__close-icon::after {
+.react-datepicker-first__close-icon::after {
   position: fixed;
   right: 670px;
   top: 110px;
@@ -42,23 +42,23 @@
   font-size: 10px;
   background-color: #a3a2a2;
 }
-.react-datepicker__month-container {
+.react-datepicker-first__month-container {
   min-height: 300px;
   margin-right: 2vw;
 }
 
-.react-datepicker__month-container:last-child {
+.react-datepicker-first__month-container:last-child {
   margin-right: 0;
 }
 
-.react-datepicker__navigation {
+.react-datepicker-first__navigation {
   top: 10px;
 }
 
-.react-datepicker__navigation--previous {
+.react-datepicker-first__navigation--previous {
   left: 20px;
 }
 
-.react-datepicker__navigation--next {
+.react-datepicker-first__navigation--next {
   right: 20px;
 }

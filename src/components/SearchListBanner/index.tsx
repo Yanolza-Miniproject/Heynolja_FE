@@ -20,6 +20,7 @@ const SearchListBanner = ({ validParams }: SearchListBannerProps) => {
           validArray.map((item) => {
             return (
               <Styled.SearchListButton
+                data-testid="search-list-button"
                 key={item.label}
                 onClick={() => handleClickSearch(item.url)}
                 whileHover={{ scale: 1.1 }}

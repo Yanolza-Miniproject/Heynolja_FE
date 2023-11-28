@@ -4,27 +4,20 @@ import calculateNightCount from "../../../../utils/calculateNightCount";
 import formatNumber from "../../../../utils/formatNumber";
 
 const index = ({
-  id,
   name,
   type,
   checkIn,
   checkOut,
   guests,
   price,
-  paymentAt,
+  room_image_url,
 }: MyOrderItemProps) => {
   return (
     <Styled.ItemWrapper>
       <Styled.ItemTitle>{name}</Styled.ItemTitle>
       <Styled.ItemContent>
-        <Styled.ItemImg></Styled.ItemImg>
+        <Styled.ItemImg src={room_image_url}></Styled.ItemImg>
         <Styled.ItemInfo>
-          <Styled.ItemValueWrapper>
-            <Styled.Title>주문정보: </Styled.Title>
-            <Styled.Content>
-              {id}, {paymentAt}
-            </Styled.Content>
-          </Styled.ItemValueWrapper>
           <Styled.ItemValueWrapper>
             <Styled.Title>방 타입: </Styled.Title>
             <Styled.Content>{type}</Styled.Content>

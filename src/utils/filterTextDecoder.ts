@@ -2,7 +2,7 @@ import {
   accommoationTypes,
   regionTypes,
 } from "../components/Category/CategoryFilter/CategoryFilter.constants";
-import _ from "lodash";
+import * as _ from "lodash";
 
 export type SearchListBannerProps = {
   validParams: Param;
@@ -35,19 +35,19 @@ export const filterTextDecoder = (validParams: Param) => {
   const cookingData = {
     valid: category_cooking !== 2 || category_cooking === null,
     label: category_cooking === 1 ? "조리가능" : "조리불가능",
-    url: `&category_cooking=${category_cooking}`,
+    url: `&categoryCooking=${category_cooking}`,
   };
 
   const parkingData = {
     valid: category_parking !== 2 || category_parking === null,
     label: category_parking === 1 ? "주차가능" : "주차불가능",
-    url: `&category_parking=${category_parking}`,
+    url: `&categoryParking=${category_parking}`,
   };
 
   const pickupData = {
     valid: category_pickup !== 2 || category_pickup === null,
     label: category_pickup === 1 ? "픽업가능" : "픽업불가능",
-    url: `&category_pickup=${category_pickup}`,
+    url: `&categoryPickup=${category_pickup}`,
   };
 
   const returnArray = [

@@ -23,6 +23,10 @@ export const CategoryButton = styled(Button)`
   &:hover {
     background-color: #ff5100;
   }
+
+  @media (max-width: 800px) {
+    font-size: 0.7rem;
+  }
 `;
 
 type CategoryPopUpProps = {
