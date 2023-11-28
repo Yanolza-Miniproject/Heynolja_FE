@@ -1,12 +1,12 @@
 import InputText from "../../components/Signin/InputText";
 import * as Styled from "./Signup.styles";
-import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Inputs } from "./Signup.types";
 import { InputProps } from "./Signup.constant";
+import { baseInstance } from "../../hooks/useAxios";
 
 const fetchSignup = async (data: Inputs) => {
-  const response = await axios.post(
+  const response = await baseInstance.post(
     "/api/members/join",
     {
       email: data.email,
