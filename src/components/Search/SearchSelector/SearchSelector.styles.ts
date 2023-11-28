@@ -12,15 +12,15 @@ export const SearchCard = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
-  padding: 0.7em;
-  gap: 0.6em;
+  padding: 0.7rem;
+  gap: 0.6rem;
 
   width: 100%;
   max-width: 60rem;
   height: 30rem;
 
   border: 1px solid #e6e6e6;
-  border-radius: 1em;
+  border-radius: 1rem;
 `;
 
 export const SearchCardWrapper = styled.div<TypeWrapperProps>`
@@ -35,7 +35,7 @@ export const SearchCardWrapper = styled.div<TypeWrapperProps>`
 
   background-color: #ff6c27;
   border: 1px solid #e6e6e6;
-  border-radius: 1em;
+  border-radius: 1rem;
 
   overflow: hidden;
   transition: all 0.5s;
@@ -52,19 +52,19 @@ export const SearchCardWrapper = styled.div<TypeWrapperProps>`
   }
 
   span {
-    min-width: 14em;
+    min-width: 14rem;
 
     transition: all 0.5s;
     text-align: center;
     text-transform: uppercase;
     color: white;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1rem;
   }
 
   img {
-    width: 3.7em;
-    height: 3.7em;
+    width: 3.4rem;
+    height: 3.4rem;
   }
 `;
 
@@ -76,11 +76,11 @@ export const SelectedItemDisplay = styled.div`
   flex: 30% 0 0;
 
   width: 100%;
-  gap: 0.3em;
+  gap: 0.3rem;
 
   background-color: white;
   border-top: 1px solid #e6e6e6;
-  font-size: 1.3em;
+  font-size: 1.3rem;
 `;
 
 export const RegionList = styled.div`
@@ -91,13 +91,13 @@ export const RegionList = styled.div`
 `;
 
 export const RegionItem = styled.div<RegionItemProps>`
-  padding: 0.5em 1em;
-  margin-bottom: 0.5em;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
 
   background-color: ${({ selected }) => (selected ? "#ff5100" : "white")};
   border: ${({ selected }) =>
     selected ? "1px solid #ff5100" : "1px solid #e6e6e6"};
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 
   color: ${({ selected }) => (selected ? "white" : "black")};
 
@@ -116,7 +116,7 @@ export const TypeList = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(6, 1fr);
 
-  gap: 0.2em;
+  gap: 0.2rem;
   width: 80%;
 `;
 
@@ -127,12 +127,12 @@ export const TypeItem = styled.div<TypeItemProps>`
   align-items: center;
   grid-column: ${({ isFullWidth }) => (isFullWidth ? "1 / -1" : "auto")};
 
-  padding-left: 1em;
-  padding-top: 0.6em;
-  padding-bottom: 0.6em;
+  padding-left: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 
   width: auto;
-  height: 2.2em;
+  height: 2.2rem;
   border-radius: 0.625rem;
   border: 1px solid #e6e6e6;
 
@@ -148,8 +148,8 @@ export const TypeItem = styled.div<TypeItemProps>`
   }
 
   img {
-    width: 3.4em;
-    height: 3.4em;
+    width: 3.4rem;
+    height: 3.4rem;
     border-radius: 0 0.625rem 0.625rem 0;
     filter: ${({ selected }) => (selected ? "none" : "grayscale(100%)")};
     transition: filter 0.3s;
@@ -166,7 +166,7 @@ export const OptionList = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: 0.4em;
+  gap: 0.4rem;
   width: 90%;
 `;
 
@@ -175,11 +175,11 @@ export const OptionItem = styled.div<OptionItemProps>`
   justify-content: space-between;
   align-items: center;
 
-  padding: 1em;
+  padding: 1rem;
 
-  width: 15em;
-  height: 3em;
-  border-radius: 0.5em;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 0.5rem;
   border: ${({ selected }) =>
     selected ? "1px solid #ff5100" : "1px solid #e6e6e6"};
 
@@ -197,8 +197,8 @@ export const OptionItem = styled.div<OptionItemProps>`
   }
 
   img {
-    width: 3.5em;
-    height: 3.5em;
+    width: 3.5rem;
+    height: 3.5rem;
 
     object-fit: contain;
     filter: ${({ selected }) => (selected ? "none" : "grayscale(100%)")};

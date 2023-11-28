@@ -6,15 +6,15 @@ export const SearchHeader = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: 1em;
+  gap: 1rem;
 
   h2 {
-    margin-right: 1em;
+    margin-right: 1rem;
   }
 `;
 
 export const SearchTitle = styled.div`
-  width: 20em;
+  width: 20rem;
 `;
 
 export const SearchParamsWrapper = styled.div`
@@ -33,14 +33,14 @@ export const SearchParams = styled.div`
   align-items: center;
   flex: 1 0 40%;
 
-  gap: 0.5em;
+  gap: 0.5rem;
 
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-weight: 500;
 
   .region,
   .type {
-    padding: 0.3em;
+    padding: 0.3rem;
     background-color: #e6e6e6;
   }
 
@@ -48,11 +48,11 @@ export const SearchParams = styled.div`
     display: flex;
     flex-direction: row;
 
-    gap: 0.5em;
+    gap: 0.5rem;
   }
 
   .option-each {
-    padding: 0.3em;
+    padding: 0.3rem;
     background-color: #e6e6e6;
   }
 `;
