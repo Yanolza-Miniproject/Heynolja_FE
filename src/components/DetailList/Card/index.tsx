@@ -1,6 +1,6 @@
 import React from "react";
-import { CardData } from "./Card.types.ts";
 import * as Styled from "./Card.styles.ts";
+import { CardData } from "./Card.types.ts";
 
 const Card: React.FC<CardData> = ({ icon, description, isActive }) => {
   return (
