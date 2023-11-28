@@ -1,17 +1,16 @@
+import { ko } from "date-fns/locale";
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import * as Styled from "./Calendar.styles.ts";
-import "./Calendar.css";
-import { ko } from "date-fns/locale";
-import { CalendarProps } from "./Calendar.types.ts";
-import formatNumber from "../../../utils/formatNumber";
 import { useRecoilState } from "recoil";
 import {
   checkInDateState,
   checkOutDateState,
 } from "../../../store/checkinCheckOutAtom.ts";
-import formatDate from "../../../utils/formatDate";
+import formatNumber from "../../../utils/formatNumber";
+import "./Calendar.css";
+import * as Styled from "./Calendar.styles.ts";
+import { CalendarProps } from "./Calendar.types.ts";
 
 const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
   const [checkInDate, setCheckInDate] = useRecoilState(checkInDateState);
@@ -31,8 +30,8 @@ const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
 
     onDateChange(start, end);
 
-    console.log("체크인 날짜:", formatDate(start));
-    console.log("체크아웃 날짜:", formatDate(end));
+    // console.log("체크인 날짜:", formatDate(start));
+    // console.log("체크아웃 날짜:", formatDate(end));
   };
 
   return (
