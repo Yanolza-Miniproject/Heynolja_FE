@@ -22,9 +22,9 @@ const ActionButtonGroup = ({
 
     postRoomToCart.mutate(
       {
-        check_in_at: formattedCheckInAt,
-        check_out_at: formattedCheckOutAt,
-        number_guests: numberGuests,
+        checkInAt: formattedCheckInAt,
+        checkOutAt: formattedCheckOutAt,
+        numberOfGuests: numberGuests,
       },
       {
         onSuccess: () => {
@@ -48,9 +48,9 @@ const ActionButtonGroup = ({
 
     postOrder.mutate(
       {
-        check_in_at: formattedCheckInAt,
-        check_out_at: formattedCheckOutAt,
-        number_guests: numberGuests,
+        checkInAt: formattedCheckInAt,
+        checkOutAt: formattedCheckOutAt,
+        numberOfGuests: numberGuests,
       },
       {
         onSuccess: () => {
