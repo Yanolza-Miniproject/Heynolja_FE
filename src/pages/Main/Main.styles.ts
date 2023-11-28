@@ -35,7 +35,7 @@ export const Container = styled.div`
 `;
 
 export const Banner = styled.div`
-  height: 100px;
+  height: 100%;
   padding: 5rem 10rem;
 
   background-color: #191554;
@@ -195,7 +195,7 @@ export const ItemInfo = styled.div`
     font-size: 0.9rem;
   }
   .item-price {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     font-weight: 700;
   }
 
