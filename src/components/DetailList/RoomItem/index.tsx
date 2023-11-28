@@ -9,7 +9,7 @@ const RoomItem: React.FC<
   RoomItemProps & { checkInDate: Date; checkOutDate: Date }
 > = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  id,
+  // id,
   name,
   price,
   capacity,
