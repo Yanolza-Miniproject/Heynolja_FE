@@ -31,17 +31,6 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
           setPurchaseList({
             totalPrice: totalPrice,
             order_id: responseData.data.data,
-            data: [
-              {
-                room_basket_id: 4,
-                accommodation_name: "제주 라마다 호텔",
-                room_name: "스위트룸",
-                check_in_at: "11-11-11",
-                check_out_at: "11-11-11",
-                number_guests: 3,
-                price: 1233,
-              },
-            ],
           });
           navigate("/payment");
         },
@@ -59,7 +48,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
       <Styled.Top>
         {estimatedPrice.map((item) => {
           return (
-            <Styled.Item key={item.room_basket_id}>
+            <Styled.Item key={item.room_basket_id} data-testid="estimate-item">
               <div>
                 <p>{item.accommodation_name}</p>
                 <p>{item.room_name}</p>

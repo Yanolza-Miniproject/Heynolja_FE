@@ -264,6 +264,20 @@ export const handlers = [
   }),
 
   // 주문 내역 상세 조회 (주문 번호로 조회할 수 있는 api)
+  http.get("/api/v1/payment/:payment_id", async ({ params }) => {
+    const { payment_id } = params;
+
+    const newData = paymentData.filter(
+      (item) => item.payment_id === ~~payment_id,
+    );
+
+    return HttpResponse.json({
+      message: "성공",
+      data: newData,
+    });
+  }),
+
+  // 결제 내역 상세 조회 (주문 번호로 조회할 수 있는 api)
   http.get("/api/v1/orders/:order_id", async ({ params }) => {
     const { order_id } = params;
 

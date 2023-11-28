@@ -1,8 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
-import userEvent from "@testing-library/user-event";
 import CartList from ".";
 
 export const testData = [
@@ -124,5 +124,15 @@ describe("장바구니 페이지 데이터 받아오기 테스트", () => {
       );
       expect(textTwo).toBeInTheDocument();
     });
+  });
+
+  test("선택된 아이템은 예상 구매 내역에 포함이 된다.", async () => {
+    render(<CartList data={testData} />, { wrapper: createWrapper() });
+
+    const allCheckbox = screen.getAllByRole("checkbox");
+
+    const estimateItems = screen.queryAllByTestId("estimate-item");
+
+    expect(allCheckbox.length - 1).toBe(estimateItems.length);
   });
 });
