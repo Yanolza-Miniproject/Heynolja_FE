@@ -49,7 +49,7 @@ const authInterceptors = (instance: AxiosInstance) => {
 const base = () => {
   const instance = axios.create({
     baseURL: import.meta.env.VITE_APP_API_BASE_URL,
-    timeout: 10000,
+    timeout: 1000,
   });
 
   baseInterceptors(instance);

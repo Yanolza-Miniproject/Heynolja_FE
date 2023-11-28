@@ -4,12 +4,12 @@ import formatNumber from "../../../utils/formatNumber";
 import { RoomItemProps } from "./RoomItem.types";
 import personIcon from "../../../assets/svg/person-icon.svg";
 import { formatDateToYYMMDD } from "../../../utils/formatDate";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const RoomItem: React.FC<
   RoomItemProps & { checkInDate: Date; checkOutDate: Date }
 > = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // id,
+  id,
   name,
   price,
   capacity,
@@ -17,6 +17,11 @@ const RoomItem: React.FC<
   RoomInventory,
   checkInDate,
 }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+  const accommodationId = queryParams.get("accommodation-id");
+
   let remainingInventory = "데이터 없음";
 
   if (checkInDate && RoomInventory) {
@@ -31,8 +36,12 @@ const RoomItem: React.FC<
       : "데이터 없음";
   }
 
+  const handleRoomClick = () => {
+    navigate(`/detail?accommodation-id=${accommodationId}&room-id=${id}`);
+  };
+
   return (
-    <Styled.ItemWrapper>
+    <Styled.ItemWrapper onClick={handleRoomClick}>
       <Styled.ImageContainer>
         <Styled.ItemImage src={roomImageUrl} alt={`${name} 이미지`} />
       </Styled.ImageContainer>
