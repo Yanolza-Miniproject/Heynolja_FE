@@ -30,12 +30,8 @@ const CategoryQuery = ({
     return <h1>Loading...</h1>;
   }
 
-  console.log(data);
-
-  console.log(fetchNextPage);
-
   return (
-    <div>
+    <>
       <InfiniteScroll
         dataLength={data?.pages.length || 0}
         next={fetchNextPage}
@@ -45,7 +41,7 @@ const CategoryQuery = ({
       >
         {data && <CategoryItemWrapper data={data.pages} />}
       </InfiniteScroll>
-    </div>
+    </>
   );
 };
 

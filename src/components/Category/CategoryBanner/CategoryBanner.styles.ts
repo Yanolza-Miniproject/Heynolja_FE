@@ -26,9 +26,19 @@ export const CategoryBannerTextMotion = styled(motion.div)`
   font-size: 3em;
   color: white;
   font-weight: 800;
+
+  @media (max-width: 800px) {
+    margin-left: 2rem;
+
+    font-size: 2rem;
+  }
 `;
 
 export const CategoryBannerSearchMotion = styled(motion.div)`
   width: object-fit;
   margin-top: 1.2rem;
+
+  @media (max-width: 800px) {
+    width: 80%;
+  }
 `;
