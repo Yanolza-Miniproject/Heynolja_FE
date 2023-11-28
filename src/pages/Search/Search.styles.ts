@@ -13,14 +13,14 @@ export const Container = styled.div`
   align-items: center;
 
   max-width: 55rem;
-  padding: 2em;
+  padding: 2rem;
   margin: 0 auto;
 
   background-color: white;
 
   h2 {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
     font-size: 1.25rem;
     font-weight: 700;
@@ -33,15 +33,15 @@ export const SearchHeader = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: 1em;
+  gap: 1rem;
 
   h2 {
-    margin-right: 1em;
+    margin-right: 1rem;
   }
 `;
 
 export const SearchTitle = styled.div`
-  width: 20em;
+  width: 20rem;
 `;
 
 export const SearchParamsWrapper = styled.div`
@@ -60,14 +60,14 @@ export const SearchParams = styled.div`
   align-items: center;
   flex: 1 0 40%;
 
-  gap: 0.5em;
+  gap: 0.5rem;
 
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-weight: 500;
 
   .region,
   .type {
-    padding: 0.3em;
+    padding: 0.3rem;
     background-color: #e6e6e6;
   }
 
@@ -75,11 +75,11 @@ export const SearchParams = styled.div`
     display: flex;
     flex-direction: row;
 
-    gap: 0.5em;
+    gap: 0.5rem;
   }
 
   .option-each {
-    padding: 0.3em;
+    padding: 0.3rem;
     background-color: #e6e6e6;
   }
 `;
@@ -90,15 +90,15 @@ export const SearchCard = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
-  padding: 0.7em;
-  gap: 0.6em;
+  padding: 0.7rem;
+  gap: 0.6rem;
 
   width: 100%;
   max-width: 60rem;
   height: 30rem;
 
   border: 1px solid #e6e6e6;
-  border-radius: 1em;
+  border-radius: 1rem;
 `;
 
 export const SearchCardWrapper = styled.div<TypeWrapperProps>`
@@ -112,9 +112,8 @@ export const SearchCardWrapper = styled.div<TypeWrapperProps>`
   height: 100%;
 
   background-color: #ff6c27;
-  /* background-color: #191554; */
   border: 1px solid #e6e6e6;
-  border-radius: 1em;
+  border-radius: 1rem;
 
   overflow: hidden;
   transition: all 0.5s;
@@ -131,14 +130,14 @@ export const SearchCardWrapper = styled.div<TypeWrapperProps>`
   }
 
   span {
-    min-width: 14em;
+    min-width: 14rem;
 
     transition: all 0.5s;
     text-align: center;
     text-transform: uppercase;
     color: white;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1rem;
   }
 
   img {
@@ -155,11 +154,11 @@ export const SelectedItemDisplay = styled.div`
   flex: 30% 0 0;
 
   width: 100%;
-  gap: 0.3em;
+  gap: 0.3rem;
 
   background-color: white;
   border-top: 1px solid #e6e6e6;
-  font-size: 1.3em;
+  font-size: 1.3rem;
 `;
 
 export const RegionList = styled.div`
@@ -170,13 +169,13 @@ export const RegionList = styled.div`
 `;
 
 export const RegionItem = styled.div<RegionItemProps>`
-  padding: 0.5em 1em;
-  margin-bottom: 0.5em;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
 
   background-color: ${({ selected }) => (selected ? "#ff5100" : "white")};
   border: ${({ selected }) =>
     selected ? "1px solid #ff5100" : "1px solid #e6e6e6"};
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 
   color: ${({ selected }) => (selected ? "white" : "black")};
 
@@ -195,7 +194,7 @@ export const TypeList = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(6, 1fr);
 
-  gap: 0.2em;
+  gap: 0.2rem;
   width: 80%;
 `;
 
@@ -206,12 +205,10 @@ export const TypeItem = styled.div<TypeItemProps>`
   align-items: center;
   grid-column: ${({ isFullWidth }) => (isFullWidth ? "1 / -1" : "auto")};
 
-  padding-left: 1em;
-  padding-top: 0.6em;
-  padding-bottom: 0.6em;
+  padding: 0.6rem 0 0.6rem 1rem;
 
   width: auto;
-  height: 2.2em;
+  height: 2.2rem;
   border-radius: 0.625rem;
   border: 1px solid #e6e6e6;
 
@@ -227,8 +224,8 @@ export const TypeItem = styled.div<TypeItemProps>`
   }
 
   img {
-    width: 3.4em;
-    height: 3.4em;
+    width: 3.4rem;
+    height: 3.4rem;
     border-radius: 0 0.625rem 0.625rem 0;
     filter: ${({ selected }) => (selected ? "none" : "grayscale(100%)")};
     transition: filter 0.3s;
@@ -245,7 +242,7 @@ export const OptionList = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: 0.4em;
+  gap: 0.4rem;
   width: 90%;
 `;
 
@@ -254,11 +251,11 @@ export const OptionItem = styled.div<OptionItemProps>`
   justify-content: space-between;
   align-items: center;
 
-  padding: 1em;
+  padding: 1rem;
 
-  width: 15em;
-  height: 3em;
-  border-radius: 0.5em;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 0.5rem;
   border: ${({ selected }) =>
     selected ? "1px solid #ff5100" : "1px solid #e6e6e6"};
 
@@ -276,8 +273,8 @@ export const OptionItem = styled.div<OptionItemProps>`
   }
 
   img {
-    width: 3.5em;
-    height: 3.5em;
+    width: 3.5rem;
+    height: 3.5rem;
 
     object-fit: contain;
     filter: ${({ selected }) => (selected ? "none" : "grayscale(100%)")};
