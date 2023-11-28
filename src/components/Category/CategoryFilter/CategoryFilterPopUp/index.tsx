@@ -53,7 +53,10 @@ const CategoryFilterPopUp = memo(
 
     return (
       <Styled.CategoryFilterPopUpContainer>
-        <Styled.CategoryButton onClick={handleClick}>
+        <Styled.CategoryButton
+          onClick={handleClick}
+          data-testid="CategorySearchButton"
+        >
           {buttonText}
         </Styled.CategoryButton>
         <Styled.CategoryPopUp isOpen={isOpen}>
@@ -62,12 +65,15 @@ const CategoryFilterPopUp = memo(
               key={type.value}
               value={type.value}
               onClick={categoryClick}
+              data-testId="CategoryPopUpItem"
             >
               {type.label}
             </Styled.CategoryPopUpItem>
           ))}
         </Styled.CategoryPopUp>
-        <Styled.CategoryChoiceValue>{selected}</Styled.CategoryChoiceValue>
+        <Styled.CategoryChoiceValue data-testId="CategorySelected">
+          {selected}
+        </Styled.CategoryChoiceValue>
       </Styled.CategoryFilterPopUpContainer>
     );
   },
