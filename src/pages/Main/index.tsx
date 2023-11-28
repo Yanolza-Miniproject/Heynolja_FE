@@ -12,13 +12,33 @@ import HeartClick from "../../components/Category/HeartClick";
 
 const Main = () => {
   // const { data: regionAccomData } = useFetchAccomByRegion(0);
-  const { data: topLikedAccomData } = useFetchTopLikedAccom();
+  const {
+    data: topLikedAccomData,
+    isLoading: isLoadingTopLikedAccom,
+    error: errorTopLikedAccom,
+  } = useFetchTopLikedAccom();
   const topThreeLikedAccomData = topLikedAccomData
     ? topLikedAccomData.slice(0, 3)
     : [];
-  const { data: parkingAccomData } = useFetchAccomWithParking(1);
+  const {
+    data: parkingAccomData,
+    isLoading: isLoadingParkingAccom,
+    error: errorParkingAccom,
+  } = useFetchAccomWithParking(1);
   const parkingAvailableAccomData = parkingAccomData?.slice(0, 3);
-  const { data: randomAccomData } = useFetchAllAccommodations();
+  const {
+    data: randomAccomData,
+    isLoading: isLoadingRandomAccom,
+    error: errorRandomAccom,
+  } = useFetchAllAccommodations();
+
+  if (errorTopLikedAccom || errorParkingAccom || errorRandomAccom) {
+    return <div>숙소 정보를 불러오는 데 실패하였습니다.</div>;
+  }
+
+  if (isLoadingTopLikedAccom || isLoadingParkingAccom || isLoadingRandomAccom) {
+    return <div>숙소 정보를 불러오는 중입니다.</div>;
+  }
 
   return (
     <>
