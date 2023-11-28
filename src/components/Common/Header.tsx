@@ -1,5 +1,5 @@
 import * as Styled from "./Common.styles";
-import Logo from "../../assets/image/logo.png";
+import Logo from "../../assets/svg/logo.svg";
 import SearchIcon from "../../assets/svg/search-icon.svg";
 import CartIcon from "../../assets/svg/cart-icon.svg";
 import UserIcon from "../../assets/svg/user-icon.svg";
@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <Styled.headerContainer>
       <a href="/">
-        <img src={Logo} alt="logo" style={{ width: "8em", height: "1.5em" }} />
+        <img src={Logo} alt="logo" />
       </a>{" "}
       <Styled.headerWrapper>
         <button onClick={handleLogin}>
