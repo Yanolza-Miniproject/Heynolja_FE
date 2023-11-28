@@ -9,7 +9,6 @@ import { CategoryItemProps } from "./CategoryItem.types";
 
 const CategoryItem = ({ data }: CategoryItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const clickRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const router = useNavigate();
 
@@ -17,11 +16,7 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
     e.preventDefault();
     e.stopPropagation();
 
-    if (e.target !== clickRef.current) {
-      console.log("click");
-      console.log(clickRef);
-      router(`/detail?accommodation-id=${data.id}`);
-    }
+    router(`/detail?accommodation-id=${data.id}`);
   };
 
   return (
@@ -51,7 +46,6 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
             <HeartClick
               likes={data.like_count}
               likes_clicked={data.likes_available}
-              ref={clickRef}
             />
           </Styled.CategoryDownWrapper>
         </Styled.CategoryTextWrapper>
