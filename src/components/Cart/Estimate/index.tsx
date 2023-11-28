@@ -14,20 +14,27 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
   const navigate = useNavigate();
   const [, setPurchaseList] = useRecoilState(purchaseState);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [purchaseId, setPurchaseId] = useState<number[]>([
+    ...estimatedPrice.map((item) => item.room_basket_id),
+  ]);
+
+  useEffect(() => {
+    setPurchaseId([...estimatedPrice.map((item) => item.room_basket_id)]);
+  }, [estimatedPrice]);
 
   // 장바구니에서 체크한 상품 주문 요청 함수
   const fetch = () => {
     postOrdersMutation.mutate(
-      { id: 1 },
+      { room_basket_id: [...purchaseId] },
       {
         onSuccess: (responseData) => {
           setPurchaseList({
             totalPrice: totalPrice,
-            order_id: responseData.data.order_id,
+            order_id: responseData.data.data,
             data: [
               {
                 room_basket_id: 4,
-                accommdation_name: "제주 라마다 호텔",
+                accommodation_name: "제주 라마다 호텔",
                 room_name: "스위트룸",
                 check_in_at: "11-11-11",
                 check_out_at: "11-11-11",

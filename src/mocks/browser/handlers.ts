@@ -1,10 +1,10 @@
 import { http, HttpResponse } from "msw";
 import { MockUpData } from "./constant";
 import {
-  cartData,
   cartList,
   orderData,
   roomDetail,
+  paymentData,
 } from "../../mock/myPageData";
 import * as _ from "lodash";
 
@@ -148,7 +148,7 @@ export const handlers = [
 
     const data = {
       room_basket_id: 1,
-      accommdation_name: "최고 호텔",
+      accommodation_name: "최고 호텔",
       room_name: "스위트룸",
       price: 40000,
       number_guests: newPost.number_guests,
@@ -164,13 +164,17 @@ export const handlers = [
   }),
 
   // 장바구니에서 상품 선택 후 주문 주문 요청
-  http.post("/api/v1/baskets/orders", async () => {
-    const data = [cartData[1], cartData[2]];
+  http.post("/api/v1/baskets/orders", async ({ request }) => {
+    const newPost = (await request.json()) as {
+      room_basket_id: number[];
+    };
+
+    // 처리할 로직 추가
 
     return HttpResponse.json({
       message: "성공",
-      order_id: 2,
-      data: data,
+      data: 2,
+      id: newPost,
     });
   }),
 
@@ -184,7 +188,7 @@ export const handlers = [
 
     const data = {
       room_basket_id: 1,
-      accommdation_name: "최고 호텔",
+      accommodation_name: "최고 호텔",
       room_name: "스위트룸",
       price: 40000,
       number_guests: newPost.number_guests,
@@ -221,12 +225,23 @@ export const handlers = [
     });
   }),
 
+  // 결제시 주문 취소 요청
+  http.delete("/api/v1/orders/:order_id", () => {
+    return HttpResponse.json({
+      message: "주문 취소 성공",
+    });
+  }),
+
   // 장바구니 조회
   http.get("/api/v1/baskets", async () => {
     return HttpResponse.json({
       message: "성공",
-      basket_id: 1,
-      order_datas: cartList,
+      data: {
+        basket_id: 1,
+        total_price: 30000,
+        total_Count: 5,
+        rooms: cartList,
+      },
     });
   }),
 
@@ -237,6 +252,14 @@ export const handlers = [
     return HttpResponse.json({
       message: "성공",
       order_datas: newData,
+    });
+  }),
+
+  // 결제 내역 전체 조회
+  http.get("/api/v1/payment", async () => {
+    return HttpResponse.json({
+      message: "성공",
+      data: paymentData,
     });
   }),
 

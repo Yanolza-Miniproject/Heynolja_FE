@@ -9,7 +9,6 @@ const index = () => {
         <Styled.MyBox>
           <Styled.Content>
             <Styled.Title>💵 결제 내역</Styled.Title>
-            <Styled.Count>3</Styled.Count>
           </Styled.Content>
           <img alt="화살표" src={Arrow}></img>
         </Styled.MyBox>
@@ -18,20 +17,18 @@ const index = () => {
         <Styled.MyBox>
           <Styled.Content>
             <Styled.Title>🛒 장바구니</Styled.Title>
-            <Styled.Count>3</Styled.Count>
           </Styled.Content>
           <img alt="화살표" src={Arrow}></img>
         </Styled.MyBox>
       </Link>
-      {/* <Link to="/wish"> */}
-      <Styled.MyBox>
-        <Styled.Content>
-          <Styled.Title>❤️ 찜한 목록</Styled.Title>
-          <Styled.Count>3</Styled.Count>
-        </Styled.Content>
-        <img alt="화살표" src={Arrow}></img>
-      </Styled.MyBox>
-      {/* </Link> */}
+      <Link to="/mypage/mywish">
+        <Styled.MyBox>
+          <Styled.Content>
+            <Styled.Title>❤️ 찜한 목록</Styled.Title>
+          </Styled.Content>
+          <img alt="화살표" src={Arrow}></img>
+        </Styled.MyBox>
+      </Link>
     </Styled.MyList>
   );
 };

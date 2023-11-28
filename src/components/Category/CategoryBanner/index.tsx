@@ -18,9 +18,10 @@ const CategoryBanner = memo(
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            {firstText}
-            <br /> {secondText} 👀
+            <p>{firstText}</p>
+            <p>{secondText}</p>
             <Styled.CategoryBannerSearchMotion
+              data-testid="search-button"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 1.3 }}
