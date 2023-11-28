@@ -1,14 +1,14 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 interface Location {
   isLoading: boolean;
   coordinate?: { lat: number; lng: number };
   error?: { code: number; message: string };
-  city: number;
+  cityCode: number;
 }
 
-import axios from "axios";
-
+// reverseGeocoded 에서 요청받은 데이터의 타입 입니다. 참고 하셔도 될 거 같아요!!
 // type ReverseGeocodedData = {
 //   latitude: number;
 //   longitude: number;
@@ -27,12 +27,13 @@ import axios from "axios";
 //   localityInfo: object;
 // };
 
+// 좌표값 받아서 해당 도시의 검색 코드 리턴하는 함수
 const Geocoded = async (
   latitude: string,
   longitude: string,
 ): Promise<number> => {
   const reverseGeocoded = await axios.get(
-    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=kr`,
+    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}`,
   );
 
   if (
@@ -64,16 +65,19 @@ const Geocoded = async (
   if (reverseGeocoded.data.localityInfo.administrative[1].name === "Jeju")
     return 6;
 
-  return 0;
+  return reverseGeocoded.data.localityInfo.administrative[1].name;
 };
 
+// 위치정보 저장하는 훅
 const useGeolocation = () => {
+  // 위치 정보 상태
   const [location, setLocation] = useState<Location>({
     isLoading: false,
-    coordinate: { lat: 0, lng: 0 },
-    city: 0,
+    coordinate: { lat: 0, lng: 0 }, //좌표값
+    cityCode: 0, // 지역 검색코드
   });
 
+  // 성공하면 위치 정보 상태 저장
   const onSuccess = async (location: {
     coords: { latitude: number; longitude: number };
   }) => {
@@ -87,26 +91,29 @@ const useGeolocation = () => {
           lat: location.coords.latitude,
           lng: location.coords.longitude,
         },
-        city: res,
+        cityCode: res,
       });
     });
   };
 
+  // 에러(위치정보 동의 X -> 위치정보 없음)시 상태 저장
   const onError = (error: { code: number; message: string }) => {
     setLocation({
       isLoading: true,
       error,
-      city: 0,
+      cityCode: 0,
     });
   };
 
   useEffect(() => {
+    // 위치 정보 없으면
     if (!("geolocation" in navigator)) {
       onError({
         code: 0,
         message: "위치정보 없음",
       });
     }
+    // 위치 정보 있으면
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, []);
 
