@@ -2,12 +2,15 @@ import * as Styled from "./MyOrderList.styles";
 import { useGetMyOrder } from "../../../../hooks/usePayment";
 import MyOrderItemWrapper from "../MyOrderItemWrapper";
 import { MyOrderListProps } from "./MyOrderList.type";
+import Sidebar from "../../../Common/Sidebar";
 
 const MyOrderList = () => {
   const { data } = useGetMyOrder(); // 결제 이력 데이터 요청
   console.log(data?.data.data);
 
   return (
+    <>
+    <Sidebar />
     <Styled.MyOrderList>
       {data?.data.data.length > 0? (
         data?.data.data
@@ -31,6 +34,7 @@ const MyOrderList = () => {
         <div>아직 결제 완료한 숙소가 없어요!</div>
       )}
     </Styled.MyOrderList>
+    </>
   );
 };
 

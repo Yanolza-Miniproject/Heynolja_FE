@@ -8,7 +8,7 @@ describe("CategoryBanner", () => {
     const wrapper = createRecoilWrapper();
     const onChange = jest.fn();
 
-    const firstText = "거기어때?";
+    const firstText = "Hey 놀자!";
     const secondText = "지금 둘러보세요.";
 
     render(
@@ -30,7 +30,7 @@ describe("CategoryBanner", () => {
     const onChange = jest.fn();
     const user = userEvent;
 
-    const firstText = "거기어때?";
+    const firstText = "Hey 놀자!";
     const secondText = "지금 둘러보세요.";
 
     render(

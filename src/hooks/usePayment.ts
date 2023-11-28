@@ -5,7 +5,6 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 export const usePayment = (orderId: number) => {
   return useMutation({
     mutationFn: (data: { payment_type: string }) => {
-      console.log(data);
       return axios.post(`/api/v1/payments/${orderId}`, { data });
     },
   });

@@ -25,7 +25,7 @@ const Main = () => {
       <Sidebar />
       <Styled.Container>
         <Styled.Banner>
-          거기어때?
+          Hey 놀자!
           <br /> 지금 둘러보세요. 👀
         </Styled.Banner>
 

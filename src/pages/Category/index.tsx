@@ -19,7 +19,7 @@ const Category = () => {
   return (
     <Styled.CategoryContainer>
       <CategoryBanner
-        firstText="거기어때?"
+        firstText="Hey 놀자!"
         secondText="지금 둘러보세요."
         searchFn={handleClickSearch}
       />
