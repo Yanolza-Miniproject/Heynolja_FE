@@ -193,13 +193,13 @@ export const SidebarWrapper = styled.div`
 
 export const NavButton = styled.button`
   display: block;
-
   padding: 0.5rem;
 
   outline: none;
   appearance: none;
   border: none;
-  background-color: #e6e6e6;
+  border-radius:20rem;
+  background-color: #fff;
 
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -229,13 +229,4 @@ export const NavButton = styled.button`
   font-weight: 600;
   text-align: center;
   color: black;
-`;
-
-export const RecentlyViewedItem = styled.div`
-  padding: 1rem;
-
-  width: 4rem;
-  height: 6rem;
-
-  font-size: 0.8rem;
 `;
