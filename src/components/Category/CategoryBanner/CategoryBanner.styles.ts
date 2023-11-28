@@ -28,6 +28,7 @@ export const CategoryBannerTextMotion = styled(motion.div)`
   font-weight: 800;
 
   @media (max-width: 800px) {
+    margin-top: 2rem;
     margin-left: 2rem;
 
     font-size: 2rem;
