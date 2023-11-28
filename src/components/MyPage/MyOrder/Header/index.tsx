@@ -9,7 +9,7 @@ const Header = () => {
       {data?.data.data ? (
         <span>결제내역 {data?.data.data.length}</span>
       ) : (
-        <div>로딩중...</div>
+        <div> </div>
       )}
       <Link to="/mypage" style={{ textDecoration: "none" }}>
         <Styled.BackToMyPageBtn>돌아가기</Styled.BackToMyPageBtn>

@@ -5,6 +5,7 @@ import * as Styled from "./CategoryItem.styles";
 
 import { useRef } from "react";
 import { random } from "lodash";
+import { useNavigate } from "react-router-dom";
 
 type CategoryItemProps = {
   data: CategoryProps;
@@ -13,8 +14,18 @@ type CategoryItemProps = {
 const CategoryItem = ({ data }: CategoryItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
+  const router = useNavigate();
+
+  const handleClick = () => {
+    router(`/detail?accommodation-id=${data.id}`);
+  };
+
   return (
-    <Styled.CategoryItemContainer ref={ref}>
+    <Styled.CategoryItemContainer
+      ref={ref}
+      data-testid="individual-item"
+      onClick={handleClick}
+    >
       <Styled.CategoryItemWrapper
         id="itemTest"
         initial={{ opacity: 0 }}

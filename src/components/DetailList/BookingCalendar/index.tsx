@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import {
   checkInDateState,
   checkOutDateState,
-} from "../../../store/checkInCheckOutAtom.ts";
+} from "../../../store/checkinCheckOutAtom.ts";
 import { useRef } from "react";
 import DateSelector from "../DateSelector/index.tsx";
 

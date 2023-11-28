@@ -9,7 +9,7 @@ const MyOrderList = () => {
 
   return (
     <Styled.MyOrderList>
-      {data?.data.data ? (
+      {data?.data.data.length > 0? (
         data?.data.data
           .sort((a: MyOrderListProps, b: MyOrderListProps) => {
             const dateA = new Date(a.payment_at).getTime();
@@ -28,7 +28,7 @@ const MyOrderList = () => {
             />
           ))
       ) : (
-        <div>로딩중...</div>
+        <div>아직 결제 완료한 숙소가 없어요!</div>
       )}
     </Styled.MyOrderList>
   );

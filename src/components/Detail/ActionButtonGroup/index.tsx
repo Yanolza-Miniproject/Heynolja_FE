@@ -4,6 +4,7 @@ import { usePostOrder, usePostRoomToCart } from "../../../hooks/useDetailFetch";
 import { purchaseState } from "../../../store/purchaseAtom";
 import * as Styled from "./ActionButtonGroup.styles";
 import { ActionButtonGroupProps } from "./ActionButtonGroup.types";
+import { formatDate } from "../../../utils/formatDate";
 
 const ActionButtonGroup = ({
   checkInAt,
@@ -15,19 +16,21 @@ const ActionButtonGroup = ({
   const postRoomToCart = usePostRoomToCart();
   const postOrder = usePostOrder();
 
-  //장바구니
   const onAddToCart = () => {
+    const formattedCheckInAt = formatDate(new Date(checkInAt));
+    const formattedCheckOutAt = formatDate(new Date(checkOutAt));
+
     postRoomToCart.mutate(
       {
-        check_in_at: checkInAt,
-        check_out_at: checkOutAt,
+        check_in_at: formattedCheckInAt,
+        check_out_at: formattedCheckOutAt,
         number_guests: numberGuests,
       },
       {
         onSuccess: () => {
           console.log("장바구니 담기 성공");
-          console.log("체크인 날짜:", checkInAt);
-          console.log("체크아웃 날짜:", checkOutAt);
+          console.log("체크인 날짜:", formattedCheckInAt);
+          console.log("체크아웃 날짜:", formattedCheckOutAt);
           console.log("숙박 인원:", numberGuests);
           navigate("/cart");
         },
@@ -39,17 +42,18 @@ const ActionButtonGroup = ({
     );
   };
 
-  //주문하기
   const handleBuyNow = () => {
+    const formattedCheckInAt = formatDate(new Date(checkInAt));
+    const formattedCheckOutAt = formatDate(new Date(checkOutAt));
+
     postOrder.mutate(
       {
-        check_in_at: checkInAt,
-        check_out_at: checkOutAt,
+        check_in_at: formattedCheckInAt,
+        check_out_at: formattedCheckOutAt,
         number_guests: numberGuests,
       },
       {
         onSuccess: () => {
-          // 임시 order_id 설정
           const orderId = Math.floor(Math.random() * 100000);
           setPurchase((prev) => ({
             ...prev,

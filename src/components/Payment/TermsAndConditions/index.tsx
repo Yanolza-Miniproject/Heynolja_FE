@@ -62,6 +62,7 @@ const TermsAndConditions = () => {
           <Styled.label htmlFor={data.id.toString()}>
             <CheckBox
               id={data.id.toString()}
+              data-testId='individual-terms-checkbox'
               type="checkbox"
               onChange={(e) => handleSingleCheck(e)}
               // 체크된 아이템 배열에 해당 아이템이 있을 경우 선택 활성화, 아닐 시 해제

@@ -12,9 +12,9 @@ const useGetValidParams = () => {
   const validParams = {
     region: getNumberParam("region", 99),
     type: getNumberParam("type", 99),
-    category_cooking: getNumberParam("category_cooking", 2),
-    category_parking: getNumberParam("category_parking", 2),
-    category_pickup: getNumberParam("category_pickup", 2),
+    category_cooking: getNumberParam("categoryCooking", 2),
+    category_parking: getNumberParam("categoryParking", 2),
+    category_pickup: getNumberParam("categoryPickup", 2),
   };
 
   return validParams;

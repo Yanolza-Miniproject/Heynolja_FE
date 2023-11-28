@@ -3,7 +3,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   checkInDateState,
   checkOutDateState,
-} from "../../../store/checkInCheckOutAtom";
+} from "../../../store/checkinCheckOutAtom";
 import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
 import { purchaseState } from "../../../store/purchaseAtom";
