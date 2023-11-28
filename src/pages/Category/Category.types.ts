@@ -12,16 +12,16 @@ export type CategoryProps = {
   room_counts: number;
   check_in: string;
   check_out: string;
-  category_parking: number;
-  category_cooking: number;
-  category_pickup: number;
+  categoryParking: number;
+  categoryCooking: number;
+  categoryPickup: number;
 };
 
 export type fetchCatgoryProps = {
   pageParam: number;
   regionUrl: string;
   typeUrl: string;
-  category_parkingUrl: string;
-  category_cookingUrl: string;
-  category_pickupUrl: string;
+  categoryParkingUrl: string;
+  categoryCookingUrl: string;
+  categoryPickupUrl: string;
 };

@@ -27,9 +27,9 @@ const SearchList = () => {
         <CategoryQuery
           regionNumber={validParams.region}
           accommodationNumber={validParams.type}
-          category_parking={validParams.category_parking}
-          category_cooking={validParams.category_cooking}
-          category_pickup={validParams.category_pickup}
+          categoryParking={validParams.categoryParking}
+          categoryCooking={validParams.categoryCooking}
+          categoryPickup={validParams.categoryPickup}
         />
       </Styled.ItemWrapper>
     </Styled.SearchResultContainer>

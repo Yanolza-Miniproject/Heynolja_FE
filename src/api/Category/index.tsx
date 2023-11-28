@@ -5,12 +5,12 @@ export const fetchCatgory = async ({
   pageParam,
   regionUrl,
   typeUrl,
-  category_parkingUrl,
-  category_cookingUrl,
-  category_pickupUrl,
+  categoryParkingUrl,
+  categoryCookingUrl,
+  categoryPickupUrl,
 }: fetchCatgoryProps) => {
   const data = await axios.get(
-    `/api/v1/accommodations?page=${pageParam}${regionUrl}${typeUrl}${category_parkingUrl}${category_cookingUrl}${category_pickupUrl}`,
+    `/api/v1/accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
   );
   return data.data;
 };
