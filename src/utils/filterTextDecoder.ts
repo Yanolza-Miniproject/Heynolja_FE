@@ -2,7 +2,7 @@ import {
   accommoationTypes,
   regionTypes,
 } from "../components/Category/CategoryFilter/CategoryFilter.constants";
-import _ from "lodash";
+import * as _ from "lodash";
 
 export type SearchListBannerProps = {
   validParams: Param;
