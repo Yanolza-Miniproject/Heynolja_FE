@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { CategoryProps } from "../pages/Category/Category.types";
-import { CategoryItemPageProps } from "../components/Category/CategoryItemWrapper";
+import { CategoryItemPageProps } from "../components/Category/CategoryItemWrapper/CategoryItemWrapper.types";
 import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
 
