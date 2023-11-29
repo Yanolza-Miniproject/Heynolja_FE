@@ -1,10 +1,10 @@
 export interface CartItemType {
-  room_basket_id: number;
-  accommodation_name: string;
-  room_image_url: string[];
-  room_name: string;
+  id: number;
+  accommodationName: string;
+  roomUrl: string;
+  roomName: string;
   price: number;
-  number_guests: number;
-  check_in_at: string;
-  check_out_at: string;
+  numberOfGuests: number;
+  checkInAt: string;
+  checkOutAt: string;
 }
