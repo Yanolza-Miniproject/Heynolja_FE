@@ -50,11 +50,7 @@ const DetailList = () => {
         pickup={accommodationDetail.data.data.categoryPickup}
       />
       <BookingCalendar />
-      {accommodationDetail &&
-        accommodationDetail.data &&
-        accommodationDetail.data.rooms && (
-          <RoomList rooms={accommodationDetail.data.data.rooms} />
-        )}
+      <RoomList rooms={accommodationDetail.data.data.rooms} />
     </Styled.container>
   );
 };
