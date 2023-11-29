@@ -11,7 +11,7 @@ export const fetchCatgory = async ({
   categoryPickupUrl,
 }: fetchCatgoryProps) => {
   const data = await axios.get(
-    `http://http://211.221.220.124:8080/api/v1/accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
+    `http://43.200.54.142:8080/api/v1/accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
   );
   console.log(data.data);
   return data.data;

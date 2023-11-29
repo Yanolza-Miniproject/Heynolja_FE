@@ -7,7 +7,7 @@ import axios from "axios";
 
 const fetchSignup = async (data: Inputs) => {
   const response = await axios.post(
-    "http://http://211.221.220.124:8080/api/v1/members/join",
+    "http://43.200.54.142:8080/api/v1/members/join",
     {
       email: data.email,
       password: data.password,
