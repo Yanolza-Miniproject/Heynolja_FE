@@ -5,7 +5,7 @@
   position: relative;
   width: 40vw;
   border: transparent;
-  border-radius: 15px;
+  border-radius: 10px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   /* border: 1px solid #d3d3d3; */
 }
@@ -77,4 +77,9 @@
 
 .react-datepicker__navigation--next {
   right: 20px;
+}
+.react-datepicker-second .react-datepicker__header,
+.react-datepicker-second .react-datepicker__month-container {
+  /* 여기에 원하는 스타일을 적용합니다. */
+  border: 1px solid #000 !important;
 }
