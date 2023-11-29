@@ -26,7 +26,9 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
     <Styled.SelectorContainer>
       <Styled.InfoContainer>
         <Styled.LabelText>숙박 인원 선택</Styled.LabelText>
-        <Styled.PriceText>1인당 가격 ￦{formatNumber(price)}</Styled.PriceText>
+        <Styled.PriceText>
+          1인당 가격 ￦{price !== undefined ? formatNumber(price) : "정보 없음"}
+        </Styled.PriceText>
       </Styled.InfoContainer>
       <Styled.ControlContainer>
         <Styled.MinusButton onClick={handleDecrease} disabled={quantity === 1}>

@@ -10,17 +10,17 @@ const PaymentItems = ({ data }: PaymentItemsProps) => {
         {data.map((item) => {
           return (
             <div
-              key={item.room_basket_id}
+              key={item.id}
               style={{ marginBottom: "1.5rem" }}
               data-testid="payment_list"
             >
               <Item
-                name={item.accommodation_name}
-                type={item.room_name}
-                guests={item.number_guests}
+                name={item.accommodationName}
+                type={item.roomName}
+                guests={item.numberOfGuests}
                 price={item.price}
-                checkIn={item.check_in_at}
-                checkOut={item.check_out_at}
+                checkIn={item.checkInAt}
+                checkOut={item.checkOutAt}
               />
             </div>
           );

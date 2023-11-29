@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import formatNumber from "../../../utils/formatNumber";
 import { useDeleteOrder, usePayment } from "../../../hooks/usePayment";
-import axios from "axios";
-import { authInstance } from "../../../hooks/useAxios";
 
 const Btn = () => {
   const navigate = useNavigate();
@@ -15,7 +13,7 @@ const Btn = () => {
   const [purchaseList] = useRecoilState(purchaseState);
   const orderId = purchaseList.order_id;
   const PaymentMutation = usePayment();
-  const deleteOrderMutation = useDeleteOrder(orderId as number);
+  const deleteOrderMutation = useDeleteOrder();
 
   // 결제 전송
   const paymentFetch = () => {
@@ -34,11 +32,12 @@ const Btn = () => {
   // authInstance.post('/api/v1/orders/{order_id}/payments').then
 
   const deleteOrderfetch = () => {
-    deleteOrderMutation.mutate();
+    deleteOrderMutation.mutate(orderId as number);
   };
 
   const handleBackToCart = () => {
     deleteOrderfetch();
+    history.back();
   };
 
   const handleGoToPay = () => {

@@ -33,9 +33,9 @@ export const useGetMyOrderInfinite = () => {
 };
 
 // 주문 취소
-export const useDeleteOrder = (orderId: number) => {
+export const useDeleteOrder = () => {
   return useMutation({
-    mutationFn: () => {
+    mutationFn: (orderId: number) => {
       return authInstance.delete(`/orders/${orderId}`);
     },
   });
