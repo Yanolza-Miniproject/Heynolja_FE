@@ -1,4 +1,4 @@
 export interface ProductTitleProps {
-  type: string;
+  type: number;
   name: string;
 }
