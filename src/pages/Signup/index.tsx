@@ -6,20 +6,15 @@ import { InputProps } from "./Signup.constant";
 import { baseInstance } from "../../hooks/useAxios";
 
 const fetchSignup = async (data: Inputs) => {
-  const response = await baseInstance.post(
-    "/api/members/join",
-    {
-      email: data.email,
-      password: data.password,
-      nickname: data.nickname,
-      phoneNumber: data.phone,
-    },
-    {
-      headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-    },
-  );
+  const response = await baseInstance.post("/members/join", {
+    email: data.email,
+    password: data.password,
+    nickname: data.nickname,
+    phoneNumber: data.phone,
+  });
+
+  console.log(response.headers);
+
   return response.data;
 };
 
@@ -30,9 +25,10 @@ const Signup = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
     console.log(data);
-    fetchSignup(data).then((res) => console.log(res));
+    const datas = await fetchSignup(data);
+    console.log(datas);
   };
 
   return (

@@ -49,8 +49,8 @@ const authInterceptors = (instance: AxiosInstance) => {
 // axios인스턴스 생성 (인증x)
 const base = () => {
   const instance = axios.create({
-    baseURL: process.env.VITE_APP_API_BASE_URL,
-    timeout: 3000,
+    baseURL: "/api",
+    timeout: 1000,
   });
 
   baseInterceptors(instance);
@@ -61,8 +61,8 @@ const base = () => {
 // axios인스턴스 생성 (인증o)
 const auth = () => {
   const instance = axios.create({
-    baseURL: process.env.VITE_APP_API_BASE_URL,
-    timeout: 3000,
+    baseURL: "/api",
+    timeout: 1000,
   });
 
   authInterceptors(instance);
