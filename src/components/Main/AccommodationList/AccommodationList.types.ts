@@ -7,7 +7,7 @@ export type AccommodationListProps = {
 };
 
 export type AccommodationData = {
-  id: number;
+  id: string;
   name: string;
   type?: number;
   address?: string;

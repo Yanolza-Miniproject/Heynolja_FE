@@ -3,9 +3,12 @@ import Logo from "../../assets/svg/logo.svg";
 import SearchIcon from "../../assets/svg/search-icon.svg";
 import CartIcon from "../../assets/svg/cart-icon.svg";
 import UserIcon from "../../assets/svg/user-icon.svg";
+import SigninIcon from "../../assets/svg/signin-icon.svg";
 import SignupIcon from "../../assets/svg/signup-icon.svg";
+import SignoutIcon from "../../assets/svg/signout-icon.svg";
 import { useState } from "react";
 import { baseInstance } from "../../hooks/useAxios";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [loggedin, setLoggedin] = useState(false);
@@ -48,10 +51,16 @@ const Header = () => {
 
   return (
     <Styled.headerContainer>
-      <a href="/">
-        <img src={Logo} alt="logo" />
-      </a>{" "}
-      <Styled.headerWrapper>
+      <Styled.headerLeftWrapper>
+        <Link to="/">
+          <img src={Logo} alt="logo" />
+        </Link>
+        <Link to="/category">
+          <span>숙소 둘러보기</span>
+        </Link>
+      </Styled.headerLeftWrapper>
+
+      <Styled.headerRightWrapper>
         <button onClick={handleLogin}>
           {loggedin ? "로그인 상태" : "로그인"}
         </button>
@@ -68,7 +77,7 @@ const Header = () => {
               <img src={UserIcon} alt="mypage" />
             </a>{" "}
             <a href="/signup">
-              <img src={SignupIcon} alt="logout" />
+              <img src={SignoutIcon} alt="logout" />
             </a>
           </>
         ) : (
@@ -76,10 +85,15 @@ const Header = () => {
             <a href="/search">
               <img src={SearchIcon} alt="search" />
             </a>
-            <a href="signin">로그인test</a> <a href="signup">회원가입</a>{" "}
+            <a href="signup">
+              <img src={SignupIcon} alt="signup" />
+            </a>{" "}
+            <a href="signin">
+              <img src={SigninIcon} alt="signin" />
+            </a>{" "}
           </>
         )}
-      </Styled.headerWrapper>
+      </Styled.headerRightWrapper>
     </Styled.headerContainer>
   );
 };
