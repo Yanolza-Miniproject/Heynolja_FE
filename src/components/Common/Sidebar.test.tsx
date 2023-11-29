@@ -1,0 +1,20 @@
+import { render, screen, fireEvent } from "@testing-library/react";
+import Sidebar from "./Sidebar";
+
+describe("사이드바 버튼 테스트", () => {
+  beforeEach(() => {
+    window.scrollTo = jest.fn();
+  });
+
+  test("TOP 버튼 클릭시 화면 최상단으로 스크롤이 이동되어야 한다", () => {
+    render(<Sidebar />);
+
+    const topButton = screen.getByText("TOP");
+    fireEvent.click(topButton);
+
+    expect(window.scrollTo).toHaveBeenCalledWith({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+});
