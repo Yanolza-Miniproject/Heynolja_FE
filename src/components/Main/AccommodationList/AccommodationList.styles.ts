@@ -2,25 +2,9 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-export const ContainerVariants = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-export const ItemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
+interface RandomAccomDataProps {
+  isRandomAccomData?: boolean;
+}
 
 export const Title = styled.h3`
   margin: 1.5rem;
@@ -30,9 +14,10 @@ export const Title = styled.h3`
   text-align: center;
 `;
 
-export const AccomList = styled(motion.div)`
+export const AccomList = styled(motion.div)<RandomAccomDataProps>`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: ${({ isRandomAccomData }) =>
+    isRandomAccomData ? "repeat(5, auto)" : "repeat(3, auto)"};
   justify-content: center;
   align-items: center;
 
@@ -40,29 +25,8 @@ export const AccomList = styled(motion.div)`
   margin-bottom: 3rem;
 
   @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, auto);
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, auto);
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(1, auto);
-  }
-`;
-
-export const NormalAccomList = styled(motion.div)`
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  justify-content: center;
-  align-items: start;
-
-  gap: 1rem;
-  margin-bottom: 6rem;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: ${({ isRandomAccomData }) =>
+      isRandomAccomData ? "repeat(5, auto)" : "repeat(3, auto)"};
   }
 
   @media (max-width: 768px) {
@@ -77,6 +41,8 @@ export const NormalAccomList = styled(motion.div)`
 export const ItemContainer = styled.div`
   padding: 0.8rem;
 
+  width: 13rem;
+  height: 16rem;
   border: 1px solid #e6e6e6;
   border-radius: 0.625rem;
 
@@ -97,7 +63,7 @@ export const ItemLink = styled(Link)`
   align-items: center;
 `;
 
-export const ItemPicture = styled(motion.div)`
+export const ItemPicture = styled.div`
   position: relative;
 
   background-color: white;
@@ -107,14 +73,12 @@ export const ItemPicture = styled(motion.div)`
   img {
     width: 13rem;
     height: 13rem;
-    object-fit: cover;
   }
 `;
 
 export const ItemInfo = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 
   margin-top: 0.5rem;
@@ -141,18 +105,23 @@ export const ItemInfo = styled.div`
 
 export const ItemInfoFirstColumn = styled.div`
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 
   gap: 0.4rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const ItemInfoSecondColumn = styled.div`
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
 
   gap: 0.2rem;
 
