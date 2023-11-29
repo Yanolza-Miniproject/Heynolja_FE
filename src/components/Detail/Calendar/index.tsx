@@ -38,7 +38,9 @@ const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
     <>
       <Styled.TextContainer>
         <Styled.SelectDatesText>날짜 선택</Styled.SelectDatesText>
-        <Styled.PriceText>1박 가격 ￦ {formatNumber(price)}</Styled.PriceText>
+        <Styled.PriceText>
+          1박 가격 ￦ {price !== undefined ? formatNumber(price) : "정보 없음"}
+        </Styled.PriceText>
       </Styled.TextContainer>
       <DatePicker
         selected={validCheckInDate}

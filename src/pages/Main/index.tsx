@@ -1,15 +1,30 @@
 import * as Styled from "./Main.styles";
 import Sidebar from "../../components/Common/Sidebar";
 import {
-  // useFetchAccomByRegion,
+  useFetchAccomByRegion,
   useFetchTopLikedAccom,
   useFetchAccomWithParking,
   useFetchAllAccommodations,
 } from "../../hooks/useMainListFetch";
 import { AccommodationList } from "../../components/Main/AccommodationList";
+import { useRef } from "react";
+import useGeolocation from "../../hooks/useGeolocation";
+import { regions } from "../../store/searchSelectorData";
 
 const Main = () => {
-  // const { data: regionAccomData } = useFetchAccomByRegion(0);
+  const { cityCode } = useGeolocation();
+  const cityName = regions.find((region) => region.value === cityCode)?.name;
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  const {
+    data: regionAccomData,
+    isLoading: isLoadingRegionAccom,
+    error: errorRegionAccom,
+  } = useFetchAccomByRegion(cityCode);
+
+  const myRegionAccomData = regionAccomData ? regionAccomData.slice(0, 3) : [];
+
   const {
     data: topLikedAccomData,
     isLoading: isLoadingTopLikedAccom,
@@ -34,26 +49,41 @@ const Main = () => {
     error: errorRandomAccom,
   } = useFetchAllAccommodations();
 
-  if (errorTopLikedAccom || errorParkingAccom || errorRandomAccom) {
+  if (
+    errorRegionAccom ||
+    errorTopLikedAccom ||
+    errorParkingAccom ||
+    errorRandomAccom
+  ) {
     return <div>숙소 정보를 불러오는 데 실패하였습니다.</div>;
   }
 
-  if (isLoadingTopLikedAccom || isLoadingParkingAccom || isLoadingRandomAccom) {
+  if (
+    isLoadingRegionAccom ||
+    isLoadingTopLikedAccom ||
+    isLoadingParkingAccom ||
+    isLoadingRandomAccom
+  ) {
     return <div>숙소 정보를 불러오는 중입니다.</div>;
   }
 
   return (
     <>
       <Sidebar />
-      <Styled.Container>
+      <Styled.Container ref={ref}>
         <Styled.Banner>
           Hey 놀자!
           <br /> 지금 둘러보세요. 👀
         </Styled.Banner>
 
         <AccommodationList
-          accommodations={topThreeLikedAccomData}
-          title="📌 지금 내 주변에는 이런 숙소도 있어요."
+          accommodations={myRegionAccomData}
+          title={
+            <span>
+              📌 현재 나의 지역 <Styled.CityName>{cityName}</Styled.CityName>
+              에는 이런 숙소도 있어요.
+            </span>
+          }
         />
         <AccommodationList
           accommodations={topThreeLikedAccomData}
@@ -66,6 +96,7 @@ const Main = () => {
         <AccommodationList
           accommodations={randomAccomData}
           title="더 많은 숙소를 둘러보실 수 있어요."
+          isRandomAccomData={true}
         />
       </Styled.Container>
     </>

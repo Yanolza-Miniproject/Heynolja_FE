@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { accommodationDetail } from "../../../mock/detailListPageData";
+// import { accommodationDetail } from "../../../mock/detailListPageData";
 import {
   checkInDateState,
   checkOutDateState,
@@ -7,11 +7,11 @@ import {
 import RoomItem from "../RoomItem";
 import * as Styled from "./RoomList.styles";
 import isInventoryAvailable from "./RoomList.utils";
+import { RoomType } from "./RoomList.types";
 
-const RoomList = () => {
+const RoomList = ({ rooms }: { rooms: RoomType[] }) => {
   const checkInDate = useRecoilValue(checkInDateState) || new Date();
   const checkOutDate = useRecoilValue(checkOutDateState) || new Date();
-  const { rooms } = accommodationDetail;
 
   const filteredRooms = rooms.filter((room) =>
     isInventoryAvailable(room, checkInDate, checkOutDate),
@@ -29,7 +29,9 @@ const RoomList = () => {
             capacity={room.capacity}
             RoomInventory={room.RoomInventory}
             roomImageUrl={
-              room.room_image_url ? room.room_image_url[0] : undefined
+              room.roomImages.length > 0
+                ? room.roomImages[0].imageUrl
+                : undefined
             }
             checkInDate={checkInDate}
             checkOutDate={checkOutDate}

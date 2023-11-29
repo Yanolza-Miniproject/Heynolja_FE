@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { usePostOrder, usePostRoomToCart } from "../../../hooks/useDetailFetch";
 import { purchaseState } from "../../../store/purchaseAtom";
@@ -16,15 +16,20 @@ const ActionButtonGroup = ({
   const postRoomToCart = usePostRoomToCart();
   const postOrder = usePostOrder();
 
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const roomId = parseInt(queryParams.get("room-id") || "0", 10);
+
   const onAddToCart = () => {
     const formattedCheckInAt = formatDate(new Date(checkInAt));
     const formattedCheckOutAt = formatDate(new Date(checkOutAt));
 
     postRoomToCart.mutate(
       {
-        check_in_at: formattedCheckInAt,
-        check_out_at: formattedCheckOutAt,
-        number_guests: numberGuests,
+        checkInAt: formattedCheckInAt,
+        checkOutAt: formattedCheckOutAt,
+        numberOfGuests: numberGuests,
+        roomId: roomId,
       },
       {
         onSuccess: () => {
@@ -48,16 +53,17 @@ const ActionButtonGroup = ({
 
     postOrder.mutate(
       {
-        check_in_at: formattedCheckInAt,
-        check_out_at: formattedCheckOutAt,
-        number_guests: numberGuests,
+        checkInAt: formattedCheckInAt,
+        checkOutAt: formattedCheckOutAt,
+        numberOfGuests: numberGuests,
+        roomId: roomId,
       },
       {
         onSuccess: () => {
-          const orderId = Math.floor(Math.random() * 100000);
+          // const orderId = Math.floor(Math.random() * 100000); // 이부분 삭제 예정
           setPurchase((prev) => ({
             ...prev,
-            order_id: orderId,
+            // order_id: orderId, //이부분 삭제 예정
           }));
           navigate("/payment");
         },
