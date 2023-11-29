@@ -4,9 +4,10 @@ import InputText from "../../components/Signin/InputText";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { InputProps } from "./Signin.constant";
 import { SignInInputs } from "./Signin.types";
-import { fetchSignin } from "../../api/Auth";
+import { useLogin } from "../../api/Auth/query";
 
 const Signin = () => {
+  const loginMutation = useLogin();
   const {
     register,
     handleSubmit,
@@ -14,11 +15,7 @@ const Signin = () => {
   } = useForm<SignInInputs>();
 
   const onSubmit: SubmitHandler<SignInInputs> = (data) => {
-    fetchSignin(data).then((res) => {
-      console.log(res);
-    });
-
-    console.log(data);
+    loginMutation.mutate(data);
   };
 
   return (

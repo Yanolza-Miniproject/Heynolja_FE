@@ -1,14 +1,17 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Signin from "./index";
+import { createWrapper } from "../../test/test.utils";
 
 describe("Signin", () => {
   it("컴포넌트 렌더링 테스트", () => {
-    render(<Signin />);
+    const wrapper = createWrapper();
+    render(<Signin />, { wrapper });
   });
 
   it("아무것도 입력하지 않았을 때 에러 메시지 출력 테스트", async () => {
-    render(<Signin />);
+    const wrapper = createWrapper();
+    render(<Signin />, { wrapper });
 
     userEvent.click(screen.getByRole("button", { name: "로그인" }));
 
@@ -19,7 +22,8 @@ describe("Signin", () => {
   });
 
   it("이메일 형식에 123@naver.com을 입력했을 때 에러 메시지 미출력 테스트", async () => {
-    render(<Signin />);
+    const wrapper = createWrapper();
+    render(<Signin />, { wrapper });
 
     await userEvent.type(
       screen.getByRole("textbox", { name: "email" }),
@@ -36,7 +40,8 @@ describe("Signin", () => {
   });
 
   it("비밀번호에 12345678을 입력했을 때 에러 메시지 미출력 테스트", async () => {
-    render(<Signin />);
+    const wrapper = createWrapper();
+    render(<Signin />, { wrapper });
 
     await userEvent.type(screen.getByText("password"), "12345678");
     await userEvent.click(screen.getByRole("button", { name: "로그인" }));

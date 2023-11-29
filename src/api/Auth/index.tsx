@@ -21,3 +21,17 @@ export const fetchSignup = async (data: Inputs) => {
 
   return response.data;
 };
+
+export type fetchTokenProps = {
+  accessToken: string;
+  refreshToken: string;
+};
+
+export const fetchToken = async (data: fetchTokenProps) => {
+  const response = await baseInstance.post("members/token", {
+    accessToken: data.accessToken,
+    refreshToken: data.refreshToken,
+  });
+
+  return response.data.data;
+};

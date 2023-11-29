@@ -3,10 +3,21 @@ import axios, {
   AxiosInstance,
   InternalAxiosRequestConfig,
 } from "axios";
+import { getTokenRefresh } from "../utils/getTokenRefresh";
+
+// const getAccessToken = (tokenName: string) => localStorage.getItem(tokenName);
+// const setAccessToken = (token: string, expireTime: number) => {
+//   const expirationTime = new Date().getTime() + expireTime * 1000 * 60;
+//   localStorage.setItem("access_token", token);
+//   localStorage.setItem("access_token_expiration", expirationTime.toString());
+// };
+// const getRefreshToken = () => localStorage.getItem("refresh_token");
+// const setRefreshToken = (token: string) =>
+//   localStorage.setItem("refresh_token", token);
 
 // 토큰 추가 함수
 const addTokenToHeader = (config: InternalAxiosRequestConfig) => {
-  const token = localStorage.getItem("access_token");
+  const token = getTokenRefresh();
 
   if (token) {
     config.headers.access_token = token;
@@ -17,8 +28,12 @@ const addTokenToHeader = (config: InternalAxiosRequestConfig) => {
 
 // 에러 핸들링 함수
 const logErrorInterceptor = (error: AxiosError) => {
-  console.error("error", error);
-  console.log("에러 발생");
+  return Promise.reject(error);
+};
+
+// 인증 필요 에러 핸들링 함수
+
+const logAuthErrorInterceptor = (error: AxiosError) => {
   return Promise.reject(error);
 };
 
@@ -38,11 +53,11 @@ const baseInterceptors = (instance: AxiosInstance) => {
 const authInterceptors = (instance: AxiosInstance) => {
   instance.interceptors.request.use(
     (config) => addTokenToHeader(config),
-    (error) => logErrorInterceptor(error),
+    (error) => logAuthErrorInterceptor(error),
   );
   instance.interceptors.response.use(
     (response) => response,
-    (error) => logErrorInterceptor(error),
+    (error) => logAuthErrorInterceptor(error),
   );
 };
 
