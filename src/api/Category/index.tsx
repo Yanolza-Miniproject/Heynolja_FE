@@ -1,5 +1,5 @@
 import { fetchCatgoryProps } from "../../pages/Category/Category.types";
-import { baseInstance } from "../../hooks/useAxios";
+import { baseInstance, authInstance } from "../../hooks/useAxios";
 
 export const fetchCatgory = async ({
   pageParam,
@@ -16,11 +16,11 @@ export const fetchCatgory = async ({
 };
 
 export const postClickHeart = async (accommodationId: string) => {
-  const data = await baseInstance.post(`/wish/${accommodationId}`);
+  const data = await authInstance.post(`wish/${accommodationId}`);
   return data.data;
 };
 
 export const deleteClickHeart = async (accommodationId: string) => {
-  const data = await baseInstance.delete(`/wish/${accommodationId}`);
+  const data = await authInstance.delete(`wish/${accommodationId}`);
   return data.data;
 };
