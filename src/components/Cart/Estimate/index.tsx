@@ -25,7 +25,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
   // 장바구니에서 체크한 상품 주문 요청 함수
   const fetch = () => {
     postOrdersMutation.mutate(
-      { room_basket_id: [...purchaseId] },
+      { ids: [...purchaseId] },
       {
         onSuccess: (responseData) => {
           setPurchaseList({

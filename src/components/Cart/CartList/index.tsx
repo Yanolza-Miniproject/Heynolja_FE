@@ -37,7 +37,7 @@ const CartList = ({ data }: CartListProps) => {
   // 장바구니에서 해당 상품 제거
   const fetch = () => {
     deleteCartMutation.mutate(
-      { room_basket_id: deleteId },
+      { ids: deleteId },
       {
         onSuccess: (responseData) => {
           console.log(responseData.data);

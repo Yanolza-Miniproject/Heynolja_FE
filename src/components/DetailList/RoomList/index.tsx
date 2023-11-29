@@ -28,10 +28,8 @@ const RoomList = ({ rooms }: { rooms: RoomType[] }) => {
             price={room.price}
             capacity={room.capacity}
             RoomInventory={room.RoomInventory}
-            roomImageUrl={
-              room.roomImages.length > 0
-                ? room.roomImages[0].imageUrl
-                : undefined
+            roomImages={
+              room.roomImages.length > 0 ? room.roomImages[0].imageUrl : ""
             }
             checkInDate={checkInDate}
             checkOutDate={checkOutDate}
