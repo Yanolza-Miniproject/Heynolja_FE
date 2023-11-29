@@ -6,10 +6,10 @@ import axios, {
 
 // 토큰 추가 함수
 const addTokenToHeader = (config: InternalAxiosRequestConfig) => {
-  const token = "ASDADWASDasdasdasdawd";
+  const token = localStorage.getItem("access_token");
 
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.access_token = token;
   }
 
   return config;
