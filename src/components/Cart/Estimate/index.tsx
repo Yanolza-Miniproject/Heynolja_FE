@@ -15,11 +15,11 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
   const [, setPurchaseList] = useRecoilState(purchaseState);
   const [totalPrice, setTotalPrice] = useState(0);
   const [purchaseId, setPurchaseId] = useState<number[]>([
-    ...estimatedPrice.map((item) => item.room_basket_id),
+    ...estimatedPrice.map((item) => item.id),
   ]);
 
   useEffect(() => {
-    setPurchaseId([...estimatedPrice.map((item) => item.room_basket_id)]);
+    setPurchaseId([...estimatedPrice.map((item) => item.id)]);
   }, [estimatedPrice]);
 
   // 장바구니에서 체크한 상품 주문 요청 함수
@@ -48,10 +48,10 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
       <Styled.Top>
         {estimatedPrice.map((item) => {
           return (
-            <Styled.Item key={item.room_basket_id} data-testid="estimate-item">
+            <Styled.Item key={item.id} data-testid="estimate-item">
               <div>
-                <p>{item.accommodation_name}</p>
-                <p>{item.room_name}</p>
+                <p>{item.accommodationName}</p>
+                <p>{item.roomName}</p>
               </div>
               <Styled.Empty />
               <span>₩{formatNumber(item.price)}</span>

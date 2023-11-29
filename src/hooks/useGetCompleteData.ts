@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { authInstance } from "./useAxios";
 
 export const useGetCompleteData = (id: string) => {
   return useQuery({
-    queryFn: () => axios.get(`/api/v1/payment/${id}`),
+    queryFn: () => authInstance.get(`/payment/${id}`),
     queryKey: ["complete"],
   });
 };
