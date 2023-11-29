@@ -61,7 +61,7 @@ const Header = () => {
             <a href="search">
               <img src={SearchIcon} alt="search" />
             </a>
-            <a href="signin">로그인</a> <a href="signup">회원가입</a>{" "}
+            <a href="signin">로그인test</a> <a href="signup">회원가입</a>{" "}
           </>
         )}
       </Styled.headerWrapper>
