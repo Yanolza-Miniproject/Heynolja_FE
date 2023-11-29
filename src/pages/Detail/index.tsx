@@ -65,7 +65,7 @@ const Detail = () => {
               name={roomDetails.data.accommodationName}
               price={roomDetails.data.price}
             />
-            <StockStatusBanner />
+            <StockStatusBanner inventory={roomDetails.data.inventory} />
           </Styled.HorizontalContainer>
           <Calendar
             price={roomDetails.data.price}
