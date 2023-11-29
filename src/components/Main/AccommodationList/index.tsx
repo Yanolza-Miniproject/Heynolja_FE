@@ -33,7 +33,7 @@ export const AccommodationList = ({
       >
         {accommodations?.map((item: AccommodationData) => (
           <Styled.ItemContainer key={item.id}>
-            <Styled.ItemLink to={`/accommodations/${item.id}`}>
+            <Styled.ItemLink to={`/detailList?accommodation-id=${item.id}`}>
               <Styled.ItemPicture>
                 <img src={`${item.thumbnailUrl}`} alt={item.name} />
               </Styled.ItemPicture>
@@ -42,7 +42,7 @@ export const AccommodationList = ({
                 <Styled.ItemInfoFirstColumn>
                   <h3 className="item-name">{item.name}</h3>
                   <h3 className="item-price">
-                    ~{item.lowest_price && formatNumber(item.lowest_price)}원
+                    ~₩{item.lowest_price && formatNumber(item.lowest_price)}원
                     부터
                   </h3>
                 </Styled.ItemInfoFirstColumn>
