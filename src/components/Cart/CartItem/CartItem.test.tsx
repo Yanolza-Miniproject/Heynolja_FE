@@ -4,14 +4,14 @@ import CartItem from ".";
 import formatNumber from "../../../utils/formatNumber";
 
 export const testData = {
-  room_basket_id: 1,
-  accommodation_name: "라마다 제주시티 호텔",
-  room_image_url: [""],
-  room_name: "스위트 더블",
+  id: 1,
+  accommodationName: "라마다 제주시티 호텔",
+  roomUrl: "",
+  roomName: "스위트 더블",
   price: 210000,
-  number_guests: 2,
-  check_in_at: "2023-11-30",
-  check_out_at: "2023-12-02",
+  numberOfGuests: 2,
+  checkInAt: "2023-11-30",
+  checkOutAt: "2023-12-02",
 };
 
 const createWrapper = () => {
@@ -64,9 +64,9 @@ describe("장바구니 페이지 개별 아이템 테스트", () => {
       wrapper: createWrapper(),
     });
 
-    const name = screen.queryByText(`${testData.accommodation_name}`);
-    const type = screen.queryByText(`: ${testData.room_name}`);
-    const number = screen.queryByText(`: ${testData.number_guests}명`);
+    const name = screen.queryByText(`${testData.accommodationName}`);
+    const type = screen.queryByText(`: ${testData.roomName}`);
+    const number = screen.queryByText(`: ${testData.numberOfGuests}명`);
     const price = screen.queryByText(`₩${formatNumber(testData.price)}`);
 
     expect(name).toBeInTheDocument();
