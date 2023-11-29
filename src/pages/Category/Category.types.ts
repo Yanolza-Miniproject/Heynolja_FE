@@ -8,7 +8,7 @@ export type CategoryProps = {
   wishCount: number;
   viewCount: number;
   lowest_price: number;
-  likes_available: boolean;
+  isWish: boolean;
   room_counts: number;
   checkIn: string;
   checkOut: string;

@@ -43,7 +43,7 @@ export const testData = {
       thumbnailUrl:
         "https://res.cloudinary.com/dtf6uf7vi/image/upload/v1700183654/Home/testid.jpg",
       lowest_price: 488,
-      likes_available: true,
+      isWish: true,
       categoryParking: 1,
       categoryCooking: 1,
       categoryPickup: 1,
@@ -62,7 +62,7 @@ export const testData = {
       thumbnailUrl:
         "https://res.cloudinary.com/dtf6uf7vi/image/upload/v1700183654/Home/testid.jpg",
       lowest_price: 425,
-      likes_available: true,
+      isWish: true,
       categoryParking: 1,
       categoryCooking: 1,
       categoryPickup: 0,
@@ -81,7 +81,7 @@ export const testData = {
       thumbnailUrl:
         "https://res.cloudinary.com/dtf6uf7vi/image/upload/v1700183654/Home/testid.jpg",
       lowest_price: 260,
-      likes_available: true,
+      isWish: true,
       categoryParking: 1,
       categoryCooking: 0,
       categoryPickup: 0,
