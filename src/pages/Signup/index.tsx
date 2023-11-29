@@ -42,7 +42,7 @@ const Signup = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
         >
-          <Styled.SigninHeader>회원가입 테스트2</Styled.SigninHeader>
+          <Styled.SigninHeader>회원가입 테스트2222222222</Styled.SigninHeader>
           <Styled.SignForm onSubmit={handleSubmit(onSubmit)}>
             {InputProps.map((data, index: number) => {
               return (
@@ -55,7 +55,7 @@ const Signup = () => {
               );
             })}
             <Styled.SigninButton type="submit">
-              회원가입 테스트2
+              회원가입 테스트2222222222
             </Styled.SigninButton>
           </Styled.SignForm>
           <Styled.SigninOutButton></Styled.SigninOutButton>

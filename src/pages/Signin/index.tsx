@@ -46,7 +46,7 @@ const Signin = () => {
             transition={{ duration: 1, delay: 0.7, ease: "easeInOut" }}
           >
             <LoginForm onSubmit={handleSubmit(onSubmit)}>
-              <SigninHeader>로그인</SigninHeader>
+              <SigninHeader>로그인2222222222</SigninHeader>
               {InputProps.map((data, index) => (
                 <InputText
                   key={index}
@@ -55,7 +55,7 @@ const Signin = () => {
                   errors={errors}
                 />
               ))}
-              <SigninButton type="submit">로그인</SigninButton>
+              <SigninButton type="submit">로그인2222222222</SigninButton>
             </LoginForm>
           </Styled.MotionOpacityDiv>
         </Styled.MotionScaleDiv>
