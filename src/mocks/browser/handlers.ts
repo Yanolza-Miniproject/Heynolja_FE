@@ -11,7 +11,7 @@ import * as _ from "lodash";
 // 전체 숙소 보기 + 필터링
 export const handlers = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  http.get("/api/v1/accommodations", ({ request }) => {
+  http.get("http://43.200.54.142:8080/api/v1/accommodations", ({ request }) => {
     const url = new URL(request.url);
     const page = Number(url.searchParams.get("page")) || 0;
     const typeParam = url.searchParams.get("type");

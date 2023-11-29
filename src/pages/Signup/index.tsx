@@ -3,18 +3,15 @@ import * as Styled from "./Signup.styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Inputs } from "./Signup.types";
 import { InputProps } from "./Signup.constant";
-import axios from "axios";
+import { baseInstance } from "../../hooks/useAxios";
 
 const fetchSignup = async (data: Inputs) => {
-  const response = await axios.post(
-    "http://211.221.220.124:8080/api/v1/members/join",
-    {
-      email: data.email,
-      password: data.password,
-      nickname: data.nickname,
-      phoneNumber: data.phone,
-    },
-  );
+  const response = await baseInstance.post("members/join", {
+    email: data.email,
+    password: data.password,
+    nickname: data.nickname,
+    phoneNumber: data.phone,
+  });
 
   console.log(response.headers);
 
@@ -42,7 +39,7 @@ const Signup = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
         >
-          <Styled.SigninHeader>회원가입</Styled.SigninHeader>
+          <Styled.SigninHeader>회원가입 테스트</Styled.SigninHeader>
           <Styled.SignForm onSubmit={handleSubmit(onSubmit)}>
             {InputProps.map((data, index: number) => {
               return (
@@ -54,7 +51,9 @@ const Signup = () => {
                 />
               );
             })}
-            <Styled.SigninButton type="submit">회원가입</Styled.SigninButton>
+            <Styled.SigninButton type="submit">
+              회원가입 테스트
+            </Styled.SigninButton>
           </Styled.SignForm>
           <Styled.SigninOutButton></Styled.SigninOutButton>
         </Styled.SigninMotionDiv>
