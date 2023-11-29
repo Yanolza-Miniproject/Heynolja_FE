@@ -1,32 +1,10 @@
 import CartList from "../../components/Cart/CartList";
-import { authInstance, baseInstance } from "../../hooks/useAxios";
 import { useGetMyCart } from "../../hooks/useCartFetch";
 import { useNavigate } from "react-router";
-
-interface requestBodyProps {
-  checkInAt: string;
-  checkOutAt: string;
-  numberOfGuests: number;
-}
 
 const Cart = () => {
   const navigate = useNavigate();
   const { data, isLoading, error } = useGetMyCart(); // 카트 목록 데이터 요청
-
-  const requestBody: requestBodyProps = {
-    checkInAt: "2023-12-25",
-    checkOutAt: "2023-12-25",
-    numberOfGuests: 3,
-  };
-
-  authInstance
-    .post("/rooms/2/baskets", requestBody)
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error("장바구니 등록 실패!", error);
-    });
 
   if (isLoading) {
     return <div>로딩중</div>;
