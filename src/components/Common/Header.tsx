@@ -9,6 +9,7 @@ import LogoutIcon from "../../assets/svg/logout-icon.svg";
 import { useState } from "react";
 import { baseInstance } from "../../hooks/useAxios";
 import { Link } from "react-router-dom";
+import { Tooltip } from "@mui/material";
 
 const Header = () => {
   const [loggedin, setLoggedin] = useState(false);
@@ -67,30 +68,44 @@ const Header = () => {
         <button onClick={fetchData}>회원가입 test</button>
         {loggedin ? (
           <>
-            <a href="/search">
-              <img src={SearchIcon} alt="search" />
-            </a>
-            <a href="/cart">
-              <img src={CartIcon} alt="cart" />
-            </a>{" "}
-            <a href="/mypage">
-              <img src={UserIcon} alt="mypage" />
-            </a>{" "}
-            <a href="/logout">
-              <img src={LogoutIcon} alt="logout" />
-            </a>
+            <Link to="/search">
+              <Tooltip title="숙소 찾기" arrow>
+                <img src={SearchIcon} alt="search" />
+              </Tooltip>
+            </Link>
+            <Link to="/cart">
+              <Tooltip title="내 카트" arrow>
+                <img src={CartIcon} alt="cart" />
+              </Tooltip>
+            </Link>{" "}
+            <Link to="/mypage">
+              <Tooltip title="마이페이지" arrow>
+                <img src={UserIcon} alt="mypage" />
+              </Tooltip>
+            </Link>{" "}
+            <Link to="/logout">
+              <Tooltip title="로그아웃" arrow>
+                <img src={LogoutIcon} alt="logout" />
+              </Tooltip>
+            </Link>
           </>
         ) : (
           <>
-            <a href="/search">
-              <img src={SearchIcon} alt="search" />
-            </a>
-            <a href="signup">
-              <img src={SignupIcon} alt="signup" />
-            </a>{" "}
-            <a href="signin">
-              <img src={SigninIcon} alt="signin" />
-            </a>{" "}
+            <Link to="/search">
+              <Tooltip title="숙소 찾기" arrow>
+                <img src={SearchIcon} alt="search" />
+              </Tooltip>
+            </Link>
+            <Link to="signup">
+              <Tooltip title="회원가입" arrow>
+                <img src={SignupIcon} alt="signup" />
+              </Tooltip>
+            </Link>{" "}
+            <Link to="signin">
+              <Tooltip title="로그인" arrow>
+                <img src={SigninIcon} alt="signin" />
+              </Tooltip>
+            </Link>{" "}
           </>
         )}
       </Styled.headerRightWrapper>
