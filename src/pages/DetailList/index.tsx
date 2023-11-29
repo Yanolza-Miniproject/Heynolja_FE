@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import BookingCalendar from "../../components/DetailList/BookingCalendar";
 import CardList from "../../components/DetailList/CardList/index.tsx";
 import ProductImage from "../../components/DetailList/ProductImage";
@@ -6,60 +5,56 @@ import ProductInfo from "../../components/DetailList/ProductInfo/index.tsx";
 import ProductTitle from "../../components/DetailList/ProductTitle";
 import RoomList from "../../components/DetailList/RoomList/index.tsx";
 import { useGetAccommodationDetail } from "../../hooks/useDetailFetch.ts";
-import { accommodationDetail } from "../../mock/detailListPageData.ts";
+// import { accommodationDetail } from "../../mock/detailListPageData.ts";
+import { useLocation } from "react-router-dom";
 import * as Styled from "./DetailList.styles.ts";
 
 const DetailList = () => {
-  const { accommodationId } = useParams();
-  const { data, isLoading, error } = useGetAccommodationDetail(
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const accommodationId = queryParams.get("accommodation-id");
+
+  const { data: accommodationDetail } = useGetAccommodationDetail(
     Number(accommodationId),
   );
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-  if (!data) {
-    return <div>객실 정보가 없습니다.</div>;
+
+  if (!accommodationDetail || !accommodationDetail.data) {
+    return <div>Loading...</div>;
   }
-  const {
-    thumbnailUrl,
-    type,
-    name,
-    address,
-    infoDetail,
-    phoneNumber,
-    homepage,
-    checkIn,
-    checkOut,
-    categoryParking,
-    categoryCooking,
-    categoryPickup,
-  } = accommodationDetail;
 
   return (
     <Styled.container>
       <Styled.Layout>
-        <ProductImage image={thumbnailUrl} />
+        <ProductImage image={accommodationDetail.data.data.thumbnailUrl} />
         <Styled.DetailsContainer>
           {/* <Styled.HorizontalContainer> */}
-          <ProductTitle type={type} name={name} />
-          {/* <StockStatusBanner /> */}
+          <ProductTitle
+            type={accommodationDetail.data.data.type}
+            name={accommodationDetail.data.data.name}
+          />
+          {/* <StockStatusBanner />  이부분 좋아요 하트자리 */}
           {/* </Styled.HorizontalContainer> */}
           <ProductInfo
-            address={address}
-            infoDetail={infoDetail}
-            phoneNumber={phoneNumber}
-            homepage={homepage}
-            checkIn={checkIn}
-            checkOut={checkOut}
+            address={accommodationDetail.data.data.address}
+            infoDetail={accommodationDetail.data.data.infoDetail}
+            phoneNumber={accommodationDetail.data.data.phoneNumber}
+            homepage={accommodationDetail.data.data.homepage}
+            checkIn={accommodationDetail.data.data.checkIn}
+            checkOut={accommodationDetail.data.data.checkOut}
           />
         </Styled.DetailsContainer>
       </Styled.Layout>
       <CardList
-        parking={categoryParking}
-        cooking={categoryCooking}
-        pickup={categoryPickup}
+        parking={accommodationDetail.data.data.categoryParking}
+        cooking={accommodationDetail.data.data.categoryCooking}
+        pickup={accommodationDetail.data.data.categoryPickup}
       />
       <BookingCalendar />
-      <RoomList />
+      {accommodationDetail &&
+        accommodationDetail.data &&
+        accommodationDetail.data.rooms && (
+          <RoomList rooms={accommodationDetail.data.data.rooms} />
+        )}
     </Styled.container>
   );
 };
