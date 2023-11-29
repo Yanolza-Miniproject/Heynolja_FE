@@ -5,8 +5,7 @@ import CartIcon from "../../assets/svg/cart-icon.svg";
 import UserIcon from "../../assets/svg/user-icon.svg";
 import SignupIcon from "../../assets/svg/signup-icon.svg";
 import { useState } from "react";
-// import { baseInstance } from "../../hooks/useAxios";
-import axios from "axios";
+import { baseInstance } from "../../hooks/useAxios";
 
 const Header = () => {
   const [loggedin, setLoggedin] = useState(false);
@@ -17,15 +16,12 @@ const Header = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.post(
-        "https://free-toad-alive.ngrok-free.app/api/v1/members/join",
-        {
-          email: "test@nam.com",
-          password: "1234",
-          nickname: "asd",
-          phoneNumber: "01011111111",
-        },
-      );
+      const response = await baseInstance.post("/members/join", {
+        email: "test@nam.com",
+        password: "1234",
+        nickname: "asd",
+        phoneNumber: "01011111111",
+      });
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -34,13 +30,10 @@ const Header = () => {
 
   const fetch = async () => {
     try {
-      const response = await axios.post(
-        "https://free-toad-alive.ngrok-free.app/api/v1/members/login",
-        {
-          email: "test@nam.com",
-          password: "1234",
-        },
-      );
+      const response = await baseInstance.post("/members/login", {
+        email: "test@nam.com",
+        password: "1234",
+      });
 
       const accessToken = response.headers["access_token"];
       const refreshToken = response.headers["refresh_token"];
