@@ -43,25 +43,25 @@ const Header = () => {
         </button>
         {loggedin ? (
           <>
-            <a href="search">
+            <a href="/search">
               <img src={SearchIcon} alt="search" />
             </a>
-            <a href="cart">
+            <a href="/cart">
               <img src={CartIcon} alt="cart" />
             </a>{" "}
-            <a href="mypage">
+            <a href="/mypage">
               <img src={UserIcon} alt="mypage" />
             </a>{" "}
-            <a href="signup">
+            <a href="/signup">
               <img src={SignupIcon} alt="logout" />
             </a>
           </>
         ) : (
           <>
-            <a href="search">
+            <a href="/search">
               <img src={SearchIcon} alt="search" />
             </a>
-            <a href="signin">로그인</a> <a href="signup">회원가입</a>{" "}
+            <a href="/signin">로그인</a> <a href="signup">회원가입</a>{" "}
           </>
         )}
       </Styled.headerWrapper>
