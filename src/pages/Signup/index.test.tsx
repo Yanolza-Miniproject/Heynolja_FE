@@ -1,14 +1,17 @@
 import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Signup from "./index";
+import { createWrapper } from "../../test/test.utils";
 
 describe("Signup", () => {
   it("컴포넌트 렌더링 테스트", () => {
-    render(<Signup />);
+    const wrapper = createWrapper();
+    render(<Signup />, { wrapper });
   });
 
   it("아무것도 입력하지 않았을 때 에러 메시지 출력 테스트", async () => {
-    render(<Signup />);
+    const wrapper = createWrapper();
+    render(<Signup />, { wrapper });
 
     userEvent.click(screen.getByRole("button", { name: "회원가입" }));
 
@@ -21,7 +24,8 @@ describe("Signup", () => {
   });
 
   it("이메일 형식을 입력하면 에러 메시지가 사라지는지 테스트", async () => {
-    render(<Signup />);
+    const wrapper = createWrapper();
+    render(<Signup />, { wrapper });
 
     userEvent.type(
       screen.getByRole("textbox", { name: "email" }),
@@ -38,7 +42,8 @@ describe("Signup", () => {
   });
 
   it("모든 입력값을 입력하면 에러 메시지가 사라지는지 테스트", async () => {
-    render(<Signup />);
+    const wrapper = createWrapper();
+    render(<Signup />, { wrapper });
 
     userEvent.type(
       screen.getByRole("textbox", { name: "email" }),

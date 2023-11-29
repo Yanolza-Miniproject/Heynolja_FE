@@ -1,15 +1,11 @@
 import { purchaseState, termsState } from "../../../store/purchaseAtom";
 import * as Styled from "./Btn.styles";
 import { useRecoilState } from "recoil";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import formatNumber from "../../../utils/formatNumber";
 import { useDeleteOrder, usePayment } from "../../../hooks/usePayment";
-import axios from "axios";
-import { authInstance } from "../../../hooks/useAxios";
 
 const Btn = () => {
-  const navigate = useNavigate();
   const [isDisabeld, setIsDisabled] = useState(true);
   const termsAllChecked = useRecoilState(termsState);
   const [purchaseList] = useRecoilState(purchaseState);
