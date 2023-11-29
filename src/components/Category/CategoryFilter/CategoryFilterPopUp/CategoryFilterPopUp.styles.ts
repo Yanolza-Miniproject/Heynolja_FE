@@ -34,13 +34,14 @@ type CategoryPopUpProps = {
 };
 
 export const CategoryPopUp = styled(motion.ul)<CategoryPopUpProps>`
-  display: ${(props) => (props.isOpen ? "flex" : "none")};
+  visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
+  display: flex;
   flex-direction: column;
 
   position: absolute;
-  top: 100%;
+  top: 105%;
   gap: 0.5rem;
-  z-index: 99;
+  z-index: 9;
 
   width: 100%;
   padding: 10px 20px;

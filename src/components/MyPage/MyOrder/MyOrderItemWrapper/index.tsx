@@ -5,33 +5,33 @@ import { MyOrderItemWrapperProps } from "./MyOrderItemWrapper.types";
 import formatNumber from "../../../../utils/formatNumber";
 
 const MyOrderItemWrapper = ({
-  payment_id,
-  total_price,
-  total_count,
-  payment_at,
+  id,
+  totalPrice,
+  totalCount,
+  paymentAt,
   rooms,
 }: MyOrderListProps) => {
   return (
     <Styled.MyOrderItemWrapper>
       <Styled.Header>
         <Styled.OrderInfo>
-          결제번호: {payment_id}, 결제일시: {payment_at}
+          결제번호: {id}, 결제일시: {paymentAt}
         </Styled.OrderInfo>
         <Styled.OrderTotalPrice>
-          결제개수: {total_count}, 결제가격: ₩ {formatNumber(total_price)}
+          결제개수: {totalCount}, 결제가격: ₩ {formatNumber(totalPrice)}
         </Styled.OrderTotalPrice>
       </Styled.Header>
       {rooms.map((item: MyOrderItemWrapperProps) => (
         <MyOrderItem
-          key={item.room_basket_id}
-          id={item.room_basket_id}
-          name={item.accommodation_name}
-          type={item.room_name}
-          checkIn={item.check_in_at}
-          checkOut={item.check_out_at}
-          guests={item.number_guests}
+          key={item.id}
+          id={item.id}
+          name={item.accommodationName}
+          type={item.roomName}
+          checkIn={item.checkInAt}
+          checkOut={item.checkOutAt}
+          guests={item.numberGuests}
           price={item.price}
-          room_image_url={item.room_image_url}
+          roomUrl={item.roomUrl}
         />
       ))}
     </Styled.MyOrderItemWrapper>

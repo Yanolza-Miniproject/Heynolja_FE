@@ -10,13 +10,13 @@ const index = ({
   checkOut,
   guests,
   price,
-  room_image_url,
+  roomUrl,
 }: MyOrderItemProps) => {
   return (
     <Styled.ItemWrapper>
       <Styled.ItemTitle>{name}</Styled.ItemTitle>
       <Styled.ItemContent>
-        <Styled.ItemImg src={room_image_url}></Styled.ItemImg>
+        <Styled.ItemImg src={roomUrl}></Styled.ItemImg>
         <Styled.ItemInfo>
           <Styled.ItemValueWrapper>
             <Styled.Title>방 타입: </Styled.Title>

@@ -48,7 +48,7 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
             </Styled.CategoryPrice>
             <HeartClick
               likes={data.wishCount}
-              likes_clicked={data.likes_available}
+              likes_clicked={data.isWish}
               accommodationId={data.id}
             />
           </Styled.CategoryDownWrapper>
