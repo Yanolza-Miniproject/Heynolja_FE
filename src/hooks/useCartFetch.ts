@@ -21,8 +21,8 @@ export const usePostOrders = () => {
 // 카트 아이템 삭제
 export const useDeleteCartItem = () => {
   return useMutation({
-    mutationFn: (data: { room_basket_id: number }) => {
-      return authInstance.delete("/baskets", { data });
+    mutationFn: (data: { room_basket_id: number[] }) => {
+      return authInstance.put("/baskets", { data });
     },
   });
 };

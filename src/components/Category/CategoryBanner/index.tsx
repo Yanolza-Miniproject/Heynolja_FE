@@ -1,12 +1,7 @@
 import { memo } from "react";
 import SearchButton from "../SearchButton";
 import * as Styled from "./CategoryBanner.styles";
-
-type CategoryBannerProps = {
-  firstText: string;
-  secondText: string;
-  searchFn: () => void;
-};
+import { CategoryBannerProps } from "./CategoryBanner.types";
 
 const CategoryBanner = memo(
   ({ searchFn, firstText, secondText }: CategoryBannerProps) => {

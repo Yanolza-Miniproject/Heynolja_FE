@@ -12,9 +12,9 @@ describe("SearchListBanner", () => {
         validParams={{
           region: 99,
           type: 99,
-          category_parking: 1,
-          category_cooking: 1,
-          category_pickup: 1,
+          categoryParking: 1,
+          categoryCooking: 1,
+          categoryPickup: 1,
         }}
       />,
 
@@ -31,9 +31,9 @@ describe("SearchListBanner", () => {
         validParams={{
           region: 99,
           type: 99,
-          category_parking: 2,
-          category_cooking: 2,
-          category_pickup: 2,
+          categoryParking: 2,
+          categoryCooking: 2,
+          categoryPickup: 2,
         }}
       />,
 
@@ -54,9 +54,9 @@ describe("SearchListBanner", () => {
         validParams={{
           region: 0,
           type: 99,
-          category_parking: 2,
-          category_cooking: 2,
-          category_pickup: 2,
+          categoryParking: 2,
+          categoryCooking: 2,
+          categoryPickup: 2,
         }}
       />,
 

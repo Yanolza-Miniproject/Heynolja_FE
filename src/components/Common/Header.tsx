@@ -11,10 +11,24 @@ const Header = () => {
   const [loggedin, setLoggedin] = useState(false);
   const handleLogin = () => {
     setLoggedin((prev) => !prev);
-    fetchData();
+    fetch();
   };
 
   const fetchData = async () => {
+    try {
+      const response = await baseInstance.post("/members/join", {
+        email: "test@nam.com",
+        password: "1234",
+        nickname: "asd",
+        phoneNumber: "01011111111",
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetch = async () => {
     try {
       const response = await baseInstance.post("/members/login", {
         email: "test@nam.com",
@@ -41,6 +55,7 @@ const Header = () => {
         <button onClick={handleLogin}>
           {loggedin ? "로그인 상태" : "로그인"}
         </button>
+        <button onClick={fetchData}>회원가입 test</button>
         {loggedin ? (
           <>
             <a href="search">
@@ -61,7 +76,7 @@ const Header = () => {
             <a href="search">
               <img src={SearchIcon} alt="search" />
             </a>
-            <a href="signin">로그인</a> <a href="signup">회원가입</a>{" "}
+            <a href="signin">로그인test</a> <a href="signup">회원가입</a>{" "}
           </>
         )}
       </Styled.headerWrapper>

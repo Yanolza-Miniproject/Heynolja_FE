@@ -1,15 +1,11 @@
 import { memo, useState } from "react";
 import * as Styled from "./CategoryFilterPopUp.styles";
 import { categoryQueryAtom } from "../../../../store/categoryQueryAtom";
-import { CategoryFilterPopUpProps } from "./CategoryFilterPopUp.types";
+import {
+  CategoryFilterPopUpProps,
+  CategoryQueryType,
+} from "./CategoryFilterPopUp.types";
 import { useRecoilState } from "recoil";
-
-type CategoryQueryType = {
-  region_name: string;
-  region: number;
-  type_name: string;
-  type: number;
-};
 
 const getInitialState = (
   categoryQuery: CategoryQueryType,

@@ -11,13 +11,13 @@ export type SearchListBannerProps = {
 type Param = {
   region: number;
   type: number;
-  category_parking: number;
-  category_cooking: number;
-  category_pickup: number;
+  categoryParking: number;
+  categoryCooking: number;
+  categoryPickup: number;
 };
 
 export const filterTextDecoder = (validParams: Param) => {
-  const { region, type, category_cooking, category_parking, category_pickup } =
+  const { region, type, categoryCooking, categoryParking, categoryPickup } =
     validParams;
 
   const regionData = {
@@ -33,21 +33,21 @@ export const filterTextDecoder = (validParams: Param) => {
   };
 
   const cookingData = {
-    valid: category_cooking !== 2 || category_cooking === null,
-    label: category_cooking === 1 ? "조리가능" : "조리불가능",
-    url: `&categoryCooking=${category_cooking}`,
+    valid: categoryCooking !== 2 || categoryCooking === null,
+    label: categoryCooking === 1 ? "조리가능" : "조리불가능",
+    url: `&categoryCooking=${categoryCooking}`,
   };
 
   const parkingData = {
-    valid: category_parking !== 2 || category_parking === null,
-    label: category_parking === 1 ? "주차가능" : "주차불가능",
-    url: `&categoryParking=${category_parking}`,
+    valid: categoryParking !== 2 || categoryParking === null,
+    label: categoryParking === 1 ? "주차가능" : "주차불가능",
+    url: `&categoryParking=${categoryParking}`,
   };
 
   const pickupData = {
-    valid: category_pickup !== 2 || category_pickup === null,
-    label: category_pickup === 1 ? "픽업가능" : "픽업불가능",
-    url: `&categoryPickup=${category_pickup}`,
+    valid: categoryPickup !== 2 || categoryPickup === null,
+    label: categoryPickup === 1 ? "픽업가능" : "픽업불가능",
+    url: `&categoryPickup=${categoryPickup}`,
   };
 
   const returnArray = [

@@ -11,7 +11,7 @@ import * as _ from "lodash";
 // 전체 숙소 보기 + 필터링
 export const handlers = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  http.get("/api/v1/accommodations", ({ request }) => {
+  http.get("http://43.200.54.142:8080/api/v1/accommodations", ({ request }) => {
     const url = new URL(request.url);
     const page = Number(url.searchParams.get("page")) || 0;
     const typeParam = url.searchParams.get("type");
@@ -24,20 +24,20 @@ export const handlers = [
         ? Number(regionParam)
         : null;
 
-    const categoryParkingParam = url.searchParams.get("category_parking");
-    const category_parking =
+    const categoryParkingParam = url.searchParams.get("categoryParking");
+    const categoryParking =
       categoryParkingParam !== null && categoryParkingParam !== undefined
         ? Number(categoryParkingParam)
         : null;
 
-    const categoryCookingParam = url.searchParams.get("category_cooking");
-    const category_cooking =
+    const categoryCookingParam = url.searchParams.get("categoryCooking");
+    const categoryCooking =
       categoryCookingParam !== null && categoryCookingParam !== undefined
         ? Number(categoryCookingParam)
         : null;
 
-    const categoryPickupParam = url.searchParams.get("category_pickup");
-    const category_pickup =
+    const categoryPickupParam = url.searchParams.get("categoryPickup");
+    const categoryPickup =
       categoryPickupParam !== null && categoryPickupParam !== undefined
         ? Number(categoryPickupParam)
         : null;
@@ -45,19 +45,15 @@ export const handlers = [
     const categoryData = (
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       data: any[], // 데이터 배열
-      category_parking: number | null,
-      category_cooking: number | null,
-      category_pickup: number | null,
+      categoryParking: number | null,
+      categoryCooking: number | null,
+      categoryPickup: number | null,
     ) => {
       const filterData = _.filter(data, (item) => {
         return (
-          (category_parking
-            ? item.category_parking === category_parking
-            : true) &&
-          (category_cooking
-            ? item.category_cooking === category_cooking
-            : true) &&
-          (category_pickup ? item.category_pickup === category_pickup : true)
+          (categoryParking ? item.categoryParking === categoryParking : true) &&
+          (categoryCooking ? item.categoryCooking === categoryCooking : true) &&
+          (categoryPickup ? item.categoryPickup === categoryPickup : true)
         );
       });
 
@@ -66,9 +62,9 @@ export const handlers = [
 
     const allCategoryData = categoryData(
       MockUpData,
-      category_parking,
-      category_cooking,
-      category_pickup,
+      categoryParking,
+      categoryCooking,
+      categoryPickup,
     );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -25,7 +25,7 @@ const CartItem = ({
   // 장바구니에서 해당 상품 제거
   const fetch = () => {
     deleteCartMutation.mutate(
-      { room_basket_id: item.room_basket_id },
+      { room_basket_id: [item.room_basket_id] },
       {
         onSuccess: (responseData) => {
           console.log(responseData.data);
