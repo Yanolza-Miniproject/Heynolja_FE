@@ -9,16 +9,27 @@ import NotFound from "../NotFound";
 const Payment = () => {
   const [purchaseList] = useRecoilState(purchaseState);
   const orderId = purchaseList.order_id;
+
+  // axios
+  //   .get("/api/v1/accommodations?page=0")
+  //   .then((response) => {
+  //     console.log(response.data);
+  //   })
+  //   .catch((error) => {
+  //     console.error("조회 실패!", error);
+  //   });
+
   return (
     <Styled.Container>
-         {orderId === null ?
-         <NotFound /> 
-         :<>
-      <ItemList />
-      <TermsAndConditions />
-      <Btn />
-      </>
-         }
+      {orderId === null ? (
+        <NotFound />
+      ) : (
+        <>
+          <ItemList />
+          <TermsAndConditions />
+          <Btn />
+        </>
+      )}
     </Styled.Container>
   );
 };

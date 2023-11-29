@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { CategoryProps } from "../pages/Category/Category.types";
+import { baseInstance } from "./useAxios";
 
 interface ListDataResponse {
   data: CategoryProps[];
@@ -11,8 +11,8 @@ export const useFetchAccomByRegion = (region: number) => {
   return useQuery({
     queryKey: ["accommodations", "region", region],
     queryFn: async () => {
-      const response = await axios.get<ListDataResponse>(
-        "/api/v1/accommodations",
+      const response = await baseInstance.get<ListDataResponse>(
+        "/accommodations",
         {
           params: { region },
         },
@@ -27,9 +27,8 @@ export const useFetchTopLikedAccom = () => {
   return useQuery({
     queryKey: ["accommodations"],
     queryFn: async () => {
-      const response = await axios.get<ListDataResponse>(
-        "/api/v1/accommodations",
-      );
+      const response =
+        await baseInstance.get<ListDataResponse>("/accommodations");
       const listData = response.data.data;
       const filteredData = listData.filter((item) => item.like_count > 500);
       const sortedData = filteredData.sort(
@@ -45,8 +44,8 @@ export const useFetchAccomWithParking = (categoryParking: number) => {
   return useQuery({
     queryKey: ["accommodations", "parking", categoryParking],
     queryFn: async () => {
-      const response = await axios.get<ListDataResponse>(
-        "/api/v1/accommodations",
+      const response = await baseInstance.get<ListDataResponse>(
+        "/accommodations",
         {
           params: { categoryParking: 1 },
         },
@@ -61,9 +60,8 @@ export const useFetchAllAccommodations = () => {
   return useQuery({
     queryKey: ["accommodations", "all"],
     queryFn: async () => {
-      const response = await axios.get<ListDataResponse>(
-        "/api/v1/accommodations",
-      );
+      const response =
+        await baseInstance.get<ListDataResponse>("/accommodations");
       return response.data.data;
     },
   });

@@ -1,11 +1,11 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { authInstance, baseInstance } from "./useAxios";
 
 // 숙소 상세 정보 조회
 export const useGetAccommodationDetail = (accommodationId: number) => {
   return useQuery({
     queryKey: ["accommodationDetail", accommodationId],
-    queryFn: () => axios.get(`/api/v1/accommodations/${accommodationId}`),
+    queryFn: () => baseInstance.get(`/accommodations/${accommodationId}`),
   });
 };
 
@@ -13,7 +13,7 @@ export const useGetAccommodationDetail = (accommodationId: number) => {
 export const useGetRoomDetail = (roomId: number) => {
   return useQuery({
     queryKey: ["roomDetail", roomId],
-    queryFn: () => axios.get("/api/v1/rooms/${roomId}"),
+    queryFn: () => baseInstance.get("/rooms/${roomId}"),
   });
 };
 
@@ -26,7 +26,7 @@ export const usePostRoomToCart = () => {
       number_guests: number;
     }) => {
       console.log(data);
-      return axios.post("/api/v1/rooms/${data.room_id}", data);
+      return authInstance.post("/rooms/${data.room_id}", data);
     },
   });
 };
@@ -40,7 +40,7 @@ export const usePostOrder = () => {
       number_guests: number;
     }) => {
       console.log(data);
-      return axios.post("/api/v1/rooms/${data.room_id}/orders", data);
+      return authInstance.post("/rooms/${data.room_id}/orders", data);
     },
   });
 };
