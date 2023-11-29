@@ -22,14 +22,12 @@ const Btn = () => {
       PaymentMutation.mutate(orderId as number, {
         onSuccess: async (data) => {
           console.log("결제 성공 데이터:", data);
-          // navigate("/Complete/" + data.payment_id);
+          // navigate("/Complete/" + data.paymentId);
           sessionStorage.clear();
         },
       });
     }
   };
-
-  // authInstance.post('/api/v1/orders/{order_id}/payments').then
 
   const deleteOrderfetch = () => {
     deleteOrderMutation.mutate(orderId as number);

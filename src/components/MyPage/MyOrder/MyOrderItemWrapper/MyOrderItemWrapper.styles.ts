@@ -4,6 +4,8 @@ export const MyOrderItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  height: 5rem;
+  overflow: auto;
 `;
 
 export const Header = styled.div`
