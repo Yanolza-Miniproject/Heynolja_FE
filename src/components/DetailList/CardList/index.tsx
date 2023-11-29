@@ -9,17 +9,35 @@ import { CardListProps } from "./CardList.types.ts";
 const CardList: React.FC<CardListProps> = ({ parking, cooking, pickup }) => {
   const cardData = [
     {
-      icon: <Styled.IconImage src={parkingIcon} isActive={parking} />,
+      icon: (
+        <Styled.IconImage
+          src={parkingIcon}
+          alt="parking-icon"
+          isActive={parking}
+        />
+      ),
       description: "주차 가능해요",
       isActive: parking,
     },
     {
-      icon: <Styled.IconImage src={cookingIcon} isActive={cooking} />,
+      icon: (
+        <Styled.IconImage
+          src={cookingIcon}
+          alt="cooking-icon"
+          isActive={cooking}
+        />
+      ),
       description: "취사가 가능해요",
       isActive: cooking,
     },
     {
-      icon: <Styled.IconImage src={pickupIcon} isActive={pickup} />,
+      icon: (
+        <Styled.IconImage
+          src={pickupIcon}
+          alt="pickup-icon"
+          isActive={pickup}
+        />
+      ),
       description: "픽업 서비스가 있어요",
       isActive: pickup,
     },

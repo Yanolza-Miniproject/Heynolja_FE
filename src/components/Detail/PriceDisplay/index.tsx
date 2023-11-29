@@ -10,7 +10,7 @@ import { purchaseState } from "../../../store/purchaseAtom";
 // import formatDate from "../../../utils/formatDate";
 
 const PriceDisplay: React.FC<{ pricePerNight: number }> = ({
-  pricePerNight,
+  pricePerNight = 0,
 }) => {
   const checkInDate = useRecoilValue(checkInDateState);
   const checkOutDate = useRecoilValue(checkOutDateState);
