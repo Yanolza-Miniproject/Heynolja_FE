@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -19,6 +20,11 @@ export const Banner = styled.div`
   background-color: #191554;
 
   font-size: 3rem;
+  line-height: 4rem;
   color: white;
   font-weight: 800;
+`;
+
+export const CityName = styled.span`
+  color: #ff5100;
 `;
