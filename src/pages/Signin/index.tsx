@@ -4,6 +4,18 @@ import InputText from "../../components/Signin/InputText";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { InputProps } from "./Signin.constant";
 import { SignInInputs } from "./Signin.types";
+import { baseInstance } from "../../hooks/useAxios";
+
+const fetchSignin = async (data: SignInInputs) => {
+  const response = await baseInstance.post("members/login", {
+    email: data.email,
+    password: data.password,
+  });
+
+  console.log(response.headers);
+
+  return response.data;
+};
 
 const Signin = () => {
   const {
@@ -12,7 +24,13 @@ const Signin = () => {
     formState: { errors },
   } = useForm<SignInInputs>();
 
-  const onSubmit: SubmitHandler<SignInInputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<SignInInputs> = (data) => {
+    fetchSignin(data).then((res) => {
+      console.log(res);
+    });
+
+    console.log(data);
+  };
 
   return (
     <Styled.Container>
@@ -28,7 +46,7 @@ const Signin = () => {
             transition={{ duration: 1, delay: 0.7, ease: "easeInOut" }}
           >
             <LoginForm onSubmit={handleSubmit(onSubmit)}>
-              <SigninHeader>로그인</SigninHeader>
+              <SigninHeader>로그인2222222222</SigninHeader>
               {InputProps.map((data, index) => (
                 <InputText
                   key={index}
@@ -37,7 +55,7 @@ const Signin = () => {
                   errors={errors}
                 />
               ))}
-              <SigninButton type="submit">로그인</SigninButton>
+              <SigninButton type="submit">로그인2222222222</SigninButton>
             </LoginForm>
           </Styled.MotionOpacityDiv>
         </Styled.MotionScaleDiv>

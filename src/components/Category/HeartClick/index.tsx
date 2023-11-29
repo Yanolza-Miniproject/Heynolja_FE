@@ -2,11 +2,7 @@ import { useState } from "react";
 import * as Styled from "./HeartClick.styles";
 import HeartSVGComponent from "./HeartIcon";
 import { useWishControl } from "../../../hooks/useWishControl";
-
-type HeartClickProps = {
-  likes: number;
-  likes_clicked: boolean;
-};
+import { HeartClickProps } from "./HeartClick.types";
 
 const HeartClick = ({ likes, likes_clicked }: HeartClickProps) => {
   const [clicked, setClicked] = useState<boolean>(likes_clicked);
@@ -16,7 +12,8 @@ const HeartClick = ({ likes, likes_clicked }: HeartClickProps) => {
 
   const accommodationId = "hellohelllo";
 
-  const handleHeartClick = () => {
+  const handleHeartClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    e.preventDefault();
     setClicked((prev) => !prev);
     if (!clicked) {
       deleteMutation.mutate(accommodationId);

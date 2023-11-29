@@ -7,7 +7,7 @@ export const globalStyle = css`
 
   @font-face {
     font-family: "Noto Sans KR";
-    src: url("../assets/font/NotoSans-Regular.woff2") format("woff2-variations");
+    src: url("../assets/font/NotoSans-Regular.woff2") format("font-woff2");
   }
 
   body {
@@ -198,7 +198,7 @@ export const NavButton = styled.button`
   outline: none;
   appearance: none;
   border: none;
-  border-radius:20rem;
+  border-radius: 20rem;
   background-color: #fff;
 
   color: white;
