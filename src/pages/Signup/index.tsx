@@ -3,18 +3,15 @@ import * as Styled from "./Signup.styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Inputs } from "./Signup.types";
 import { InputProps } from "./Signup.constant";
-import axios from "axios";
+import { baseInstance } from "../../hooks/useAxios";
 
 const fetchSignup = async (data: Inputs) => {
-  const response = await axios.post(
-    "http://211.221.220.124:8080/api/v1/members/join",
-    {
-      email: data.email,
-      password: data.password,
-      nickname: data.nickname,
-      phoneNumber: data.phone,
-    },
-  );
+  const response = await baseInstance.post("members/join", {
+    email: data.email,
+    password: data.password,
+    nickname: data.nickname,
+    phoneNumber: data.phone,
+  });
 
   console.log(response.headers);
 

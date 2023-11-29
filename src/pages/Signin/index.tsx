@@ -4,16 +4,13 @@ import InputText from "../../components/Signin/InputText";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { InputProps } from "./Signin.constant";
 import { SignInInputs } from "./Signin.types";
-import axios from "axios";
+import { baseInstance } from "../../hooks/useAxios";
 
 const fetchSignin = async (data: SignInInputs) => {
-  const response = await axios.post(
-    "http://43.200.54.142:8080/api/v1/members/login",
-    {
-      email: data.email,
-      password: data.password,
-    },
-  );
+  const response = await baseInstance.post("members/login", {
+    email: data.email,
+    password: data.password,
+  });
 
   console.log(response.headers);
 

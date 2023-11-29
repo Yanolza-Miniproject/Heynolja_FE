@@ -1,5 +1,4 @@
 import { baseInstance } from "../../hooks/useAxios";
-import axios from "axios";
 import { fetchCatgoryProps } from "../../pages/Category/Category.types";
 
 export const fetchCatgory = async ({
@@ -10,8 +9,8 @@ export const fetchCatgory = async ({
   categoryCookingUrl,
   categoryPickupUrl,
 }: fetchCatgoryProps) => {
-  const data = await axios.get(
-    `http://211.221.220.124:8080/api/v1/accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
+  const data = await baseInstance.get(
+    `accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
   );
   console.log(data.data);
   return data.data;
