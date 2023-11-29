@@ -1,8 +1,21 @@
 import * as Styled from "./CategoryFilter.styles";
 import CategoryFilterPopUp from "./CategoryFilterPopUp";
 import { accommoationTypes, regionTypes } from "./CategoryFilter.constants";
+import { getTokenRefresh } from "../../../utils/getTokenRefresh";
 
 const CategoryFilter = () => {
+  const handleClick = async () => {
+    const refreshToken = localStorage.getItem("refreshToken");
+    if (refreshToken) {
+      alert("로그인 되어있음");
+      console.log(refreshToken);
+      const newToken = await getTokenRefresh();
+      console.log(newToken);
+    } else {
+      alert("로그인 안되어있음");
+    }
+  };
+
   return (
     <Styled.CategoryFilterContainer>
       <Styled.CategoryFilterWrapper>
@@ -14,6 +27,9 @@ const CategoryFilter = () => {
           listData={regionTypes}
           buttonText="원하는 장소를 찾아보세요"
         />
+        <button type="button" onClick={handleClick}>
+          검색
+        </button>
       </Styled.CategoryFilterWrapper>
     </Styled.CategoryFilterContainer>
   );

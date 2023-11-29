@@ -22,6 +22,7 @@ const getInitialState = (
 
 const CategoryFilterPopUp = memo(
   ({ buttonText, listData }: CategoryFilterPopUpProps) => {
+    // const [buttonLabel, setButtonLabel] = useState(buttonText);
     const [categoryQuery, setCategoryQuery] = useRecoilState(categoryQueryAtom);
 
     const [selected, setSelected] = useState(

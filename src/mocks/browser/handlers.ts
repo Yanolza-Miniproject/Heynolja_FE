@@ -11,7 +11,7 @@ import * as _ from "lodash";
 // 전체 숙소 보기 + 필터링
 export const handlers = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  http.get("http://43.200.54.142:8080/api/v1/accommodations", ({ request }) => {
+  http.get("/api/accommodations", ({ request }) => {
     const url = new URL(request.url);
     const page = Number(url.searchParams.get("page")) || 0;
     const typeParam = url.searchParams.get("type");
@@ -330,14 +330,14 @@ export const handlers = [
   }),
 
   // 숙소 좋아요 취소 시 요청
-  http.delete("/api/vi/wish/:accommodationId", () => {
+  http.delete("/api/wish/:accommodationId", () => {
     return HttpResponse.json({
       message: "좋아요 취소",
     });
   }),
 
   // 숙소 좋아요 리스트 조회 (무작위로 1~40개의 데이터를 보내줌)
-  http.get("/api/v1/wish", ({ request }) => {
+  http.get("/api/wish", ({ request }) => {
     const url = new URL(request.url);
     console.log(url);
 

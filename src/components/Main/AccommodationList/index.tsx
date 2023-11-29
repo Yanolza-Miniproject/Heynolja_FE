@@ -50,6 +50,7 @@ export const AccommodationList = ({
                   <HeartClick
                     likes={item.wishCount}
                     likes_clicked={item.isWish}
+                    accommodationId={String(item.id)}
                   />
                 </Styled.ItemInfoSecondColumn>
               </Styled.ItemInfo>
