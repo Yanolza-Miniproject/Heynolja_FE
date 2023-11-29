@@ -5,7 +5,7 @@ import CartIcon from "../../assets/svg/cart-icon.svg";
 import UserIcon from "../../assets/svg/user-icon.svg";
 import SigninIcon from "../../assets/svg/signin-icon.svg";
 import SignupIcon from "../../assets/svg/signup-icon.svg";
-import SignoutIcon from "../../assets/svg/signout-icon.svg";
+import LogoutIcon from "../../assets/svg/logout-icon.svg";
 import { useState } from "react";
 import { baseInstance } from "../../hooks/useAxios";
 import { Link } from "react-router-dom";
@@ -76,8 +76,8 @@ const Header = () => {
             <a href="/mypage">
               <img src={UserIcon} alt="mypage" />
             </a>{" "}
-            <a href="/signup">
-              <img src={SignoutIcon} alt="logout" />
+            <a href="/logout">
+              <img src={LogoutIcon} alt="logout" />
             </a>
           </>
         ) : (
