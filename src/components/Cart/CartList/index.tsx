@@ -30,7 +30,7 @@ const CartList = ({ data }: CartListProps) => {
   }, [data]);
 
   useEffect(() => {
-    const ids = estimatedPrice.map((item) => item.room_basket_id);
+    const ids = estimatedPrice.map((item) => item.id);
     setDeleteId([...ids]);
   }, [estimatedPrice]);
 
@@ -96,7 +96,7 @@ const CartList = ({ data }: CartListProps) => {
 
         {cart.map((item: CartItemType, index: number) => (
           <CartItem
-            key={item.room_basket_id}
+            key={item.id}
             item={item}
             cart={cart}
             select={select}
