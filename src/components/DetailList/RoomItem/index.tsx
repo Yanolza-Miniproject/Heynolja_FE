@@ -8,15 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const RoomItem: React.FC<
   RoomItemProps & { checkInDate: Date; checkOutDate: Date }
-> = ({
-  id,
-  name,
-  price,
-  capacity,
-  roomImageUrl,
-  RoomInventory,
-  checkInDate,
-}) => {
+> = ({ id, name, price, capacity, roomImages, RoomInventory, checkInDate }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
@@ -43,7 +35,7 @@ const RoomItem: React.FC<
   return (
     <Styled.ItemWrapper onClick={handleRoomClick}>
       <Styled.ImageContainer>
-        <Styled.ItemImage src={roomImageUrl} alt={`${name} 이미지`} />
+        <Styled.ItemImage src={roomImages} alt={`${name} 이미지`} />
       </Styled.ImageContainer>
       <Styled.ItemDetails>
         <Styled.ItemName>{name}</Styled.ItemName>

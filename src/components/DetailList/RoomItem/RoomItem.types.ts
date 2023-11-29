@@ -7,4 +7,5 @@ export interface RoomItemProps {
   RoomInventory?: { date: string; inventory: number }[];
   checkInDate: Date | null;
   checkOutDate: Date | null;
+  roomImages: string;
 }

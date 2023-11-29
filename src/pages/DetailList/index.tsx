@@ -20,7 +20,18 @@ const DetailList = () => {
     // isLoading,
     // error,
   } = useGetAccommodationDetail(Number(accommodationId));
+  // const {
+  //   data: accommodationDetail,
+  //   isLoading,
+  //   error,
+  // } = useGetAccommodationDetail(Number(accommodationId));
 
+  // if (isLoading) return <div>Loading...</div>;
+  // if (error) return <div>Error: {error.message}</div>;
+
+  if (!accommodationDetail || !accommodationDetail.data) {
+    return <div>Loading...</div>;
+  }
   // if (isLoading) return <div>Loading...</div>;
   // if (error) return <div>Error: {error.message}</div>;
 
@@ -31,51 +42,55 @@ const DetailList = () => {
   //   navigate("/404");
   //   return null;
   // }
-  if (!accommodationDetail || !accommodationDetail.data) {
-    // 데이터가 로드되지 않았거나 유효하지 않은 경우 처리
-    return <div>Loading...</div>; // 또는 다른 적절한 UI 표시
-  }
-  const {
-    thumbnailUrl,
-    type,
-    name,
-    address,
-    infoDetail,
-    phoneNumber,
-    homepage,
-    checkIn,
-    checkOut,
-    categoryParking,
-    categoryCooking,
-    categoryPickup,
-  } = accommodationDetail.data;
-
+  console.log(accommodationDetail);
+  // const {
+  //   thumbnailUrl,
+  //   type,
+  //   name,
+  //   address,
+  //   infoDetail,
+  //   phoneNumber,
+  //   homepage,
+  //   checkIn,
+  //   checkOut,
+  //   categoryParking,
+  //   categoryCooking,
+  //   categoryPickup,
+  // } = accommodationDetail.data;
+  // const { data, isLoading, error } = useGetAccommodationDetail();
   return (
     <Styled.container>
       <Styled.Layout>
-        <ProductImage image={thumbnailUrl} />
+        <ProductImage image={accommodationDetail.data.data.thumbnailUrl} />
         <Styled.DetailsContainer>
           {/* <Styled.HorizontalContainer> */}
-          <ProductTitle type={type} name={name} />
+          <ProductTitle
+            type={accommodationDetail.data.data.type}
+            name={accommodationDetail.data.data.name}
+          />
           {/* <StockStatusBanner /> */}
           {/* </Styled.HorizontalContainer> */}
           <ProductInfo
-            address={address}
-            infoDetail={infoDetail}
-            phoneNumber={phoneNumber}
-            homepage={homepage}
-            checkIn={checkIn}
-            checkOut={checkOut}
+            address={accommodationDetail.data.data.address}
+            infoDetail={accommodationDetail.data.data.infoDetail}
+            phoneNumber={accommodationDetail.data.data.phoneNumber}
+            homepage={accommodationDetail.data.data.homepage}
+            checkIn={accommodationDetail.data.data.checkIn}
+            checkOut={accommodationDetail.data.data.checkOut}
           />
         </Styled.DetailsContainer>
       </Styled.Layout>
       <CardList
-        parking={categoryParking}
-        cooking={categoryCooking}
-        pickup={categoryPickup}
+        parking={accommodationDetail.data.data.categoryParking}
+        cooking={accommodationDetail.data.data.categoryCooking}
+        pickup={accommodationDetail.data.data.categoryPickup}
       />
       <BookingCalendar />
-      <RoomList />
+      {accommodationDetail &&
+        accommodationDetail.data &&
+        accommodationDetail.data.rooms && (
+          <RoomList rooms={accommodationDetail.data.data.rooms} />
+        )}
     </Styled.container>
   );
 };
