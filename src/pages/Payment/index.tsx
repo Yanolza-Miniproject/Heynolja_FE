@@ -5,7 +5,6 @@ import * as Styled from "./Payment.styles";
 import { useRecoilState } from "recoil";
 import { purchaseState } from "../../store/purchaseAtom";
 import NotFound from "../NotFound";
-import { authInstance } from "../../hooks/useAxios";
 
 // interface requestBodyProps {
 //   checkInAt: string;
@@ -37,15 +36,15 @@ const Payment = () => {
   //     console.log(error);
   //   });
 
-  //결제 생성
-  authInstance
-    .post("/orders/2/payments")
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  // 결제 생성
+  // authInstance
+  //   .post("/orders/2/payments")
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
 
   //단일주문
   // const requestBody: requestBodyProps = {

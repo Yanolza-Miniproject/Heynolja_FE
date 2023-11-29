@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const SearchButton = styled.div`
+export const SearchButton = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: center;

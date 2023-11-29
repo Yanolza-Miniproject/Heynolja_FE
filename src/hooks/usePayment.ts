@@ -1,12 +1,10 @@
 import { useInfiniteQuery, useMutation, useQuery } from "@tanstack/react-query";
 import { authInstance } from "./useAxios";
-import axios from "axios";
-
 // 결제 생성
-export const usePayment = (orderId: number) => {
+export const usePayment = () => {
   return useMutation({
-    mutationFn: (data: { payment_type: string }) => {
-      return axios.post(`/payments/${orderId}`, { data });
+    mutationFn: (orderId: number) => {
+      return authInstance.post(`/orders/${orderId}/payments`);
     },
   });
 };
@@ -14,7 +12,7 @@ export const usePayment = (orderId: number) => {
 //결제 목록 불러오기
 export const useGetMyOrder = () => {
   return useQuery({
-    queryFn: () => axios.get("/payment"),
+    queryFn: () => authInstance.get("/payment"),
     queryKey: ["payment"],
   });
 };
@@ -24,7 +22,7 @@ export const useGetMyOrderInfinite = () => {
   return useInfiniteQuery({
     queryKey: ["payment"],
     queryFn: ({ pageParam = 1 }) =>
-      axios.get(`/payment?page=${pageParam}&pageSize=20`),
+      authInstance.get(`/payment?page=${pageParam}&pageSize=20`),
     getNextPageParam: (lastPage, allPages) => {
       // 만약 더 불러올 페이지가 있다면 페이지 번호를 반환
       return lastPage.data.length === 20 ? allPages.length + 1 : undefined;
@@ -38,7 +36,7 @@ export const useGetMyOrderInfinite = () => {
 export const useDeleteOrder = (orderId: number) => {
   return useMutation({
     mutationFn: () => {
-      return axios.delete(`/orders/${orderId}`);
+      return authInstance.delete(`/orders/${orderId}`);
     },
   });
 };

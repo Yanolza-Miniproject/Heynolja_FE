@@ -12,7 +12,7 @@ export const useFetchAccomByRegion = (region: number) => {
     queryKey: ["accommodations", "region", region],
     queryFn: async () => {
       const response = await baseInstance.get<ListDataResponse>(
-        "/accommodations",
+        "/accommodations?region=0",
         {
           params: { region },
         },
@@ -29,26 +29,24 @@ export const useFetchTopLikedAccom = () => {
     queryFn: async () => {
       const response =
         await baseInstance.get<ListDataResponse>("/accommodations");
-      const listData = response.data.data;
-      const filteredData = listData.filter((item) => item.like_count > 500);
-      const sortedData = filteredData.sort(
-        (a, b) => b.like_count - a.like_count,
-      );
-      return sortedData;
+      // const listData = response.data.data;
+      // const filteredData = listData.filter((item) => item.like_count > 500);
+      // const sortedData = filteredData.sort(
+      //   (a, b) => b.like_count - a.like_count,
+      // );
+      // return sortedData;
+      return response.data.data;
     },
   });
 };
 
 // 주차 가능 숙소 리스트 출력
-export const useFetchAccomWithParking = (categoryParking: number) => {
+export const useFetchAccomWithParking = () => {
   return useQuery({
-    queryKey: ["accommodations", "parking", categoryParking],
+    queryKey: ["accommodations", "parking"],
     queryFn: async () => {
       const response = await baseInstance.get<ListDataResponse>(
-        "/accommodations",
-        {
-          params: { categoryParking: 1 },
-        },
+        "/accommodations?categoryParking=1",
       );
       return response.data.data;
     },
