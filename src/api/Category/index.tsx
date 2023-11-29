@@ -1,4 +1,3 @@
-import axios from "axios";
 import { fetchCatgoryProps } from "../../pages/Category/Category.types";
 import { baseInstance } from "../../hooks/useAxios";
 
@@ -10,10 +9,9 @@ export const fetchCatgory = async ({
   categoryCookingUrl,
   categoryPickupUrl,
 }: fetchCatgoryProps) => {
-  const data = await axios.get(
-    `https://free-toad-alive.ngrok-free.app/api/v1/accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
+  const data = await baseInstance.get(
+    `accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
   );
-  console.log(data.data);
   return data.data;
 };
 
