@@ -1,36 +1,33 @@
 import { purchaseState, termsState } from "../../../store/purchaseAtom";
 import * as Styled from "./Btn.styles";
 import { useRecoilState } from "recoil";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import formatNumber from "../../../utils/formatNumber";
 import { useDeleteOrder, usePayment } from "../../../hooks/usePayment";
 
 const Btn = () => {
-  const navigate = useNavigate();
   const [isDisabeld, setIsDisabled] = useState(true);
   const termsAllChecked = useRecoilState(termsState);
   const [purchaseList] = useRecoilState(purchaseState);
   const orderId = purchaseList.order_id;
-  const PaymentMutation = usePayment(orderId as number);
+  const PaymentMutation = usePayment();
   const deleteOrderMutation = useDeleteOrder(orderId as number);
 
   // 결제 전송
   const paymentFetch = () => {
     const answer = confirm("결제하시겠습니까?");
     if (answer) {
-      PaymentMutation.mutate(
-        { payment_type: "card" },
-        {
-          onSuccess: async (response) => {
-            const data = response.data.data;
-            await navigate("/Complete/" + data.payment_id);
-            sessionStorage.clear();
-          },
+      PaymentMutation.mutate(orderId as number, {
+        onSuccess: async (data) => {
+          console.log("결제 성공 데이터:", data);
+          // navigate("/Complete/" + data.payment_id);
+          sessionStorage.clear();
         },
-      );
+      });
     }
   };
+
+  // authInstance.post('/api/v1/orders/{order_id}/payments').then
 
   const deleteOrderfetch = () => {
     deleteOrderMutation.mutate();

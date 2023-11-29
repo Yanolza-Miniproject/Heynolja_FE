@@ -12,18 +12,27 @@ const ItemList = () => {
   const { data } = useGetOrderList(orderId as number);
   const orderList: OrderItem[] = data?.data.order_datas;
 
+  // authInstance
+  //   .get("/orders/9")
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+
   return (
     <Styled.PaymentItemWrapper>
       <Styled.Title>결제 항목 {orderList?.length}</Styled.Title>
       <Styled.ItemList>
         {orderList?.map((item) => (
           <Item
-            key={item.room_basket_id}
-            name={item.accommodation_name}
-            type={item.room_name}
-            checkIn={item.check_in_at}
-            checkOut={item.check_out_at}
-            guests={item.number_guests}
+            key={item.id}
+            name={item.accommodationName}
+            type={item.roomName}
+            checkIn={item.checkInAt}
+            checkOut={item.checkOutAt}
+            guests={item.numberOfGuests}
             price={item.price}
           />
         ))}

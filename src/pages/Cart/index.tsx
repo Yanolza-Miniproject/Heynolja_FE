@@ -1,6 +1,6 @@
+import { useNavigate } from "react-router";
 import CartList from "../../components/Cart/CartList";
 import { useGetMyCart } from "../../hooks/useCartFetch";
-import { useNavigate } from "react-router";
 
 const Cart = () => {
   const navigate = useNavigate();

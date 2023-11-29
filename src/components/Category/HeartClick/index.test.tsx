@@ -1,4 +1,4 @@
-import { screen, render, waitFor, renderHook } from "@testing-library/react";
+import { screen, render, waitFor } from "@testing-library/react";
 import HeartClick from "."; // Adjust the import path as needed
 import userEvent from "@testing-library/user-event";
 import { createWrapper } from "../../../test/test.utils";
@@ -22,9 +22,12 @@ describe("HeartClick test", () => {
   });
 
   test("화면에 props로 받아온 데이터 잘 보여지는 지 test", () => {
-    render(<HeartClick likes={5} likes_clicked={false} />, {
-      wrapper: createWrapper(),
-    });
+    render(
+      <HeartClick likes={5} likes_clicked={false} accommodationId="1101" />,
+      {
+        wrapper: createWrapper(),
+      },
+    );
 
     const heartIcon = screen.getByText("5");
     expect(heartIcon).toBeInTheDocument();
@@ -36,7 +39,10 @@ describe("HeartClick test", () => {
 
     // given
     const likes = 5;
-    render(<HeartClick likes={likes} likes_clicked={false} />, { wrapper });
+    render(
+      <HeartClick likes={likes} likes_clicked={false} accommodationId="1101" />,
+      { wrapper },
+    );
     const heartClickButton = document.getElementById("button");
 
     // when
@@ -44,7 +50,7 @@ describe("HeartClick test", () => {
 
     // then
     await waitFor(() => {
-      expect(screen.getByText(String(likes - 1))).toBeInTheDocument();
+      expect(screen.getByText(String(likes + 1))).toBeInTheDocument();
     });
   });
 
@@ -54,22 +60,18 @@ describe("HeartClick test", () => {
 
     // given
     const likes = 5;
-    render(<HeartClick likes={likes} likes_clicked={true} />, { wrapper });
-    const heartClickButton = document.getElementById("button");
-
-    const { result } = renderHook(
-      () => useWishControl({ queryFnType: "post" }),
+    render(
+      <HeartClick likes={likes} likes_clicked={true} accommodationId="1101" />,
       { wrapper },
     );
-
-    console.log(result.current);
+    const heartClickButton = document.getElementById("button");
 
     // when
     await user.click(heartClickButton!);
 
     // then
     await waitFor(() => {
-      expect(screen.getByText(String(likes + 1))).toBeInTheDocument();
+      expect(screen.getByText(String(likes - 1))).toBeInTheDocument();
 
       // called
     });
@@ -86,7 +88,10 @@ describe("HeartClick test", () => {
 
     // given
     const likes = 5;
-    render(<HeartClick likes={likes} likes_clicked={true} />, { wrapper });
+    render(
+      <HeartClick likes={likes} likes_clicked={true} accommodationId="1101" />,
+      { wrapper },
+    );
     const heartClickButton = document.getElementById("button");
 
     // when
