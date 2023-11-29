@@ -13,51 +13,15 @@ const DetailList = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const accommodationId = queryParams.get("accommodation-id");
-  // const { accommodationId } = useParams();
 
-  const {
-    data: accommodationDetail,
-    // isLoading,
-    // error,
-  } = useGetAccommodationDetail(Number(accommodationId));
-  // const {
-  //   data: accommodationDetail,
-  //   isLoading,
-  //   error,
-  // } = useGetAccommodationDetail(Number(accommodationId));
-
-  // if (isLoading) return <div>Loading...</div>;
-  // if (error) return <div>Error: {error.message}</div>;
+  const { data: accommodationDetail } = useGetAccommodationDetail(
+    Number(accommodationId),
+  );
 
   if (!accommodationDetail || !accommodationDetail.data) {
     return <div>Loading...</div>;
   }
-  // if (isLoading) return <div>Loading...</div>;
-  // if (error) return <div>Error: {error.message}</div>;
 
-  // if (!data) {
-  //   return <div>객실 정보가 없습니다.</div>;
-  // }
-  // if (!accommodationDetail) {
-  //   navigate("/404");
-  //   return null;
-  // }
-  console.log(accommodationDetail);
-  // const {
-  //   thumbnailUrl,
-  //   type,
-  //   name,
-  //   address,
-  //   infoDetail,
-  //   phoneNumber,
-  //   homepage,
-  //   checkIn,
-  //   checkOut,
-  //   categoryParking,
-  //   categoryCooking,
-  //   categoryPickup,
-  // } = accommodationDetail.data;
-  // const { data, isLoading, error } = useGetAccommodationDetail();
   return (
     <Styled.container>
       <Styled.Layout>
@@ -68,7 +32,7 @@ const DetailList = () => {
             type={accommodationDetail.data.data.type}
             name={accommodationDetail.data.data.name}
           />
-          {/* <StockStatusBanner /> */}
+          {/* <StockStatusBanner />  이부분 좋아요 하트자리 */}
           {/* </Styled.HorizontalContainer> */}
           <ProductInfo
             address={accommodationDetail.data.data.address}

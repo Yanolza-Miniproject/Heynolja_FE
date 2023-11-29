@@ -9,14 +9,7 @@ export const useGetAccommodationDetail = (accommodationId: number) => {
     queryFn: () => baseInstance.get(`/accommodations/${accommodationId}`),
   });
 };
-// export const useGetAccommodationDetail = (accommodationId: number) => {
-//   const { data, isLoading, error } = useQuery({
-//     queryKey: ["accommodationDetail", accommodationId],
-//     queryFn: () => baseInstance.get(`/accommodations/${accommodationId}`),
-//   });
 
-//   return { data, isLoading, error };
-// };
 // 객실 상세 정보 조회
 export const useGetRoomDetail = (roomId: number) => {
   return useQuery({
