@@ -16,12 +16,15 @@ import { getTokenRefresh } from "../utils/getTokenRefresh";
 //   localStorage.setItem("refresh_token", token);
 
 // 토큰 추가 함수
-const addTokenToHeader = (config: InternalAxiosRequestConfig) => {
-  const token = getTokenRefresh();
+const addTokenToHeader = async (config: InternalAxiosRequestConfig) => {
+  const token = await getTokenRefresh();
+  alert(token);
 
-  if (token) {
-    config.headers.access_token = token;
+  if (!token) {
+    // window.location.href = "/login";
+    console.log("토큰이 없습니다.");
   }
+  config.headers.access_token = token;
 
   return config;
 };

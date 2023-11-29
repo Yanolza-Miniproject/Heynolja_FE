@@ -1,3 +1,4 @@
+import axios from "axios";
 import { baseInstance } from "../../hooks/useAxios";
 import { SignInInputs } from "../../pages/Signin/Signin.types";
 import { Inputs } from "../../pages/Signup/Signup.types";
@@ -8,7 +9,15 @@ export const fetchSignin = async (data: SignInInputs) => {
     password: data.password,
   });
 
-  return response.data;
+  const returnData = {
+    accessToken: response.headers["access_token"],
+    refreshToken: response.headers["refresh_token"],
+    message: response.data.message,
+    memberId: response.data.data.memberId,
+    nickname: response.data.data.nickname,
+  };
+
+  return returnData;
 };
 
 export const fetchSignup = async (data: Inputs) => {
@@ -27,11 +36,12 @@ export type fetchTokenProps = {
   refreshToken: string;
 };
 
-export const fetchToken = async (data: fetchTokenProps) => {
-  const response = await baseInstance.post("members/token", {
-    accessToken: data.accessToken,
-    refreshToken: data.refreshToken,
+export const fetchToken = async (refreshToken: string) => {
+  alert("토큰 함수 호출");
+  alert(refreshToken);
+  const response = await axios.post("/api/refresh", {
+    refreshToken: refreshToken,
   });
 
-  return response.data.data;
+  return response.data;
 };
