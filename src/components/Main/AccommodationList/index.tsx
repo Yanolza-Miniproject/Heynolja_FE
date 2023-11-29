@@ -37,21 +37,23 @@ export const AccommodationList = ({
               <Styled.ItemPicture>
                 <img src={`${item.thumbnailUrl}`} alt={item.name} />
               </Styled.ItemPicture>
-              <Styled.ItemInfoFirstColumn>
-                <h3 className="item-name">{item.name}</h3>
-                <h3 className="item-price">
-                  ~{item.lowest_price && formatNumber(item.lowest_price)}원 부터
-                </h3>
-              </Styled.ItemInfoFirstColumn>
+
+              <Styled.ItemInfo>
+                <Styled.ItemInfoFirstColumn>
+                  <h3 className="item-name">{item.name}</h3>
+                  <h3 className="item-price">
+                    ~{item.lowest_price && formatNumber(item.lowest_price)}원
+                    부터
+                  </h3>
+                </Styled.ItemInfoFirstColumn>
+                <Styled.ItemInfoSecondColumn>
+                  <HeartClick
+                    likes={item.wishCount}
+                    likes_clicked={item.isWish}
+                  />
+                </Styled.ItemInfoSecondColumn>
+              </Styled.ItemInfo>
             </Styled.ItemLink>
-            <Styled.ItemInfo>
-              <Styled.ItemInfoSecondColumn>
-                <HeartClick
-                  likes={item.wishCount}
-                  likes_clicked={item.isWish}
-                />
-              </Styled.ItemInfoSecondColumn>
-            </Styled.ItemInfo>
           </Styled.ItemContainer>
         ))}
       </Styled.AccomList>

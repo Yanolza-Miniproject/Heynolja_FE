@@ -21,7 +21,7 @@ export const AccomList = styled(motion.div)<RandomAccomDataProps>`
   justify-content: center;
   align-items: center;
 
-  gap: 1rem;
+  gap: 1.2rem;
   margin-bottom: 3rem;
 
   @media (max-width: 1200px) {
@@ -57,11 +57,7 @@ export const ItemContainer = styled.div`
   }
 `;
 
-export const ItemLink = styled(Link)`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-`;
+export const ItemLink = styled(Link)``;
 
 export const ItemPicture = styled.div`
   position: relative;
@@ -97,8 +93,8 @@ export const ItemInfo = styled.div`
   }
 
   img {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
   }
 `;
