@@ -5,6 +5,8 @@ module.exports = {
   // https://jestjs.io/docs/configuration#testenvironment-string
   testEnvironment: "jsdom",
 
+  preset: "ts-jest/presets/default-esm",
+
   // A list of paths to directories that Jest should use to search for files in
   // https://jestjs.io/docs/configuration#roots-arraystring
   roots: ["<rootDir>/src/"],
@@ -16,7 +18,26 @@ module.exports = {
   // Jest transformations
   // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
   transform: {
-    "^.+\\.tsx?$": "ts-jest", // Transform TypeScript files using ts-jest
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        diagnostics: {
+          ignoreCodes: [1343],
+        },
+        astTransformers: {
+          before: [
+            {
+              path: "node_modules/ts-jest-mock-import-meta", // or, alternatively, 'ts-jest-mock-import-meta' directly, without node_modules.
+              options: {
+                metaObjectReplacement: {
+                  url: "http://43.200.54.142:8080/api/v1",
+                },
+              },
+            },
+          ],
+        },
+      },
+    ],
   },
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test file in the suite is executed

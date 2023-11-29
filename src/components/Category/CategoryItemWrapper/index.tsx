@@ -1,15 +1,7 @@
 import * as Styled from "./CategoryItemWrapper.styles";
 import { CategoryProps } from "../../../pages/Category/Category.types";
 import CategoryItem from "../CatgoryItem";
-
-export type CategoryItemPageProps = {
-  message: string;
-  data: CategoryProps[];
-};
-
-export type CategoryItemWrapperProps = {
-  data: CategoryItemPageProps[];
-};
+import { CategoryItemWrapperProps } from "./CategoryItemWrapper.types";
 
 const CategoryItemWrapper = ({ data }: CategoryItemWrapperProps) => {
   return (
@@ -17,7 +9,7 @@ const CategoryItemWrapper = ({ data }: CategoryItemWrapperProps) => {
       {data[0].data.length !== 0 ? (
         data.map((pageData) => {
           return pageData.data.map((item: CategoryProps) => {
-            return <CategoryItem key={item.name} data={item} />;
+            return <CategoryItem key={item.id} data={item} />;
           });
         })
       ) : (

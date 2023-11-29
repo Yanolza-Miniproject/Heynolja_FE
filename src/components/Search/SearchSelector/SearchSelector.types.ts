@@ -1,9 +1,9 @@
 export interface SearchType {
   region: number | null;
   type: number | null;
-  category_parking: boolean;
-  category_cooking: boolean;
-  category_pickup: boolean;
+  categoryParking: boolean;
+  categoryCooking: boolean;
+  categoryPickup: boolean;
 }
 
 export interface TypeImages {

@@ -1,32 +1,32 @@
 export type CategoryFilterParams = {
   region: number;
   type: number;
-  category_parking: number;
-  category_cooking: number;
-  category_pickup: number;
+  categoryParking: number;
+  categoryCooking: number;
+  categoryPickup: number;
 };
 
 export const checkCategoryQueryUrl = ({
   region,
   type,
-  category_parking,
-  category_cooking,
-  category_pickup,
+  categoryParking,
+  categoryCooking,
+  categoryPickup,
 }: CategoryFilterParams) => {
   const queryObjects = {
-    regionUrl: region !== 99 && region !== null ? `&region=${region}` : "",
+    regionUrl: region !== 99 && region !== null ? `&region01=${region}` : "",
     typeUrl: type !== 99 && type !== null ? `&type=${type}` : "",
-    category_parkingUrl:
-      category_parking !== 2 && category_parking !== null
-        ? `&category_parking=${category_parking}`
+    categoryParkingUrl:
+      categoryParking !== 2 && categoryParking !== null
+        ? `&categoryParking=${categoryParking}`
         : "",
-    category_cookingUrl:
-      category_cooking !== 2 && category_cooking !== null
-        ? `&category_cooking=${category_cooking}`
+    categoryCookingUrl:
+      categoryCooking !== 2 && categoryCooking !== null
+        ? `&categoryCooking=${categoryCooking}`
         : "",
-    category_pickupUrl:
-      category_pickup !== 2 && category_pickup !== null
-        ? `&category_pickup=${category_pickup}`
+    categoryPickupUrl:
+      categoryPickup !== 2 && categoryPickup !== null
+        ? `&categoryPickup=${categoryPickup}`
         : "",
   };
 

@@ -39,9 +39,9 @@ describe("CategoryQuery", () => {
       <CategoryQuery
         regionNumber={99}
         accommodationNumber={99}
-        category_parking={2}
-        category_cooking={2}
-        category_pickup={2}
+        categoryParking={2}
+        categoryCooking={2}
+        categoryPickup={2}
       />,
 
       { wrapper },
