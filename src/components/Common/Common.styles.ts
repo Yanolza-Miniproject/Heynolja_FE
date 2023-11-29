@@ -92,7 +92,7 @@ export const headerRightWrapper = styled.div`
 
     &:nth-of-type(2)::after,
     &:nth-of-type(3)::after,
-    &:nth-last-child(1)::after {
+    &:nth-last-of-type(1)::after {
       content: "";
       position: absolute;
       left: -10px;
