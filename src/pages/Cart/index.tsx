@@ -1,5 +1,4 @@
 import CartList from "../../components/Cart/CartList";
-import { authInstance, baseInstance } from "../../hooks/useAxios";
 import { useGetMyCart } from "../../hooks/useCartFetch";
 import { useNavigate } from "react-router";
 
