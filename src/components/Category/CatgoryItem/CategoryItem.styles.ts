@@ -6,9 +6,10 @@ export const CategoryItemContainer = styled.div`
   ${flexCenter};
 
   width: 195px;
-  height: 330px;
+  height: 290px;
 
   padding: 1rem;
+  position: relative;
 
   border: 1px solid #e0e0e0;
   border-radius: 10px;
