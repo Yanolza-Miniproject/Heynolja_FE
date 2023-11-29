@@ -1,5 +1,5 @@
-import { baseInstance } from "../../hooks/useAxios";
 import { fetchCatgoryProps } from "../../pages/Category/Category.types";
+import { baseInstance } from "../../hooks/useAxios";
 
 export const fetchCatgory = async ({
   pageParam,

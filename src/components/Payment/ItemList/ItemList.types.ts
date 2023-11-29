@@ -1,9 +1,9 @@
 export interface OrderItem {
-  room_basket_id: number;
-  accommodation_name: string;
-  room_name: string;
-  check_in_at: string;
-  check_out_at: string;
-  number_guests: number;
+  id: number;
+  accommodationName: string;
+  roomName: string;
+  checkInAt: string;
+  checkOutAt: string;
+  numberOfGuests: number;
   price: number;
 }
