@@ -25,7 +25,7 @@ const CartItem = ({
   // 장바구니에서 해당 상품 제거
   const fetch = () => {
     deleteCartMutation.mutate(
-      { room_basket_id: [item.room_basket_id] },
+      { room_basket_id: [item.id] },
       {
         onSuccess: (responseData) => {
           console.log(responseData.data);
@@ -54,7 +54,7 @@ const CartItem = ({
     <Styled.Container check={check}>
       <Styled.itemTop>
         <Checkbox
-          id={item.room_basket_id.toString()}
+          id={item.id.toString()}
           checked={select.length > 0 ? select[index] : false}
           onChange={(event) => {
             handleCheck(
@@ -70,9 +70,7 @@ const CartItem = ({
             );
           }}
         />
-        <label htmlFor={item.room_basket_id.toString()}>
-          {item.accommodation_name}
-        </label>
+        <label htmlFor={item.id.toString()}>{item.accommodationName}</label>
         <Styled.Empty />
         <img
           src={exitLogo}
@@ -85,14 +83,14 @@ const CartItem = ({
         <Styled.Image></Styled.Image>
         <Styled.Info>
           <p>
-            <span>방 타입</span>: {item.room_name}
+            <span>방 타입</span>: {item.roomName}
           </p>
           <p>
-            <span>숙박일</span>: {item.check_in_at} ~ {item.check_out_at} |{" "}
-            {calculateNightCount(item.check_in_at, item.check_out_at)}박
+            <span>숙박일</span>: {item.checkInAt} ~ {item.checkOutAt} |{" "}
+            {calculateNightCount(item.checkInAt, item.checkOutAt)}박
           </p>
           <p>
-            <span>숙박인원</span>: {item.number_guests}명
+            <span>숙박인원</span>: {item.numberOfGuests}명
           </p>
           <p>₩{formatNumber(item.price)}</p>
         </Styled.Info>

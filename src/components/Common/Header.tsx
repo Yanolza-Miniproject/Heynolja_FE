@@ -17,9 +17,9 @@ const Header = () => {
   const fetchData = async () => {
     try {
       const response = await baseInstance.post("/members/join", {
-        email: "test@nam.com",
+        email: "yh2@hey.com",
         password: "1234",
-        nickname: "asd",
+        nickname: "yh2",
         phoneNumber: "01011111111",
       });
       console.log(response.data);
@@ -31,7 +31,7 @@ const Header = () => {
   const fetch = async () => {
     try {
       const response = await baseInstance.post("/members/login", {
-        email: "test@nam.com",
+        email: "yh2@hey.com",
         password: "1234",
       });
 
