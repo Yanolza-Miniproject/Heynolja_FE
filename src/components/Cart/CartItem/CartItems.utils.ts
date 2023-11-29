@@ -35,9 +35,7 @@ export const handleCheck = (
     setSelect(copy);
 
     // 예상 구매 내역 상태 변화
-    const filtered = estimatedPrice.filter(
-      (value) => value.room_basket_id !== item.room_basket_id,
-    );
+    const filtered = estimatedPrice.filter((value) => value.id !== item.id);
     setEstimatedPrice(filtered);
 
     // 체크 개수 표시
@@ -56,21 +54,15 @@ export const handeleDelete = (
   setSelected: React.Dispatch<React.SetStateAction<number>>,
   setEstimatedPrice: React.Dispatch<React.SetStateAction<CartItemType[]>>,
 ) => {
-  const filtered = cart.filter(
-    (value) => value.room_basket_id !== item.room_basket_id,
-  );
+  const filtered = cart.filter((value) => value.id !== item.id);
 
-  const filteredEst = estimatedPrice.filter(
-    (value) => value.room_basket_id !== item.room_basket_id,
-  );
+  const filteredEst = estimatedPrice.filter((value) => value.id !== item.id);
 
   const newSelect = select.slice(0, index).concat(select.slice(index + 1));
 
   setSelect(newSelect);
 
-  if (
-    estimatedPrice.find((value) => value.room_basket_id === item.room_basket_id)
-  )
+  if (estimatedPrice.find((value) => value.id === item.id))
     setSelected((prev) => prev - 1);
 
   setCart(filtered);
