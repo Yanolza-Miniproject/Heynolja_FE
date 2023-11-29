@@ -18,6 +18,7 @@ const addTokenToHeader = (config: InternalAxiosRequestConfig) => {
 // 에러 핸들링 함수
 const logErrorInterceptor = (error: AxiosError) => {
   console.error("error", error);
+  console.log("에러 발생");
   return Promise.reject(error);
 };
 
@@ -48,7 +49,7 @@ const authInterceptors = (instance: AxiosInstance) => {
 // axios인스턴스 생성 (인증x)
 const base = () => {
   const instance = axios.create({
-    baseURL: import.meta.env.VITE_APP_API_BASE_URL,
+    baseURL: "/api",
     timeout: 1000,
   });
 
@@ -60,7 +61,7 @@ const base = () => {
 // axios인스턴스 생성 (인증o)
 const auth = () => {
   const instance = axios.create({
-    baseURL: import.meta.env.VITE_APP_API_BASE_URL,
+    baseURL: "/api",
     timeout: 1000,
   });
 

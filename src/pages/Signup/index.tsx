@@ -3,6 +3,20 @@ import * as Styled from "./Signup.styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Inputs } from "./Signup.types";
 import { InputProps } from "./Signup.constant";
+import { baseInstance } from "../../hooks/useAxios";
+
+const fetchSignup = async (data: Inputs) => {
+  const response = await baseInstance.post("/members/join", {
+    email: data.email,
+    password: data.password,
+    nickname: data.nickname,
+    phoneNumber: data.phone,
+  });
+
+  console.log(response.headers);
+
+  return response.data;
+};
 
 const Signup = () => {
   const {
@@ -11,8 +25,11 @@ const Signup = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) =>
-    console.log("로그인 데이터 전송", data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    console.log(data);
+    const datas = await fetchSignup(data);
+    console.log(datas);
+  };
 
   return (
     <Styled.Container>
