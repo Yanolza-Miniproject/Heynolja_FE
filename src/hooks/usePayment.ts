@@ -24,7 +24,7 @@ export const useGetMyOrderInfinite = () => {
     queryFn: ({ pageParam = 1 }) =>
       authInstance.get(`/payment?page=${pageParam}&pageSize=20`),
     getNextPageParam: (lastPage, allPages) => {
-      // 만약 더 불러올 페이지가 있다면 페이지 번호를 반환
+      // 만약 더 불러올 페이지가 있다면 페이지 번호를 반환함
       return lastPage.data.length === 20 ? allPages.length + 1 : undefined;
     },
     // initialPageParam 속성 추가
