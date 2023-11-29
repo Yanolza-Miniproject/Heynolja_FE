@@ -4,7 +4,7 @@ export const MyOrderItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  height: 5rem;
+  height: 20rem;
   overflow: auto;
 `;
 

@@ -12,7 +12,7 @@ export const useGetMyCart = () => {
 // 카트 선택 상품 주문요청
 export const usePostOrders = () => {
   return useMutation({
-    mutationFn: (data: { room_basket_id: number[] }) => {
+    mutationFn: (data: { ids: number[] }) => {
       return authInstance.post("/baskets/orders", data);
     },
   });
@@ -21,7 +21,8 @@ export const usePostOrders = () => {
 // 카트 아이템 삭제
 export const useDeleteCartItem = () => {
   return useMutation({
-    mutationFn: (data: { room_basket_id: number[] }) => {
+    mutationFn: (data: { ids: number[] }) => {
+      console.log(data);
       return authInstance.put("/baskets", { data });
     },
   });

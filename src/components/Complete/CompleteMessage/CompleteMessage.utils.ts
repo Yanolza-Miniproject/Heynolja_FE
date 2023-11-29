@@ -6,7 +6,7 @@ export const leftDateUntilTheTrip = (itemList: CartItemType[]) => {
   let day = Number.MAX_SAFE_INTEGER;
 
   itemList.forEach((item) => {
-    const checkInDate: Date = new Date(item.check_in_at);
+    const checkInDate: Date = new Date(item.checkInAt);
 
     const diff: number = Math.ceil(
       (checkInDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24),

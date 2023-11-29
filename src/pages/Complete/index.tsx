@@ -9,7 +9,7 @@ const Complete = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useGetCompleteData(id as string);
 
-  if (data?.data.data.length === 0 || isError) {
+  if (data?.data.data.rooms === 0 || isError) {
     return (
       <Styled.Container>
         <NotFound />
@@ -26,11 +26,11 @@ const Complete = () => {
       {data && (
         <>
           <CompleteMessage
-            data={data?.data.data[0].rooms}
-            totalPrice={data?.data.data[0].total_price}
+            data={data?.data.data.rooms}
+            totalPrice={data?.data.data.totalPrice}
           />
           <Styled.Line></Styled.Line>
-          <PaymentItems data={data?.data.data[0].rooms} />
+          <PaymentItems data={data?.data.data.rooms} />
         </>
       )}
     </Styled.Container>

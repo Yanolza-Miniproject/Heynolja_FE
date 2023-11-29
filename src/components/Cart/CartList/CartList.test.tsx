@@ -7,24 +7,24 @@ import CartList from ".";
 
 export const testData = [
   {
-    room_basket_id: 1,
-    accommodation_name: "라마다 제주시티 호텔",
-    room_image_url: [""],
-    room_name: "스위트 더블",
+    id: 1,
+    accommodationName: "라마다 제주시티 호텔",
+    roomUrl: "",
+    roomName: "스위트 더블",
     price: 210000,
-    number_guests: 2,
-    check_in_at: "2023-11-30",
-    check_out_at: "2023-12-02",
+    numberOfGuests: 2,
+    checkInAt: "2023-11-30",
+    checkOutAt: "2023-12-02",
   },
   {
-    room_basket_id: 2,
-    accommodation_name: "라마다 제주시티 호텔",
-    room_image_url: [""],
-    room_name: "스탠다드 트윈",
+    id: 2,
+    accommodationName: "라마다 제주시티 호텔",
+    roomUrl: "",
+    roomName: "스탠다드 트윈",
     price: 95000,
-    number_guests: 2,
-    check_in_at: "2023-11-26",
-    check_out_at: "2023-11-28",
+    numberOfGuests: 2,
+    checkInAt: "2023-11-26",
+    checkOutAt: "2023-11-28",
   },
 ];
 
@@ -53,7 +53,7 @@ describe("장바구니 페이지 데이터 받아오기 테스트", () => {
     render(<CartList data={testData} />, { wrapper: createWrapper() });
 
     testData.forEach((item, i) => {
-      const textElement = screen.getAllByText(item.accommodation_name);
+      const textElement = screen.getAllByText(item.accommodationName);
       expect(textElement[i]).toBeInTheDocument();
     });
 
