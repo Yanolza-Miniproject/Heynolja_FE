@@ -25,7 +25,9 @@ export const ItemWrapper = styled(motion.div)`
 
   margin: 2rem 0;
 
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
     width: 100%;
   }
 `;
@@ -48,4 +50,9 @@ export const Aside = styled.div`
   border-radius: 20px;
 
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+
+  @media (max-width: 768px) {
+    width: 100%;
+    order: -1;
+  }
 `;

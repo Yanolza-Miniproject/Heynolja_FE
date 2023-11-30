@@ -41,5 +41,7 @@ export const fetchToken = async (refreshToken: string) => {
     refreshToken: refreshToken,
   });
 
+  console.log(response.data);
+
   return response.data;
 };

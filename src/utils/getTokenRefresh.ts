@@ -25,10 +25,13 @@ export const getTokenRefresh = async () => {
 
         // 리프레시 토큰이 있는 경우 토큰 갱신
         const response = await fetchToken(refreshToken);
+
         setSessionStorage(
           response.data.accessToken,
           response.data.refreshToken,
         );
+
+        alert("토큰이 갱신되었습니다.");
 
         return response.data.accessToken;
       } catch {

@@ -19,6 +19,17 @@ const addTokenToHeader = async (config: InternalAxiosRequestConfig) => {
 
 // 에러 핸들링 함수
 const logErrorInterceptor = (error: AxiosError) => {
+  if (axios.isAxiosError(error)) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      console.log("response가 있는 경우", error);
+      return Promise.reject(axiosError.response);
+    } else if (axiosError.request) {
+      return Promise.reject(axiosError.request);
+    } else {
+      return Promise.reject(axiosError.message);
+    }
+  }
   return Promise.reject(error);
 };
 
