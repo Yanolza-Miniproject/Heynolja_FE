@@ -87,7 +87,9 @@ const CartItem = ({
         />
       </Styled.itemTop>
       <Styled.itemBottom>
-        <Styled.Image onError={handleError}></Styled.Image>
+        <Styled.Image>
+          <img src={item.roomUrl} onError={handleError} />
+        </Styled.Image>
         <Styled.Info>
           <p>
             <span>방 타입</span>: {item.roomName}
