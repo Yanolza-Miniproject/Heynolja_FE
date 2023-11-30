@@ -8,7 +8,7 @@ export const ItemWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 1.19rem 0.81rem 2.19rem 1.81rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
 `;
 
 export const ItemTitle = styled.p`
@@ -28,6 +28,7 @@ export const ItemInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  margin-top: 0.5rem;
 `;
 
 export const ItemValueWrapper = styled.div``;
@@ -47,9 +48,15 @@ export const ItemImg = styled.div`
 
   overflow: hidden;
 
+  background-image: url("/src/assets/image/empty.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  margin-right: 2rem;
+
   img {
-    width: 13rem;
-    height: 13rem;
+    width: 10rem;
+    height: 10rem;
   }
 `;
 

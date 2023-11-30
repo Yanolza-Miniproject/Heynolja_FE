@@ -1,7 +1,7 @@
-import axios from "axios";
 import { baseInstance } from "../../hooks/useAxios";
 import { SignInInputs } from "../../pages/Signin/Signin.types";
 import { Inputs } from "../../pages/Signup/Signup.types";
+import { setSessionStorage } from "../../utils/setSessionStorage";
 
 export const fetchSignin = async (data: SignInInputs) => {
   const response = await baseInstance.post("members/login", {
@@ -37,9 +37,15 @@ export type fetchTokenProps = {
 };
 
 export const fetchToken = async (refreshToken: string) => {
-  const response = await axios.post("/api/refresh", {
-    refreshToken: refreshToken,
-  });
+  try {
+    const response = await baseInstance.post("/refresh", {
+      refreshToken: refreshToken,
+    });
 
-  return response.data;
+    setSessionStorage(response.data.accessToken, response.data.refreshToken);
+
+    return response.data.accessToken;
+  } catch (error) {
+    return error;
+  }
 };

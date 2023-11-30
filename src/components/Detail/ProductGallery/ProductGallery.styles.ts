@@ -20,7 +20,7 @@ export const SlideContainer = styled.div`
   text-align: center;
 `;
 
-export const ProductImage = styled("img")`
+export const ProductImage = styled.img`
   margin-left: auto;
   margin-right: auto;
   max-width: 75vw;
