@@ -25,10 +25,7 @@ const Complete = () => {
     <Styled.Container>
       {data && (
         <>
-          <CompleteMessage
-            data={data?.data.data.rooms}
-            totalPrice={data?.data.data.totalPrice}
-          />
+          <CompleteMessage data={data?.data.data.rooms} />
           <Styled.Line></Styled.Line>
           <PaymentItems data={data?.data.data.rooms} />
         </>

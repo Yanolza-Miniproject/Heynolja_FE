@@ -46,7 +46,6 @@ export const fetchToken = async (refreshToken: string) => {
 
     return response.data.accessToken;
   } catch (error) {
-    alert("fetchToken 함수에서 에러가 발새앻ㅆㅅㅂ");
     return error;
   }
 };
