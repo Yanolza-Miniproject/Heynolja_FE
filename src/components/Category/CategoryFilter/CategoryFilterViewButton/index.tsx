@@ -11,15 +11,19 @@ const CategoryFilterViewButton = ({
   isOn,
   fn,
 }: CategoryFilterViewButtonProps) => {
-  const handleClick = () => {
-    fn();
+  const isViewMode = () => {
+    if (buttonText === "바둑판보기") {
+      return isOn;
+    } else {
+      return !isOn;
+    }
   };
 
   return (
     <Styled.CategoryFilterViewButton
       type="button"
-      view={isOn}
-      onClick={handleClick}
+      view={isViewMode()}
+      onClick={fn}
     >
       {buttonText}
     </Styled.CategoryFilterViewButton>

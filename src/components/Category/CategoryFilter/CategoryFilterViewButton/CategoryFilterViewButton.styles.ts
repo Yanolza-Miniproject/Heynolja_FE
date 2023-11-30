@@ -10,13 +10,17 @@ export const CategoryFilterViewButton = styled.button<CategoryItemWrapperProps>`
   justify-content: center;
 
   width: 45%;
-  height: 2rem;
+  padding: 0.5rem 1rem;
 
   border: none;
+  border-radius: 10px;
 
-  background-color: ${(props) => (props.view ? "#FFD600" : "#F6F6F6")};
+  color: white;
+  background-color: ${(props) => (props.view ? "#191554" : "#646464")};
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
+    background-color: #ff5100;
   }
 `;

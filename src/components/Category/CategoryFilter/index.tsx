@@ -13,8 +13,6 @@ const CategoryFilter = () => {
     setCategoryViewState((prev) => !prev);
   };
 
-  console.log(categoryViewState);
-
   return (
     <Styled.CategoryFilterContainer>
       <Styled.CategoryFilterWrapper>
@@ -29,12 +27,12 @@ const CategoryFilter = () => {
         <Styled.CategoryViewButtonWrapper>
           <CategoryFilterViewButton
             buttonText="바둑판보기"
-            isOn={false}
+            isOn={categoryViewState}
             fn={handleClick}
           />
           <CategoryFilterViewButton
             buttonText="리스트보기"
-            isOn={true}
+            isOn={categoryViewState}
             fn={handleClick}
           />
         </Styled.CategoryViewButtonWrapper>
