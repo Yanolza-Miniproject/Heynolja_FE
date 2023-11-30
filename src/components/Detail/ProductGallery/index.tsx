@@ -21,15 +21,21 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ images }) => {
   return (
     <Styled.GalleryContainer>
       <Styled.StyledSlider {...settings}>
-        {images.map(({ id, imageUrl }) => (
-          <Styled.SlideContainer key={id}>
-            <Styled.ProductImage
-              src={imageUrl}
-              alt={`Product Image ${id}`}
-              onError={handleError}
-            />
+        {images.length > 0 ? (
+          images.map(({ id, imageUrl }) => (
+            <Styled.SlideContainer key={id}>
+              <Styled.ProductImage
+                src={imageUrl}
+                alt={`Product Image ${id}`}
+                onError={handleError}
+              />
+            </Styled.SlideContainer>
+          ))
+        ) : (
+          <Styled.SlideContainer>
+            <Styled.ProductImage src={Empty} alt="이미지 없음" />
           </Styled.SlideContainer>
-        ))}
+        )}
       </Styled.StyledSlider>
     </Styled.GalleryContainer>
   );

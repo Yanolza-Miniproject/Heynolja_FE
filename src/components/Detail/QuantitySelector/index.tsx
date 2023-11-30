@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import * as Styled from "./QuantitySelector.styles";
 import { QuantitySelectorProps } from "./QuantitySelector.types";
-import formatNumber from "../../../utils/formatNumber";
 
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   initialQuantity,
   onQuantityChange,
-  price,
   capacity,
 }) => {
   const [quantity, setQuantity] = useState(initialQuantity);
@@ -28,10 +26,13 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   return (
     <Styled.SelectorContainer>
       <Styled.InfoContainer>
-        <Styled.LabelText>숙박 인원 선택</Styled.LabelText>
-        <Styled.PriceText>
-          1인당 가격 ￦{price !== undefined ? formatNumber(price) : "정보 없음"}
-        </Styled.PriceText>
+        <Styled.PriceLabelContainer>
+          <Styled.LabelText>숙박 인원 선택</Styled.LabelText>
+          <Styled.PriceText>최대 {capacity}명</Styled.PriceText>
+        </Styled.PriceLabelContainer>
+        <Styled.InfoText>
+          * 숙박 인원은 금액에 반영되지 않습니다
+        </Styled.InfoText>
       </Styled.InfoContainer>
       <Styled.ControlContainer>
         <Styled.MinusButton onClick={handleDecrease} disabled={quantity === 1}>
