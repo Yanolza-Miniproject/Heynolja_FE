@@ -19,7 +19,6 @@ export const useLogin = () => {
   const mutation = useMutation({
     mutationFn: (data: SignInInputs) => fetchSignin(data),
     onSuccess: (data) => {
-      console.log(data);
       setSessionStorage(data.accessToken, data.refreshToken);
       setUserData((prev) => ({
         ...prev,
