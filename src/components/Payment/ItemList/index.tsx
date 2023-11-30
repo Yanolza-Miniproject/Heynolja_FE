@@ -3,22 +3,39 @@ import * as Styled from "./ItemList.styles";
 import { useRecoilState } from "recoil";
 import { purchaseState } from "../../../store/purchaseAtom";
 import formatNumber from "../../../utils/formatNumber";
+import { useGetOrderList } from "../../../hooks/useGetOrderList";
+import { OrderItem } from "./ItemList.types";
 
 const ItemList = () => {
   const [purchaseList] = useRecoilState(purchaseState);
+  const orderId = purchaseList.order_id;
+  const { data } = useGetOrderList(orderId as number);
+  console.log(data);
+  const orderList: OrderItem[] = data?.data.data.rooms;
+
+  // authInstance
+  //   .get("/orders/9")
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+
   return (
     <Styled.PaymentItemWrapper>
-      <Styled.Title>결제 항목 {purchaseList.data.length} </Styled.Title>
+      <Styled.Title>결제 항목 {orderList?.length}</Styled.Title>
       <Styled.ItemList>
-        {purchaseList.data.map((item) => (
+        {orderList?.map((item) => (
           <Item
-            key={item.room_basket_id}
-            name={item.accommdation_name}
-            type={item.room_name}
-            checkIn={item.check_in_at}
-            checkOut={item.check_out_at}
-            guests={item.number_guests}
+            key={item.id}
+            name={item.accommodationName}
+            type={item.roomName}
+            checkIn={item.checkInAt}
+            checkOut={item.checkOutAt}
+            guests={item.numberOfGuests}
             price={item.price}
+            roomUrl={item.roomUrl}
           />
         ))}
       </Styled.ItemList>

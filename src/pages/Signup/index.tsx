@@ -3,16 +3,19 @@ import * as Styled from "./Signup.styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Inputs } from "./Signup.types";
 import { InputProps } from "./Signup.constant";
+import { useSignUp } from "../../api/Auth/query";
 
 const Signup = () => {
+  const mutationSignUp = useSignUp();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) =>
-    console.log("로그인 데이터 전송", data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    mutationSignUp.mutate(data);
+  };
 
   return (
     <Styled.Container>
@@ -36,7 +39,7 @@ const Signup = () => {
             })}
             <Styled.SigninButton type="submit">회원가입</Styled.SigninButton>
           </Styled.SignForm>
-          <Styled.SigninOutButton></Styled.SigninOutButton>
+          <Styled.SigninOutButton>로그인</Styled.SigninOutButton>
         </Styled.SigninMotionDiv>
       </Styled.SigninBox>
     </Styled.Container>

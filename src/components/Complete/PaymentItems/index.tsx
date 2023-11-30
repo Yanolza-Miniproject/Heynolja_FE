@@ -1,20 +1,32 @@
+import Item from "../../Payment/Item";
 import * as Styled from "./PaymentItems.styles";
-// import { PaymentItemsProps } from "./PaymentItems.types";
-// import Item from "../../Payment/Item";
+import { PaymentItemsProps } from "./PaymentItems.types";
 
-const PaymentItems = () => {
+const PaymentItems = ({ data }: PaymentItemsProps) => {
   return (
     <Styled.Container>
       <Styled.TextWrapper>결제항목</Styled.TextWrapper>
-      {/* <Styled.itemWrapper>
+      <Styled.itemWrapper>
         {data.map((item) => {
           return (
-            <div key={item.room_basket_id} style={{ marginBottom: "1.5rem" }}>
-              <Item />
+            <div
+              key={item.id}
+              style={{ marginBottom: "1.5rem" }}
+              data-testid="payment_list"
+            >
+              <Item
+                name={item.accommodationName}
+                type={item.roomName}
+                guests={item.numberOfGuests}
+                price={item.price}
+                checkIn={item.checkInAt}
+                checkOut={item.checkOutAt}
+                roomUrl={item.roomUrl}
+              />
             </div>
           );
         })}
-      </Styled.itemWrapper> */}
+      </Styled.itemWrapper>
     </Styled.Container>
   );
 };

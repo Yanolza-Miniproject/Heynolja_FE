@@ -14,7 +14,7 @@ export const Title = styled.p`
 
 export const ItemList = styled.li`
   width: 100%;
-  height: 18rem;
+  height: 20rem;
   border-bottom: 1px solid #d3d3d3;
   overflow: auto;
 `;

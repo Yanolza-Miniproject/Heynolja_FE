@@ -7,7 +7,7 @@ export const globalStyle = css`
 
   @font-face {
     font-family: "Noto Sans KR";
-    src: url("../assets/font/NotoSans-Regular.woff2") format("woff2-variations");
+    src: url("../assets/font/NotoSans-Regular.woff2") format("font-woff2");
   }
 
   body {
@@ -36,20 +36,80 @@ export const headerContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 5em;
+  padding: 0 5rem;
 
   background-color: white;
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 2px solid #f6f6f6;
 
   height: 80px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
 `;
 
 export const headerWrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 300;
+`;
+
+export const headerLeftWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2.5rem;
+
+  span {
+    position: relative;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      right: 0;
+
+      height: 1.5px;
+      background-color: #ff5100;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+`;
+
+export const headerRightWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 1.2em;
+  gap: 1.2rem;
 
   a {
     position: relative;
@@ -57,23 +117,23 @@ export const headerWrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    &:nth-child(2)::after,
-    &:nth-child(3)::after,
-    &:last-child::after {
+    &:nth-of-type(2)::after,
+    &:nth-of-type(3)::after,
+    &:nth-last-of-type(1)::after {
       content: "";
       position: absolute;
       left: -10px;
-      height: 0.8em;
+      height: 0.8rem;
       top: 50%;
-      margin-top: -0.4em;
+      margin-top: -0.4rem;
       color: #b3b3b3;
       border-left: 1px solid #dbdbdb;
     }
   }
 
   img {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.4rem;
+    height: 1.4rem;
     transition:
       filter 0.2s,
       transform 0.1s;
@@ -87,99 +147,80 @@ export const headerWrapper = styled.div`
 `;
 
 export const footerContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-column-gap: 10rem;
+  grid-row-gap: 0.5rem;
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 5em;
+  width: 70%;
 
-  height: 200px;
-
-  background-color: #f6f6f6;
-`;
-
-export const footerLeftWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  padding: 0 2em;
-  gap: 1em;
-
-  height: 100px;
+  padding: 3rem 12rem;
+  margin-bottom: 1rem;
   background-color: #f6f6f6;
 
-  font-size: 0.8em;
-  line-height: 1.7em;
-  font-weight: 400;
-  color: #646464;
+  font-size: 0.9rem;
 
-  h5 {
-    font-weight: 800;
-    color: black;
+  .title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
   }
-`;
+  .team {
+    font-size: 1.1rem;
+    font-weight: 700;
 
-export const footerRightWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  gap: 5em;
-
-  width: 28em;
-  height: 100px;
-
-  font-size: 0.8em;
-  line-height: 1.7em;
-  font-weight: 400;
-  color: #646464;
-
-  h5 {
-    font-weight: 800;
-    color: black;
+    img {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
-`;
 
-export const footerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  cursor: default;
 
-  gap: 1em;
-`;
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 5rem;
+    grid-row-gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
 
-export const footerBottomWrapper = styled.div`
-  padding: 1em 8em;
-  margin-bottom: 2em;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 0;
 
-  text-align: left;
-  font-size: 0.8em;
-  color: #646464;
-`;
+    font-size: 1.1rem;
+  }
 
-export const footerLine = styled.hr`
-  margin: 0 6em;
+  @media (max-width: 480px) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
 
-  height: 1px;
+    width: 100%;
+    height: 5rem;
+    padding: 1rem 0;
 
-  border: none;
-  background-color: #d9d9d9;
+    font-size: 0.9rem;
+  }
 `;
 
 export const SidebarContainer = styled.aside`
   position: fixed;
-  right: 1em;
+  right: 1rem;
   bottom: 0;
 
-  border-radius: 0.625rem;
+  border-radius: 1.5rem;
+  background-color: white;
 
   transform: translateY(-50%);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   z-index: 200;
 `;
 
@@ -192,13 +233,13 @@ export const SidebarWrapper = styled.div`
 
 export const NavButton = styled.button`
   display: block;
-
-  padding: 0.5em;
+  padding: 0.5rem;
 
   outline: none;
   appearance: none;
   border: none;
-  background-color: #e6e6e6;
+  border-radius: 20rem;
+  background-color: #fff;
 
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -219,22 +260,52 @@ export const NavButton = styled.button`
 
   img {
     display: block;
-    width: 6em;
-    height: 2em;
+    width: 5rem;
+    height: 1rem;
     margin: auto;
   }
 
-  font-size: 0.8em;
+  font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
   color: black;
 `;
 
-export const RecentlyViewedItem = styled.div`
-  padding: 1em;
+export const LoaderContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-  width: 5em;
-  height: 7em;
+  background-color: rgba(0, 0, 0, 0.15);
 
-  font-size: 0.8em;
+  z-index: 999;
+`;
+
+export const LoaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 1rem;
+  border-radius: 2rem;
+
+  width: 13rem;
+  background-color: white;
+
+  p {
+    margin-top: 1rem;
+
+    color: #666666;
+    text-align: center;
+    line-height: 1.2rem;
+
+    cursor: default;
+  }
 `;

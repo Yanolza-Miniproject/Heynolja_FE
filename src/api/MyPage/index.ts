@@ -1,10 +1,6 @@
-import axios from "axios";
+import { authInstance } from "../../hooks/useAxios";
 
 export const getMyWishList = async () => {
-  const response = await axios.get("/api/v1/wish", {
-    headers: {
-      Authorization: "김토큰",
-    },
-  });
+  const response = await authInstance.get("wish");
   return response.data;
 };

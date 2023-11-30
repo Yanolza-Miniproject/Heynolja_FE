@@ -10,12 +10,16 @@ const index = ({
   checkOut,
   guests,
   price,
+  roomUrl,
 }: PaymentItemProps) => {
   return (
     <Styled.ItemWrapper>
       <Styled.ItemTitle>{name}</Styled.ItemTitle>
       <Styled.ItemContent>
-        <Styled.ItemImg></Styled.ItemImg>
+        <Styled.ItemImg>
+          <img src={roomUrl} />
+        </Styled.ItemImg>
+
         <Styled.ItemInfo>
           <Styled.ItemValueWrapper>
             <Styled.Title>방 타입: </Styled.Title>
@@ -40,7 +44,9 @@ const index = ({
       </Styled.ItemContent>
       <Styled.ItemPriceWrapper>
         <span>₩</span>
-        <Styled.ItemPrice>{formatNumber(price)}</Styled.ItemPrice>
+        <Styled.ItemPrice>
+          {formatNumber(price * calculateNightCount(checkIn, checkOut))}
+        </Styled.ItemPrice>
       </Styled.ItemPriceWrapper>
     </Styled.ItemWrapper>
   );

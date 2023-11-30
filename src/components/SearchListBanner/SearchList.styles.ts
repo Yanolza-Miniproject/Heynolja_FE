@@ -1,31 +1,36 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+import { CategoryViewButtonWrapper } from "../Category/CategoryFilter/CategoryFilter.styles";
 
 export const SearchListContainer = styled.div`
-  position: absolute;
-  top: 0;
-
   display: flex;
   justify-content: center;
 
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   margin: 0 auto;
 
   color: #222;
-  background-color: white;
   box-sizing: border-box;
-  border-radius: 5px;
 
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
-
-  transform: translateY(-50%);
 `;
-
 export const SearchListWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+
   gap: 1rem;
+  width: 100%;
 `;
+
+export const SearchListQueryText = styled.h1`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+`;
+
+export const SearchListButtonWrapper =
+  CategoryViewButtonWrapper.withComponent("div");
 
 export const SearchListButton = styled(motion.div)`
   padding: 0.5rem 1rem;

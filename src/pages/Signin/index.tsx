@@ -4,15 +4,19 @@ import InputText from "../../components/Signin/InputText";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { InputProps } from "./Signin.constant";
 import { SignInInputs } from "./Signin.types";
+import { useLogin } from "../../api/Auth/query";
 
 const Signin = () => {
+  const loginMutation = useLogin();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<SignInInputs>();
 
-  const onSubmit: SubmitHandler<SignInInputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<SignInInputs> = (data) => {
+    loginMutation.mutate(data);
+  };
 
   return (
     <Styled.Container>

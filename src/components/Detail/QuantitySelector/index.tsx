@@ -5,7 +5,7 @@ import { QuantitySelectorProps } from "./QuantitySelector.types";
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   initialQuantity,
   onQuantityChange,
-  price,
+  capacity,
 }) => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
@@ -16,27 +16,35 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   };
 
   const handleIncrease = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-    onQuantityChange(newQuantity);
+    if (quantity < capacity) {
+      const newQuantity = quantity + 1;
+      setQuantity(newQuantity);
+      onQuantityChange(newQuantity);
+    }
   };
 
   return (
     <Styled.SelectorContainer>
       <Styled.InfoContainer>
-        {" "}
-        {/* 새로운 컨테이너 추가 */}
-        <Styled.LabelText>숙박 인원 선택</Styled.LabelText>
-        <Styled.PriceText>1인당 가격 ￦{price}</Styled.PriceText>
+        <Styled.PriceLabelContainer>
+          <Styled.LabelText>숙박 인원 선택</Styled.LabelText>
+          <Styled.PriceText>최대 {capacity}명</Styled.PriceText>
+        </Styled.PriceLabelContainer>
+        <Styled.InfoText>
+          * 숙박 인원은 금액에 반영되지 않습니다
+        </Styled.InfoText>
       </Styled.InfoContainer>
       <Styled.ControlContainer>
-        {" "}
-        {/* 새로운 컨테이너 추가 */}
         <Styled.MinusButton onClick={handleDecrease} disabled={quantity === 1}>
           -
         </Styled.MinusButton>
         <Styled.QuantityText>{quantity}</Styled.QuantityText>
-        <Styled.PlusButton onClick={handleIncrease}>+</Styled.PlusButton>
+        <Styled.PlusButton
+          onClick={handleIncrease}
+          disabled={quantity >= capacity}
+        >
+          +
+        </Styled.PlusButton>
       </Styled.ControlContainer>
     </Styled.SelectorContainer>
   );

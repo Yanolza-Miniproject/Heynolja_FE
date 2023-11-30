@@ -19,12 +19,12 @@ interface AtomType {
 export const paymentCompletedAtom = atom<AtomType>({
   key: "paymentCompletedAtom",
   default: {
-    order_datas: [],
     payment_at: "",
     payment_id: null,
     payment_status: "",
     payment_type: "",
     total_price: 0,
+    order_datas: [],
   },
   effects_UNSTABLE: [persistAtom],
 });

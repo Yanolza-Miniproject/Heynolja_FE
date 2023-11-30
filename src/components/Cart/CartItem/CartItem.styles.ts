@@ -21,6 +21,9 @@ export const itemTop = styled.div`
   margin-bottom: 1rem;
 
   font-size: 1.2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 
@@ -33,13 +36,23 @@ export const itemBottom = styled.div`
 export const Image = styled.div`
   margin-right: 1.5rem;
 
-  background-image: url("https://picsum.photos/200");
+  background-image: url("/src/assets/image/empty.png");
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
 
   width: 8.5rem;
   height: 8.5rem;
+
+  @media (max-width: 768px) {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  img {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
 `;
 
 export const Info = styled.div`
@@ -63,5 +76,13 @@ export const Info = styled.div`
 
     font-size: 1.2rem;
     font-weight: bold;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
   }
 `;

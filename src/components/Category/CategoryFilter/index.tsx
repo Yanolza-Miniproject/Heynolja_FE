@@ -1,8 +1,18 @@
 import * as Styled from "./CategoryFilter.styles";
 import CategoryFilterPopUp from "./CategoryFilterPopUp";
 import { accommoationTypes, regionTypes } from "./CategoryFilter.constants";
+import { categoryViewAtom } from "../../../store/categoryViewAtom";
+import { useRecoilState } from "recoil";
+import CategoryFilterViewButton from "./CategoryFilterViewButton";
 
 const CategoryFilter = () => {
+  const [categoryViewState, setCategoryViewState] =
+    useRecoilState(categoryViewAtom);
+
+  const handleClick = () => {
+    setCategoryViewState((prev) => !prev);
+  };
+
   return (
     <Styled.CategoryFilterContainer>
       <Styled.CategoryFilterWrapper>
@@ -14,6 +24,18 @@ const CategoryFilter = () => {
           listData={regionTypes}
           buttonText="원하는 장소를 찾아보세요"
         />
+        <Styled.CategoryViewButtonWrapper>
+          <CategoryFilterViewButton
+            buttonText="바둑판보기"
+            isOn={categoryViewState}
+            fn={handleClick}
+          />
+          <CategoryFilterViewButton
+            buttonText="리스트보기"
+            isOn={categoryViewState}
+            fn={handleClick}
+          />
+        </Styled.CategoryViewButtonWrapper>
       </Styled.CategoryFilterWrapper>
     </Styled.CategoryFilterContainer>
   );

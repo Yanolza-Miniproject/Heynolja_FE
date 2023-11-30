@@ -1,21 +1,38 @@
 import { useInView } from "framer-motion";
-import { CategoryProps } from "../../../pages/Category/Category.types";
 import HeartClick from "../HeartClick";
 import * as Styled from "./CategoryItem.styles";
+import Empty from "../../../assets/image/empty.png";
 
+import * as _ from "lodash";
 import { useRef } from "react";
 import { random } from "lodash";
-
-type CategoryItemProps = {
-  data: CategoryProps;
-};
+import { useNavigate } from "react-router-dom";
+import { CategoryItemProps } from "./CategoryItem.types";
+import { categoryViewAtom } from "../../../store/categoryViewAtom";
+import { useRecoilValue } from "recoil";
 
 const CategoryItem = ({ data }: CategoryItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
+  const router = useNavigate();
+  const categoryViewState = useRecoilValue(categoryViewAtom);
+
+  const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    router(`/detailList?accommodation-id=${data.id}`);
+  };
+
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = Empty;
+  };
+
   return (
-    <Styled.CategoryItemContainer ref={ref}>
+    <Styled.CategoryItemContainer ref={ref} view={categoryViewState}>
       <Styled.CategoryItemWrapper
+        view={categoryViewState}
+        id="itemTest"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{
@@ -24,17 +41,40 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
           ease: "easeInOut",
         }}
       >
-        <Styled.CategoryImage src={data.thumbnail_url} alt={data.name} />
-        <Styled.CategoryTextWrapper>
-          <Styled.CategoryName>{data.name}</Styled.CategoryName>
-          <Styled.CategoryView>
-            구매한 사람 {data.view_count}명
-          </Styled.CategoryView>
-          <Styled.CategoryDownWrapper>
-            <Styled.CategoryPrice>￦{data.price}000원</Styled.CategoryPrice>
+        <div>
+          <Styled.CategoryImage
+            view={categoryViewState}
+            src={data.thumbnailUrl}
+            alt={data.name}
+            onClick={handleClick}
+            onError={handleError}
+            data-testid="individual-item"
+          />
+        </div>
+        <Styled.CategoryTextWrapper view={categoryViewState}>
+          <Styled.CategoryName view={categoryViewState}>
+            {_.truncate(data.name, { length: categoryViewAtom ? 50 : 20 })}
+          </Styled.CategoryName>
+          <Styled.CategoryTopWrapper>
+            {!categoryViewState && (
+              <Styled.CategoryDescription>
+                {_.truncate(data.infoDetail, {
+                  length: 40,
+                })}
+              </Styled.CategoryDescription>
+            )}
+            <Styled.CategoryView view={categoryViewState}>
+              조회수 : {data.viewCount}
+            </Styled.CategoryView>
+          </Styled.CategoryTopWrapper>
+          <Styled.CategoryDownWrapper view={categoryViewState}>
+            <Styled.CategoryPrice>
+              ￦{data.lowest_price}원 부터
+            </Styled.CategoryPrice>
             <HeartClick
-              likes={data.like_count}
-              likes_clicked={data.likes_available}
+              likes={data.wishCount}
+              likes_clicked={data.isWish}
+              accommodationId={data.id}
             />
           </Styled.CategoryDownWrapper>
         </Styled.CategoryTextWrapper>

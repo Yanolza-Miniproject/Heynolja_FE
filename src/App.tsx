@@ -16,6 +16,8 @@ import { globalStyle } from "./components/Common/Common.styles";
 import Search from "./pages/Search";
 import SearchList from "./pages/SearchList";
 import MyWishs from "./pages/MyPage/MyWishs";
+import DetailList from "./pages/DetailList";
+import { Loader } from "./components/Common/Loader";
 
 const router = createBrowserRouter([
   {
@@ -26,26 +28,25 @@ const router = createBrowserRouter([
       { path: "signin", element: <Signin /> },
       { path: "signup", element: <Signup /> },
       { path: "detail", element: <Detail /> },
+      { path: "detailList", element: <DetailList /> },
       { path: "cart", element: <Cart /> },
       { path: "payment", element: <Payment /> },
-      { path: "complete", element: <Complete /> },
+      { path: "complete/:id", element: <Complete /> },
       { path: "mypage", element: <MyPage /> },
       { path: "category", element: <Category /> },
       { path: "mypage/myorder", element: <MyOrder /> },
       { path: "search", element: <Search /> },
       { path: "mypage/mywish", element: <MyWishs /> },
       { path: "results", element: <SearchList /> },
+      { path: "*", element: <NotFound /> },
     ],
-  },
-  {
-    path: "*",
-    element: <NotFound />,
   },
 ]);
 
 function App() {
   return (
     <>
+      <Loader />
       <Global styles={globalStyle} />
       <RouterProvider router={router} />
     </>

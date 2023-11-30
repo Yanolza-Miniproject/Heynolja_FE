@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import exitLogo from "../../../assets/exit.svg";
+import { authInstance } from "../../../hooks/useAxios";
 import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
 import Checkbox from "../Checkbox";
 import * as Styled from "./CartItem.styles";
 import { CartItemProps } from "./CartItem.type";
 import { handeleDelete, handleCheck } from "./CartItems.utils";
-import { useDeleteCartItem } from "../../../hooks/useCartFetch";
 
 const CartItem = ({
   item, // 해당 아이템에 대한 정보
@@ -19,41 +19,41 @@ const CartItem = ({
   setEstimatedPrice,
   setCart,
 }: CartItemProps) => {
-  const deleteCartMutation = useDeleteCartItem();
   const [check, setCheck] = useState(select[index]); // 디자인을 위한 체크 상태 여부
 
   // 장바구니에서 해당 상품 제거
   const fetch = () => {
-    deleteCartMutation.mutate(
-      { room_basket_id: item.room_basket_id },
-      {
-        onSuccess: (responseData) => {
-          console.log(responseData.data);
-          handeleDelete(
-            item,
-            cart,
-            estimatedPrice,
-            setCart,
-            setSelected,
-            setEstimatedPrice,
-          );
-        },
-      },
-    );
+    authInstance
+      .put("/baskets", {
+        ids: [item.id],
+      })
+      .then((res) => {
+        console.log(res.data);
+        handeleDelete(
+          item,
+          cart,
+          estimatedPrice,
+          index,
+          select,
+          setSelect,
+          setCart,
+          setSelected,
+          setEstimatedPrice,
+        );
+      });
   };
 
   // 해당 아이템이 체크 여부 지속적인 확인
   useEffect(() => {
     setCheck(select[index]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [select]);
+  }, [select, index]);
 
   return (
     <Styled.Container check={check}>
       <Styled.itemTop>
         <Checkbox
-          id={item.room_basket_id.toString()}
-          checked={check}
+          id={item.id.toString()}
+          checked={select.length > 0 ? select[index] : false}
           onChange={(event) => {
             handleCheck(
               event,
@@ -68,9 +68,7 @@ const CartItem = ({
             );
           }}
         />
-        <label htmlFor={item.room_basket_id.toString()}>
-          {item.accommodation_name}
-        </label>
+        <label htmlFor={item.id.toString()}>{item.accommodationName}</label>
         <Styled.Empty />
         <img
           src={exitLogo}
@@ -80,19 +78,26 @@ const CartItem = ({
         />
       </Styled.itemTop>
       <Styled.itemBottom>
-        <Styled.Image></Styled.Image>
+        <Styled.Image>
+          <img src={item.roomUrl} />
+        </Styled.Image>
         <Styled.Info>
           <p>
-            <span>방 타입</span>: {item.room_name}
+            <span>방 타입</span>: {item.roomName}
           </p>
           <p>
-            <span>숙박일</span>: {item.check_in_at} ~ {item.check_out_at} |{" "}
-            {calculateNightCount(item.check_in_at, item.check_out_at)}박
+            <span>숙박일</span>: {item.checkInAt} ~ {item.checkOutAt} |{" "}
+            {calculateNightCount(item.checkInAt, item.checkOutAt)}박
           </p>
           <p>
-            <span>숙박인원</span>: {item.number_guests}명
+            <span>숙박인원</span>: {item.numberOfGuests}명
           </p>
-          <p>₩{formatNumber(item.price)}</p>
+          <p>
+            ₩
+            {formatNumber(
+              item.price * calculateNightCount(item.checkInAt, item.checkOutAt),
+            )}
+          </p>
         </Styled.Info>
       </Styled.itemBottom>
     </Styled.Container>

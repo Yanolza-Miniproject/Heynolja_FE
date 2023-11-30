@@ -23,7 +23,9 @@ export const useWishControl = ({ queryFnType }: WishControlParams) => {
       console.log(data);
     },
     onError: (error) => {
-      console.log(error);
+      if (error.message === "Request failed with status code 400") {
+        alert("이미 즐겨찾기에 추가된 숙소입니다.");
+      }
     },
   });
 

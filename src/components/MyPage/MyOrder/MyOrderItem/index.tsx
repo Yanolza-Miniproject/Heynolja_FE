@@ -4,27 +4,22 @@ import calculateNightCount from "../../../../utils/calculateNightCount";
 import formatNumber from "../../../../utils/formatNumber";
 
 const index = ({
-  id,
   name,
   type,
   checkIn,
   checkOut,
-  guests,
+  numberOfGuests,
   price,
-  paymentAt,
+  roomUrl,
 }: MyOrderItemProps) => {
   return (
     <Styled.ItemWrapper>
       <Styled.ItemTitle>{name}</Styled.ItemTitle>
       <Styled.ItemContent>
-        <Styled.ItemImg></Styled.ItemImg>
+        <Styled.ItemImg>
+          <img src={roomUrl} />
+        </Styled.ItemImg>
         <Styled.ItemInfo>
-          <Styled.ItemValueWrapper>
-            <Styled.Title>주문정보: </Styled.Title>
-            <Styled.Content>
-              {id}, {paymentAt}
-            </Styled.Content>
-          </Styled.ItemValueWrapper>
           <Styled.ItemValueWrapper>
             <Styled.Title>방 타입: </Styled.Title>
             <Styled.Content>{type}</Styled.Content>
@@ -41,13 +36,15 @@ const index = ({
           </Styled.ItemValueWrapper>
           <Styled.ItemValueWrapper>
             <Styled.Title>숙박인원: </Styled.Title>
-            <Styled.Content>{guests}</Styled.Content>
+            <Styled.Content>{numberOfGuests}</Styled.Content>
           </Styled.ItemValueWrapper>
         </Styled.ItemInfo>
       </Styled.ItemContent>
       <Styled.ItemPriceWrapper>
         <span>₩</span>
-        <Styled.ItemPrice>{formatNumber(price)}</Styled.ItemPrice>
+        <Styled.ItemPrice>
+          {formatNumber(price * calculateNightCount(checkIn, checkOut))}
+        </Styled.ItemPrice>
       </Styled.ItemPriceWrapper>
     </Styled.ItemWrapper>
   );

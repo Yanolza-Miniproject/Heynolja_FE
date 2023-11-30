@@ -1,183 +1,116 @@
 import * as Styled from "./Main.styles";
-import { useEffect, useState } from "react";
-import { mainAccomList } from "../../mock/mainPageData";
-import LikeIcon from "../../assets/svg/like-icon.svg";
-import LikedIcon from "../../assets/svg/liked-icon.svg";
-import { AccomData } from "./Main.types";
-import HotelDefaultImg from "../../assets/image/hotel-default.jpg";
 import Sidebar from "../../components/Common/Sidebar";
+import {
+  useFetchAccomByRegion,
+  useFetchTopLikedAccom,
+  useFetchAccomWithParking,
+  useFetchAllAccommodations,
+} from "../../hooks/useMainListFetch";
+import { AccommodationList } from "../../components/Main/AccommodationList";
+import { useRef } from "react";
+import useGeolocation from "../../hooks/useGeolocation";
+import { regions } from "../../store/searchSelectorData";
+import { useRecoilState } from "recoil";
+import {
+  checkInDateState,
+  checkOutDateState,
+} from "../../store/checkinCheckOutAtom";
 
 const Main = () => {
-  const [randomAccoms, setRandomAccoms] = useState<AccomData[]>([]);
-  const [myAreaAccoms, setMyAreaAccoms] = useState<AccomData[]>([]);
-  const [topLikedAccoms, setTopLikedAccoms] = useState<AccomData[]>([]);
-  const [parkingAccoms, setParkingAccoms] = useState<AccomData[]>([]);
-  const [likedItems, setLikedItems] = useState<{ [key: number]: boolean }>({});
+  //테스트
+  const [, setCheckInDate] = useRecoilState(checkInDateState);
+  const [, setCheckOutDate] = useRecoilState(checkOutDateState);
+  setCheckInDate(null);
+  setCheckOutDate(null);
 
-  useEffect(() => {
-    const accomData = [...mainAccomList].sort(() => Math.random() - 0.5);
-    const myAreaAccoms = accomData.slice(0, 3);
-    const topLikedAccoms = accomData
-      .sort((a, b) => b.likes - a.likes)
-      .slice(0, 3);
-    const parkingAccoms = accomData.slice(0, 2);
-    const randomAccoms = accomData.slice(0, 10);
+  const { cityCode } = useGeolocation();
+  const cityName = regions.find((region) => region.value === cityCode)?.name;
 
-    setMyAreaAccoms(myAreaAccoms);
-    setTopLikedAccoms(topLikedAccoms);
-    setParkingAccoms(parkingAccoms);
-    setRandomAccoms(randomAccoms);
-  }, []);
+  const ref = useRef<HTMLDivElement>(null);
 
-  const toLike = (id: number) => {
-    setLikedItems((prevLikedItems) => ({
-      ...prevLikedItems,
-      [id]: !prevLikedItems[id],
-    }));
-  };
+  const {
+    data: regionAccomData,
+    isLoading: isLoadingRegionAccom,
+    error: errorRegionAccom,
+  } = useFetchAccomByRegion(cityCode);
+
+  const myRegionAccomData = regionAccomData ? regionAccomData.slice(0, 3) : [];
+
+  const {
+    data: topLikedAccomData,
+    isLoading: isLoadingTopLikedAccom,
+    error: errorTopLikedAccom,
+  } = useFetchTopLikedAccom();
+
+  const topThreeLikedAccomData = topLikedAccomData
+    ? topLikedAccomData.slice(0, 3)
+    : [];
+
+  const {
+    data: parkingAccomData,
+    isLoading: isLoadingParkingAccom,
+    error: errorParkingAccom,
+  } = useFetchAccomWithParking();
+
+  const parkingAvailableAccomData = parkingAccomData?.slice(0, 3);
+
+  const {
+    data: randomAccomData,
+    isLoading: isLoadingRandomAccom,
+    error: errorRandomAccom,
+  } = useFetchAllAccommodations();
+
+  if (
+    errorRegionAccom ||
+    errorTopLikedAccom ||
+    errorParkingAccom ||
+    errorRandomAccom
+  ) {
+    return <div>숙소 정보를 불러오는 데 실패하였습니다.</div>;
+  }
+
+  if (
+    isLoadingRegionAccom ||
+    isLoadingTopLikedAccom ||
+    isLoadingParkingAccom ||
+    isLoadingRandomAccom
+  ) {
+    return <div></div>;
+  }
 
   return (
     <>
       <Sidebar />
-      <Styled.Container>
+      <Styled.Container ref={ref}>
         <Styled.Banner>
-          거기어때?
-          <br /> 지금 둘러보세요. 👀
+          <span>
+            Hey 놀자!
+            <br /> 지금 둘러보세요. 👀
+          </span>
         </Styled.Banner>
 
-        <Styled.Title>📌 지금 내 주변에는 이런 숙소도 있어요.</Styled.Title>
-        <Styled.MyAreaAccomList
-          initial="hidden"
-          animate="visible"
-          variants={Styled.ContainerVariants}
-        >
-          {myAreaAccoms.map((item) => (
-            <Styled.ItemContainer key={item.id}>
-              <Styled.ItemLink to={`/accommodations/${item.id}`}>
-                <Styled.ItemPicture variants={Styled.ItemVariants}>
-                  <img src={HotelDefaultImg} alt={item.name} />
-                </Styled.ItemPicture>
-              </Styled.ItemLink>
-              <Styled.ItemInfo>
-                <h3>{item.name}</h3>
-                {likedItems[item.id] ? (
-                  <img
-                    src={LikedIcon}
-                    alt="liked"
-                    onClick={() => toLike(item.id)}
-                  />
-                ) : (
-                  <img
-                    src={LikeIcon}
-                    alt="like"
-                    onClick={() => toLike(item.id)}
-                  />
-                )}
-              </Styled.ItemInfo>
-            </Styled.ItemContainer>
-          ))}
-        </Styled.MyAreaAccomList>
-
-        <Styled.Title>🔥🔥 바로 여기! 요즘 제일 핫한 숙소</Styled.Title>
-        <Styled.TopLikedAccomList
-          initial="hidden"
-          animate="visible"
-          variants={Styled.ContainerVariants}
-        >
-          {topLikedAccoms.map((item) => (
-            <Styled.ItemContainer key={item.id}>
-              <Styled.ItemLink to={`/accommodations/${item.id}`}>
-                <Styled.ItemPicture variants={Styled.ItemVariants}>
-                  <img src={HotelDefaultImg} alt={item.name} />
-                </Styled.ItemPicture>
-              </Styled.ItemLink>
-              <Styled.ItemInfo>
-                <h3>{item.name}</h3>
-                {likedItems[item.id] ? (
-                  <img
-                    src={LikedIcon}
-                    alt="liked"
-                    onClick={() => toLike(item.id)}
-                  />
-                ) : (
-                  <img
-                    src={LikeIcon}
-                    alt="like"
-                    onClick={() => toLike(item.id)}
-                  />
-                )}
-              </Styled.ItemInfo>
-            </Styled.ItemContainer>
-          ))}
-        </Styled.TopLikedAccomList>
-
-        <Styled.Title>
-          🚗 주차할 곳 찾기 힘드셨죠? 여기선 걱정 없어요!
-        </Styled.Title>
-        <Styled.ParkingAccomList
-          initial="hidden"
-          animate="visible"
-          variants={Styled.ContainerVariants}
-        >
-          {parkingAccoms.map((item) => (
-            <Styled.ItemContainer key={item.id}>
-              <Styled.ItemLink to={`/accommodations/${item.id}`}>
-                <Styled.ItemPicture variants={Styled.ItemVariants}>
-                  <img src={HotelDefaultImg} alt={item.name} />
-                </Styled.ItemPicture>
-              </Styled.ItemLink>
-              <Styled.ItemInfo>
-                <h3>{item.name}</h3>
-                {likedItems[item.id] ? (
-                  <img
-                    src={LikedIcon}
-                    alt="liked"
-                    onClick={() => toLike(item.id)}
-                  />
-                ) : (
-                  <img
-                    src={LikeIcon}
-                    alt="like"
-                    onClick={() => toLike(item.id)}
-                  />
-                )}
-              </Styled.ItemInfo>
-            </Styled.ItemContainer>
-          ))}
-        </Styled.ParkingAccomList>
-
-        <Styled.Title>더 많은 숙소를 둘러보실 수 있어요.</Styled.Title>
-        <Styled.NormalAccomList
-          initial="hidden"
-          animate="visible"
-          variants={Styled.ContainerVariants}
-        >
-          {randomAccoms.map((item) => (
-            <Styled.ItemContainer key={item.id}>
-              <Styled.ItemLink to={`/accommodations/${item.id}`}>
-                <Styled.ItemPicture variants={Styled.ItemVariants}>
-                  <img src={HotelDefaultImg} alt={item.name} />
-                </Styled.ItemPicture>
-              </Styled.ItemLink>
-              <Styled.ItemInfo>
-                <h3>{item.name}</h3>
-                {likedItems[item.id] ? (
-                  <img
-                    src={LikedIcon}
-                    alt="liked"
-                    onClick={() => toLike(item.id)}
-                  />
-                ) : (
-                  <img
-                    src={LikeIcon}
-                    alt="like"
-                    onClick={() => toLike(item.id)}
-                  />
-                )}
-              </Styled.ItemInfo>
-            </Styled.ItemContainer>
-          ))}
-        </Styled.NormalAccomList>
+        <AccommodationList
+          accommodations={myRegionAccomData}
+          title={
+            <span>
+              📌 현재 나의 지역 <Styled.CityName>{cityName}</Styled.CityName>
+              에는 이런 숙소도 있어요.
+            </span>
+          }
+        />
+        <AccommodationList
+          accommodations={topThreeLikedAccomData}
+          title="🔥🔥 바로 여기! 요즘 제일 핫한 숙소"
+        />
+        <AccommodationList
+          accommodations={parkingAvailableAccomData}
+          title="🚗 주차할 곳 찾기 힘드셨죠? 여기선 걱정 없어요!"
+        />
+        <AccommodationList
+          accommodations={randomAccomData}
+          title="더 많은 숙소를 둘러보실 수 있어요."
+          isRandomAccomData={true}
+        />
       </Styled.Container>
     </>
   );

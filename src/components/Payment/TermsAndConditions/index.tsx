@@ -15,7 +15,7 @@ const TermsAndConditions = () => {
   const setTermsAllChecked = useSetRecoilState(termsState);
 
   //체크박스 단일 선택
-  const handleSingleCheck = (e) => {
+  const handleSingleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setCheckItems([...checkItems, Number(e.target.id)]);
     } else {
@@ -24,7 +24,7 @@ const TermsAndConditions = () => {
   };
 
   //체크박스 전체 선택
-  const handleAllCheck = (e) => {
+  const handleAllCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       const items: number[] = [];
       Object.entries(data).map((item, i) => {
@@ -62,6 +62,7 @@ const TermsAndConditions = () => {
           <Styled.label htmlFor={data.id.toString()}>
             <CheckBox
               id={data.id.toString()}
+              data-testId='individual-terms-checkbox'
               type="checkbox"
               onChange={(e) => handleSingleCheck(e)}
               // 체크된 아이템 배열에 해당 아이템이 있을 경우 선택 활성화, 아닐 시 해제

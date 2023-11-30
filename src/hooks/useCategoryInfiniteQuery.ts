@@ -6,18 +6,18 @@ import { checkCategoryQueryUrl } from "../utils/filterDecoder";
 export const useCategoryInfiniteQuery = ({
   region,
   type,
-  category_parking,
-  category_cooking,
-  category_pickup,
+  categoryParking,
+  categoryCooking,
+  categoryPickup,
 }: CategoryFilterParams) => {
   const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery({
     queryKey: [
       "category",
       region,
       type,
-      category_parking,
-      category_cooking,
-      category_pickup,
+      categoryParking,
+      categoryCooking,
+      categoryPickup,
     ],
     queryFn: ({ pageParam }) =>
       fetchCatgory({
@@ -25,13 +25,14 @@ export const useCategoryInfiniteQuery = ({
         ...checkCategoryQueryUrl({
           region,
           type,
-          category_parking,
-          category_cooking,
-          category_pickup,
+          categoryParking,
+          categoryCooking,
+          categoryPickup,
         }),
       }),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages, lastPageParam) => {
+      if (allPages.length === 0) return undefined;
       if (lastPage.data.length === 0) return undefined;
       return lastPageParam + 1;
     },

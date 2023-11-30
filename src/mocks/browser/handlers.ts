@@ -1,17 +1,17 @@
 import { http, HttpResponse } from "msw";
 import { MockUpData } from "./constant";
 import {
-  cartData,
   cartList,
   orderData,
   roomDetail,
+  paymentData,
 } from "../../mock/myPageData";
 import * as _ from "lodash";
 
 // 전체 숙소 보기 + 필터링
 export const handlers = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  http.get("/api/v1/accommodations", ({ request }) => {
+  http.get("/api/accommodations", ({ request }) => {
     const url = new URL(request.url);
     const page = Number(url.searchParams.get("page")) || 0;
     const typeParam = url.searchParams.get("type");
@@ -24,20 +24,20 @@ export const handlers = [
         ? Number(regionParam)
         : null;
 
-    const categoryParkingParam = url.searchParams.get("category_parking");
-    const category_parking =
+    const categoryParkingParam = url.searchParams.get("categoryParking");
+    const categoryParking =
       categoryParkingParam !== null && categoryParkingParam !== undefined
         ? Number(categoryParkingParam)
         : null;
 
-    const categoryCookingParam = url.searchParams.get("category_cooking");
-    const category_cooking =
+    const categoryCookingParam = url.searchParams.get("categoryCooking");
+    const categoryCooking =
       categoryCookingParam !== null && categoryCookingParam !== undefined
         ? Number(categoryCookingParam)
         : null;
 
-    const categoryPickupParam = url.searchParams.get("category_pickup");
-    const category_pickup =
+    const categoryPickupParam = url.searchParams.get("categoryPickup");
+    const categoryPickup =
       categoryPickupParam !== null && categoryPickupParam !== undefined
         ? Number(categoryPickupParam)
         : null;
@@ -45,19 +45,15 @@ export const handlers = [
     const categoryData = (
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       data: any[], // 데이터 배열
-      category_parking: number | null,
-      category_cooking: number | null,
-      category_pickup: number | null,
+      categoryParking: number | null,
+      categoryCooking: number | null,
+      categoryPickup: number | null,
     ) => {
       const filterData = _.filter(data, (item) => {
         return (
-          (category_parking
-            ? item.category_parking === category_parking
-            : true) &&
-          (category_cooking
-            ? item.category_cooking === category_cooking
-            : true) &&
-          (category_pickup ? item.category_pickup === category_pickup : true)
+          (categoryParking ? item.categoryParking === categoryParking : true) &&
+          (categoryCooking ? item.categoryCooking === categoryCooking : true) &&
+          (categoryPickup ? item.categoryPickup === categoryPickup : true)
         );
       });
 
@@ -66,9 +62,9 @@ export const handlers = [
 
     const allCategoryData = categoryData(
       MockUpData,
-      category_parking,
-      category_cooking,
-      category_pickup,
+      categoryParking,
+      categoryCooking,
+      categoryPickup,
     );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -148,7 +144,7 @@ export const handlers = [
 
     const data = {
       room_basket_id: 1,
-      accommdation_name: "최고 호텔",
+      accommodation_name: "최고 호텔",
       room_name: "스위트룸",
       price: 40000,
       number_guests: newPost.number_guests,
@@ -164,13 +160,17 @@ export const handlers = [
   }),
 
   // 장바구니에서 상품 선택 후 주문 주문 요청
-  http.post("/api/v1/baskets/orders", async () => {
-    const data = [cartData[1], cartData[2]];
+  http.post("/api/v1/baskets/orders", async ({ request }) => {
+    const newPost = (await request.json()) as {
+      room_basket_id: number[];
+    };
+
+    // 처리할 로직 추가
 
     return HttpResponse.json({
       message: "성공",
-      order_id: 2,
-      data: data,
+      data: 2,
+      id: newPost,
     });
   }),
 
@@ -184,7 +184,7 @@ export const handlers = [
 
     const data = {
       room_basket_id: 1,
-      accommdation_name: "최고 호텔",
+      accommodation_name: "최고 호텔",
       room_name: "스위트룸",
       price: 40000,
       number_guests: newPost.number_guests,
@@ -221,12 +221,23 @@ export const handlers = [
     });
   }),
 
+  // 결제시 주문 취소 요청
+  http.delete("/api/v1/orders/:order_id", () => {
+    return HttpResponse.json({
+      message: "주문 취소 성공",
+    });
+  }),
+
   // 장바구니 조회
   http.get("/api/v1/baskets", async () => {
     return HttpResponse.json({
       message: "성공",
-      basket_id: 1,
-      order_datas: cartList,
+      data: {
+        basket_id: 1,
+        total_price: 30000,
+        total_Count: 5,
+        rooms: cartList,
+      },
     });
   }),
 
@@ -240,7 +251,29 @@ export const handlers = [
     });
   }),
 
+  // 결제 내역 전체 조회
+  http.get("/api/v1/payment", async () => {
+    return HttpResponse.json({
+      message: "성공",
+      data: paymentData,
+    });
+  }),
+
   // 주문 내역 상세 조회 (주문 번호로 조회할 수 있는 api)
+  http.get("/api/v1/payment/:payment_id", async ({ params }) => {
+    const { payment_id } = params;
+
+    const newData = paymentData.filter(
+      (item) => item.payment_id === ~~payment_id,
+    );
+
+    return HttpResponse.json({
+      message: "성공",
+      data: newData,
+    });
+  }),
+
+  // 결제 내역 상세 조회 (주문 번호로 조회할 수 있는 api)
   http.get("/api/v1/orders/:order_id", async ({ params }) => {
     const { order_id } = params;
 
@@ -279,6 +312,9 @@ export const handlers = [
     const { room_id } = params;
 
     const resData = roomDetail.rooms.filter((room) => room.id === ~~room_id);
+    // const resData = roomDetail.rooms.find(
+    //   (room) => room.id === Number(room_id),
+    // );
 
     return HttpResponse.json({
       message: "성공",
@@ -294,14 +330,14 @@ export const handlers = [
   }),
 
   // 숙소 좋아요 취소 시 요청
-  http.delete("/api/vi/wish/:accommodationId", () => {
+  http.delete("/api/wish/:accommodationId", () => {
     return HttpResponse.json({
       message: "좋아요 취소",
     });
   }),
 
   // 숙소 좋아요 리스트 조회 (무작위로 1~40개의 데이터를 보내줌)
-  http.get("/api/v1/wish", ({ request }) => {
+  http.get("/api/wish", ({ request }) => {
     const url = new URL(request.url);
     console.log(url);
 
