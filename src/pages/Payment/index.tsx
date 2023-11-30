@@ -10,17 +10,15 @@ const Payment = () => {
   const [purchaseList] = useRecoilState(purchaseState);
   const orderId = purchaseList.order_id;
 
+  if (orderId === null) {
+    return <NotFound />;
+  }
+
   return (
     <Styled.Container>
-      {orderId === null ? (
-        <NotFound />
-      ) : (
-        <>
-          <ItemList />
-          <TermsAndConditions />
-          <Btn />
-        </>
-      )}
+      <ItemList />
+      <TermsAndConditions />
+      <Btn />
     </Styled.Container>
   );
 };

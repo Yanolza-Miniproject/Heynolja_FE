@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import formatNumber from "../../../utils/formatNumber";
 import { useDeleteOrder, usePayment } from "../../../hooks/usePayment";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Btn = () => {
   const navigate = useNavigate();
@@ -17,16 +18,28 @@ const Btn = () => {
 
   // 결제 전송
   const paymentFetch = () => {
-    const answer = confirm("결제하시겠습니까?");
-    if (answer) {
-      PaymentMutation.mutate(orderId as number, {
-        onSuccess: async (data) => {
-          console.log("결제 성공 데이터:", data);
-          navigate(`/Complete/${data.data.data}`);
-          // sessionStorage.clear();
-        },
-      });
-    }
+    Swal.fire({
+      title: "결제 하시겠습니까?",
+      padding: "50px",
+      confirmButtonColor: "#FF5100",
+      confirmButtonText: "결제하기",
+      showDenyButton: true,
+      denyButtonText: "취소하기",
+      denyButtonColor: "#001650",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        PaymentMutation.mutate(orderId as number, {
+          onSuccess: async (data) => {
+            console.log("결제 성공 데이터:", data);
+            navigate(`/Complete/${data.data.data}`);
+          },
+        });
+      } else if (result.isDenied) {
+        return;
+      } else if (result.isDismissed) {
+        return;
+      }
+    });
   };
 
   const deleteOrderfetch = () => {
