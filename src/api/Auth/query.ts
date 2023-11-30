@@ -7,6 +7,11 @@ import { userDataAtom } from "../../store/userDataAtom";
 import { useSetRecoilState } from "recoil";
 import { setSessionStorage } from "../../utils/setSessionStorage";
 
+type ErrorType = {
+  message: string;
+  data: string;
+};
+
 export const useLogin = () => {
   const router = useNavigate();
   const setUserData = useSetRecoilState(userDataAtom);
@@ -23,11 +28,13 @@ export const useLogin = () => {
       alert(data.message);
       router("/");
     },
-    onError: (error) => {
-      console.log(error);
-      error.message === "잘못된 정보입니다"
-        ? alert("잘못된 정보입니다.")
-        : alert("잘못된 로그인 정보입니다.");
+    onError: (error: ErrorType) => {
+      const { data } = error;
+      if (data === "아이디 또는 비밀번호가 맞지 않습니다. ") {
+        alert("아이디 또는 비밀번호가 맞지 않습니다.");
+      } else {
+        alert("존재하지 않는 아이디입니다.");
+      }
     },
   });
 
