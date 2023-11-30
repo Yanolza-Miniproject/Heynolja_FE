@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import ProductImage from "./";
 
 describe("ProductImage", () => {
-  it("이미지가 랜더링 되는지 테스트", () => {
+  test("이미지가 랜더링 되는지 테스트", () => {
     const testImageUrl =
       "https://github.com/Yanolza-Miniproject/frontend/assets/92326949/2c0134f2-6ba3-434c-8dca-6d5831bf6e24";
     render(<ProductImage image={testImageUrl} />);
