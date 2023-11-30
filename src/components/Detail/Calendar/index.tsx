@@ -1,5 +1,5 @@
 import { ko } from "date-fns/locale";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useRecoilState } from "recoil";
@@ -20,19 +20,27 @@ const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
     return date instanceof Date && !isNaN(date.getTime());
   };
 
-  const validCheckInDate = isValidDate(checkInDate) ? checkInDate : null;
-  const validCheckOutDate = isValidDate(checkOutDate) ? checkOutDate : null;
+  const validCheckInDate = isValidDate(checkInDate) ? checkInDate : undefined;
+  const validCheckOutDate = isValidDate(checkOutDate)
+    ? checkOutDate
+    : undefined;
 
-  const handleChange = (dates: [Date, Date]) => {
-    const [start, end] = dates;
-    setCheckInDate(start);
-    setCheckOutDate(end);
+  const handleChange = useCallback(
+    (dates: [Date | null, Date | null]) => {
+      const [start, end] = dates;
+      setCheckInDate(start);
+      setCheckOutDate(end);
 
-    onDateChange(start, end);
+      if (onDateChange) {
+        onDateChange(start, end);
+      }
+    },
+    [setCheckInDate, setCheckOutDate, onDateChange],
+  );
 
-    // console.log("체크인 날짜:", formatDate(start));
-    // console.log("체크아웃 날짜:", formatDate(end));
-  };
+  useEffect(() => {
+    handleChange([checkInDate, checkOutDate]);
+  }, [checkInDate, checkOutDate, handleChange]);
 
   return (
     <>
