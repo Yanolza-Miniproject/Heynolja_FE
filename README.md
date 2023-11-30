@@ -10,8 +10,11 @@
 > 바쁜 일상에 지친 여러분, 다음 목적지는 휴식입니다.
 > 나의 소중한 하루를 선사할 곳을 'HEY놀자'에서 만나보세요!
 
+#### ✅ 배포 주소 : https://heynolja-mini-4.vercel.app/
 ```sh
-배포 주소 : https://heynolja-mini-4.vercel.app/
+* 테스트 계정 정보
+ID : admin@admin.com
+PW : qwert1234
 ```
 
 ## 'HEY놀자'는 이런 곳이에요.
@@ -34,7 +37,7 @@
 
 ### 📍사용 기술
 
-<img alt="react" src="https://img.shields.io/badge/react-61DAFB.svg?&style=for-the-badge&logo=react&logoColor=black"/> <img alt="typescript" src="https://img.shields.io/badge/typescript-3178C6.svg?&style=for-the-badge&logo=typescript&logoColor=white"/> <img alt="reactrouter" src="https://img.shields.io/badge/reactrouter-CA4245.svg?&style=for-the-badge&logo=reactrouter&logoColor=white"/> <img alt="recoil" src="https://img.shields.io/badge/recoil-3578E5.svg?&style=for-the-badge&logo=recoil&logoColor=white"/> <img alt="emotion" src="https://img.shields.io/badge/emotion-D26AC2.svg?&style=for-the-badge&logo=emotion&logoColor=white"/> <img alt="reactquery" src="https://img.shields.io/badge/reactquery-FF4154.svg?&style=for-the-badge&logo=reactquery&logoColor=white"/> <img alt="msw" src="https://img.shields.io/badge/msw-9A8555.svg?&style=for-the-badge&logo=msw&logoColor=white"/> <img alt="jest" src="https://img.shields.io/badge/jest-C21325.svg?&style=for-the-badge&logo=jest&logoColor=white"/>
+<img alt="react" src="https://img.shields.io/badge/react-61DAFB.svg?&style=for-the-badge&logo=react&logoColor=black"/> <img alt="typescript" src="https://img.shields.io/badge/typescript-3178C6.svg?&style=for-the-badge&logo=typescript&logoColor=white"/> <img alt="reactrouter" src="https://img.shields.io/badge/reactrouter-CA4245.svg?&style=for-the-badge&logo=reactrouter&logoColor=white"/> <img alt="recoil" src="https://img.shields.io/badge/recoil-3578E5.svg?&style=for-the-badge&logo=recoil&logoColor=white"/> <img alt="emotion" src="https://img.shields.io/badge/emotion-D26AC2.svg?&style=for-the-badge&logo=emotion&logoColor=white"/> <img alt="reactquery" src="https://img.shields.io/badge/reactquery-FF4154.svg?&style=for-the-badge&logo=reactquery&logoColor=white"/> <img alt="axios" src="https://img.shields.io/badge/axios-F9CB61.svg?&style=for-the-badge&logo=axios&logoColor=black"/> <img alt="msw" src="https://img.shields.io/badge/msw-9A8555.svg?&style=for-the-badge&logo=msw&logoColor=white"/> <img alt="jest" src="https://img.shields.io/badge/jest-C21325.svg?&style=for-the-badge&logo=jest&logoColor=white"/>
 
 ### 📍협업 툴
 

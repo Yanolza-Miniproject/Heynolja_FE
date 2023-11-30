@@ -4,7 +4,7 @@ import MyOrderItemWrapper from "../MyOrderItemWrapper";
 import { MyOrderListProps } from "./MyOrderList.type";
 const MyOrderList = () => {
   const { data } = useGetMyOrder(); // 결제 이력 데이터 요청
-  console.log(data?.data.data);
+  console.log(data);
 
   return (
     <Styled.MyOrderList>
