@@ -6,7 +6,9 @@ import Footer from "./Footer";
 function Layout() {
   return (
     <>
-      <Header />
+      <Styled.headerWrapper>
+        <Header />
+      </Styled.headerWrapper>
       <Styled.outletStyle>
         <Outlet />
       </Styled.outletStyle>

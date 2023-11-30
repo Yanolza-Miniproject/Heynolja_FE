@@ -39,7 +39,7 @@ export const headerContainer = styled.div`
   padding: 0 5rem;
 
   background-color: white;
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 2px solid #f6f6f6;
 
   height: 80px;
 
@@ -63,6 +63,12 @@ export const headerContainer = styled.div`
     height: 100%;
     padding: 0;
   }
+`;
+
+export const headerWrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 300;
 `;
 
 export const headerLeftWrapper = styled.div`
