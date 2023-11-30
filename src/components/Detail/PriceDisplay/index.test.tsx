@@ -8,7 +8,7 @@ import {
 import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
 
-describe("PriceDisplay Component", () => {
+describe("PriceDisplay 테스트", () => {
   const mockPricePerNight = 100000;
   const mockCheckInDate = new Date("2023-01-01");
   const mockCheckOutDate = new Date("2023-01-03");
