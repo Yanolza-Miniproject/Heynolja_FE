@@ -40,5 +40,7 @@ export const CardTitle = styled.div`
 
 export const CardDescription = styled.div<{ isActive: boolean }>`
   text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
   color: ${({ isActive }) => (isActive ? "black" : "#E6E6E6")};
 `;
