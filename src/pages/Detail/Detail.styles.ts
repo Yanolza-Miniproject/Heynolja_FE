@@ -19,8 +19,7 @@ export const DetailsContainer = styled.div`
   height: 100%;
 `;
 export const container = styled.div`
-  padding: 0 5em;
-  margin-top: 20px;
+  padding: 3.19rem;
 `;
 export const HorizontalContainer = styled.div`
   display: flex;
