@@ -17,7 +17,7 @@ export const MyOrderItemWrapper = styled.div`
 `;
 
 export const ItemWrapper = styled.div`
-  height: 15rem;
+  height: 19rem;
   overflow: auto;
   padding-top: 1rem;
   border-bottom: 1px solid #e6e6e6;
