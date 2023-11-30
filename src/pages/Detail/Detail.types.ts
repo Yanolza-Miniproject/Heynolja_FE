@@ -3,5 +3,6 @@ export interface RoomDetails {
     name: string;
     accommodationName: string;
     price: number;
+    inventory: number;
   };
 }
