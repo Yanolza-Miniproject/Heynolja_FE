@@ -36,7 +36,7 @@ export const itemBottom = styled.div`
 export const Image = styled.div`
   margin-right: 1.5rem;
 
-  background-image: url("/src/assets/image/empty.png");
+  background-image: url("/empty.png");
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
