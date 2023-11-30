@@ -6,17 +6,29 @@ interface ListDataResponse {
   data: AccommodationData[];
 }
 
+// 받아온 숙소 데이터를 무작위로 셔플
+function shuffleList(array: AccommodationData[]): AccommodationData[] {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 // 내 위치 기반 주변 숙소 리스트 출력
 export const useFetchAccomByRegion = (cityCode: number) => {
   return useQuery({
     queryKey: ["accommodations", "byRegion", cityCode],
     queryFn: async () => {
       const data = await baseInstance.get<ListDataResponse>(
-        `accommodations?region=${cityCode}`,
+        `accommodations?region01=${cityCode}`,
       );
+
+      const shuffledData = shuffleList(data.data.data);
+      const selectedData = shuffledData.slice(0, 3);
+
       console.log("내 지역코드", cityCode);
-      console.log("내 주변 숙소", data.data.data);
-      return data.data.data;
+      return selectedData;
     },
   });
 };
@@ -44,10 +56,11 @@ export const useFetchAccomWithParking = () => {
     queryKey: ["accommodations", "withParking"],
     queryFn: async () => {
       const data = await baseInstance.get<ListDataResponse>(
-        "accommodations?categoryParking=1",
+        "accommodations?category-parking=1",
       );
-      console.log("주차 가능 숙소", data.data);
-      return data.data.data;
+      const shuffledData = shuffleList(data.data.data);
+      const selectedData = shuffledData.slice(0, 3);
+      return selectedData;
     },
   });
 };
@@ -58,21 +71,7 @@ export const useFetchAllAccommodations = () => {
     queryKey: ["accommodations", "all"],
     queryFn: async () => {
       const data = await baseInstance.get<ListDataResponse>("accommodations");
-      console.log("모든 숙소 리스트", data.data);
       return data.data.data;
     },
   });
 };
-
-// // 숙소를 누르면 해당 숙소 소개 페이지로 이동
-// export const useFetchSelectedAccom = (id: number) => {
-//   return useQuery({
-//     queryKey: ["accommodations"],
-//     queryFn: async () => {
-//       const data = await baseInstance.get<ListDataResponse>(
-//         `/accommodations/${id}`,
-//       );
-//       return data.data.data;
-//     },
-//   });
-// };
