@@ -10,7 +10,7 @@ export const InputTextWrapper = styled.div`
 `;
 
 export const InputTextError = styled.p`
-  font-size: 8px;
+  font-size: 0.9rem;
   color: red;
-  margin-top: 0;
+  margin-top: 0.6rem;
 `;
