@@ -11,7 +11,7 @@ const Btn = () => {
   const [purchaseList] = useRecoilState(purchaseState);
   const orderId = purchaseList.order_id;
   const PaymentMutation = usePayment();
-  const deleteOrderMutation = useDeleteOrder(orderId as number);
+  const deleteOrderMutation = useDeleteOrder();
 
   // 결제 전송
   const paymentFetch = () => {
@@ -20,21 +20,20 @@ const Btn = () => {
       PaymentMutation.mutate(orderId as number, {
         onSuccess: async (data) => {
           console.log("결제 성공 데이터:", data);
-          // navigate("/Complete/" + data.payment_id);
+          // navigate("/Complete/" + data.paymentId);
           sessionStorage.clear();
         },
       });
     }
   };
 
-  // authInstance.post('/api/v1/orders/{order_id}/payments').then
-
   const deleteOrderfetch = () => {
-    deleteOrderMutation.mutate();
+    deleteOrderMutation.mutate(orderId as number);
   };
 
   const handleBackToCart = () => {
     deleteOrderfetch();
+    history.back();
   };
 
   const handleGoToPay = () => {

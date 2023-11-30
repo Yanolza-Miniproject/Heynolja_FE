@@ -1,7 +1,7 @@
 export interface MyOrderListProps {
-  payment_id: string;
-  total_price: number;
-  total_count: number;
-  payment_at: string;
+  id: string;
+  totalPrice: number;
+  totalCount: number;
+  paymentAt: string;
   rooms: [];
 }

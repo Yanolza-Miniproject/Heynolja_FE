@@ -17,6 +17,10 @@ export const TextWrapper = styled.div`
 
   border: 1px solid #e6e6e6;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    height: 14rem;
+  }
 `;
 
 export const TextTop = styled.p`
@@ -24,6 +28,10 @@ export const TextTop = styled.p`
 
   font-size: 1.9rem;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const TextMid = styled.p`
@@ -35,6 +43,10 @@ export const TextMid = styled.p`
   & > span {
     color: #ff5100;
     font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 
