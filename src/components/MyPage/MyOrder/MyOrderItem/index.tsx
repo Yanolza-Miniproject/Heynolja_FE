@@ -43,9 +43,7 @@ const index = ({
       <Styled.ItemPriceWrapper>
         <span>₩</span>
         <Styled.ItemPrice>
-          {formatNumber(
-            price * numberOfGuests * calculateNightCount(checkIn, checkOut),
-          )}
+          {formatNumber(price * calculateNightCount(checkIn, checkOut))}
         </Styled.ItemPrice>
       </Styled.ItemPriceWrapper>
     </Styled.ItemWrapper>

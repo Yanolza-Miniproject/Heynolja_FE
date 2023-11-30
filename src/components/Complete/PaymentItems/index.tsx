@@ -21,6 +21,7 @@ const PaymentItems = ({ data }: PaymentItemsProps) => {
                 price={item.price}
                 checkIn={item.checkInAt}
                 checkOut={item.checkOutAt}
+                roomUrl={item.roomUrl}
               />
             </div>
           );
