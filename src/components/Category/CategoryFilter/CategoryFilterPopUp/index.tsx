@@ -45,7 +45,13 @@ const CategoryFilterPopUp = memo(
             isOpen={isOpen}
             initial={{ scaleY: 0 }}
             animate={{ scaleY: isOpen ? 1 : 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut", stiffness: 100 }}
+            transition={{
+              type: "spring",
+              damping: 20,
+              duration: 0.5,
+              ease: "easeInOut",
+              stiffness: 100,
+            }}
           >
             {listData.map((type) => (
               <Styled.CategoryPopUpItem

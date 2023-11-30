@@ -1,20 +1,16 @@
 import * as Styled from "./CategoryFilter.styles";
 import CategoryFilterPopUp from "./CategoryFilterPopUp";
 import { accommoationTypes, regionTypes } from "./CategoryFilter.constants";
-import { fetchToken } from "../../../api/Auth";
+import { categoryViewAtom } from "../../../store/categoryViewAtom";
+import { useRecoilState } from "recoil";
+import CategoryFilterViewButton from "./CategoryFilterViewButton";
 
 const CategoryFilter = () => {
-  const handleClick = async () => {
-    const refreshToken = sessionStorage.getItem("refreshToken");
-    if (refreshToken) {
-      alert("로그인 되어있음");
-      console.log("검색버튼 클릭", refreshToken);
+  const [categoryViewState, setCategoryViewState] =
+    useRecoilState(categoryViewAtom);
 
-      const response = await fetchToken(refreshToken);
-      console.log(response);
-    } else {
-      alert("로그인 안되어있음");
-    }
+  const handleClick = () => {
+    setCategoryViewState((prev) => !prev);
   };
 
   return (
@@ -28,9 +24,18 @@ const CategoryFilter = () => {
           listData={regionTypes}
           buttonText="원하는 장소를 찾아보세요"
         />
-        <button type="button" onClick={handleClick}>
-          검색
-        </button>
+        <Styled.CategoryViewButtonWrapper>
+          <CategoryFilterViewButton
+            buttonText="바둑판보기"
+            isOn={categoryViewState}
+            fn={handleClick}
+          />
+          <CategoryFilterViewButton
+            buttonText="리스트보기"
+            isOn={categoryViewState}
+            fn={handleClick}
+          />
+        </Styled.CategoryViewButtonWrapper>
       </Styled.CategoryFilterWrapper>
     </Styled.CategoryFilterContainer>
   );
