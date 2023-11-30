@@ -6,14 +6,38 @@ import UserIcon from "../../assets/svg/user-icon.svg";
 import SigninIcon from "../../assets/svg/signin-icon.svg";
 import SignupIcon from "../../assets/svg/signup-icon.svg";
 import LogoutIcon from "../../assets/svg/logout-icon.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tooltip } from "@mui/material";
+import { userDataAtom } from "../../store/userDataAtom";
+import { useRecoilState } from "recoil";
+import { authInstance } from "../../hooks/useAxios";
 
 const Header = () => {
+  const [userData, setUserData] = useRecoilState(userDataAtom);
   const [loggedin, setLoggedin] = useState(false);
-  const handleLogin = () => {
-    setLoggedin((prev) => !prev);
+
+  useEffect(() => {
+    console.log(userData);
+    if (userData.nickName !== "") {
+      setLoggedin(true);
+    }
+  }, [userData]);
+
+  const handleLogout = () => {
+    authInstance
+      .post("/members/logout")
+      .then(() => {
+        sessionStorage.clear();
+        setLoggedin(false);
+        setUserData({
+          nickName: "",
+          memberId: "",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -28,9 +52,6 @@ const Header = () => {
       </Styled.headerLeftWrapper>
 
       <Styled.headerRightWrapper>
-        <button onClick={handleLogin}>
-          {loggedin ? "로그인 상태" : "로그인"}
-        </button>
         {loggedin ? (
           <>
             <Link to="/search">
@@ -48,8 +69,8 @@ const Header = () => {
                 <img src={UserIcon} alt="mypage" />
               </Tooltip>
             </Link>{" "}
-            <Link to="/logout">
-              <Tooltip title="로그아웃" arrow>
+            <Link to="/signin">
+              <Tooltip title="로그아웃" arrow onClick={handleLogout}>
                 <img src={LogoutIcon} alt="logout" />
               </Tooltip>
             </Link>

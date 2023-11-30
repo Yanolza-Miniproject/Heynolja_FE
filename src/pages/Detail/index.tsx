@@ -36,7 +36,7 @@ const Detail = () => {
   }, [data]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   if (error || !roomDetails) {

@@ -11,6 +11,22 @@ export const SearchHeader = styled.div`
   h2 {
     margin-right: 1rem;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0;
+  }
 `;
 
 export const SearchTitle = styled.div`
@@ -24,6 +40,28 @@ export const SearchParamsWrapper = styled.div`
   align-items: center;
 
   height: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+  }
 `;
 
 export const SearchParams = styled.div`
@@ -54,5 +92,31 @@ export const SearchParams = styled.div`
   .option-each {
     padding: 0.3rem;
     background-color: #e6e6e6;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    width: 22rem;
+    height: 100%;
+    padding: 0;
+
+    font-size: 1rem;
   }
 `;

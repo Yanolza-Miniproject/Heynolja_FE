@@ -60,7 +60,7 @@ describe("MyOrderList 컴포넌트", () => {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       .spyOn(require("../../../../hooks/usePayment"), "useGetMyOrder")
       .mockReturnValueOnce({
-        data: { data: { data: [] } },
+        data: { data: [] },
       });
 
     render(<MyOrderList />, { wrapper: createWrapper() });

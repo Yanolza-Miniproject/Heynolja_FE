@@ -7,7 +7,6 @@ import Checkbox from "../Checkbox";
 import * as Styled from "./CartItem.styles";
 import { CartItemProps } from "./CartItem.type";
 import { handeleDelete, handleCheck } from "./CartItems.utils";
-import Empty from "../../../assets/image/empty.png";
 
 const CartItem = ({
   item, // 해당 아이템에 대한 정보
@@ -48,11 +47,6 @@ const CartItem = ({
   useEffect(() => {
     setCheck(select[index]);
   }, [select, index]);
-
-  // img empty set
-  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = Empty;
-  };
 
   return (
     <Styled.Container check={check}>
