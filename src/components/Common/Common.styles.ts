@@ -44,7 +44,40 @@ export const headerContainer = styled.div`
   height: 80px;
 `;
 
-export const headerWrapper = styled.div`
+export const headerLeftWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2.5rem;
+
+  span {
+    position: relative;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      right: 0;
+
+      height: 1.5px;
+      background-color: #ff5100;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+`;
+
+export const headerRightWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -59,7 +92,7 @@ export const headerWrapper = styled.div`
 
     &:nth-of-type(2)::after,
     &:nth-of-type(3)::after,
-    &:nth-last-child(1)::after {
+    &:nth-last-of-type(1)::after {
       content: "";
       position: absolute;
       left: -10px;
@@ -230,3 +263,5 @@ export const NavButton = styled.button`
   text-align: center;
   color: black;
 `;
+
+export const LoaderWrapper = styled.div``;

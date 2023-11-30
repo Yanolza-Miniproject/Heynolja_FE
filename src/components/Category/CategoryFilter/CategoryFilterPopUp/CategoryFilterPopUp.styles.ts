@@ -6,7 +6,9 @@ export const CategoryFilterPopUpContainer = styled(motion.div)`
   position: relative;
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
 
   gap: 0.5rem;
 `;
@@ -37,11 +39,9 @@ export const CategoryPopUp = styled(motion.ul)<CategoryPopUpProps>`
   visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
   display: flex;
   flex-direction: column;
+  align-items: center;
 
-  position: absolute;
-  top: 105%;
   gap: 0.5rem;
-  z-index: 9;
 
   width: 100%;
   padding: 10px 20px;
@@ -53,6 +53,10 @@ export const CategoryPopUp = styled(motion.ul)<CategoryPopUpProps>`
 `;
 
 export const CategoryPopUpItem = styled.li`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
   padding: 0.5rem 1rem;
 
   border-radius: 10px;
