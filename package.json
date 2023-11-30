@@ -48,7 +48,8 @@
     "react-slick": "^0.29.0",
     "recoil": "^0.7.7",
     "recoil-persist": "^5.1.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "sweetalert2": "^11.10.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.3",
