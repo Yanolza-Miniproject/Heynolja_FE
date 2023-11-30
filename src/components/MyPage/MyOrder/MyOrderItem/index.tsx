@@ -2,6 +2,7 @@ import * as Styled from "./MyOrder.styles";
 import { MyOrderItemProps } from "./MyOrder.types";
 import calculateNightCount from "../../../../utils/calculateNightCount";
 import formatNumber from "../../../../utils/formatNumber";
+import Empty from "../../../../assets/image/empty.png";
 
 const index = ({
   name,
@@ -12,11 +13,16 @@ const index = ({
   price,
   roomUrl,
 }: MyOrderItemProps) => {
+  // img empty set
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = Empty;
+  };
+
   return (
     <Styled.ItemWrapper>
       <Styled.ItemTitle>{name}</Styled.ItemTitle>
       <Styled.ItemContent>
-        <Styled.ItemImg src={roomUrl}></Styled.ItemImg>
+        <Styled.ItemImg src={roomUrl} onError={handleError}></Styled.ItemImg>
         <Styled.ItemInfo>
           <Styled.ItemValueWrapper>
             <Styled.Title>방 타입: </Styled.Title>
