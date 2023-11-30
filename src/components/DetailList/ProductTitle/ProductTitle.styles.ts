@@ -9,7 +9,6 @@ export const ProductType = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -0.05rem;
 `;
 
 export const ProductName = styled.div`
@@ -20,7 +19,6 @@ export const ProductName = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -0.08125rem;
 `;
 
 export const DetailsContainer = styled(Box)`

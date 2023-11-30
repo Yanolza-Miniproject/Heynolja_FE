@@ -5,6 +5,7 @@ export const SelectorContainer = styled.div`
   justify-content: space-between;
   display: flex;
   align-items: center;
+  margin-bottom: 1.5rem;
   gap: 8px;
 `;
 
@@ -46,7 +47,7 @@ export const LabelText = styled.div`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: -0.15rem;
+  letter-spacing: -0.05rem;
 `;
 
 export const PriceText = styled.div`
@@ -56,7 +57,7 @@ export const PriceText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: -0.04375rem;
+  letter-spacing: -0.01375rem;
 `;
 
 export const MinusButton = styled(Button)`
