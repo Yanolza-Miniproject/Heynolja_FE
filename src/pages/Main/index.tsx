@@ -64,7 +64,7 @@ const Main = () => {
     isLoadingParkingAccom ||
     isLoadingRandomAccom
   ) {
-    return <div>숙소 정보를 불러오는 중입니다.</div>;
+    return <div></div>;
   }
 
   return (
@@ -72,8 +72,10 @@ const Main = () => {
       <Sidebar />
       <Styled.Container ref={ref}>
         <Styled.Banner>
-          Hey 놀자!
-          <br /> 지금 둘러보세요. 👀
+          <span>
+            Hey 놀자!
+            <br /> 지금 둘러보세요. 👀
+          </span>
         </Styled.Banner>
 
         <AccommodationList

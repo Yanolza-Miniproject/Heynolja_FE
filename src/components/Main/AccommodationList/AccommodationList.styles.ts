@@ -55,6 +55,16 @@ export const ItemContainer = styled.div`
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transform: scale(1.05);
   }
+
+  @media (max-width: 768px) {
+    width: 20rem;
+    height: 18rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 25rem;
+    height: 22rem;
+  }
 `;
 
 export const ItemLink = styled(Link)``;
@@ -69,6 +79,20 @@ export const ItemPicture = styled.div`
   img {
     width: 13rem;
     height: 13rem;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 100%;
+      height: 15rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      width: 100%;
+      height: 19rem;
+    }
   }
 `;
 

@@ -19,7 +19,7 @@ const DetailList = () => {
   );
 
   if (!accommodationDetail || !accommodationDetail.data) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   return (

@@ -38,6 +38,42 @@ export const SearchButton = styled.button`
   &:active {
     transform: translateX(0.15rem) translateY(0.15rem);
   }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 5rem;
+
+    &:hover {
+      background-color: #191554;
+      color: white;
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 5rem;
+
+    &:hover {
+      background-color: #191554;
+      color: white;
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
 `;
 
 export const SearchResetButton = styled.button`
@@ -80,5 +116,35 @@ export const SearchResetButton = styled.button`
 
   &:active img {
     transform: rotate(-180deg) scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+
+    height: 100%;
+
+    &:active img {
+      transform: rotate(-180deg) scale(0.95);
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+
+    height: 100%;
+
+    &:active img {
+      transform: rotate(-180deg) scale(0.95);
+    }
   }
 `;
