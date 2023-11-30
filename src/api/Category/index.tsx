@@ -1,5 +1,6 @@
 import { fetchCatgoryProps } from "../../pages/Category/Category.types";
 import { baseInstance, authInstance } from "../../hooks/useAxios";
+import { isLogined } from "../../utils/isLogined";
 
 export const fetchCatgory = async ({
   pageParam,
@@ -9,6 +10,13 @@ export const fetchCatgory = async ({
   categoryCookingUrl,
   categoryPickupUrl,
 }: fetchCatgoryProps) => {
+  if (isLogined()) {
+    const data = await authInstance.get(
+      `accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
+    );
+    return data.data;
+  }
+
   const data = await baseInstance.get(
     `accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
   );

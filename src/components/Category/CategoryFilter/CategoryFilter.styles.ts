@@ -11,9 +11,7 @@ export const CategoryFilterContainer = styled.div`
   margin: 0 auto;
 
   color: #222;
-  background-color: white;
   box-sizing: border-box;
-  border-radius: 5px;
 
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
 `;

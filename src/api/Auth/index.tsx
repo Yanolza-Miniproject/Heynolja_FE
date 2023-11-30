@@ -1,3 +1,4 @@
+import axios from "axios";
 import { baseInstance } from "../../hooks/useAxios";
 import { SignInInputs } from "../../pages/Signin/Signin.types";
 import { Inputs } from "../../pages/Signup/Signup.types";
@@ -36,7 +37,7 @@ export type fetchTokenProps = {
 };
 
 export const fetchToken = async (refreshToken: string) => {
-  const response = await baseInstance.post("refresh", {
+  const response = await axios.post("/api/refresh", {
     refreshToken: refreshToken,
   });
 
