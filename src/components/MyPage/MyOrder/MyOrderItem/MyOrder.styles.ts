@@ -47,7 +47,7 @@ export const ItemImg = styled.div`
 
   background-image: url("/src/assets/image/empty.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   object-fit: cover;
   margin-right: 2rem;
 

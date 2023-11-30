@@ -5,6 +5,7 @@ export const PriceContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 6px;
+  margin-bottom: 0.5rem;
 `;
 
 export const SumText = styled.div`
@@ -13,7 +14,7 @@ export const SumText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -0.05625rem;
+  letter-spacing: -0.02625rem;
 `;
 
 export const PriceText = styled.div`
