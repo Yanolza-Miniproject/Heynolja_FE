@@ -23,14 +23,18 @@ const SearchList = () => {
         searchFn={handleClickSearch}
       />
       <Styled.ItemWrapper>
-        <SearchListBanner validParams={validParams} />
-        <CategoryQuery
-          regionNumber={validParams.region}
-          accommodationNumber={validParams.type}
-          categoryParking={validParams.categoryParking}
-          categoryCooking={validParams.categoryCooking}
-          categoryPickup={validParams.categoryPickup}
-        />
+        <Styled.Main>
+          <CategoryQuery
+            regionNumber={validParams.region}
+            accommodationNumber={validParams.type}
+            categoryParking={validParams.categoryParking}
+            categoryCooking={validParams.categoryCooking}
+            categoryPickup={validParams.categoryPickup}
+          />
+        </Styled.Main>
+        <Styled.Aside>
+          <SearchListBanner validParams={validParams} />
+        </Styled.Aside>
       </Styled.ItemWrapper>
     </Styled.SearchResultContainer>
   );
