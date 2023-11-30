@@ -2,6 +2,10 @@ import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 
+type CategoryPopUpProps = {
+  isOpen: boolean;
+};
+
 export const CategoryFilterPopUpContainer = styled(motion.div)`
   position: relative;
 
@@ -25,15 +29,7 @@ export const CategoryButton = styled(Button)`
   &:hover {
     background-color: #ff5100;
   }
-
-  @media (max-width: 800px) {
-    font-size: 0.7rem;
-  }
 `;
-
-type CategoryPopUpProps = {
-  isOpen: boolean;
-};
 
 export const CategoryPopUp = styled(motion.ul)<CategoryPopUpProps>`
   visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};

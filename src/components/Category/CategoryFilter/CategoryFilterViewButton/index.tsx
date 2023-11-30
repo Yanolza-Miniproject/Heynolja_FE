@@ -1,10 +1,5 @@
 import * as Styled from "./CategoryFilterViewButton.styles";
-
-export type CategoryFilterViewButtonProps = {
-  buttonText: string;
-  isOn: boolean;
-  fn: () => void;
-};
+import { CategoryFilterViewButtonProps } from "./CategoryFilterViewButton.types";
 
 const CategoryFilterViewButton = ({
   buttonText,

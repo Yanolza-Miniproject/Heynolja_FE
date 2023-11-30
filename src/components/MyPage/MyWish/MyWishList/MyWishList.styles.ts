@@ -1,24 +1,23 @@
 import styled from "@emotion/styled";
 
 export const ListGridItemWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  place-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 
   width: 60%;
   height: object-fit;
 
-  margin-top: 2rem;
+  margin: 2rem 0;
 
   box-sizing: border-box;
-  padding: 1rem 1rem;
 
   gap: 1rem;
-
   overflow: auto;
 
-  @media (max-width: 1280px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 443px) {
+    width: 90%;
   }
 
   ::-webkit-scrollbar {
