@@ -14,6 +14,15 @@ export const Banner = styled.div`
   border-radius: 10px;
 `;
 
+export const AbsoluteBackground = styled.div`
+  position: absolute;
+  width: 200%;
+  height: 100%;
+
+  background-color: #191554;
+  opacity: 0.5;
+`;
+
 export const CategoryBannerTextMotion = styled(motion.div)`
   display: flex;
   flex-direction: column;

@@ -42,8 +42,8 @@ const Header = () => {
       const accessToken = response.headers["access_token"];
       const refreshToken = response.headers["refresh_token"];
 
-      localStorage.setItem("access_token", accessToken);
-      localStorage.setItem("refresh_token", refreshToken);
+      sessionStorage.setItem("access_token", accessToken);
+      sessionStorage.setItem("refresh_token", refreshToken);
       console.log(response.data);
     } catch (error) {
       console.log(error);

@@ -32,8 +32,10 @@ describe("CategoryFilterPopUp", () => {
     const button = screen.getByTestId("CategorySearchButton");
     user.click(button);
 
-    const category = screen.getByText(accommoationTypes[3].label);
-    expect(category).toBeInTheDocument();
+    waitFor(() => {
+      const category = screen.getByText(accommoationTypes[3].label);
+      expect(category).toBeInTheDocument();
+    });
   });
 
   test("카테고리를 클릭했을 때 카테고리가 잘 선택되는 지", async () => {
@@ -48,8 +50,6 @@ describe("CategoryFilterPopUp", () => {
       { wrapper },
     );
 
-    const selected = screen.getByTestId("CategorySelected");
-
     const button = screen.getByTestId("CategorySearchButton");
     await user.click(button);
 
@@ -57,6 +57,7 @@ describe("CategoryFilterPopUp", () => {
     await user.click(popUp);
 
     waitFor(() => {
+      const selected = screen.getByTestId("CategoryPopUpItem");
       expect(selected).toHaveTextContent(accommoationTypes[3].label);
     });
   });

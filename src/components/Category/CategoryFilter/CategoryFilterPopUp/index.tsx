@@ -1,34 +1,14 @@
 import { memo, useState } from "react";
 import * as Styled from "./CategoryFilterPopUp.styles";
 import { categoryQueryAtom } from "../../../../store/categoryQueryAtom";
-import {
-  CategoryFilterPopUpProps,
-  CategoryQueryType,
-} from "./CategoryFilterPopUp.types";
-import { useRecoilState } from "recoil";
-
-const getInitialState = (
-  categoryQuery: CategoryQueryType,
-  buttonText: string,
-) => {
-  if (buttonText === "원하는 숙소를 찾아보세요") {
-    const initialState = categoryQuery.type_name;
-    return initialState;
-  } else {
-    const initialState = categoryQuery.region_name;
-    return initialState;
-  }
-};
+import { CategoryFilterPopUpProps } from "./CategoryFilterPopUp.types";
+import { useSetRecoilState } from "recoil";
 
 const CategoryFilterPopUp = memo(
   ({ buttonText, listData }: CategoryFilterPopUpProps) => {
-    // const [buttonLabel, setButtonLabel] = useState(buttonText);
-    const [categoryQuery, setCategoryQuery] = useRecoilState(categoryQueryAtom);
-
-    const [selected, setSelected] = useState(
-      getInitialState(categoryQuery, buttonText),
-    );
+    const [buttonLabel, setButtonLabel] = useState(buttonText);
     const [isOpen, setIsOpen] = useState(false);
+    const setCategoryQuery = useSetRecoilState(categoryQueryAtom);
 
     const handleClick = () => {
       setIsOpen((prev) => !prev);
@@ -37,7 +17,7 @@ const CategoryFilterPopUp = memo(
     const categoryClick = (e: React.MouseEvent<HTMLLIElement>) => {
       const { innerText } = e.target as HTMLLIElement;
       const { value } = e.target as HTMLLIElement;
-      setSelected(innerText);
+      setButtonLabel(innerText);
       setCategoryQuery((prev) => {
         if (buttonText === "원하는 숙소를 찾아보세요") {
           return { ...prev, type: value, type_name: innerText };
@@ -49,28 +29,36 @@ const CategoryFilterPopUp = memo(
     };
 
     return (
-      <Styled.CategoryFilterPopUpContainer>
+      <Styled.CategoryFilterPopUpContainer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
         <Styled.CategoryButton
           onClick={handleClick}
           data-testid="CategorySearchButton"
         >
-          {buttonText}
+          {buttonLabel}
         </Styled.CategoryButton>
-        <Styled.CategoryPopUp isOpen={isOpen}>
-          {listData.map((type) => (
-            <Styled.CategoryPopUpItem
-              key={type.value}
-              value={type.value}
-              onClick={categoryClick}
-              data-testid="CategoryPopUpItem"
-            >
-              {type.label}
-            </Styled.CategoryPopUpItem>
-          ))}
-        </Styled.CategoryPopUp>
-        <Styled.CategoryChoiceValue data-testid="CategorySelected">
-          {selected}
-        </Styled.CategoryChoiceValue>
+        {isOpen && (
+          <Styled.CategoryPopUp
+            isOpen={isOpen}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: isOpen ? 1 : 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut", stiffness: 100 }}
+          >
+            {listData.map((type) => (
+              <Styled.CategoryPopUpItem
+                key={type.value}
+                value={type.value}
+                onClick={categoryClick}
+                data-testid="CategoryPopUpItem"
+              >
+                {type.label}
+              </Styled.CategoryPopUpItem>
+            ))}
+          </Styled.CategoryPopUp>
+        )}
       </Styled.CategoryFilterPopUpContainer>
     );
   },
