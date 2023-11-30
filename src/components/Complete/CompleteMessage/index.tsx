@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { userDataAtom } from "../../../store/userDataAtom";
 import calculateNightCount from "../../../utils/calculateNightCount";
 import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 import formatNumber from "../../../utils/formatNumber";
@@ -7,6 +9,7 @@ import { CompleteMessageProps } from "./CompleteMessage.types";
 import { leftDateUntilTheTrip } from "./CompleteMessage.utils";
 
 const CompleteMessage = ({ data }: CompleteMessageProps) => {
+  const [userData] = useRecoilState(userDataAtom);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -30,7 +33,7 @@ const CompleteMessage = ({ data }: CompleteMessageProps) => {
           남았습니다.
         </Styled.TextMid>
         <Styled.TextMid>
-          <span>홍길동</span>님의 즐거운 여행을 응원합니다!
+          <span>{userData.nickName}</span>님의 즐거운 여행을 응원합니다!
         </Styled.TextMid>
       </Styled.TextWrapper>
       <Styled.AmountWrapper>
