@@ -10,8 +10,8 @@ export const SelectorContainer = styled.div`
 
 export const InfoContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   gap: 8px;
 `;
 
@@ -87,4 +87,19 @@ export const PlusButton = styled(Button)`
   background-size:
     40% 2px,
     2px 40%;
+`;
+export const PriceLabelContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+`;
+export const InfoText = styled.div`
+  font-size: 0.8rem;
+  align-items: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.04375rem;
+  color: #646464;
 `;
