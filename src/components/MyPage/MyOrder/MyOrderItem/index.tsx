@@ -8,7 +8,7 @@ const index = ({
   type,
   checkIn,
   checkOut,
-  guests,
+  numberOfGuests,
   price,
   roomUrl,
 }: MyOrderItemProps) => {
@@ -36,13 +36,17 @@ const index = ({
           </Styled.ItemValueWrapper>
           <Styled.ItemValueWrapper>
             <Styled.Title>숙박인원: </Styled.Title>
-            <Styled.Content>{guests}</Styled.Content>
+            <Styled.Content>{numberOfGuests}</Styled.Content>
           </Styled.ItemValueWrapper>
         </Styled.ItemInfo>
       </Styled.ItemContent>
       <Styled.ItemPriceWrapper>
         <span>₩</span>
-        <Styled.ItemPrice>{formatNumber(price)}</Styled.ItemPrice>
+        <Styled.ItemPrice>
+          {formatNumber(
+            price * numberOfGuests * calculateNightCount(checkIn, checkOut),
+          )}
+        </Styled.ItemPrice>
       </Styled.ItemPriceWrapper>
     </Styled.ItemWrapper>
   );

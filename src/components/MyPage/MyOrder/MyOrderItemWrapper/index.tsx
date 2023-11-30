@@ -30,7 +30,7 @@ const MyOrderItemWrapper = ({
             type={item.roomName}
             checkIn={item.checkInAt}
             checkOut={item.checkOutAt}
-            guests={item.numberGuests}
+            numberOfGuests={item.numberOfGuests}
             price={item.price}
             roomUrl={item.roomUrl}
           />
