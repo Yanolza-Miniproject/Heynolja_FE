@@ -8,6 +8,7 @@ import { useGetAccommodationDetail } from "../../hooks/useDetailFetch.ts";
 // import { accommodationDetail } from "../../mock/detailListPageData.ts";
 import { useLocation } from "react-router-dom";
 import * as Styled from "./DetailList.styles.ts";
+import HeartClick from "../../components/Category/HeartClick/index.tsx";
 
 const DetailList = () => {
   const location = useLocation();
@@ -27,13 +28,17 @@ const DetailList = () => {
       <Styled.Layout>
         <ProductImage image={accommodationDetail.data.data.thumbnailUrl} />
         <Styled.DetailsContainer>
-          {/* <Styled.HorizontalContainer> */}
-          <ProductTitle
-            type={accommodationDetail.data.data.type}
-            name={accommodationDetail.data.data.name}
-          />
-          {/* <StockStatusBanner />  이부분 좋아요 하트자리 */}
-          {/* </Styled.HorizontalContainer> */}
+          <Styled.HorizontalContainer>
+            <ProductTitle
+              type={accommodationDetail.data.data.type}
+              name={accommodationDetail.data.data.name}
+            />
+            <HeartClick
+              likes={accommodationDetail.data.data.wishCount}
+              likes_clicked={accommodationDetail.data.data.isWish}
+              accommodationId={accommodationDetail.data.data.id}
+            />
+          </Styled.HorizontalContainer>
           <ProductInfo
             address={accommodationDetail.data.data.address}
             infoDetail={accommodationDetail.data.data.infoDetail}

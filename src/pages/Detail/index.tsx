@@ -40,7 +40,7 @@ const Detail = () => {
   }
 
   console.log("roomId", roomId);
-  console.log("데이터:", data.data);
+  console.log("데이터:", data?.data);
 
   if (error || !roomDetails) {
     return <div>Error: {error ? error.message : "객실 정보가 없습니다."}</div>;
