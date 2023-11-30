@@ -7,6 +7,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   initialQuantity,
   onQuantityChange,
   price,
+  capacity,
 }) => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
@@ -17,9 +18,11 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   };
 
   const handleIncrease = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-    onQuantityChange(newQuantity);
+    if (quantity < capacity) {
+      const newQuantity = quantity + 1;
+      setQuantity(newQuantity);
+      onQuantityChange(newQuantity);
+    }
   };
 
   return (
@@ -35,7 +38,12 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
           -
         </Styled.MinusButton>
         <Styled.QuantityText>{quantity}</Styled.QuantityText>
-        <Styled.PlusButton onClick={handleIncrease}>+</Styled.PlusButton>
+        <Styled.PlusButton
+          onClick={handleIncrease}
+          disabled={quantity >= capacity}
+        >
+          +
+        </Styled.PlusButton>
       </Styled.ControlContainer>
     </Styled.SelectorContainer>
   );
