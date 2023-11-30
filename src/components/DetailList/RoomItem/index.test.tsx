@@ -1,37 +1,62 @@
-// import "@testing-library/jest-dom";
-// import { render, screen } from "@testing-library/react";
-// import RoomItem from "./";
-// import formatNumber from "../../../utils/formatNumber";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { createWrapper } from "../../../test/test.utils";
+import RoomItem from "./";
 
-// const testData = {
-//   id: 1,
-//   name: "디럭스룸",
-//   price: 200000,
-//   capacity: 2,
-//   roomImageUrl: "example-room-image.jpg",
-//   RoomInventory: [{ date: "2023-01-01", inventory: 5 }],
-//   checkInDate: new Date("2023-01-01"),
-//   checkOutDate: new Date("2023-01-02"),
-// };
+const testData = {
+  id: 1,
+  name: "그랜드하얏트",
+  price: 100000,
+  capacity: 2,
+  roomImageUrl: "test-room-image.jpg",
+  RoomInventory: [{ date: "2023-05-01", inventory: 5 }],
+  checkInDate: new Date("2023-05-01"),
+  checkOutDate: new Date("2023-05-02"),
+  roomImages: "test-room-image.jpg",
+};
 
-// describe("RoomItem", () => {
-//   test("아이템의 정보가 데이터에 맞게 표시되어야 한다.", () => {
-//     render(<RoomItem {...testData} />);
+describe("RoomItem Test", () => {
+  test("객실 아이템이 렌더링되는지 테스트", () => {
+    if ("IntersectionObserver" in window) {
+      render(
+        <RoomItem
+          id={testData.id}
+          name={testData.name}
+          price={testData.price}
+          capacity={testData.capacity}
+          roomImages={testData.roomImages}
+          RoomInventory={testData.RoomInventory}
+          checkInDate={testData.checkInDate}
+          checkOutDate={testData.checkOutDate}
+        />,
+      );
+    }
+  });
 
-//     const name = screen.getByText(testData.name);
-//     const capacity = screen.getByText(`최대 인원: ${testData.capacity}명`);
-//     const price = screen.getByText(`₩${formatNumber(testData.price)}`);
-//     const inventoryText = `남은 객실: ${testData.RoomInventory[0].inventory}개`;
-//     const inventory = screen.getByText((content) =>
-//       content.includes(inventoryText),
-//     );
-//     expect(inventory).toBeInTheDocument();
-//     const roomImage = screen.getByAltText(`${testData.name} 이미지`);
+  test("객실 리스트 아이템을 누르면 해당 객실 상세페이지로 이동.", () => {
+    if ("IntersectionObserver" in window) {
+      const router = jest.fn();
+      const user = userEvent.setup();
+      const wrapper = createWrapper();
 
-//     expect(name).toBeInTheDocument();
-//     expect(capacity).toBeInTheDocument();
-//     expect(price).toBeInTheDocument();
-//     expect(inventory).toBeInTheDocument();
-//     expect(roomImage).toHaveAttribute("src", testData.roomImageUrl);
-//   });
-// });
+      render(
+        <RoomItem
+          id={testData.id}
+          name={testData.name}
+          price={testData.price}
+          capacity={testData.capacity}
+          roomImages={testData.roomImages}
+          RoomInventory={testData.RoomInventory}
+          checkInDate={testData.checkInDate}
+          checkOutDate={testData.checkOutDate}
+        />,
+        { wrapper },
+      );
+
+      const item = screen.getByTestId("individual-item");
+      user.click(item);
+
+      expect(router).toHaveBeenCalledWith(testData.id);
+    }
+  });
+});

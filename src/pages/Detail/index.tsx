@@ -39,9 +39,6 @@ const Detail = () => {
     return <div></div>;
   }
 
-  console.log("roomId", roomId);
-  console.log("데이터:", data.data);
-
   if (error || !roomDetails) {
     return <div>Error: {error ? error.message : "객실 정보가 없습니다."}</div>;
   }
@@ -75,6 +72,7 @@ const Detail = () => {
             initialQuantity={selectedGuests}
             onQuantityChange={(newQuantity) => setSelectedGuests(newQuantity)}
             price={roomDetails.data.price}
+            capacity={roomDetails.data.capacity}
           />
           <PriceDisplay pricePerNight={roomDetails.data.price} />
           <ActionButtonGroup
