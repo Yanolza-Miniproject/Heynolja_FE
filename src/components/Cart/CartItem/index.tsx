@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import exitLogo from "../../../assets/exit.svg";
-import { useDeleteCartItem } from "../../../hooks/useCartFetch";
+import { authInstance } from "../../../hooks/useAxios";
 import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
 import Checkbox from "../Checkbox";
@@ -19,31 +19,28 @@ const CartItem = ({
   setEstimatedPrice,
   setCart,
 }: CartItemProps) => {
-  const deleteCartMutation = useDeleteCartItem();
   const [check, setCheck] = useState(select[index]); // 디자인을 위한 체크 상태 여부
 
   // 장바구니에서 해당 상품 제거
   const fetch = () => {
-    // console.log([item.id]);
-    deleteCartMutation.mutate(
-      { ids: [item.id] },
-      {
-        onSuccess: (responseData) => {
-          console.log(responseData.data);
-          handeleDelete(
-            item,
-            cart,
-            estimatedPrice,
-            index,
-            select,
-            setSelect,
-            setCart,
-            setSelected,
-            setEstimatedPrice,
-          );
-        },
-      },
-    );
+    authInstance
+      .put("/baskets", {
+        ids: [item.id],
+      })
+      .then((res) => {
+        console.log(res.data);
+        handeleDelete(
+          item,
+          cart,
+          estimatedPrice,
+          index,
+          select,
+          setSelect,
+          setCart,
+          setSelected,
+          setEstimatedPrice,
+        );
+      });
   };
 
   // 해당 아이템이 체크 여부 지속적인 확인
