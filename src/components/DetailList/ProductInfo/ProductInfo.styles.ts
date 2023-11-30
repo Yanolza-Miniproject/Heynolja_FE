@@ -39,7 +39,7 @@ export const InfoTitleText = styled.div`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: -0.15rem;
+  letter-spacing: -0.05rem;
 `;
 
 export const InfoDetailText = styled.div`
@@ -49,7 +49,7 @@ export const InfoDetailText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: -0.04375rem;
+  letter-spacing: -0.02375rem;
 `;
 
 export const ItemContainer = styled.div`

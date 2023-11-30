@@ -9,7 +9,6 @@ export const ProductName = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -0.05rem;
 `;
 
 export const RoomName = styled.div`
@@ -20,7 +19,6 @@ export const RoomName = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -0.08125rem;
 `;
 
 export const ProductPrice = styled.div`
