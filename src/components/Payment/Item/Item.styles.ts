@@ -48,7 +48,7 @@ export const ItemImg = styled.div`
 
   overflow: hidden;
 
-  background-image: url("/src/assets/image/empty.png");
+  background-image: url("/empty.png");
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
