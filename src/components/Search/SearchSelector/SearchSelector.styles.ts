@@ -6,23 +6,6 @@ import {
   TypeWrapperProps,
 } from "./SearchSelector.types";
 
-export const SearchCard = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  padding: 0.7rem;
-  gap: 0.6rem;
-
-  width: 100%;
-  max-width: 60rem;
-  height: 30rem;
-
-  border: 1px solid #e6e6e6;
-  border-radius: 1rem;
-`;
-
 export const SearchCardWrapper = styled.div<TypeWrapperProps>`
   display: flex;
   flex-direction: column;
@@ -66,6 +49,34 @@ export const SearchCardWrapper = styled.div<TypeWrapperProps>`
     width: 3.4rem;
     height: 3.4rem;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
+
+    &:hover {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: row;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 1rem 0;
+    overflow-x: hidden;
+
+    &:hover {
+      flex-direction: column;
+    }
+  }
 `;
 
 export const SelectedItemDisplay = styled.div`
@@ -81,6 +92,26 @@ export const SelectedItemDisplay = styled.div`
   background-color: white;
   border-top: 1px solid #e6e6e6;
   font-size: 1.3rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    flex: 50% 0 0;
+
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    justify-content: center;
+    align-items: center;
+    flex: 50% 0 0;
+
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
 `;
 
 export const RegionList = styled.div`

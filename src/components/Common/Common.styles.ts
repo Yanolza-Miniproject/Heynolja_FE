@@ -39,9 +39,36 @@ export const headerContainer = styled.div`
   padding: 0 5rem;
 
   background-color: white;
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 2px solid #f6f6f6;
 
   height: 80px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+`;
+
+export const headerWrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 300;
 `;
 
 export const headerLeftWrapper = styled.div`
@@ -120,88 +147,68 @@ export const headerRightWrapper = styled.div`
 `;
 
 export const footerContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-column-gap: 10rem;
+  grid-row-gap: 0.5rem;
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 5rem;
+  width: 70%;
 
-  height: 200px;
-
-  background-color: #f6f6f6;
-`;
-
-export const footerLeftWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  padding: 0 2rem;
-  gap: 1rem;
-
-  height: 100px;
+  padding: 3rem 12rem;
+  margin-bottom: 1rem;
   background-color: #f6f6f6;
 
-  font-size: 0.8rem;
-  line-height: 1.4rem;
-  font-weight: 400;
-  color: #646464;
+  font-size: 0.9rem;
 
-  h5 {
-    font-weight: 800;
-    color: black;
+  .title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
   }
-`;
+  .team {
+    font-size: 1.1rem;
+    font-weight: 700;
 
-export const footerRightWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  gap: 5rem;
-
-  width: 25rem;
-  height: 100px;
-
-  font-size: 0.8rem;
-  line-height: 1.3rem;
-  font-weight: 400;
-  color: #646464;
-
-  h5 {
-    font-weight: 800;
-    color: black;
+    img {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
-`;
 
-export const footerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  cursor: default;
 
-  gap: 1rem;
-`;
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 5rem;
+    grid-row-gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
 
-export const footerBottomWrapper = styled.div`
-  padding: 1rem 6.5rem;
-  margin-bottom: 2rem;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 0;
 
-  text-align: left;
-  font-size: 0.8rem;
-  color: #646464;
-`;
+    font-size: 1.1rem;
+  }
 
-export const footerLine = styled.hr`
-  margin: 0 6rem;
+  @media (max-width: 480px) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
 
-  height: 1px;
+    width: 100%;
+    height: 5rem;
+    padding: 1rem 0;
 
-  border: none;
-  background-color: #d9d9d9;
+    font-size: 0.9rem;
+  }
 `;
 
 export const SidebarContainer = styled.aside`
