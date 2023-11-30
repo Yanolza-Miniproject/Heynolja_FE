@@ -4,8 +4,10 @@ import { useRecoilState } from "recoil";
 import { useEffect, useState } from "react";
 import formatNumber from "../../../utils/formatNumber";
 import { useDeleteOrder, usePayment } from "../../../hooks/usePayment";
+import { useNavigate } from "react-router-dom";
 
 const Btn = () => {
+  const navigate = useNavigate();
   const [isDisabeld, setIsDisabled] = useState(true);
   const termsAllChecked = useRecoilState(termsState);
   const [purchaseList] = useRecoilState(purchaseState);
@@ -20,8 +22,8 @@ const Btn = () => {
       PaymentMutation.mutate(orderId as number, {
         onSuccess: async (data) => {
           console.log("결제 성공 데이터:", data);
-          // navigate("/Complete/" + data.paymentId);
-          sessionStorage.clear();
+          navigate(`/Complete/${data.data.data}`);
+          // sessionStorage.clear();
         },
       });
     }

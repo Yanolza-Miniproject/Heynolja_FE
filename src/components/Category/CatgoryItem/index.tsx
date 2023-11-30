@@ -1,6 +1,7 @@
 import { useInView } from "framer-motion";
 import HeartClick from "../HeartClick";
 import * as Styled from "./CategoryItem.styles";
+import Empty from "../../../assets/image/empty.png";
 
 import { useRef } from "react";
 import { random } from "lodash";
@@ -19,6 +20,10 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
     router(`/detailList?accommodation-id=${data.id}`);
   };
 
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = Empty;
+  };
+
   return (
     <Styled.CategoryItemContainer ref={ref}>
       <Styled.CategoryItemWrapper
@@ -35,6 +40,7 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
           src={data.thumbnailUrl}
           alt={data.name}
           onClick={handleClick}
+          onError={handleError}
           data-testid="individual-item"
         />
         <Styled.CategoryTextWrapper>
