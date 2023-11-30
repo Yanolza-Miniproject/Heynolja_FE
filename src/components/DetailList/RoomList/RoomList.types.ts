@@ -4,6 +4,6 @@ export interface RoomType {
   price: number;
   capacity: number;
   roomImageUrl?: string | undefined;
-  RoomInventory?: { date: string; inventory: number }[];
+  roomInventories?: { date: string; inventory: number }[];
   roomImages: { id: number; imageUrl: string }[];
 }

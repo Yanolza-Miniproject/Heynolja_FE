@@ -26,7 +26,7 @@ const RoomList = ({ rooms }: { rooms: RoomType[] }) => {
             name={room.name}
             price={room.price}
             capacity={room.capacity}
-            RoomInventory={room.RoomInventory}
+            RoomInventory={room.roomInventories}
             roomImages={
               room.roomImages.length > 0 ? room.roomImages[0].imageUrl : ""
             }
