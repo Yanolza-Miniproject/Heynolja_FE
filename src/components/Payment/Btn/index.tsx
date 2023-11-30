@@ -22,8 +22,8 @@ const Btn = () => {
       PaymentMutation.mutate(orderId as number, {
         onSuccess: async (data) => {
           console.log("결제 성공 데이터:", data);
-          navigate(`/Complete/${data}`);
-          sessionStorage.clear();
+          navigate(`/Complete/${data.data.data}`);
+          // sessionStorage.clear();
         },
       });
     }

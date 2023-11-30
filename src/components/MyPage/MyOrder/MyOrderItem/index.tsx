@@ -22,7 +22,9 @@ const index = ({
     <Styled.ItemWrapper>
       <Styled.ItemTitle>{name}</Styled.ItemTitle>
       <Styled.ItemContent>
-        <Styled.ItemImg src={roomUrl} onError={handleError}></Styled.ItemImg>
+        <Styled.ItemImg>
+          <img src={roomUrl} alt="객실사진" onError={handleError} />
+        </Styled.ItemImg>
         <Styled.ItemInfo>
           <Styled.ItemValueWrapper>
             <Styled.Title>방 타입: </Styled.Title>

@@ -11,6 +11,7 @@ const index = ({
   checkOut,
   guests,
   price,
+  roomUrl,
 }: PaymentItemProps) => {
   // img empty set
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -20,7 +21,10 @@ const index = ({
     <Styled.ItemWrapper>
       <Styled.ItemTitle>{name}</Styled.ItemTitle>
       <Styled.ItemContent>
-        <Styled.ItemImg onError={handleError}></Styled.ItemImg>
+        <Styled.ItemImg>
+          <img src={roomUrl} alt="객실사진" onError={handleError} />
+        </Styled.ItemImg>
+
         <Styled.ItemInfo>
           <Styled.ItemValueWrapper>
             <Styled.Title>방 타입: </Styled.Title>

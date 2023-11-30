@@ -17,7 +17,7 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
     e.preventDefault();
     e.stopPropagation();
 
-    router(`/detail?accommodation-id=${data.id}`);
+    router(`/detailList?accommodation-id=${data.id}`);
   };
 
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
