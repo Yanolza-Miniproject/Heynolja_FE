@@ -85,7 +85,7 @@ const CartItem = ({
       </Styled.itemTop>
       <Styled.itemBottom>
         <Styled.Image>
-          <img src={item.roomUrl} onError={handleError} />
+          <img src={item.roomUrl} />
         </Styled.Image>
         <Styled.Info>
           <p>

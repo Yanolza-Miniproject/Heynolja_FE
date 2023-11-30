@@ -59,13 +59,13 @@ const ActionButtonGroup = ({
         roomId: roomId,
       },
       {
-        onSuccess: () => {
+        onSuccess: (response) => {
           // const orderId = Math.floor(Math.random() * 100000); // 이부분 삭제 예정
           setPurchase((prev) => ({
             ...prev,
-            // order_id: orderId, //이부분 삭제 예정
-          }));
-          navigate("/payment");
+            order_id: response.data.data,
+          })),
+            navigate("/payment");
         },
         onError: (error) => {
           console.error("주문 실패:", error);
