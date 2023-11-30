@@ -11,3 +11,10 @@ export const CategoryItemWrapper = styled.div<CategoryItemWrapperProps>`
   justify-content: center;
   gap: 1rem;
 `;
+
+export const CategoryItemNoContentMessage = styled.h1`
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  color: #ff5100;
+`;

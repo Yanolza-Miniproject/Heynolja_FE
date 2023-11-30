@@ -53,7 +53,7 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
         </div>
         <Styled.CategoryTextWrapper view={categoryViewState}>
           <Styled.CategoryName view={categoryViewState}>
-            {data.name}
+            {_.truncate(data.name, { length: categoryViewAtom ? 50 : 20 })}
           </Styled.CategoryName>
           <Styled.CategoryTopWrapper>
             {!categoryViewState && (

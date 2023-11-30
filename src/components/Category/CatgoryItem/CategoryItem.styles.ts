@@ -62,6 +62,8 @@ export const CategoryTextWrapper = styled.div<CategoryItemContainerProps>`
   flex-direction: column;
   align-items: start;
 
+  position: relative;
+
   width: ${(props) => (props.view ? "195px" : "90%")};
 
   gap: 1rem;
@@ -70,6 +72,8 @@ export const CategoryTextWrapper = styled.div<CategoryItemContainerProps>`
 export const CategoryName = styled.strong<CategoryItemContainerProps>`
   font-size: 1.1rem;
   font-weight: 700;
+
+  line-height: 1.5rem;
 
   color: #222222;
 `;
