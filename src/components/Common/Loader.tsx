@@ -1,22 +1,16 @@
-import LoaderImg from "../../assets/svg/loader.svg";
-import { LoaderWrapper } from "./Common.styles";
+import { PacmanLoader } from "react-spinners";
+import { LoaderContainer, LoaderWrapper } from "./Common.styles";
+import { useIsFetching } from "@tanstack/react-query";
 
-interface LoaderProps {
-  isLoading: boolean;
-}
+export const Loader = () => {
+  const isLoading = useIsFetching();
 
-const Loader = (props: LoaderProps) => {
-  const check = props.isLoading == null ? false : props.isLoading;
-
-  return (
-    check && (
-      <LoaderWrapper
-        style={{ display: props.isLoading === true ? "block" : "none" }}
-      >
-        <img src={LoaderImg} alt="loading" />
+  return isLoading > 0 ? (
+    <LoaderContainer>
+      <LoaderWrapper>
+        <PacmanLoader color="#FF5000" size={30} />
+        <p>잠시만 기다려주세요.</p>
       </LoaderWrapper>
-    )
-  );
+    </LoaderContainer>
+  ) : null;
 };
-
-export default Loader;
