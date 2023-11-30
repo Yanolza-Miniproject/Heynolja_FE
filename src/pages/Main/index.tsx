@@ -10,8 +10,19 @@ import { AccommodationList } from "../../components/Main/AccommodationList";
 import { useRef } from "react";
 import useGeolocation from "../../hooks/useGeolocation";
 import { regions } from "../../store/searchSelectorData";
+import { useRecoilState } from "recoil";
+import {
+  checkInDateState,
+  checkOutDateState,
+} from "../../store/checkinCheckOutAtom";
 
 const Main = () => {
+  //테스트
+  const [, setCheckInDate] = useRecoilState(checkInDateState);
+  const [, setCheckOutDate] = useRecoilState(checkOutDateState);
+  setCheckInDate(null);
+  setCheckOutDate(null);
+
   const { cityCode } = useGeolocation();
   const cityName = regions.find((region) => region.value === cityCode)?.name;
 
