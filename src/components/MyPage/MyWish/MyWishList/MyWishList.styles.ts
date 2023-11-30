@@ -16,6 +16,10 @@ export const ListGridItemWrapper = styled.div`
   gap: 1rem;
   overflow: auto;
 
+  @media (max-width: 443px) {
+    width: 90%;
+  }
+
   ::-webkit-scrollbar {
     display: none;
   }
