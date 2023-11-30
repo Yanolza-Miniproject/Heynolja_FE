@@ -8,6 +8,7 @@ export const ItemWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 1.19rem 0.81rem 2.19rem 1.81rem;
+  margin-bottom: 1.5rem;
 
   /* cursor: pointer;
   &:hover {
@@ -45,10 +46,17 @@ export const Title = styled.span`
   letter-spacing: -0.05rem;
 `;
 
-export const ItemImg = styled.img`
-  width: 8.25rem;
-  height: 8.5625rem;
-  margin-right: 1.81rem;
+export const ItemImg = styled.div`
+  position: relative;
+
+  background-color: white;
+
+  overflow: hidden;
+
+  img {
+    width: 13rem;
+    height: 13rem;
+  }
 `;
 
 export const Content = styled.span``;

@@ -213,7 +213,7 @@ export const SidebarContainer = styled.aside`
   background-color: white;
 
   transform: translateY(-50%);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   z-index: 200;
 `;
 
@@ -264,4 +264,41 @@ export const NavButton = styled.button`
   color: black;
 `;
 
-export const LoaderWrapper = styled.div``;
+export const LoaderContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.15);
+
+  z-index: 999;
+`;
+
+export const LoaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 1rem;
+  border-radius: 2rem;
+
+  width: 13rem;
+  background-color: white;
+
+  p {
+    margin-top: 1rem;
+
+    color: #666666;
+    text-align: center;
+    line-height: 1.2rem;
+
+    cursor: default;
+  }
+`;

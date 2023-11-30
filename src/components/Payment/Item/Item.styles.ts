@@ -41,10 +41,16 @@ export const Title = styled.span`
 `;
 
 export const ItemImg = styled.div`
-  width: 8.25rem;
-  height: 8.5625rem;
-  background: #d9d9d9;
-  margin-right: 1.81rem;
+  position: relative;
+
+  background-color: white;
+
+  overflow: hidden;
+
+  img {
+    width: 13rem;
+    height: 13rem;
+  }
 `;
 
 export const Content = styled.span``;

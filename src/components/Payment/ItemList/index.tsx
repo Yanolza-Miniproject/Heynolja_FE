@@ -10,6 +10,7 @@ const ItemList = () => {
   const [purchaseList] = useRecoilState(purchaseState);
   const orderId = purchaseList.order_id;
   const { data } = useGetOrderList(orderId as number);
+  console.log(data);
   const orderList: OrderItem[] = data?.data.data.rooms;
 
   // authInstance
@@ -34,6 +35,7 @@ const ItemList = () => {
             checkOut={item.checkOutAt}
             guests={item.numberOfGuests}
             price={item.price}
+            roomUrl={item.roomUrl}
           />
         ))}
       </Styled.ItemList>
