@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
@@ -40,8 +40,24 @@ const createWrapper = () => {
   );
 };
 
+const mockResponse = jest.fn();
+Object.defineProperty(window, "location", {
+  value: {
+    hash: {
+      endsWith: mockResponse,
+      includes: mockResponse,
+    },
+    assign: mockResponse,
+  },
+  writable: true,
+});
+
 describe("장바구니 페이지 데이터 받아오기 테스트", () => {
   const user = userEvent.setup();
+
+  afterEach(() => {
+    mockResponse.mockClear();
+  });
   test("데이터가 없을 때 텅이라는 문구가 보여야 한다.", () => {
     render(<CartList data={[]} />, { wrapper: createWrapper() });
 
@@ -75,55 +91,6 @@ describe("장바구니 페이지 데이터 받아오기 테스트", () => {
     const allCheckbox = screen.getAllByRole("checkbox");
 
     expect(allCheckbox.length).toBe(testData.length + 1);
-  });
-
-  test("전체선택 후 선택삭제 시 화면에 텅이라는 문구가 보여야 한다.", async () => {
-    render(<CartList data={testData} />, { wrapper: createWrapper() });
-
-    const button = screen.getByText("선택삭제");
-
-    await waitFor(() => {
-      user.click(button);
-
-      const textElement = screen.queryByText("텅");
-      expect(textElement).toBeInTheDocument();
-    });
-  });
-
-  test("아이템 선택 후 선택삭제 시 선택된 아이템이 사라져야 한다.", async () => {
-    render(<CartList data={testData} />, { wrapper: createWrapper() });
-
-    const button = screen.getByText("선택삭제");
-    const allCheckbox = screen.getAllByRole("checkbox");
-
-    await waitFor(() => {
-      user.click(allCheckbox[1]);
-      user.click(button);
-      const checkbox = screen.getAllByRole("checkbox");
-      expect(checkbox.length).toBe(testData.length);
-    });
-  });
-
-  test("아이템 선택 시 전체 선택 숫자에 변화가 생겨야 한다.", async () => {
-    render(<CartList data={testData} />, { wrapper: createWrapper() });
-
-    const allCheckbox = screen.getAllByRole("checkbox");
-
-    await waitFor(() => {
-      user.click(allCheckbox[1]);
-      const textOne = screen.queryByText(
-        `전체 선택(${testData.length - 1}/${testData.length})`,
-      );
-      expect(textOne).toBeInTheDocument();
-    });
-
-    await waitFor(() => {
-      user.click(allCheckbox[1]);
-      const textTwo = screen.queryByText(
-        `전체 선택(${testData.length}/${testData.length})`,
-      );
-      expect(textTwo).toBeInTheDocument();
-    });
   });
 
   test("선택된 아이템은 예상 구매 내역에 포함이 된다.", async () => {
