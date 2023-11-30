@@ -7,7 +7,6 @@ import SigninIcon from "../../assets/svg/signin-icon.svg";
 import SignupIcon from "../../assets/svg/signup-icon.svg";
 import LogoutIcon from "../../assets/svg/logout-icon.svg";
 import { useState } from "react";
-import { baseInstance } from "../../hooks/useAxios";
 import { Link } from "react-router-dom";
 import { Tooltip } from "@mui/material";
 
@@ -15,39 +14,6 @@ const Header = () => {
   const [loggedin, setLoggedin] = useState(false);
   const handleLogin = () => {
     setLoggedin((prev) => !prev);
-    fetch();
-  };
-
-  const fetchData = async () => {
-    try {
-      const response = await baseInstance.post("/members/join", {
-        email: "yh2@hey.com",
-        password: "1234",
-        nickname: "yh2",
-        phoneNumber: "01011111111",
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const fetch = async () => {
-    try {
-      const response = await baseInstance.post("/members/login", {
-        email: "yh2@hey.com",
-        password: "1234",
-      });
-
-      const accessToken = response.headers["access_token"];
-      const refreshToken = response.headers["refresh_token"];
-
-      localStorage.setItem("access_token", accessToken);
-      localStorage.setItem("refresh_token", refreshToken);
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (
@@ -65,7 +31,6 @@ const Header = () => {
         <button onClick={handleLogin}>
           {loggedin ? "로그인 상태" : "로그인"}
         </button>
-        <button onClick={fetchData}>회원가입 test</button>
         {loggedin ? (
           <>
             <Link to="/search">

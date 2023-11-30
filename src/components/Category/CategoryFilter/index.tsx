@@ -1,16 +1,17 @@
 import * as Styled from "./CategoryFilter.styles";
 import CategoryFilterPopUp from "./CategoryFilterPopUp";
 import { accommoationTypes, regionTypes } from "./CategoryFilter.constants";
-import { getTokenRefresh } from "../../../utils/getTokenRefresh";
+import { fetchToken } from "../../../api/Auth";
 
 const CategoryFilter = () => {
   const handleClick = async () => {
-    const refreshToken = localStorage.getItem("refreshToken");
+    const refreshToken = sessionStorage.getItem("refreshToken");
     if (refreshToken) {
       alert("로그인 되어있음");
-      console.log(refreshToken);
-      const newToken = await getTokenRefresh();
-      console.log(newToken);
+      console.log("검색버튼 클릭", refreshToken);
+
+      const response = await fetchToken(refreshToken);
+      console.log(response);
     } else {
       alert("로그인 안되어있음");
     }
