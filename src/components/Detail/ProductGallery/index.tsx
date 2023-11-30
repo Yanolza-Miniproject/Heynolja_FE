@@ -21,7 +21,11 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ images }) => {
       <Styled.StyledSlider {...settings}>
         {displayImages.map(({ id, imageUrl }) => (
           <Styled.SlideContainer key={id}>
-            <Styled.ProductImage src={imageUrl} alt={`Product Image ${id}`} />
+            <Styled.ProductImage
+              src={imageUrl}
+              alt={`Product Image ${id}`}
+              isDefault={imageUrl === defaultImage}
+            />
           </Styled.SlideContainer>
         ))}
       </Styled.StyledSlider>
