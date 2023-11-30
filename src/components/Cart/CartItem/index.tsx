@@ -98,7 +98,12 @@ const CartItem = ({
           <p>
             <span>숙박인원</span>: {item.numberOfGuests}명
           </p>
-          <p>₩{formatNumber(item.price)}</p>
+          <p>
+            ₩
+            {formatNumber(
+              item.price * calculateNightCount(item.checkInAt, item.checkOutAt),
+            )}
+          </p>
         </Styled.Info>
       </Styled.itemBottom>
     </Styled.Container>
