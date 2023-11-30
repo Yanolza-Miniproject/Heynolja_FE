@@ -5,7 +5,6 @@ import ProductInfo from "../../components/DetailList/ProductInfo/index.tsx";
 import ProductTitle from "../../components/DetailList/ProductTitle";
 import RoomList from "../../components/DetailList/RoomList/index.tsx";
 import { useGetAccommodationDetail } from "../../hooks/useDetailFetch.ts";
-// import { accommodationDetail } from "../../mock/detailListPageData.ts";
 import { useLocation } from "react-router-dom";
 import * as Styled from "./DetailList.styles.ts";
 import HeartClick from "../../components/Category/HeartClick/index.tsx";
