@@ -14,7 +14,7 @@ export const CheckBox = styled.input`
 
   &:checked {
     border-color: #ff5100;
-    background-image: url("./src/assets/checkbox.svg");
+    background-image: url("/checkbox.svg");
 
     background-repeat: no-repeat;
     background-size: 90%;
