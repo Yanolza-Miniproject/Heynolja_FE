@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen } from "@testing-library/react";
 import CartItem from ".";
+import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
 
 export const testData = {
@@ -67,7 +68,12 @@ describe("장바구니 페이지 개별 아이템 테스트", () => {
     const name = screen.queryByText(`${testData.accommodationName}`);
     const type = screen.queryByText(`: ${testData.roomName}`);
     const number = screen.queryByText(`: ${testData.numberOfGuests}명`);
-    const price = screen.queryByText(`₩${formatNumber(testData.price)}`);
+    const price = screen.queryByText(
+      `₩${formatNumber(
+        testData.price *
+          calculateNightCount(testData.checkInAt, testData.checkOutAt),
+      )}`,
+    );
 
     expect(name).toBeInTheDocument();
     expect(type).toBeInTheDocument();

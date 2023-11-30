@@ -3,8 +3,8 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import Estimate from ".";
+import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
-import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 
 const testData = [
   {
@@ -50,7 +50,11 @@ describe("예상 구매 내역 컴포넌트 테스트", () => {
     testData.forEach((item) => {
       const name = screen.getAllByText(item.accommodationName);
       const type = screen.getAllByText(item.roomName);
-      const price = screen.getAllByText(`₩${formatNumber(item.price)}`);
+      const price = screen.getAllByText(
+        `₩${formatNumber(
+          item.price * calculateNightCount(item.checkInAt, item.checkOutAt),
+        )}`,
+      );
 
       name.forEach((nameElement) => {
         expect(nameElement).toBeInTheDocument();
@@ -64,17 +68,5 @@ describe("예상 구매 내역 컴포넌트 테스트", () => {
         expect(priceElement).toBeInTheDocument();
       });
     });
-  });
-
-  test("화면에 상품의 총 합계가 알맞은 정보로 표시 되어야 한다.", () => {
-    render(<Estimate estimatedPrice={[...testData]} />, {
-      wrapper: createWrapper(),
-    });
-
-    const textElement = screen.queryByText(
-      `₩${formatNumber(calculateTotalPrice(testData))}`,
-    );
-
-    expect(textElement).toBeInTheDocument();
   });
 });

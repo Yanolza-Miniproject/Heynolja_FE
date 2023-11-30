@@ -1,4 +1,3 @@
-import calculateNightCount from "../../../utils/calculateNightCount";
 import Item from "../../Payment/Item";
 import * as Styled from "./PaymentItems.styles";
 import { PaymentItemsProps } from "./PaymentItems.types";
@@ -19,10 +18,7 @@ const PaymentItems = ({ data }: PaymentItemsProps) => {
                 name={item.accommodationName}
                 type={item.roomName}
                 guests={item.numberOfGuests}
-                price={
-                  item.price *
-                  calculateNightCount(item.checkInAt, item.checkOutAt)
-                }
+                price={item.price}
                 checkIn={item.checkInAt}
                 checkOut={item.checkOutAt}
                 roomUrl={item.roomUrl}

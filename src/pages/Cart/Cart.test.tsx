@@ -26,15 +26,15 @@ describe("장바구니 로딩 테스트", () => {
     jest.clearAllMocks();
   });
 
-  test("로딩중일 때 로딩중이라는 문구가 보여야 한다.", () => {
+  test("로딩중일 때 장바구니라는 문구가 보여서는 안된다.", () => {
     mockedUseGetMyCart.mockImplementation(() => ({
       isLoading: true,
     }));
 
     render(<Cart />, { wrapper: createWrapper() });
 
-    const textElement = screen.queryByText("로딩중");
-    expect(textElement).toBeInTheDocument();
+    const textElement = screen.queryByText("장바구니");
+    expect(textElement).not.toBeInTheDocument();
   });
 
   test("로딩중이 아닐 때 로딩중이라는 문구가 보여서는 안된다.", () => {

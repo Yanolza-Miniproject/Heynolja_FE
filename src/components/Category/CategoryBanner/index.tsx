@@ -4,27 +4,32 @@ import * as Styled from "./CategoryBanner.styles";
 import { CategoryBannerProps } from "./CategoryBanner.types";
 
 const CategoryBanner = memo(
-  ({ searchFn, firstText, secondText }: CategoryBannerProps) => {
+  ({ firstText, secondText }: CategoryBannerProps) => {
     return (
       <>
         <Styled.Banner>
-          <Styled.CategoryBannerTextMotion
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <p>{firstText}</p>
-            <p>{secondText}</p>
-            <Styled.CategoryBannerSearchMotion
-              data-testid="search-button"
+          <Styled.CategoryBannerWrapper>
+            <Styled.CategoryBannerTextMotion
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 1.3 }}
-              onClick={searchFn}
+              transition={{ duration: 1, delay: 0.5 }}
             >
-              <SearchButton />
-            </Styled.CategoryBannerSearchMotion>
-          </Styled.CategoryBannerTextMotion>
+              <div>
+                <Styled.CategoryBannerTextWrapper>
+                  <p>{firstText}</p>
+                  <p>{secondText}</p>
+                </Styled.CategoryBannerTextWrapper>
+                <Styled.CategoryBannerSearchMotion
+                  data-testid="search-button"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1.5, delay: 1.3 }}
+                >
+                  <SearchButton />
+                </Styled.CategoryBannerSearchMotion>
+              </div>
+            </Styled.CategoryBannerTextMotion>
+          </Styled.CategoryBannerWrapper>
         </Styled.Banner>
       </>
     );
