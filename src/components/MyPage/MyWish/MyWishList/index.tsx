@@ -22,7 +22,7 @@ const MyWishList = () => {
               />
             );
           })}
-        {isLoading && <div>로딩중</div>}
+        {isLoading && <div></div>}
       </Styled.ListGridItemWrapper>
     </>
   );

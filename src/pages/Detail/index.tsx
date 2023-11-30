@@ -36,7 +36,7 @@ const Detail = () => {
   }, [data]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   console.log("roomId", roomId);

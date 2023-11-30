@@ -18,7 +18,7 @@ const Complete = () => {
   }
 
   if (isLoading || !data) {
-    return <div>로딩중</div>;
+    return <div></div>;
   }
 
   return (

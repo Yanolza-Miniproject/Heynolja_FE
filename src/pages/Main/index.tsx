@@ -64,7 +64,7 @@ const Main = () => {
     isLoadingParkingAccom ||
     isLoadingRandomAccom
   ) {
-    return <div>숙소 정보를 불러오는 중입니다.</div>;
+    return <div></div>;
   }
 
   return (
