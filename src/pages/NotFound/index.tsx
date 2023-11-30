@@ -2,12 +2,18 @@ import * as Styled from "./NotFound.styles";
 import NotFoundArrow from "../../assets/svg/notfound1.svg";
 import NotFoundGps from "../../assets/svg/notfound2.svg";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const NotFound = () => {
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Styled.Container>
       <Styled.IconWrapper>
