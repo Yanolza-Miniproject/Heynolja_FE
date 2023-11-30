@@ -18,7 +18,6 @@ import { getTokenRefresh } from "../utils/getTokenRefresh";
 // 토큰 추가 함수
 const addTokenToHeader = async (config: InternalAxiosRequestConfig) => {
   const token = await getTokenRefresh();
-  alert(token);
 
   if (!token) {
     // window.location.href = "/login";

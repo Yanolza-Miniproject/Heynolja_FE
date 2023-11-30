@@ -6,12 +6,12 @@ import { RecoilRoot } from "recoil";
 import App from "./App.tsx";
 import "./index.css";
 
-//async function deferRender() {
-//  const { worker } = await import("./mocks/browser/browser.ts");
-//  return worker.start();
-//}
-//
-//deferRender().then(() => {
+// async function deferRender() {
+//   const { worker } = await import("./mocks/browser/browser.ts");
+//   return worker.start();
+// }
+
+// deferRender().then(() => {
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -24,4 +24,4 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </QueryClientProvider>
   </React.StrictMode>,
 );
-//});
+// });

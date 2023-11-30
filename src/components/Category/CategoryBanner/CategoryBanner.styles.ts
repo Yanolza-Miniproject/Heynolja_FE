@@ -10,6 +10,8 @@ export const Banner = styled.div`
   width: 100%;
   height: 30vh;
   background-color: #191554;
+
+  border-radius: 10px;
 `;
 
 export const CategoryBannerTextMotion = styled(motion.div)`

@@ -11,15 +11,15 @@ export const Banner = styled.div<BannerProps>`
   margin-bottom: 16px;
   margin-right: 20px;
 
-  padding: 4px 8px;
+  padding: 5px 9px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
   color: white;
   background-color: #5645d6;
   cursor: default;
 
-  ${(props) => props.lowStock && `background-color: #191554l;`}
+  ${(props) => props.lowStock && `background-color: #191554;`}
   ${(props) => props.outOfStock && `background-color: red;`}
 `;

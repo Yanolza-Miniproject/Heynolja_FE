@@ -13,7 +13,7 @@ const testData = {
   thumbnailUrl:
     "https://res.cloudinary.com/dtf6uf7vi/image/upload/v1700183654/Home/testid.jpg",
   lowest_price: 488,
-  likes_available: true,
+  isWish: true,
   categoryParking: 1,
   categoryCooking: 1,
   categoryPickup: 1,
