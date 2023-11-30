@@ -2,11 +2,9 @@ import * as Styled from "./MyOrderItemWrapper.styles";
 import MyOrderItem from "../MyOrderItem/index";
 import { MyOrderListProps } from "../MyOrderList/MyOrderList.type";
 import { MyOrderItemWrapperProps } from "./MyOrderItemWrapper.types";
-import formatNumber from "../../../../utils/formatNumber";
 
 const MyOrderItemWrapper = ({
   id,
-  totalPrice,
   totalCount,
   paymentAt,
   rooms,
@@ -15,10 +13,10 @@ const MyOrderItemWrapper = ({
     <Styled.MyOrderItemWrapper>
       <Styled.Header>
         <Styled.OrderInfo>
-          결제번호: {id}, 결제일시: {paymentAt}
+          No. {id} | 결제 일시 {paymentAt.slice(0, 16).replace("T", " ")}
         </Styled.OrderInfo>
         <Styled.OrderTotalPrice>
-          결제개수: {totalCount}, 결제가격: ₩ {formatNumber(totalPrice)}
+          총 결제 개수: {totalCount}
         </Styled.OrderTotalPrice>
       </Styled.Header>
       <Styled.ItemWrapper>
