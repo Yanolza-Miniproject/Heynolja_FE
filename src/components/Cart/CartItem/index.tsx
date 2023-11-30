@@ -84,11 +84,10 @@ const CartItem = ({
           alt="exit"
           style={{ cursor: "pointer", scale: "0.7" }}
           onClick={fetch}
-          onError={handleError}
         />
       </Styled.itemTop>
       <Styled.itemBottom>
-        <Styled.Image></Styled.Image>
+        <Styled.Image onError={handleError}></Styled.Image>
         <Styled.Info>
           <p>
             <span>방 타입</span>: {item.roomName}
