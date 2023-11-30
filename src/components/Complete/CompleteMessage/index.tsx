@@ -1,9 +1,25 @@
+import { useEffect, useState } from "react";
+import calculateNightCount from "../../../utils/calculateNightCount";
+import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 import formatNumber from "../../../utils/formatNumber";
 import * as Styled from "./CompleteMessage.styles";
 import { CompleteMessageProps } from "./CompleteMessage.types";
 import { leftDateUntilTheTrip } from "./CompleteMessage.utils";
 
-const CompleteMessage = ({ data, totalPrice }: CompleteMessageProps) => {
+const CompleteMessage = ({ data }: CompleteMessageProps) => {
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    const newPrice = data.map((item) => {
+      return {
+        ...item,
+        price:
+          item.price * calculateNightCount(item.checkInAt, item.checkOutAt),
+      };
+    });
+    setTotalPrice(calculateTotalPrice(newPrice));
+  }, []);
+
   return (
     <Styled.Container>
       <Styled.TextWrapper>
