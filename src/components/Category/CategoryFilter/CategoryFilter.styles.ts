@@ -6,7 +6,6 @@ export const CategoryFilterContainer = styled.div`
   justify-content: center;
 
   width: 100%;
-  height: 500px;
   padding: 1rem;
   margin: 0 auto;
 
@@ -21,6 +20,13 @@ export const CategoryFilterWrapper = styled.div`
   flex-direction: column;
 
   gap: 1rem;
+  width: 100%;
+`;
+
+export const CategoryViewButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   width: 100%;
 `;
 
