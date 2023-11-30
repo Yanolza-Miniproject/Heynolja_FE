@@ -21,6 +21,9 @@ export const itemTop = styled.div`
   margin-bottom: 1rem;
 
   font-size: 1.2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 
@@ -40,6 +43,11 @@ export const Image = styled.div`
 
   width: 8.5rem;
   height: 8.5rem;
+
+  @media (max-width: 768px) {
+    width: 8rem;
+    height: 8rem;
+  }
 `;
 
 export const Info = styled.div`
@@ -63,5 +71,13 @@ export const Info = styled.div`
 
     font-size: 1.2rem;
     font-weight: bold;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
   }
 `;

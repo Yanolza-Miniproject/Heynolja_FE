@@ -14,6 +14,10 @@ export const Container = styled.div`
   display: flex;
 
   padding: 0 5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const WrapTitle = styled.p`
@@ -54,8 +58,30 @@ export const ListWrapper = styled(Wrapper)`
   & label {
     user-select: none;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const EstimateWrapper = styled(Wrapper)`
   width: 30%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 `;
+
+// @media (max-width: 1200px) {
+//   grid-template-columns: ${({ isRandomAccomData }) =>
+//     isRandomAccomData ? "repeat(5, auto)" : "repeat(3, auto)"};
+// }
+
+// @media (max-width: 768px) {
+//   grid-template-columns: repeat(2, auto);
+// }
+
+// @media (max-width: 480px) {
+//   grid-template-columns: repeat(1, auto);
+// }
