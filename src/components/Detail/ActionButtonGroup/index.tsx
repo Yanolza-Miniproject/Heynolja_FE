@@ -5,6 +5,8 @@ import { purchaseState } from "../../../store/purchaseAtom";
 import * as Styled from "./ActionButtonGroup.styles";
 import { ActionButtonGroupProps } from "./ActionButtonGroup.types";
 import { formatDate } from "../../../utils/formatDate";
+import { useRecoilValue } from "recoil";
+import { userDataAtom } from "../../../store/userDataAtom";
 
 const ActionButtonGroup = ({
   checkInAt,
@@ -19,6 +21,9 @@ const ActionButtonGroup = ({
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const roomId = parseInt(queryParams.get("room-id") || "0", 10);
+
+  const userData = useRecoilValue(userDataAtom);
+  const isLoggedIn = userData.memberId !== "";
 
   const onAddToCart = () => {
     const formattedCheckInAt = formatDate(new Date(checkInAt));
@@ -60,7 +65,6 @@ const ActionButtonGroup = ({
       },
       {
         onSuccess: (response) => {
-          // const orderId = Math.floor(Math.random() * 100000); // 이부분 삭제 예정
           setPurchase((prev) => ({
             ...prev,
             order_id: response.data.data,
@@ -77,10 +81,10 @@ const ActionButtonGroup = ({
 
   return (
     <Styled.ButtonGroupContainer>
-      <Styled.AddToCartButton onClick={onAddToCart}>
+      <Styled.AddToCartButton onClick={onAddToCart} disabled={!isLoggedIn}>
         장바구니 담기
       </Styled.AddToCartButton>
-      <Styled.BuyNowButton onClick={handleBuyNow}>
+      <Styled.BuyNowButton onClick={handleBuyNow} disabled={!isLoggedIn}>
         바로 구매하기
       </Styled.BuyNowButton>
     </Styled.ButtonGroupContainer>
