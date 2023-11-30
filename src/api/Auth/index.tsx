@@ -10,8 +10,8 @@ export const fetchSignin = async (data: SignInInputs) => {
   });
 
   const returnData = {
-    accessToken: response.headers["Access_Token"],
-    refreshToken: response.headers["Refresh_Token"],
+    accessToken: response.headers["Access-Token"],
+    refreshToken: response.headers["Refresh-Token"],
     message: response.data.message,
     memberId: response.data.data.memberId,
     nickname: response.data.data.nickname,
