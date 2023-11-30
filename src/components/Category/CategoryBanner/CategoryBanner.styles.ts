@@ -14,40 +14,37 @@ export const Banner = styled.div`
   border-radius: 10px;
 `;
 
-export const AbsoluteBackground = styled.div`
-  position: absolute;
-  width: 200%;
+export const CategoryBannerWrapper = styled.div`
+  width: 90%;
   height: 100%;
 
-  background-color: #191554;
-  opacity: 0.5;
+  margin-left: 10%;
 `;
 
 export const CategoryBannerTextMotion = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: start;
+
+  width: 100%;
+  height: 100%;
 
   gap: 0.5rem;
 
-  margin-top: 2%;
-  margin-left: 20%;
-
-  text-align: start;
-
   font-size: 3em;
-  color: white;
   font-weight: 800;
+  color: white;
+`;
 
-  @media (max-width: 800px) {
-    margin-top: 2rem;
-    margin-left: 2rem;
+export const CategoryBannerTextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 
-    font-size: 2rem;
-  }
+  gap: 0.6rem;
 `;
 
 export const CategoryBannerSearchMotion = styled(motion.div)`
-  width: object-fit;
   margin-top: 1.2rem;
 
   @media (max-width: 800px) {

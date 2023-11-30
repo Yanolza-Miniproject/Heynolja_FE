@@ -6,17 +6,12 @@ import CategoryBanner from "./";
 describe("CategoryBanner", () => {
   it("텍스트가 잘 렌더링 되는지 테스트", () => {
     const wrapper = createRecoilWrapper();
-    const onChange = jest.fn();
 
     const firstText = "Hey 놀자!";
     const secondText = "지금 둘러보세요.";
 
     render(
-      <CategoryBanner
-        firstText={firstText}
-        secondText={secondText}
-        searchFn={onChange}
-      />,
+      <CategoryBanner firstText={firstText} secondText={secondText} />,
 
       { wrapper },
     );
@@ -34,11 +29,7 @@ describe("CategoryBanner", () => {
     const secondText = "지금 둘러보세요.";
 
     render(
-      <CategoryBanner
-        firstText={firstText}
-        secondText={secondText}
-        searchFn={onChange}
-      />,
+      <CategoryBanner firstText={firstText} secondText={secondText} />,
 
       { wrapper },
     );

@@ -18,15 +18,15 @@ export const checkCategoryQueryUrl = ({
     typeUrl: type !== 99 && type !== null ? `&type=${type}` : "",
     categoryParkingUrl:
       categoryParking !== 2 && categoryParking !== null
-        ? `&categoryParking=${categoryParking}`
+        ? `&category-parking=${categoryParking}`
         : "",
     categoryCookingUrl:
       categoryCooking !== 2 && categoryCooking !== null
-        ? `&categoryCooking=${categoryCooking}`
+        ? `&category-cooking=${categoryCooking}`
         : "",
     categoryPickupUrl:
       categoryPickup !== 2 && categoryPickup !== null
-        ? `&categoryPickup=${categoryPickup}`
+        ? `&category-pickup=${categoryPickup}`
         : "",
   };
 

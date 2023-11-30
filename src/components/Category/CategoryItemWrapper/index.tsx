@@ -17,7 +17,9 @@ const CategoryItemWrapper = ({ data }: CategoryItemWrapperProps) => {
           });
         })
       ) : (
-        <h1>검색 결과가 없습니다.</h1>
+        <Styled.CategoryItemNoContentMessage>
+          검색 결과가 없습니다.
+        </Styled.CategoryItemNoContentMessage>
       )}
     </Styled.CategoryItemWrapper>
   );
