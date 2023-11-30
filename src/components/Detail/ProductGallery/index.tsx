@@ -2,6 +2,7 @@ import * as Styled from "./ProductGallery.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ProductGalleryProps } from "./ProductGallery.types";
+import defaultImage from "../../../assets/image/no-image.png";
 
 const settings = {
   dots: true,
@@ -12,15 +13,15 @@ const settings = {
 };
 
 const ProductGallery: React.FC<ProductGalleryProps> = ({ images }) => {
+  const displayImages =
+    images.length > 0 ? images : [{ id: 0, imageUrl: defaultImage }];
+
   return (
     <Styled.GalleryContainer>
       <Styled.StyledSlider {...settings}>
-        {images.map((image, index) => (
-          <Styled.SlideContainer key={index}>
-            <Styled.ProductImage
-              src={image}
-              alt={`Product Image ${index + 1}`}
-            />
+        {displayImages.map(({ id, imageUrl }) => (
+          <Styled.SlideContainer key={id}>
+            <Styled.ProductImage src={imageUrl} alt={`Product Image ${id}`} />
           </Styled.SlideContainer>
         ))}
       </Styled.StyledSlider>
