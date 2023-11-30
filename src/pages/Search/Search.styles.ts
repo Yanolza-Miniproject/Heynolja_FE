@@ -19,6 +19,28 @@ export const Container = styled.div`
     font-size: 1.25rem;
     font-weight: 700;
   }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
 `;
 
 export const SearchCard = styled.div`
@@ -36,4 +58,23 @@ export const SearchCard = styled.div`
 
   border: 1px solid #e6e6e6;
   border-radius: 1rem;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+  }
 `;

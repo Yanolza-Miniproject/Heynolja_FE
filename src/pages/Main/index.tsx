@@ -72,8 +72,10 @@ const Main = () => {
       <Sidebar />
       <Styled.Container ref={ref}>
         <Styled.Banner>
-          Hey 놀자!
-          <br /> 지금 둘러보세요. 👀
+          <span>
+            Hey 놀자!
+            <br /> 지금 둘러보세요. 👀
+          </span>
         </Styled.Banner>
 
         <AccommodationList
