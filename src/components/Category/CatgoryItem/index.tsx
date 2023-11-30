@@ -41,14 +41,16 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
           ease: "easeInOut",
         }}
       >
-        <Styled.CategoryImage
-          view={categoryViewState}
-          src={data.thumbnailUrl}
-          alt={data.name}
-          onClick={handleClick}
-          onError={handleError}
-          data-testid="individual-item"
-        />
+        <div>
+          <Styled.CategoryImage
+            view={categoryViewState}
+            src={data.thumbnailUrl}
+            alt={data.name}
+            onClick={handleClick}
+            onError={handleError}
+            data-testid="individual-item"
+          />
+        </div>
         <Styled.CategoryTextWrapper view={categoryViewState}>
           <Styled.CategoryName view={categoryViewState}>
             {data.name}

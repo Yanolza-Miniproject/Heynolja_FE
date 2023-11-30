@@ -42,12 +42,14 @@ export const CategoryItemWrapper = styled(
 `;
 
 export const CategoryImage = styled.img<CategoryItemContainerProps>`
-  width: ${(props) => (props.view ? "15vw" : "10vw")};
-  height: ${(props) => (props.view ? "15vw" : "10vw")};
+  width: ${(props) => (props.view ? "10vw" : "10vw")};
+  height: ${(props) => (props.view ? "10vw" : "10vw")};
 
   padding: 1rem;
 
   border-radius: 30px;
+  object-fit: cover;
+  object-position: center;
 
   @media (max-width: 768px) {
     width: ${(props) => (props.view ? "20vw" : "20vw")};

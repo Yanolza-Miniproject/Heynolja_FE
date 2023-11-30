@@ -64,13 +64,15 @@ const MyWishItem = ({ data }: myWishItemProps) => {
           ease: "easeInOut",
         }}
       >
-        <Styled.CategoryImage
-          src={data.thumbnailUrl}
-          alt={data.name}
-          onClick={handleClick}
-          onError={handleError}
-          data-testid="individual-item"
-        />
+        <div>
+          <Styled.CategoryImage
+            src={data.thumbnailUrl}
+            alt={data.name}
+            onClick={handleClick}
+            onError={handleError}
+            data-testid="individual-item"
+          />
+        </div>
         <Styled.CategoryTextWrapper>
           <Styled.CategoryName>{data.name}</Styled.CategoryName>
           <Styled.CategoryTopWrapper>
