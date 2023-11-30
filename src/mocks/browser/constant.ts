@@ -3,7 +3,7 @@ export const MockUpData = [
     id: 53096,
     name: "비진도 바다이야기 펜션",
     address: "경상남도 통영시 한산면 외항길 78",
-    phone_number: "055-642-6171",
+    phoneNumber: "055-642-6171",
     type: 4,
     wishCount: 644,
     thumbnailUrl:
@@ -22,7 +22,7 @@ export const MockUpData = [
     id: 47247,
     name: "토요코 인 서면",
     address: "부산광역시 부산진구 서전로 39",
-    phone_number: "051-638-1045",
+    phoneNumber: "051-638-1045",
     type: 1,
     wishCount: 217,
     thumbnailUrl:
@@ -41,7 +41,7 @@ export const MockUpData = [
     id: 4709,
     name: "아모렉스관광호텔",
     address: "서울특별시 성동구 왕십리로20길 19",
-    phone_number: "02-2292-7634",
+    phoneNumber: "02-2292-7634",
     type: 9,
     wishCount: 556,
     thumbnailUrl:
@@ -60,7 +60,7 @@ export const MockUpData = [
     id: 8297,
     name: "유로파라텔",
     address: "서울특별시 구로구 새말로18길 142",
-    phone_number: "02-869-7396",
+    phoneNumber: "02-869-7396",
     type: 5,
     wishCount: 821,
     thumbnailUrl:
@@ -79,7 +79,7 @@ export const MockUpData = [
     id: 25033,
     name: "오색그린야드호텔",
     address: "강원특별자치도 양양군 서면 대청봉길 34",
-    phone_number: "033-670-1004",
+    phoneNumber: "033-670-1004",
     type: 8,
     wishCount: 813,
     thumbnailUrl:
@@ -98,7 +98,7 @@ export const MockUpData = [
     id: 53079,
     name: "금호통영마리나리조트",
     address: "경상남도 통영시 큰발개1길 33(도남동)",
-    phone_number: "055-643-8000<br />055-646-7001",
+    phoneNumber: "055-643-8000<br />055-646-7001",
     type: 8,
     wishCount: 805,
     thumbnailUrl:
@@ -117,7 +117,7 @@ export const MockUpData = [
     id: 55556,
     name: "무주덕유산리조트 가족호텔",
     address: "전라북도 무주군 설천면 만선로 185",
-    phone_number: "063-322-9000",
+    phoneNumber: "063-322-9000",
     type: 9,
     wishCount: 728,
     thumbnailUrl:
@@ -136,7 +136,7 @@ export const MockUpData = [
     id: 59047,
     name: "해남유스호스텔",
     address: "전라남도 해남군 삼산면 대흥사길 88-88",
-    phone_number: "061-533-0170",
+    phoneNumber: "061-533-0170",
     type: 5,
     wishCount: 61,
     thumbnailUrl:
@@ -155,7 +155,7 @@ export const MockUpData = [
     id: 25102,
     name: "소노벨 비발디파크",
     address: "강원특별자치도 홍천군 서면 한치골길 262",
-    phone_number: "1588-4888",
+    phoneNumber: "1588-4888",
     type: 8,
     wishCount: 497,
     thumbnailUrl:
@@ -174,7 +174,7 @@ export const MockUpData = [
     id: 38116,
     name: "한솔모텔",
     address: "경상북도 경주시 보문로 465-47(신평동)",
-    phone_number: "054-748-3800",
+    phoneNumber: "054-748-3800",
     type: 3,
     wishCount: 400,
     thumbnailUrl:
@@ -193,7 +193,7 @@ export const MockUpData = [
     id: 17390,
     name: "지산 메이플콘도",
     address: "경기도 이천시 마장면 지산로 267",
-    phone_number: "031-644-1261",
+    phoneNumber: "031-644-1261",
     type: 4,
     wishCount: 545,
     thumbnailUrl:
@@ -212,7 +212,7 @@ export const MockUpData = [
     id: 24702,
     name: "금강산콘도",
     address: "강원특별자치도 고성군 현내면 금강산로 416",
-    phone_number: "033-680-7800",
+    phoneNumber: "033-680-7800",
     type: 4,
     wishCount: 620,
     thumbnailUrl:
@@ -231,7 +231,7 @@ export const MockUpData = [
     id: 56452,
     name: "고창 선운산 유스호스텔",
     address: "전라북도 고창군 아산면 선운사로 158-36",
-    phone_number: "063-561-3333<br />063-561-3445<br />063-561-3446",
+    phoneNumber: "063-561-3333<br />063-561-3445<br />063-561-3446",
     type: 5,
     wishCount: 740,
     thumbnailUrl:
@@ -250,7 +250,7 @@ export const MockUpData = [
     id: 52400,
     name: "남해비치텔",
     address: "경상남도 남해군 설천면 노량로 194",
-    phone_number: "055-863-5505",
+    phoneNumber: "055-863-5505",
     type: 3,
     wishCount: 911,
     thumbnailUrl:
@@ -269,7 +269,7 @@ export const MockUpData = [
     id: 36238,
     name: "궁전파크모텔",
     address: "경상북도 봉화군 봉화읍 예봉로 2043",
-    phone_number: "054-674-0300",
+    phoneNumber: "054-674-0300",
     type: 1,
     wishCount: 628,
     thumbnailUrl:
@@ -288,7 +288,7 @@ export const MockUpData = [
     id: 63528,
     name: "라운지하우스 제주다",
     address: "제주특별자치도 서귀포시 안덕면 사계남로50번길 60",
-    phone_number: "064-792-5670",
+    phoneNumber: "064-792-5670",
     type: 0,
     wishCount: 945,
     thumbnailUrl:
@@ -307,7 +307,7 @@ export const MockUpData = [
     id: 26019,
     name: "리베라모텔(태백)",
     address: "강원특별자치도 태백시 고원로 87",
-    phone_number: "033-552-5691",
+    phoneNumber: "033-552-5691",
     type: 6,
     wishCount: 317,
     thumbnailUrl:
@@ -326,7 +326,7 @@ export const MockUpData = [
     id: 26133,
     name: "강이흐르는마을 펜션",
     address: "강원특별자치도 정선군 정선읍 군언길 129",
-    phone_number: "033-563-7979",
+    phoneNumber: "033-563-7979",
     type: 1,
     wishCount: 752,
     thumbnailUrl:
@@ -345,7 +345,7 @@ export const MockUpData = [
     id: 53333,
     name: "수미르펜션",
     address: "경상남도 거제시 남부면 거제남서로 750-1",
-    phone_number: "055-632-5745",
+    phoneNumber: "055-632-5745",
     type: 7,
     wishCount: 627,
     thumbnailUrl:
@@ -364,7 +364,7 @@ export const MockUpData = [
     id: 63626,
     name: "소노캄 제주(구 샤인빌 리조트)",
     address: "제주특별자치도 서귀포시 표선면 일주동로 6347-17",
-    phone_number: "02-1588-4888",
+    phoneNumber: "02-1588-4888",
     type: 4,
     wishCount: 912,
     thumbnailUrl:
@@ -383,7 +383,7 @@ export const MockUpData = [
     id: 32152,
     name: "마리나 비치펜션",
     address: "충청남도 태안군 남면 몽대로 494-8",
-    phone_number: "041-672-4097",
+    phoneNumber: "041-672-4097",
     type: 6,
     wishCount: 417,
     thumbnailUrl:
@@ -402,7 +402,7 @@ export const MockUpData = [
     id: 59448,
     name: "보성골망태펜션",
     address: "전라남도 보성군 보성읍 노산길 5-56",
-    phone_number: "061-852-1966",
+    phoneNumber: "061-852-1966",
     type: 1,
     wishCount: 263,
     thumbnailUrl:
@@ -421,7 +421,7 @@ export const MockUpData = [
     id: 63620,
     name: "금호리조트 제주",
     address: "제주특별자치도 서귀포시 남원읍 태위로 522-12",
-    phone_number: "064-766-8000",
+    phoneNumber: "064-766-8000",
     type: 4,
     wishCount: 49,
     thumbnailUrl:
@@ -440,7 +440,7 @@ export const MockUpData = [
     id: 25009,
     name: "낙산 패밀리파크",
     address: "강원특별자치도 양양군 강현면 일출로 8",
-    phone_number: "033-671-6336",
+    phoneNumber: "033-671-6336",
     type: 3,
     wishCount: 241,
     thumbnailUrl:
@@ -459,7 +459,7 @@ export const MockUpData = [
     id: 63637,
     name: "귤익는마을",
     address: "제주특별자치도 서귀포시 성산읍 신천서로 11",
-    phone_number: "064-787-0543",
+    phoneNumber: "064-787-0543",
     type: 1,
     wishCount: 76,
     thumbnailUrl:
@@ -478,7 +478,7 @@ export const MockUpData = [
     id: 32157,
     name: "청포대하와이펜션",
     address: "충청남도 태안군 남면 청포대길 29",
-    phone_number: "041-675-5858",
+    phoneNumber: "041-675-5858",
     type: 0,
     wishCount: 229,
     thumbnailUrl:
@@ -497,7 +497,7 @@ export const MockUpData = [
     id: 48303,
     name: "브릿지모텔",
     address: "부산광역시 수영구 광안해변로 155",
-    phone_number: "051-755-0583<br />051-755-0573",
+    phoneNumber: "051-755-0583<br />051-755-0573",
     type: 2,
     wishCount: 134,
     thumbnailUrl:
@@ -516,7 +516,7 @@ export const MockUpData = [
     id: 56337,
     name: "채석강 리조트 유스호스텔",
     address: "전라북도 부안군 변산면 채석강길 19",
-    phone_number: "063-583-1234",
+    phoneNumber: "063-583-1234",
     type: 5,
     wishCount: 158,
     thumbnailUrl:
@@ -535,7 +535,7 @@ export const MockUpData = [
     id: 50057,
     name: "백무산장 황토방 펜션",
     address: "경상남도 함양군 마천면 백무동로 321",
-    phone_number: "055-962-5277",
+    phoneNumber: "055-962-5277",
     type: 1,
     wishCount: 784,
     thumbnailUrl:
@@ -554,7 +554,7 @@ export const MockUpData = [
     id: 32130,
     name: "연포리조트",
     address: "충청남도 태안군 근흥면 연포2길 57",
-    phone_number: "041-673-0506",
+    phoneNumber: "041-673-0506",
     type: 6,
     wishCount: 30,
     thumbnailUrl:
@@ -573,7 +573,7 @@ export const MockUpData = [
     id: 53079,
     name: "카리브콘도텔",
     address: "경상남도 통영시 도남로 257-29(도남동)",
-    phone_number: "055-645-4070<br/>055-644-4070",
+    phoneNumber: "055-645-4070<br/>055-644-4070",
     type: 7,
     wishCount: 216,
     thumbnailUrl:
@@ -592,7 +592,7 @@ export const MockUpData = [
     id: 34184,
     name: "까펠라 모텔",
     address: "대전광역시 유성구 한밭대로492번길 16-32",
-    phone_number: "0507-1303-0953",
+    phoneNumber: "0507-1303-0953",
     type: 2,
     wishCount: 960,
     thumbnailUrl:
@@ -611,7 +611,7 @@ export const MockUpData = [
     id: 33603,
     name: "서천 휴모텔",
     address: "충청남도 서천군 서면 부사로 273",
-    phone_number: "041-952-0077",
+    phoneNumber: "041-952-0077",
     type: 8,
     wishCount: 799,
     thumbnailUrl:
@@ -630,7 +630,7 @@ export const MockUpData = [
     id: 52447,
     name: "남해 온뷰펜션",
     address: "경상남도 남해군 삼동면 동부대로1122번길 128",
-    phone_number: "055-867-6966",
+    phoneNumber: "055-867-6966",
     type: 4,
     wishCount: 888,
     thumbnailUrl:
@@ -649,7 +649,7 @@ export const MockUpData = [
     id: 25042,
     name: "보노펜션",
     address: "강원특별자치도 양양군 손양면 선사유적로 240-29",
-    phone_number: "010-9015-5209",
+    phoneNumber: "010-9015-5209",
     type: 5,
     wishCount: 559,
     thumbnailUrl:
@@ -668,7 +668,7 @@ export const MockUpData = [
     id: 53329,
     name: "트로피칼드림 리조트",
     address: "경상남도 거제시 일운면 망양1길 16",
-    phone_number: "055-681-5550",
+    phoneNumber: "055-681-5550",
     type: 1,
     wishCount: 1000,
     thumbnailUrl:
@@ -687,7 +687,7 @@ export const MockUpData = [
     id: 25103,
     name: "신영펜션",
     address: "강원특별자치도 홍천군 서면 한치골길 75-12",
-    phone_number: "033-435-8666",
+    phoneNumber: "033-435-8666",
     type: 2,
     wishCount: 833,
     thumbnailUrl:
@@ -706,7 +706,7 @@ export const MockUpData = [
     id: 18141,
     name: "럭셔리관광호텔(오산)",
     address: "경기도 오산시 경기대로 231",
-    phone_number: "031-378-8013~5",
+    phoneNumber: "031-378-8013~5",
     type: 8,
     wishCount: 226,
     thumbnailUrl:
@@ -725,7 +725,7 @@ export const MockUpData = [
     id: 59471,
     name: "녹차향펜션",
     address: "전라남도 보성군 회천면 남부관광로 2319-8",
-    phone_number: "061-853-7754",
+    phoneNumber: "061-853-7754",
     type: 5,
     wishCount: 137,
     thumbnailUrl:
@@ -744,7 +744,7 @@ export const MockUpData = [
     id: 33603,
     name: "춘장대바닷가모텔",
     address: "충청남도 서천군 서면 춘장대로151번길 39",
-    phone_number: "041-952-0737",
+    phoneNumber: "041-952-0737",
     type: 2,
     wishCount: 785,
     thumbnailUrl:
@@ -763,7 +763,7 @@ export const MockUpData = [
     id: 25916,
     name: "라벤다모텔",
     address: "강원특별자치도 삼척시 대학로 49-9",
-    phone_number: "033-574-2543<br />033-574-2539",
+    phoneNumber: "033-574-2543<br />033-574-2539",
     type: 3,
     wishCount: 1,
     thumbnailUrl:
@@ -782,7 +782,7 @@ export const MockUpData = [
     id: 63558,
     name: "JJ하우스",
     address: "제주특별자치도 서귀포시 중산간서로 241",
-    phone_number: "064-739-7891",
+    phoneNumber: "064-739-7891",
     type: 5,
     wishCount: 824,
     thumbnailUrl:
@@ -801,7 +801,7 @@ export const MockUpData = [
     id: 6164,
     name: "그랜드 인터컨티넨탈 서울 파르나스",
     address: "서울특별시 강남구 테헤란로 521",
-    phone_number: "02-555-5656",
+    phoneNumber: "02-555-5656",
     type: 6,
     wishCount: 755,
     thumbnailUrl:
@@ -820,7 +820,7 @@ export const MockUpData = [
     id: 24265,
     name: "춘천세종호텔",
     address: "강원특별자치도 춘천시 봉의산길 31",
-    phone_number: "033-252-1191~6",
+    phoneNumber: "033-252-1191~6",
     type: 5,
     wishCount: 381,
     thumbnailUrl:
@@ -839,7 +839,7 @@ export const MockUpData = [
     id: 36307,
     name: "덕구온천리조트 호텔",
     address: "경상북도 울진군 북면 덕구온천로 924",
-    phone_number: "054-782-0677",
+    phoneNumber: "054-782-0677",
     type: 6,
     wishCount: 257,
     thumbnailUrl:
@@ -858,7 +858,7 @@ export const MockUpData = [
     id: 63599,
     name: "서귀포KAL호텔",
     address: "제주특별자치도 서귀포시 칠십리로 242",
-    phone_number: "064-733-2001",
+    phoneNumber: "064-733-2001",
     type: 6,
     wishCount: 744,
     thumbnailUrl:
@@ -877,7 +877,7 @@ export const MockUpData = [
     id: 63136,
     name: "제주 펄 관광호텔",
     address: "제주특별자치도 제주시 신대로20길 49(연동)",
-    phone_number: "064-742-8871",
+    phoneNumber: "064-742-8871",
     type: 9,
     wishCount: 162,
     thumbnailUrl:
@@ -896,7 +896,7 @@ export const MockUpData = [
     id: 39565,
     name: "김천파크 관광호텔",
     address: "경상북도 김천시 대항면 황학동길 35-23",
-    phone_number: "054-437-8000",
+    phoneNumber: "054-437-8000",
     type: 7,
     wishCount: 661,
     thumbnailUrl:
@@ -915,7 +915,7 @@ export const MockUpData = [
     id: 25307,
     name: "휘닉스 평창호텔",
     address: "강원특별자치도 평창군 봉평면 태기로 174",
-    phone_number: "033-330-6001",
+    phoneNumber: "033-330-6001",
     type: 0,
     wishCount: 138,
     thumbnailUrl:
@@ -934,7 +934,7 @@ export const MockUpData = [
     id: 6164,
     name: "인터컨티넨탈 서울코엑스",
     address: "서울특별시 강남구 봉은사로 524",
-    phone_number: "02-3452-2500",
+    phoneNumber: "02-3452-2500",
     type: 2,
     wishCount: 131,
     thumbnailUrl:
@@ -953,7 +953,7 @@ export const MockUpData = [
     id: 7616,
     name: "메이필드호텔",
     address: "서울특별시 강서구 방화대로21길 94",
-    phone_number: "02-2660-9000",
+    phoneNumber: "02-2660-9000",
     type: 0,
     wishCount: 359,
     thumbnailUrl:
@@ -972,7 +972,7 @@ export const MockUpData = [
     id: 61949,
     name: "센트럴관광호텔",
     address: "광주광역시 서구 상무연하로 68",
-    phone_number: "062-383-7575",
+    phoneNumber: "062-383-7575",
     type: 7,
     wishCount: 492,
     thumbnailUrl:
@@ -991,7 +991,7 @@ export const MockUpData = [
     id: 44035,
     name: "울산 굿모닝 관광호텔",
     address: "울산광역시 동구 바드래1길 15",
-    phone_number: "052-209-9000",
+    phoneNumber: "052-209-9000",
     type: 1,
     wishCount: 956,
     thumbnailUrl:
@@ -1010,7 +1010,7 @@ export const MockUpData = [
     id: 37789,
     name: "베니키아 호텔 포항",
     address: "경상북도 포항시 남구 중앙로 128(해도동)",
-    phone_number: "054-282-2700",
+    phoneNumber: "054-282-2700",
     type: 2,
     wishCount: 273,
     thumbnailUrl:
@@ -1029,7 +1029,7 @@ export const MockUpData = [
     id: 7539,
     name: "나이아가라호텔",
     address: "서울특별시 강서구 양천로 743",
-    phone_number: "02-3660-4000",
+    phoneNumber: "02-3660-4000",
     type: 4,
     wishCount: 730,
     thumbnailUrl:
@@ -1048,7 +1048,7 @@ export const MockUpData = [
     id: 21959,
     name: "보보스모텔",
     address: "인천광역시 연수구 능허대로104번길 59",
-    phone_number: "032-831-2141",
+    phoneNumber: "032-831-2141",
     type: 6,
     wishCount: 971,
     thumbnailUrl:
@@ -1067,7 +1067,7 @@ export const MockUpData = [
     id: 57604,
     name: "화야평",
     address: "전라남도 구례군 산동면 사포길 33-121",
-    phone_number: "061-783-7900",
+    phoneNumber: "061-783-7900",
     type: 9,
     wishCount: 696,
     thumbnailUrl:
@@ -1086,7 +1086,7 @@ export const MockUpData = [
     id: 12566,
     name: "쉐르빌 온천 호텔",
     address: "경기도 양평군 개군면 신내길7번길 37",
-    phone_number: "031-774-4101~3",
+    phoneNumber: "031-774-4101~3",
     type: 8,
     wishCount: 770,
     thumbnailUrl:
@@ -1105,7 +1105,7 @@ export const MockUpData = [
     id: 16491,
     name: "호텔리츠",
     address: "경기도 수원시 팔달구 권광로134번길 44-11",
-    phone_number: "031-224-1100",
+    phoneNumber: "031-224-1100",
     type: 6,
     wishCount: 449,
     thumbnailUrl:
@@ -1124,7 +1124,7 @@ export const MockUpData = [
     id: 36604,
     name: "노송정종택(퇴계생가)[한국관광 품질인증/Korea Quality]",
     address: "경상북도 안동시 온혜중마길 46-5(도산면)",
-    phone_number: "054-856-1052",
+    phoneNumber: "054-856-1052",
     type: 1,
     wishCount: 393,
     thumbnailUrl:
@@ -1143,7 +1143,7 @@ export const MockUpData = [
     id: 55041,
     name: "풍남헌[한국관광 품질인증/Korea Quality]",
     address: "전라북도 전주시 완산구 은행로 35 풍남헌",
-    phone_number: "063-286-7673",
+    phoneNumber: "063-286-7673",
     type: 0,
     wishCount: 807,
     thumbnailUrl:
@@ -1162,7 +1162,7 @@ export const MockUpData = [
     id: 4324,
     name: "24게스트하우스 서울역점",
     address: "서울특별시 용산구 후암로57길 41",
-    phone_number: "02-754-8124",
+    phoneNumber: "02-754-8124",
     type: 4,
     wishCount: 118,
     thumbnailUrl:
@@ -1181,7 +1181,7 @@ export const MockUpData = [
     id: 24902,
     name: "베니키아 호텔 산과 바다 대포항",
     address: "강원특별자치도 속초시 동해대로 3691(대포동)",
-    phone_number: "033-635-6644",
+    phoneNumber: "033-635-6644",
     type: 2,
     wishCount: 437,
     thumbnailUrl:
@@ -1200,7 +1200,7 @@ export const MockUpData = [
     id: 58019,
     name: "순천만에코촌 유스호스텔[한국관광 품질인증/Korea Quality]",
     address: "전라남도 순천시 해룡면 생태배움길 123",
-    phone_number: "061-749-4817",
+    phoneNumber: "061-749-4817",
     type: 0,
     wishCount: 656,
     thumbnailUrl:
@@ -1219,7 +1219,7 @@ export const MockUpData = [
     id: 26223,
     name: "동강시스타 리조트",
     address: "강원특별자치도 영월군 영월읍 사지막길 160",
-    phone_number: "033-905-2000",
+    phoneNumber: "033-905-2000",
     type: 7,
     wishCount: 842,
     thumbnailUrl:
@@ -1238,7 +1238,7 @@ export const MockUpData = [
     id: 63525,
     name: "루체빌리조트",
     address: "제주특별자치도 서귀포시 안덕면 산록남로 786",
-    phone_number: "064-805-0114",
+    phoneNumber: "064-805-0114",
     type: 9,
     wishCount: 128,
     thumbnailUrl:
@@ -1257,7 +1257,7 @@ export const MockUpData = [
     id: 55045,
     name: "한옥이야기[한국관광 품질인증/Korea Quality]",
     address: "전라북도 전주시 완산구 은행로 83-14",
-    phone_number: "010-9203-1111",
+    phoneNumber: "010-9203-1111",
     type: 6,
     wishCount: 127,
     thumbnailUrl:
@@ -1276,7 +1276,7 @@ export const MockUpData = [
     id: 55045,
     name: "사랑가득[한국관광 품질인증/Korea Quality]",
     address: "전라북도 전주시 완산구 향교길 149-8(교동)",
-    phone_number: "010-7451-3355",
+    phoneNumber: "010-7451-3355",
     type: 7,
     wishCount: 165,
     thumbnailUrl:
@@ -1295,7 +1295,7 @@ export const MockUpData = [
     id: 52433,
     name: "아난티 남해",
     address: "경상남도 남해군 남면 남서대로1179번길 40-109",
-    phone_number: "055-860-0100",
+    phoneNumber: "055-860-0100",
     type: 4,
     wishCount: 274,
     thumbnailUrl:
@@ -1314,7 +1314,7 @@ export const MockUpData = [
     id: 27492,
     name: "충주 야생화와고택나들이[한국관광 품질인증/Korea Quality]",
     address: "충청북도 충주시 중원대로 2220",
-    phone_number: "010-5485-7744",
+    phoneNumber: "010-5485-7744",
     type: 6,
     wishCount: 57,
     thumbnailUrl:
@@ -1333,7 +1333,7 @@ export const MockUpData = [
     id: 25300,
     name: "벤치하우스 펜션",
     address: "강원특별자치도 평창군 봉평면 흥정계곡1길 35-6",
-    phone_number: "010-3414-0487",
+    phoneNumber: "010-3414-0487",
     type: 0,
     wishCount: 90,
     thumbnailUrl:
@@ -1352,7 +1352,7 @@ export const MockUpData = [
     id: 23128,
     name: "큰나무펜션",
     address: "인천광역시 옹진군 자월면 대이작로159번길 35-19",
-    phone_number: "010-4764-6412",
+    phoneNumber: "010-4764-6412",
     type: 7,
     wishCount: 828,
     thumbnailUrl:
@@ -1371,7 +1371,7 @@ export const MockUpData = [
     id: 48095,
     name: "라마다 앙코르 바이워덤 부산해운대",
     address: "부산광역시 해운대구 구남로 9(우동)",
-    phone_number: "051-610-3000",
+    phoneNumber: "051-610-3000",
     type: 2,
     wishCount: 74,
     thumbnailUrl:
@@ -1390,7 +1390,7 @@ export const MockUpData = [
     id: 48957,
     name: "센트럴파크 호텔[한국관광 품질인증/Korea Quality]",
     address: "부산광역시 중구 해관로 20(중앙동1가)",
-    phone_number: "051-243-8001",
+    phoneNumber: "051-243-8001",
     type: 6,
     wishCount: 833,
     thumbnailUrl:
@@ -1409,7 +1409,7 @@ export const MockUpData = [
     id: 25460,
     name: "호텔여기어때 강릉경포점",
     address: "강원특별자치도 강릉시 해안로406번길 13-9",
-    phone_number: "033-644-2776",
+    phoneNumber: "033-644-2776",
     type: 7,
     wishCount: 956,
     thumbnailUrl:
@@ -1428,7 +1428,7 @@ export const MockUpData = [
     id: 31110,
     name: "호텔여기어때 천안성정점",
     address: "충청남도 천안시 서북구 성정공원4길 31",
-    phone_number: "070-5158-5924",
+    phoneNumber: "070-5158-5924",
     type: 9,
     wishCount: 265,
     thumbnailUrl:
@@ -1447,7 +1447,7 @@ export const MockUpData = [
     id: 48099,
     name: "플레아 드 블랑 (PLEA DE BLANC)",
     address: "부산광역시 해운대구 해운대해변로298번길 29",
-    phone_number: "051-742-2277",
+    phoneNumber: "051-742-2277",
     type: 7,
     wishCount: 935,
     thumbnailUrl:
@@ -1466,7 +1466,7 @@ export const MockUpData = [
     id: 52227,
     name: "산청나리꽃펜션",
     address: "경상남도 산청군 산청읍 웅석봉로250번길 52-9",
-    phone_number: "055-972-9989",
+    phoneNumber: "055-972-9989",
     type: 8,
     wishCount: 686,
     thumbnailUrl:
@@ -1485,7 +1485,7 @@ export const MockUpData = [
     id: 53024,
     name: "종이섬펜션",
     address: "경상남도 통영시 용남면 남해안대로 79",
-    phone_number: "010-4593-3211",
+    phoneNumber: "010-4593-3211",
     type: 4,
     wishCount: 601,
     thumbnailUrl:
@@ -1504,7 +1504,7 @@ export const MockUpData = [
     id: 55044,
     name: "사랑나무 한옥펜션",
     address: "전라북도 전주시 완산구 은행로 96(교동)",
-    phone_number: "010-5171-7970",
+    phoneNumber: "010-5171-7970",
     type: 7,
     wishCount: 246,
     thumbnailUrl:
@@ -1523,7 +1523,7 @@ export const MockUpData = [
     id: 55517,
     name: "기린모텔 [한국관광 품질인증/Korea Quality]",
     address: "전라북도 무주군 무주읍 단천로 74",
-    phone_number: "010-4120-5562",
+    phoneNumber: "010-4120-5562",
     type: 7,
     wishCount: 390,
     thumbnailUrl:
@@ -1542,7 +1542,7 @@ export const MockUpData = [
     id: 27027,
     name: "단촌서원고택 [한국관광 품질인증/Korea Quality]",
     address: "충청북도 단양군 단성면 북상하리길 103-10",
-    phone_number: "010-7230-5415",
+    phoneNumber: "010-7230-5415",
     type: 7,
     wishCount: 928,
     thumbnailUrl:
@@ -1561,7 +1561,7 @@ export const MockUpData = [
     id: 36604,
     name: "온계종택 삼백당[한국관광 품질인증/Korea Quality]",
     address: "경상북도 안동시 온혜중마길 20",
-    phone_number: "010-2988-3435",
+    phoneNumber: "010-2988-3435",
     type: 3,
     wishCount: 999,
     thumbnailUrl:
@@ -1580,7 +1580,7 @@ export const MockUpData = [
     id: 36731,
     name: "만초고택[한국관광 품질인증/Korea Quality]",
     address: "경상북도 안동시 금소중앙길 48",
-    phone_number: "010-5191-3697",
+    phoneNumber: "010-5191-3697",
     type: 9,
     wishCount: 972,
     thumbnailUrl:
@@ -1599,7 +1599,7 @@ export const MockUpData = [
     id: 36759,
     name: "만소당 [한국관광 품질인증/Korea Quality]",
     address: "경상북도 안동시 한옥마을1길 6-9",
-    phone_number: "010-2879-7077",
+    phoneNumber: "010-2879-7077",
     type: 9,
     wishCount: 440,
     thumbnailUrl:
@@ -1618,7 +1618,7 @@ export const MockUpData = [
     id: 8393,
     name: "포포인츠 바이 쉐라톤 서울 구로",
     address: "서울특별시 구로구 디지털로32길 72",
-    phone_number: "02-6905-9500",
+    phoneNumber: "02-6905-9500",
     type: 9,
     wishCount: 608,
     thumbnailUrl:
@@ -1637,7 +1637,7 @@ export const MockUpData = [
     id: 6626,
     name: "강남아르누보씨티호텔",
     address: "서울특별시 서초구 서초대로74길 49(서초동)강남아르누보씨티호텔",
-    phone_number: "02-580-7300/7400",
+    phoneNumber: "02-580-7300/7400",
     type: 0,
     wishCount: 447,
     thumbnailUrl:
@@ -1656,7 +1656,7 @@ export const MockUpData = [
     id: 48094,
     name: "베스트웨스턴 해운대호텔",
     address: "부산광역시 해운대구 구남로 42(중동)",
-    phone_number: "051-664-1234",
+    phoneNumber: "051-664-1234",
     type: 2,
     wishCount: 946,
     thumbnailUrl:
@@ -1675,7 +1675,7 @@ export const MockUpData = [
     id: 25467,
     name: "세인트존스 호텔",
     address: "강원특별자치도 강릉시 창해로 307",
-    phone_number: "033-660-9000",
+    phoneNumber: "033-660-9000",
     type: 2,
     wishCount: 864,
     thumbnailUrl:
@@ -1694,7 +1694,7 @@ export const MockUpData = [
     id: 55557,
     name: "다숲펜션[한국관광 품질인증/Korea Quality]",
     address: "전라북도 무주군 설천면 구천동1로 149",
-    phone_number: "010-3925-7346",
+    phoneNumber: "010-3925-7346",
     type: 9,
     wishCount: 267,
     thumbnailUrl:
@@ -1713,7 +1713,7 @@ export const MockUpData = [
     id: 55116,
     name: "대성 정담한옥[한국관광 품질인증/Korea Quality]",
     address: "전라북도 전주시 완산구 고덕산1길 30(대성동)",
-    phone_number: "010-8753-3413",
+    phoneNumber: "010-8753-3413",
     type: 5,
     wishCount: 407,
     thumbnailUrl:
@@ -1732,7 +1732,7 @@ export const MockUpData = [
     id: 28148,
     name: "초정행궁 [한국관광 품질인증/Korea Quality]",
     address: "충청북도 청주시 청원구 내수읍 초정약수로 851",
-    phone_number: "043-270-7332",
+    phoneNumber: "043-270-7332",
     type: 8,
     wishCount: 215,
     thumbnailUrl:
@@ -1751,7 +1751,7 @@ export const MockUpData = [
     id: 24239,
     name: "케이티엔지(KT&G) 상상마당춘천스테이 [한국관광 품질인증/Korea Quality]",
     address: "강원특별자치도 춘천시 스포츠타운길399번길 22",
-    phone_number: "033-818-4200",
+    phoneNumber: "033-818-4200",
     type: 9,
     wishCount: 305,
     thumbnailUrl:
@@ -1770,7 +1770,7 @@ export const MockUpData = [
     id: 56340,
     name: "일마레변산리조트",
     address: "전라북도 부안군 변산면 궁항로 91",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 727,
     thumbnailUrl:
@@ -1789,7 +1789,7 @@ export const MockUpData = [
     id: 28742,
     name: "터무니",
     address: "충청북도 청주시 상당구 영운천로55번길 47(영운동)",
-    phone_number: "0507-1325-4703",
+    phoneNumber: "0507-1325-4703",
     type: 5,
     wishCount: 381,
     thumbnailUrl:
@@ -1808,7 +1808,7 @@ export const MockUpData = [
     id: 38118,
     name: "블루원리조트 프라이빗콘도",
     address: "경상북도 경주시 보불로 391(천군동)",
-    phone_number: null,
+    phoneNumber: null,
     type: 9,
     wishCount: 433,
     thumbnailUrl:
@@ -1827,7 +1827,7 @@ export const MockUpData = [
     id: 25342,
     name: "라마다호텔&스위트평창",
     address: "강원특별자치도 평창군 대관령면 오목길 107(횡계리)",
-    phone_number: "033-333-1000",
+    phoneNumber: "033-333-1000",
     type: 4,
     wishCount: 678,
     thumbnailUrl:
@@ -1846,7 +1846,7 @@ export const MockUpData = [
     id: 38118,
     name: "블루원리조트",
     address: "경상북도 경주시 보불로 391(천군동)",
-    phone_number: null,
+    phoneNumber: null,
     type: 3,
     wishCount: 704,
     thumbnailUrl:
@@ -1865,7 +1865,7 @@ export const MockUpData = [
     id: 52310,
     name: "비바체리조트",
     address: "경상남도 하동군 청암면 청학로 876",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 28,
     thumbnailUrl:
@@ -1884,7 +1884,7 @@ export const MockUpData = [
     id: 25343,
     name: "에이엠호텔",
     address: "강원특별자치도 평창군 대관령면 송천3길 310",
-    phone_number: null,
+    phoneNumber: null,
     type: 5,
     wishCount: 213,
     thumbnailUrl:
@@ -1903,7 +1903,7 @@ export const MockUpData = [
     id: 25307,
     name: "더화이트호텔",
     address: "강원특별자치도 평창군 봉평면 태기로 228-95(면온리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 323,
     thumbnailUrl:
@@ -1922,7 +1922,7 @@ export const MockUpData = [
     id: 25366,
     name: "안단테 북펜션",
     address: "강원특별자치도 평창군 방림면 칡사리길 167운교리",
-    phone_number: null,
+    phoneNumber: null,
     type: 4,
     wishCount: 271,
     thumbnailUrl:
@@ -1941,7 +1941,7 @@ export const MockUpData = [
     id: 25364,
     name: "작은통나무집 펜션",
     address: "강원특별자치도 평창군 방림면 월암길 41-7(계촌리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 156,
     thumbnailUrl:
@@ -1960,7 +1960,7 @@ export const MockUpData = [
     id: 25370,
     name: "돈막골펜션",
     address: "강원특별자치도 평창군 평창읍 고길천로 200-12(이곡리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 113,
     thumbnailUrl:
@@ -1979,7 +1979,7 @@ export const MockUpData = [
     id: 25369,
     name: "평창강가에서펜션",
     address: "강원특별자치도 평창군 평창읍 용항상촌길 141-46(용항리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 6,
     wishCount: 224,
     thumbnailUrl:
@@ -1998,7 +1998,7 @@ export const MockUpData = [
     id: 25338,
     name: "산모랭이펜션",
     address: "강원특별자치도 평창군 진부면 장전길 277(장전리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 1,
     wishCount: 976,
     thumbnailUrl:
@@ -2017,7 +2017,7 @@ export const MockUpData = [
     id: 25365,
     name: "숲과개울펜션",
     address: "강원특별자치도 평창군 방림면 고원로 1505-10",
-    phone_number: null,
+    phoneNumber: null,
     type: 2,
     wishCount: 744,
     thumbnailUrl:
@@ -2036,7 +2036,7 @@ export const MockUpData = [
     id: 25300,
     name: "베니스펜션",
     address: "강원특별자치도 평창군 봉평면 흥정계곡길 130(흥정리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 9,
     wishCount: 889,
     thumbnailUrl:
@@ -2055,7 +2055,7 @@ export const MockUpData = [
     id: 25306,
     name: "구름아래펜션",
     address: "강원특별자치도 평창군 봉평면 안흥동길 6-20",
-    phone_number: null,
+    phoneNumber: null,
     type: 6,
     wishCount: 518,
     thumbnailUrl:
@@ -2074,7 +2074,7 @@ export const MockUpData = [
     id: 25364,
     name: "애비로드",
     address: "강원특별자치도 평창군 방림면 고원로 147-20(계촌리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 1,
     wishCount: 945,
     thumbnailUrl:
@@ -2093,7 +2093,7 @@ export const MockUpData = [
     id: 25308,
     name: "다차펜션",
     address: "강원특별자치도 평창군 봉평면 진조길 104-41(진조리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 7,
     wishCount: 266,
     thumbnailUrl:
@@ -2112,7 +2112,7 @@ export const MockUpData = [
     id: 25302,
     name: "쪽빛하늘펜션",
     address: "강원특별자치도 평창군 봉평면 흥정계곡길 20-5(원길리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 5,
     wishCount: 534,
     thumbnailUrl:
@@ -2131,7 +2131,7 @@ export const MockUpData = [
     id: 25341,
     name: "퀸스가든펜션",
     address: "강원특별자치도 평창군 대관령면 꽃밭양지길 242-63(횡계리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 6,
     wishCount: 697,
     thumbnailUrl:
@@ -2150,7 +2150,7 @@ export const MockUpData = [
     id: 25340,
     name: "펜션그림",
     address: "강원특별자치도 평창군 대관령면 차항길 162-19(차항리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 748,
     thumbnailUrl:
@@ -2169,7 +2169,7 @@ export const MockUpData = [
     id: 25300,
     name: "우리빌리지펜션",
     address: "강원특별자치도 평창군 봉평면 흥정계곡길 401(흥정리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 1,
     wishCount: 279,
     thumbnailUrl:
@@ -2188,7 +2188,7 @@ export const MockUpData = [
     id: 25340,
     name: "T-Pension",
     address: "강원특별자치도 평창군 대관령면 차항길 162-9(차항리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 4,
     wishCount: 468,
     thumbnailUrl:
@@ -2207,7 +2207,7 @@ export const MockUpData = [
     id: 25305,
     name: "쉼펜션",
     address: "강원특별자치도 평창군 봉평면 팔송로 248-48(무이리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 453,
     thumbnailUrl:
@@ -2226,7 +2226,7 @@ export const MockUpData = [
     id: 25366,
     name: "수가솔방",
     address: "강원특별자치도 평창군 방림면 여우재길 307-2(운교리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 9,
     wishCount: 649,
     thumbnailUrl:
@@ -2245,7 +2245,7 @@ export const MockUpData = [
     id: 25300,
     name: "하이디하우스",
     address: "강원특별자치도 평창군 봉평면 흥정계곡길 240(흥정리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 5,
     wishCount: 23,
     thumbnailUrl:
@@ -2264,7 +2264,7 @@ export const MockUpData = [
     id: 25300,
     name: "비블로스펜션",
     address: "강원특별자치도 평창군 봉평면 흥정계곡1길 9-12(흥정리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 5,
     wishCount: 385,
     thumbnailUrl:
@@ -2283,7 +2283,7 @@ export const MockUpData = [
     id: 25305,
     name: "펜션수가성",
     address: "강원특별자치도 평창군 봉평면 팔송로 248-49(무이리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 1,
     wishCount: 264,
     thumbnailUrl:
@@ -2302,7 +2302,7 @@ export const MockUpData = [
     id: 25340,
     name: "하우스봉봉",
     address: "강원특별자치도 평창군 대관령면 차항길 192-82",
-    phone_number: null,
+    phoneNumber: null,
     type: 3,
     wishCount: 523,
     thumbnailUrl:
@@ -2321,7 +2321,7 @@ export const MockUpData = [
     id: 25306,
     name: "메이페어 데네브",
     address: "강원특별자치도 평창군 봉평면 안흥동길 70-88(무이리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 402,
     thumbnailUrl:
@@ -2340,7 +2340,7 @@ export const MockUpData = [
     id: 25342,
     name: "푸른솔펜션",
     address: "강원특별자치도 평창군 대관령면 송전1길 20(횡계리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 5,
     wishCount: 444,
     thumbnailUrl:
@@ -2359,7 +2359,7 @@ export const MockUpData = [
     id: 25306,
     name: "아침의 소리",
     address: "강원특별자치도 평창군 봉평면 무이진등길 77-70(무이리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 6,
     wishCount: 567,
     thumbnailUrl:
@@ -2378,7 +2378,7 @@ export const MockUpData = [
     id: 25342,
     name: "대관령하우스",
     address: "강원특별자치도 평창군 대관령면 가시머리길 52-7(횡계리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 6,
     wishCount: 691,
     thumbnailUrl:
@@ -2397,7 +2397,7 @@ export const MockUpData = [
     id: 25312,
     name: "솔숲",
     address: "강원특별자치도 평창군 용평면 양지길 64(속사리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 3,
     wishCount: 281,
     thumbnailUrl:
@@ -2416,7 +2416,7 @@ export const MockUpData = [
     id: 25306,
     name: "메이페어 리겔",
     address: "강원특별자치도 평창군 봉평면 안흥동길 70-85(무이리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 3,
     wishCount: 906,
     thumbnailUrl:
@@ -2435,7 +2435,7 @@ export const MockUpData = [
     id: 25309,
     name: "꼬마성",
     address: "강원특별자치도 평창군 봉평면 두리봉길 4-17(면온리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 5,
     wishCount: 741,
     thumbnailUrl:
@@ -2454,7 +2454,7 @@ export const MockUpData = [
     id: 25352,
     name: "대관령로뎀나무",
     address: "강원특별자치도 평창군 대관령면 올림픽로 1012(용산리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 4,
     wishCount: 788,
     thumbnailUrl:
@@ -2473,7 +2473,7 @@ export const MockUpData = [
     id: 25364,
     name: "선영아사랑해",
     address: "강원특별자치도 평창군 방림면 월암길 3-6",
-    phone_number: null,
+    phoneNumber: null,
     type: 3,
     wishCount: 205,
     thumbnailUrl:
@@ -2492,7 +2492,7 @@ export const MockUpData = [
     id: 25311,
     name: "핑크하우스",
     address: "강원특별자치도 평창군 봉평면 금당계곡로 1277-9(유포리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 2,
     wishCount: 827,
     thumbnailUrl:
@@ -2511,7 +2511,7 @@ export const MockUpData = [
     id: 25337,
     name: "스노우힐펜션",
     address: "강원특별자치도 평창군 진부면 수항길 38-13(수항리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 196,
     thumbnailUrl:
@@ -2530,7 +2530,7 @@ export const MockUpData = [
     id: 25300,
     name: "그리네펜션",
     address: "강원특별자치도 평창군 봉평면 흥정계곡1길 30(흥정리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 6,
     wishCount: 688,
     thumbnailUrl:
@@ -2549,7 +2549,7 @@ export const MockUpData = [
     id: 25306,
     name: "메이페어나르샤",
     address: "강원특별자치도 평창군 봉평면 안흥동길 70-83(무이리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 802,
     thumbnailUrl:
@@ -2568,7 +2568,7 @@ export const MockUpData = [
     id: 25321,
     name: "푸른하늘펜션(펜트하우스펜션)",
     address: "강원특별자치도 평창군 진부면 방아다리로 264-56(두일리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 2,
     wishCount: 479,
     thumbnailUrl:
@@ -2587,7 +2587,7 @@ export const MockUpData = [
     id: 25306,
     name: "하늘닿은펜션",
     address: "강원특별자치도 평창군 봉평면 안흥동길 70-99(무이리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 636,
     thumbnailUrl:
@@ -2606,7 +2606,7 @@ export const MockUpData = [
     id: 25309,
     name: "펜스토리",
     address: "강원특별자치도 평창군 봉평면 두리봉길 30(면온리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 470,
     thumbnailUrl:
@@ -2625,7 +2625,7 @@ export const MockUpData = [
     id: 25306,
     name: "별헤는밤",
     address: "강원특별자치도 평창군 봉평면 무이진등길 77-15",
-    phone_number: null,
+    phoneNumber: null,
     type: 9,
     wishCount: 270,
     thumbnailUrl:
@@ -2644,7 +2644,7 @@ export const MockUpData = [
     id: 25342,
     name: "대관령아름다운펜션",
     address: "강원특별자치도 평창군 대관령면 송전1길 32",
-    phone_number: null,
+    phoneNumber: null,
     type: 5,
     wishCount: 91,
     thumbnailUrl:
@@ -2663,7 +2663,7 @@ export const MockUpData = [
     id: 25340,
     name: "대관령그린필드펜션",
     address: "강원특별자치도 평창군 대관령면 차항길 192-77(차항리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 2,
     wishCount: 409,
     thumbnailUrl:
@@ -2682,7 +2682,7 @@ export const MockUpData = [
     id: 25376,
     name: "로얄장모텔",
     address: "강원특별자치도 평창군 평창읍 백오1길 44(하리, 로얄모텔)",
-    phone_number: null,
+    phoneNumber: null,
     type: 4,
     wishCount: 554,
     thumbnailUrl:
@@ -2701,7 +2701,7 @@ export const MockUpData = [
     id: 25302,
     name: "평창아름다운세상",
     address: "강원특별자치도 평창군 봉평면 봉평북로 94-6(원길리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 9,
     wishCount: 562,
     thumbnailUrl:
@@ -2720,7 +2720,7 @@ export const MockUpData = [
     id: 25306,
     name: "부성파크",
     address: "강원특별자치도 평창군 봉평면 안흥동1길 18-4(무이리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 821,
     thumbnailUrl:
@@ -2739,7 +2739,7 @@ export const MockUpData = [
     id: 25309,
     name: "초가집황토펜션",
     address: "강원특별자치도 평창군 봉평면 태기로 701-7(면온리)",
-    phone_number: null,
+    phoneNumber: null,
     type: 1,
     wishCount: 59,
     thumbnailUrl:
@@ -2758,7 +2758,7 @@ export const MockUpData = [
     id: 10841,
     name: "오블라디풀빌라리조트",
     address: "경기도 파주시 문산읍 문현말길 113-2",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 823,
     thumbnailUrl:
@@ -2777,7 +2777,7 @@ export const MockUpData = [
     id: 4350,
     name: "린다픽[한국관광 품질인증/Korea Quality]",
     address: "서울특별시 용산구 이태원로23길 26-5(이태원동)",
-    phone_number: "0507-1326-4206",
+    phoneNumber: "0507-1326-4206",
     type: 2,
     wishCount: 837,
     thumbnailUrl:
@@ -2796,7 +2796,7 @@ export const MockUpData = [
     id: 27497,
     name: "우제스테이[한국관광 품질인증/Korea Quality]",
     address: "충청북도 충주시 주정산로 50 크라운호텔",
-    phone_number: "043-846-9966",
+    phoneNumber: "043-846-9966",
     type: 5,
     wishCount: 14,
     thumbnailUrl:
@@ -2815,7 +2815,7 @@ export const MockUpData = [
     id: 46027,
     name: "브라운도트호텔 정관점",
     address: "부산광역시 기장군 정관읍 산단1로 98-31브라운도트 호텔 정관점",
-    phone_number: null,
+    phoneNumber: null,
     type: 7,
     wishCount: 231,
     thumbnailUrl:
@@ -2834,7 +2834,7 @@ export const MockUpData = [
     id: 49037,
     name: "베이하운드호텔",
     address: "부산광역시 영도구 태종로65번길 11 (대교동1가)베이하운드호텔",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 582,
     thumbnailUrl:
@@ -2853,7 +2853,7 @@ export const MockUpData = [
     id: 63525,
     name: "디아넥스호텔",
     address: "제주특별자치도 서귀포시 안덕면 산록남로762번길 71",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 659,
     thumbnailUrl:
@@ -2872,7 +2872,7 @@ export const MockUpData = [
     id: 63623,
     name: "카세로지",
     address: "제주특별자치도 서귀포시 표선면 가시로 383",
-    phone_number: null,
+    phoneNumber: null,
     type: 8,
     wishCount: 959,
     thumbnailUrl:
@@ -2891,7 +2891,7 @@ export const MockUpData = [
     id: 63535,
     name: "중문 파르나스 제주",
     address: "제주특별자치도 서귀포시 색달동 3039-1",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 96,
     thumbnailUrl:
@@ -2910,7 +2910,7 @@ export const MockUpData = [
     id: 32416,
     name: "세심천온천호텔",
     address: "충청남도 예산군 삽교읍 수암산로 210",
-    phone_number: null,
+    phoneNumber: null,
     type: 3,
     wishCount: 639,
     thumbnailUrl:
@@ -2929,7 +2929,7 @@ export const MockUpData = [
     id: 50584,
     name: "배내의아침",
     address: "경상남도 양산시 원동면 어실로 1425",
-    phone_number: "055-388-4508",
+    phoneNumber: "055-388-4508",
     type: 3,
     wishCount: 603,
     thumbnailUrl:
@@ -2948,7 +2948,7 @@ export const MockUpData = [
     id: 53334,
     name: "거제 썬트리팜리조트",
     address: "경상남도 거제시 남부면 거제대로 283",
-    phone_number: "055-632-7977",
+    phoneNumber: "055-632-7977",
     type: 0,
     wishCount: 344,
     thumbnailUrl:
@@ -2967,7 +2967,7 @@ export const MockUpData = [
     id: 48303,
     name: "호텔 아쿠아펠리스",
     address: "부산광역시 수영구 광안해변로 225",
-    phone_number: "051-790-2300",
+    phoneNumber: "051-790-2300",
     type: 4,
     wishCount: 896,
     thumbnailUrl:
@@ -2986,7 +2986,7 @@ export const MockUpData = [
     id: 32615,
     name: "자연속으로",
     address: "충청남도 공주시 계룡면 되찬길 44",
-    phone_number: "010-3104-3854",
+    phoneNumber: "010-3104-3854",
     type: 4,
     wishCount: 278,
     thumbnailUrl:
@@ -3005,7 +3005,7 @@ export const MockUpData = [
     id: 24026,
     name: "마운틴밸리 펜션",
     address: "강원특별자치도 철원군 동송읍 담터길 174",
-    phone_number: "033-455-5596",
+    phoneNumber: "033-455-5596",
     type: 5,
     wishCount: 90,
     thumbnailUrl:
@@ -3024,7 +3024,7 @@ export const MockUpData = [
     id: 26155,
     name: "메이힐스리조트",
     address: "강원특별자치도 정선군 고한읍 물한리길 8",
-    phone_number: "033-590-1000",
+    phoneNumber: "033-590-1000",
     type: 7,
     wishCount: 772,
     thumbnailUrl:
@@ -3043,7 +3043,7 @@ export const MockUpData = [
     id: 24023,
     name: "한탄리버스파호텔",
     address: "강원특별자치도 철원군 동송읍 태봉로 1799-22",
-    phone_number: "033-455-1234",
+    phoneNumber: "033-455-1234",
     type: 1,
     wishCount: 757,
     thumbnailUrl:
@@ -3062,7 +3062,7 @@ export const MockUpData = [
     id: 53079,
     name: "파도소리펜션",
     address: "경상남도 통영시 수륙길 5",
-    phone_number: "055-641-7755",
+    phoneNumber: "055-641-7755",
     type: 1,
     wishCount: 856,
     thumbnailUrl:
@@ -3081,7 +3081,7 @@ export const MockUpData = [
     id: 32166,
     name: "꽃지화이트펜션",
     address: "충청남도 태안군 안면읍 꽃지해안로 484",
-    phone_number: "010-7188-0343",
+    phoneNumber: "010-7188-0343",
     type: 5,
     wishCount: 114,
     thumbnailUrl:
@@ -3100,7 +3100,7 @@ export const MockUpData = [
     id: 32152,
     name: "소나무리조트",
     address: "충청남도 태안군 남면 몽산포길 179",
-    phone_number: "010-8335-4310",
+    phoneNumber: "010-8335-4310",
     type: 8,
     wishCount: 812,
     thumbnailUrl:
@@ -3119,7 +3119,7 @@ export const MockUpData = [
     id: 26233,
     name: "동방모텔",
     address: "강원특별자치도 영월군 영월읍 단종로 3-1",
-    phone_number: "033-373-4921",
+    phoneNumber: "033-373-4921",
     type: 3,
     wishCount: 317,
     thumbnailUrl:
@@ -3138,7 +3138,7 @@ export const MockUpData = [
     id: 26224,
     name: "드림힐펜션",
     address: "강원특별자치도 영월군 영월읍 봉래산로 339-6",
-    phone_number: "033-375-1234",
+    phoneNumber: "033-375-1234",
     type: 9,
     wishCount: 538,
     thumbnailUrl:
@@ -3157,7 +3157,7 @@ export const MockUpData = [
     id: 24607,
     name: "숲속힐링이야기",
     address: "강원특별자치도 인제군 북면 설악로 3216",
-    phone_number: "033-462-0707",
+    phoneNumber: "033-462-0707",
     type: 0,
     wishCount: 799,
     thumbnailUrl:
@@ -3176,7 +3176,7 @@ export const MockUpData = [
     id: 24059,
     name: "꿈의궁전모텔",
     address: "강원특별자치도 철원군 서면 와수1로 7",
-    phone_number: "033-458-6153",
+    phoneNumber: "033-458-6153",
     type: 7,
     wishCount: 195,
     thumbnailUrl:
@@ -3195,7 +3195,7 @@ export const MockUpData = [
     id: 24059,
     name: "대명관광호텔",
     address: "강원특별자치도 철원군 서면 와수로181번길 15",
-    phone_number: null,
+    phoneNumber: null,
     type: 4,
     wishCount: 545,
     thumbnailUrl:
@@ -3214,7 +3214,7 @@ export const MockUpData = [
     id: 24023,
     name: "드림파크모텔",
     address: "강원특별자치도 철원군 동송읍 창동로 2407",
-    phone_number: "033-455-9199",
+    phoneNumber: "033-455-9199",
     type: 5,
     wishCount: 749,
     thumbnailUrl:
@@ -3233,7 +3233,7 @@ export const MockUpData = [
     id: 25302,
     name: "붓꽃섬아트인아일랜드",
     address: "강원특별자치도 평창군 봉평면 봉평북로 193-28",
-    phone_number: "033-336-1771",
+    phoneNumber: "033-336-1771",
     type: 4,
     wishCount: 841,
     thumbnailUrl:
@@ -3252,7 +3252,7 @@ export const MockUpData = [
     id: 24121,
     name: "로터스모텔",
     address: "강원특별자치도 화천군 화천읍 상승로1길 6",
-    phone_number: "033-442-0414",
+    phoneNumber: "033-442-0414",
     type: 4,
     wishCount: 196,
     thumbnailUrl:
@@ -3271,7 +3271,7 @@ export const MockUpData = [
     id: 32158,
     name: "서해송",
     address: "충청남도 태안군 남면 마검포길 335",
-    phone_number: "010-4172-8068",
+    phoneNumber: "010-4172-8068",
     type: 4,
     wishCount: 170,
     thumbnailUrl:
@@ -3290,7 +3290,7 @@ export const MockUpData = [
     id: 32158,
     name: "엘도라도펜션",
     address: "충청남도 태안군 남면 마검포길 331",
-    phone_number: "010-9545-2434",
+    phoneNumber: "010-9545-2434",
     type: 3,
     wishCount: 498,
     thumbnailUrl:
@@ -3309,7 +3309,7 @@ export const MockUpData = [
     id: 32166,
     name: "꽃향기펜션",
     address: "충청남도 태안군 안면읍 방포로 111",
-    phone_number: "010-2410-3500",
+    phoneNumber: "010-2410-3500",
     type: 1,
     wishCount: 101,
     thumbnailUrl:
@@ -3328,7 +3328,7 @@ export const MockUpData = [
     id: 25111,
     name: "세도나 펜션",
     address: "강원특별자치도 홍천군 북방면 노일로238번길 33",
-    phone_number: "033-435-5156",
+    phoneNumber: "033-435-5156",
     type: 1,
     wishCount: 99,
     thumbnailUrl:
@@ -3347,7 +3347,7 @@ export const MockUpData = [
     id: 26008,
     name: "알프스모텔",
     address: "강원특별자치도 태백시 서황지로 16-11",
-    phone_number: "033-552-2620",
+    phoneNumber: "033-552-2620",
     type: 6,
     wishCount: 370,
     thumbnailUrl:
@@ -3366,7 +3366,7 @@ export const MockUpData = [
     id: 26008,
     name: "패스텔모텔",
     address: "강원특별자치도 태백시 서황지로 16-8",
-    phone_number: "033-553-1881",
+    phoneNumber: "033-553-1881",
     type: 3,
     wishCount: 729,
     thumbnailUrl:
@@ -3385,7 +3385,7 @@ export const MockUpData = [
     id: 11119,
     name: "하늘풍경 펜션",
     address: "경기도 포천시 일동면 운악청계로1480번길 90-15",
-    phone_number: "031-536-2300",
+    phoneNumber: "031-536-2300",
     type: 0,
     wishCount: 176,
     thumbnailUrl:
@@ -3404,7 +3404,7 @@ export const MockUpData = [
     id: 37928,
     name: "호미곶펜션",
     address: "경상북도 포항시 남구 호미곶면 구만길 128",
-    phone_number: "054-284-0226",
+    phoneNumber: "054-284-0226",
     type: 1,
     wishCount: 106,
     thumbnailUrl:
@@ -3423,7 +3423,7 @@ export const MockUpData = [
     id: 32151,
     name: "그림속풍경 펜션",
     address: "충청남도 태안군 남면 진산1길 277-115",
-    phone_number: "010-7688-7080",
+    phoneNumber: "010-7688-7080",
     type: 1,
     wishCount: 357,
     thumbnailUrl:
@@ -3442,7 +3442,7 @@ export const MockUpData = [
     id: 32151,
     name: "해나지풀빌라",
     address: "충청남도 태안군 남면 진산1길 277-129",
-    phone_number: "041-675-8114",
+    phoneNumber: "041-675-8114",
     type: 3,
     wishCount: 79,
     thumbnailUrl:
@@ -3461,7 +3461,7 @@ export const MockUpData = [
     id: 17523,
     name: "안성 프로방스 펜션",
     address: "경기도 안성시 죽산면 용설호수길 134",
-    phone_number: "031-676-9904",
+    phoneNumber: "031-676-9904",
     type: 2,
     wishCount: 558,
     thumbnailUrl:
@@ -3480,7 +3480,7 @@ export const MockUpData = [
     id: 59689,
     name: "여천모텔",
     address: "전라남도 여수시 시청동2길 36(학동)",
-    phone_number: "061-685-8051",
+    phoneNumber: "061-685-8051",
     type: 7,
     wishCount: 311,
     thumbnailUrl:
@@ -3499,7 +3499,7 @@ export const MockUpData = [
     id: 59640,
     name: "카라모텔",
     address: "전라남도 여수시 무선6길 42-4(선원동)",
-    phone_number: "061-692-2877",
+    phoneNumber: "061-692-2877",
     type: 9,
     wishCount: 74,
     thumbnailUrl:
@@ -3518,7 +3518,7 @@ export const MockUpData = [
     id: 59697,
     name: "트윈스모텔",
     address: "전라남도 여수시 둔덕3길 12",
-    phone_number: "061-653-3200",
+    phoneNumber: "061-653-3200",
     type: 8,
     wishCount: 328,
     thumbnailUrl:
@@ -3537,7 +3537,7 @@ export const MockUpData = [
     id: 59714,
     name: "황제파크모텔",
     address: "전라남도 여수시 오림2길 12-4",
-    phone_number: "061-654-6644",
+    phoneNumber: "061-654-6644",
     type: 9,
     wishCount: 832,
     thumbnailUrl:
@@ -3556,7 +3556,7 @@ export const MockUpData = [
     id: 63621,
     name: "노인과바다",
     address: "제주특별자치도 서귀포시 남원읍 남태해안로 11-12",
-    phone_number: "064-764-9966",
+    phoneNumber: "064-764-9966",
     type: 2,
     wishCount: 353,
     thumbnailUrl:
@@ -3575,7 +3575,7 @@ export const MockUpData = [
     id: 63625,
     name: "아망뜨펜션(제주)",
     address: "제주특별자치도 서귀포시 표선면 민속해안로 11",
-    phone_number: "064-787-0300",
+    phoneNumber: "064-787-0300",
     type: 7,
     wishCount: 923,
     thumbnailUrl:
@@ -3594,7 +3594,7 @@ export const MockUpData = [
     id: 63639,
     name: "해뜨는집 펜션",
     address: "제주특별자치도 서귀포시 성산읍 한도로 137",
-    phone_number: "064-784-8812",
+    phoneNumber: "064-784-8812",
     type: 3,
     wishCount: 321,
     thumbnailUrl:
@@ -3613,7 +3613,7 @@ export const MockUpData = [
     id: 51101,
     name: "북면황토방온천장",
     address: "경상남도 창원시 의창구 북면 천주로1170번길 17-10",
-    phone_number: "055-298-9890",
+    phoneNumber: "055-298-9890",
     type: 6,
     wishCount: 803,
     thumbnailUrl:
@@ -3632,7 +3632,7 @@ export const MockUpData = [
     id: 27347,
     name: "호텔 필림37.2[한국관광 품질인증/Korea Quality]",
     address: "충청북도 충주시 연원로 17 필립372호텔",
-    phone_number: "043-842-0515",
+    phoneNumber: "043-842-0515",
     type: 1,
     wishCount: 923,
     thumbnailUrl:
@@ -3651,7 +3651,7 @@ export const MockUpData = [
     id: 25116,
     name: "강가의성",
     address: "강원특별자치도 홍천군 북방면 굴지강변로 281",
-    phone_number: "033-433-8309",
+    phoneNumber: "033-433-8309",
     type: 6,
     wishCount: 661,
     thumbnailUrl:
@@ -3670,7 +3670,7 @@ export const MockUpData = [
     id: 23060,
     name: "태양의해변",
     address: "인천광역시 강화군 화도면 해안남로 2782-26",
-    phone_number: "032-937-7877",
+    phoneNumber: "032-937-7877",
     type: 6,
     wishCount: 998,
     thumbnailUrl:
@@ -3689,7 +3689,7 @@ export const MockUpData = [
     id: 25351,
     name: "홀리데이인&스위트 알펜시아 평창",
     address: "강원특별자치도 평창군 대관령면 솔봉로 325",
-    phone_number: "033-339-1240",
+    phoneNumber: "033-339-1240",
     type: 3,
     wishCount: 94,
     thumbnailUrl:
@@ -3708,7 +3708,7 @@ export const MockUpData = [
     id: 38117,
     name: "경주스위트호텔",
     address: "경상북도 경주시 보문로 280-12",
-    phone_number: null,
+    phoneNumber: null,
     type: 0,
     wishCount: 493,
     thumbnailUrl:
@@ -3727,7 +3727,7 @@ export const MockUpData = [
     id: 63569,
     name: "샤뜰레 펜션",
     address: "제주특별자치도 서귀포시 서호호근로46번길 68",
-    phone_number: "064-738-9852",
+    phoneNumber: "064-738-9852",
     type: 8,
     wishCount: 687,
     thumbnailUrl:
@@ -3746,7 +3746,7 @@ export const MockUpData = [
     id: 33509,
     name: "무창포 비체팰리스",
     address: "충청남도 보령시 웅천읍 열린바다1길 78",
-    phone_number: "041-939-5757",
+    phoneNumber: "041-939-5757",
     type: 9,
     wishCount: 581,
     thumbnailUrl:
@@ -3765,7 +3765,7 @@ export const MockUpData = [
     id: 63599,
     name: "제주펜션 향림원",
     address: "제주특별자치도 서귀포시 칠십리로394번길 8-3",
-    phone_number: "064-733-5799",
+    phoneNumber: "064-733-5799",
     type: 6,
     wishCount: 142,
     thumbnailUrl:
@@ -3784,7 +3784,7 @@ export const MockUpData = [
     id: 16491,
     name: "이비스 앰배서더 수원",
     address: "경기도 수원시 팔달구 권광로 132",
-    phone_number: "031-230-5000",
+    phoneNumber: "031-230-5000",
     type: 4,
     wishCount: 95,
     thumbnailUrl:

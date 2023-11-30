@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { createWrapper } from "../../../test/test.utils";
 import userEvent from "@testing-library/user-event";
-import CategoryItem from "./";
+import MyWishItem from ".";
+import { createWrapper } from "../../../../../test/test.utils";
 
 const testData = {
   id: String(53096),
@@ -12,8 +12,6 @@ const testData = {
   wishCount: 644,
   thumbnailUrl:
     "https://res.cloudinary.com/dtf6uf7vi/image/upload/v1700183654/Home/testid.jpg",
-  lowest_price: 488,
-  isWish: true,
   categoryParking: 1,
   categoryCooking: 1,
   categoryPickup: 1,
@@ -21,14 +19,13 @@ const testData = {
   checkIn: "18:00",
   checkOut: "12:00",
   infoDetail: "통영 바다를 한눈에 담은 펜션",
-  room_count: 5,
 };
 
-describe("CategoryItem Test", () => {
-  test("CategoryItem", () => {
+describe("MyWish Test", () => {
+  test("MyWish", () => {
     if ("IntersectionObserver" in window) {
       const wrapper = createWrapper();
-      render(<CategoryItem data={testData} />, { wrapper });
+      render(<MyWishItem data={testData} />, { wrapper });
     }
   });
 
@@ -38,7 +35,7 @@ describe("CategoryItem Test", () => {
       const user = userEvent;
       const wrapper = createWrapper();
 
-      render(<CategoryItem data={testData} />, { wrapper });
+      render(<MyWishItem data={testData} />, { wrapper });
 
       const button = screen.getByTestId("individual-item");
       user.click(button);
