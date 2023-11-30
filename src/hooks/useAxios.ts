@@ -4,13 +4,14 @@ import axios, {
   InternalAxiosRequestConfig,
 } from "axios";
 import { getTokenRefresh } from "../utils/getTokenRefresh";
+import { useAuthAlert as swal } from "./useAlert";
 
 // 토큰 추가 함수
 const addTokenToHeader = async (config: InternalAxiosRequestConfig) => {
   const token = await getTokenRefresh();
 
   if (!token) {
-    alert("로그인이 필요합니다.");
+    swal();
   }
   config.headers.access_token = token;
 
