@@ -20,6 +20,10 @@ export const MyBox = styled.div`
     border: 1px solid #ff5100;
     box-shadow: 0px 0px 20px 0px rgba(255, 81, 0, 0.05);
   }
+
+  @media (max-width: 443px) {
+    width: 90%;
+  }
 `;
 
 export const Content = styled.div`

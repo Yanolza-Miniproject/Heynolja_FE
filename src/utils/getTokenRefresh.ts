@@ -1,5 +1,4 @@
 import { fetchToken } from "../api/Auth";
-import { setSessionStorage } from "./setSessionStorage";
 
 export const getTokenRefresh = async () => {
   const accessToken = sessionStorage.getItem("accessToken");
@@ -16,7 +15,7 @@ export const getTokenRefresh = async () => {
       // 토큰이 만료된 경우
     } else {
       try {
-        alert("토큰이 만료되었습니다. 재발급합니다.");
+        console.log("토큰이 만료되었습니다. 재발급합니다.");
         const refreshToken = sessionStorage.getItem("refreshToken");
 
         if (!refreshToken) {
@@ -24,13 +23,11 @@ export const getTokenRefresh = async () => {
         }
 
         // 리프레시 토큰이 있는 경우 토큰 갱신
-        const response = await fetchToken(refreshToken);
-        setSessionStorage(
-          response.data.accessToken,
-          response.data.refreshToken,
-        );
+        const newAccessToken = await fetchToken(refreshToken);
 
-        return response.data.accessToken;
+        console.log("토큰이 갱신되었습니다.");
+
+        return newAccessToken;
       } catch {
         return null;
       }

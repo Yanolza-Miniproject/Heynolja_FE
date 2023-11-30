@@ -4,7 +4,7 @@ export interface MyOrderItemProps {
   type: string;
   checkIn: string;
   checkOut: string;
-  guests: number;
+  numberOfGuests: number;
   price: number;
   roomUrl: string;
 }

@@ -9,6 +9,7 @@ import {
 } from "../../../store/checkinCheckOutAtom.ts";
 import { useRef } from "react";
 import DateSelector from "../DateSelector/index.tsx";
+import * as Styled from "./BookingCalendar.styles.ts";
 
 const Calendar = () => {
   const [checkInDate, setCheckInDate] = useRecoilState(checkInDateState);
@@ -37,21 +38,23 @@ const Calendar = () => {
   };
 
   return (
-    <DatePicker
-      selected={validCheckInDate}
-      onChange={handleChange}
-      startDate={validCheckInDate}
-      endDate={validCheckOutDate}
-      monthsShown={2}
-      selectsRange
-      inline={false}
-      minDate={new Date()}
-      locale={ko}
-      dateFormat="yyyy/MM/dd"
-      isClearable={true}
-      customInput={<DateSelector onClick={handleDateSelectorClick} />}
-      className="react-datepicker-second"
-    />
+    <Styled.DatePickerWrapper>
+      <DatePicker
+        selected={validCheckInDate}
+        onChange={handleChange}
+        startDate={validCheckInDate}
+        endDate={validCheckOutDate}
+        monthsShown={2}
+        selectsRange
+        inline={false}
+        minDate={new Date()}
+        locale={ko}
+        dateFormat="yyyy/MM/dd"
+        isClearable={true}
+        customInput={<DateSelector onClick={handleDateSelectorClick} />}
+        className="react-datepicker-second"
+      />
+    </Styled.DatePickerWrapper>
   );
 };
 

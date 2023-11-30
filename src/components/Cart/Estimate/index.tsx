@@ -8,6 +8,7 @@ import formatNumber from "../../../utils/formatNumber";
 import Button from "../../Common/Button";
 import * as Styled from "./Estimate.styles";
 import { EstimateProps } from "./Estimate.types";
+import calculateNightCount from "../../../utils/calculateNightCount";
 
 const Estimate = ({ estimatedPrice }: EstimateProps) => {
   const postOrdersMutation = usePostOrders();
@@ -40,7 +41,14 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
 
   // 총 함계 가격 계산
   useEffect(() => {
-    setTotalPrice(calculateTotalPrice(estimatedPrice));
+    const newPrice = estimatedPrice.map((item) => {
+      return {
+        ...item,
+        price:
+          item.price * calculateNightCount(item.checkInAt, item.checkOutAt),
+      };
+    });
+    setTotalPrice(calculateTotalPrice(newPrice));
   }, [estimatedPrice]);
 
   return (
@@ -54,7 +62,13 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
                 <p>{item.roomName}</p>
               </div>
               <Styled.Empty />
-              <span>₩{formatNumber(item.price)}</span>
+              <span>
+                ₩
+                {formatNumber(
+                  item.price *
+                    calculateNightCount(item.checkInAt, item.checkOutAt),
+                )}
+              </span>
             </Styled.Item>
           );
         })}

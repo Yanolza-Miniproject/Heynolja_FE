@@ -4,13 +4,14 @@ import axios, {
   InternalAxiosRequestConfig,
 } from "axios";
 import { getTokenRefresh } from "../utils/getTokenRefresh";
+import { useAuthAlert as swal } from "./useAlert";
 
 // 토큰 추가 함수
 const addTokenToHeader = async (config: InternalAxiosRequestConfig) => {
   const token = await getTokenRefresh();
 
   if (!token) {
-    alert("로그인이 필요합니다.");
+    swal();
   }
   config.headers.access_token = token;
 
@@ -19,6 +20,17 @@ const addTokenToHeader = async (config: InternalAxiosRequestConfig) => {
 
 // 에러 핸들링 함수
 const logErrorInterceptor = (error: AxiosError) => {
+  if (axios.isAxiosError(error)) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      console.log("response가 있는 경우", error);
+      return Promise.reject(axiosError.response);
+    } else if (axiosError.request) {
+      return Promise.reject(axiosError.request);
+    } else {
+      return Promise.reject(axiosError.message);
+    }
+  }
   return Promise.reject(error);
 };
 

@@ -45,7 +45,6 @@ export const InfoTitleText = styled.div`
 export const InfoDetailText = styled.div`
   text-align: left;
   color: #222;
-  text-align: center;
   font-size: 0.95rem;
   font-style: normal;
   font-weight: 400;
@@ -57,5 +56,6 @@ export const ItemContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+
   margin-bottom: 10px;
 `;

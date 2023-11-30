@@ -7,7 +7,7 @@ const testData = {
   id: String(53096),
   name: "비진도 바다이야기 펜션",
   address: "경상남도 통영시 한산면 외항길 78",
-  phone_number: "055-642-6171",
+  phoneNumber: "055-642-6171",
   type: 4,
   wishCount: 644,
   thumbnailUrl:
@@ -20,7 +20,8 @@ const testData = {
   viewCount: 707,
   checkIn: "18:00",
   checkOut: "12:00",
-  room_counts: 8,
+  infoDetail: "통영 바다를 한눈에 담은 펜션",
+  room_count: 5,
 };
 
 describe("CategoryItem Test", () => {

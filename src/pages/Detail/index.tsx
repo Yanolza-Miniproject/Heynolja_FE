@@ -4,7 +4,7 @@ import ActionButtonGroup from "../../components/Detail/ActionButtonGroup";
 import Calendar from "../../components/Detail/Calendar";
 import PriceDisplay from "../../components/Detail/PriceDisplay";
 import ProductDetails from "../../components/Detail/ProductDetails";
-// import ProductGallery from "../../components/Detail/ProductGallery";
+import ProductGallery from "../../components/Detail/ProductGallery";
 import QuantitySelector from "../../components/Detail/QuantitySelector";
 import StockStatusBanner from "../../components/Detail/StockStatusBaner";
 import { useGetRoomDetail } from "../../hooks/useDetailFetch.ts";
@@ -57,7 +57,7 @@ const Detail = () => {
   return (
     <Styled.container>
       <Styled.Layout>
-        {/* <ProductGallery images={roomDetails.data.room_image_url} /> 데이터에 아직 이미지 없음 */}
+        <ProductGallery images={roomDetails.data.roomImages} />
         <Styled.DetailsContainer>
           <Styled.HorizontalContainer>
             <ProductDetails

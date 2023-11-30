@@ -8,12 +8,7 @@ export const ItemWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 1.19rem 0.81rem 2.19rem 1.81rem;
-
-  /* cursor: pointer;
-  &:hover {
-    border: 1px solid #ff5100;
-    box-shadow: 0px 0px 20px 0px rgba(255, 81, 0, 0.05);
-  } */
+  margin-bottom: 1.5rem;
 `;
 
 export const ItemTitle = styled.p`
@@ -45,10 +40,21 @@ export const Title = styled.span`
   letter-spacing: -0.05rem;
 `;
 
-export const ItemImg = styled.img`
-  width: 8.25rem;
-  height: 8.5625rem;
-  margin-right: 1.81rem;
+export const ItemImg = styled.div`
+  position: relative;
+
+  background-color: white;
+
+  background-image: url("/src/assets/image/empty.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  margin-right: 2rem;
+
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
 `;
 
 export const Content = styled.span``;

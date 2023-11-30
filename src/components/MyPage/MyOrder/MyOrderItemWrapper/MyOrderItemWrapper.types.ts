@@ -3,7 +3,7 @@ export interface MyOrderItemWrapperProps {
   accommodationName: string;
   roomName: string;
   price: number;
-  numberGuests: number;
+  numberOfGuests: number;
   checkInAt: string;
   checkOutAt: string;
   roomUrl: string;

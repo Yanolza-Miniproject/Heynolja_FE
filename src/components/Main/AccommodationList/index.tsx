@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { random } from "lodash";
 import formatNumber from "../../../utils/formatNumber";
+import Empty from "../../../assets/image/empty.png";
 
 export const AccommodationList = ({
   accommodations,
@@ -16,6 +17,11 @@ export const AccommodationList = ({
 }: AccommodationListProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
+
+  //img empty set
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = Empty;
+  };
 
   return (
     <>
@@ -35,14 +41,18 @@ export const AccommodationList = ({
           <Styled.ItemContainer key={item.id}>
             <Styled.ItemLink to={`/detailList?accommodation-id=${item.id}`}>
               <Styled.ItemPicture>
-                <img src={`${item.thumbnailUrl}`} alt={item.name} />
+                <img
+                  src={`${item.thumbnailUrl}`}
+                  alt={item.name}
+                  onError={handleError}
+                />
               </Styled.ItemPicture>
 
               <Styled.ItemInfo>
                 <Styled.ItemInfoFirstColumn>
                   <h3 className="item-name">{item.name}</h3>
                   <h3 className="item-price">
-                    ~₩{item.lowest_price && formatNumber(item.lowest_price)}원
+                    ₩{item.lowest_price && formatNumber(item.lowest_price)}원
                     부터
                   </h3>
                 </Styled.ItemInfoFirstColumn>

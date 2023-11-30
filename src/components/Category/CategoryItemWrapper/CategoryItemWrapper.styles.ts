@@ -1,8 +1,13 @@
 import styled from "@emotion/styled";
 
-export const CategoryItemWrapper = styled.div`
+type CategoryItemWrapperProps = {
+  view: boolean;
+};
+
+export const CategoryItemWrapper = styled.div<CategoryItemWrapperProps>`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: ${(props) => (props.view ? "wrap" : "nowrap")};
+  flex-direction: ${(props) => (props.view ? "row" : "column")};
   justify-content: center;
   gap: 1rem;
 `;
