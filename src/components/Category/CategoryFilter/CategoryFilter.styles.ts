@@ -26,7 +26,7 @@ export const CategoryFilterWrapper = styled.div`
 export const CategoryViewButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 `;
 

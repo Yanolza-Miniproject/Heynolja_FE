@@ -15,6 +15,7 @@ export type CategoryProps = {
   categoryParking: number;
   categoryCooking: number;
   categoryPickup: number;
+  infoDetail: string;
 };
 
 export type fetchCatgoryProps = {

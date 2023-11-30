@@ -21,6 +21,7 @@ const testData = {
   checkIn: "18:00",
   checkOut: "12:00",
   room_counts: 8,
+  infoDetail: "통영 바다를 한눈에 담은 펜션",
 };
 
 describe("CategoryItem Test", () => {

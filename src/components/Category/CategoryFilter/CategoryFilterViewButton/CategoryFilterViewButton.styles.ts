@@ -1,16 +1,13 @@
 import styled from "@emotion/styled";
-
-type CategoryItemWrapperProps = {
-  view: boolean;
-};
+import { CategoryItemWrapperProps } from "./CategoryFilterViewButton.types";
 
 export const CategoryFilterViewButton = styled.button<CategoryItemWrapperProps>`
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 45%;
-  padding: 0.5rem 1rem;
+  width: 48%;
+  padding: 0.7rem 1.2rem;
 
   border: none;
   border-radius: 10px;
