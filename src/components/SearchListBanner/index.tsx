@@ -4,10 +4,20 @@ import {
   filterTextDecoder,
 } from "../../utils/filterTextDecoder";
 import * as Styled from "./SearchList.styles";
+import { useRecoilState } from "recoil";
+import { categoryViewAtom } from "../../store/categoryViewAtom";
+import CategoryFilterViewButton from "../Category/CategoryFilter/CategoryFilterViewButton";
 
 const SearchListBanner = ({ validParams }: SearchListBannerProps) => {
   const validArray = filterTextDecoder(validParams);
   const router = useNavigate();
+
+  const [categoryViewState, setCategoryViewState] =
+    useRecoilState(categoryViewAtom);
+
+  const handleClick = () => {
+    setCategoryViewState((prev) => !prev);
+  };
 
   const handleClickSearch = (url: string) => {
     router(`/results?page=0${url}`);
@@ -16,6 +26,20 @@ const SearchListBanner = ({ validParams }: SearchListBannerProps) => {
   return (
     <Styled.SearchListContainer>
       <Styled.SearchListWrapper>
+        <Styled.SearchListQueryText>보기 방식</Styled.SearchListQueryText>
+        <Styled.SearchListButtonWrapper>
+          <CategoryFilterViewButton
+            buttonText="바둑판보기"
+            isOn={categoryViewState}
+            fn={handleClick}
+          />
+          <CategoryFilterViewButton
+            buttonText="리스트보기"
+            isOn={categoryViewState}
+            fn={handleClick}
+          />
+        </Styled.SearchListButtonWrapper>
+        <Styled.SearchListQueryText>검색 조건</Styled.SearchListQueryText>
         {validArray.length !== 0 ? (
           validArray.map((item) => {
             return (
@@ -23,7 +47,7 @@ const SearchListBanner = ({ validParams }: SearchListBannerProps) => {
                 data-testid="search-list-button"
                 key={item.label}
                 onClick={() => handleClickSearch(item.url)}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{
                   duration: 0.1,
                   type: "spring",
