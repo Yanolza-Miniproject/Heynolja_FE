@@ -8,10 +8,9 @@ import Estimate from "../Estimate";
 import * as Styled from "./CartList.styles";
 import { CartListProps } from "./CartList.types";
 import { handleAllCheck, handleSelectDeleteClick } from "./CartList.utils";
-import { useDeleteCartItem } from "../../../hooks/useCartFetch";
+import { authInstance } from "../../../hooks/useAxios";
 
 const CartList = ({ data }: CartListProps) => {
-  const deleteCartMutation = useDeleteCartItem();
   const [cart, setCart] = useState<CartItemType[]>([]); // 실제 api로 받을 데이터
   const [selected, setSelected] = useState<number>(0); // 선택된 아이템 개수
   const [allSelected, setAllSelected] = useState(true); // 전체 선택 여부
@@ -36,23 +35,22 @@ const CartList = ({ data }: CartListProps) => {
 
   // 장바구니에서 해당 상품 제거
   const fetch = () => {
-    deleteCartMutation.mutate(
-      { ids: deleteId },
-      {
-        onSuccess: (responseData) => {
-          console.log(responseData.data);
-          handleSelectDeleteClick(
-            cart,
-            estimatedPrice,
-            select,
-            setSelect,
-            setCart,
-            setEstimatedPrice,
-            setSelected,
-          );
-        },
-      },
-    );
+    authInstance
+      .put("/baskets", {
+        ids: deleteId,
+      })
+      .then((res) => {
+        console.log(res.data);
+        handleSelectDeleteClick(
+          cart,
+          estimatedPrice,
+          select,
+          setSelect,
+          setCart,
+          setEstimatedPrice,
+          setSelected,
+        );
+      });
   };
 
   // 개별 아이템 중 1개라도 체크 해제 시 전체 채크 비활성

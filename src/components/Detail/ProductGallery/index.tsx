@@ -2,7 +2,7 @@ import * as Styled from "./ProductGallery.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ProductGalleryProps } from "./ProductGallery.types";
-import defaultImage from "../../../assets/image/no-image.png";
+import Empty from "../../../assets/image/empty_large.png";
 
 const settings = {
   dots: true,
@@ -12,19 +12,21 @@ const settings = {
   slidesToScroll: 1,
 };
 
-const ProductGallery: React.FC<ProductGalleryProps> = ({ images }) => {
-  const displayImages =
-    images.length > 0 ? images : [{ id: 0, imageUrl: defaultImage }];
+// img empty set
+const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  e.currentTarget.src = Empty;
+};
 
+const ProductGallery: React.FC<ProductGalleryProps> = ({ images }) => {
   return (
     <Styled.GalleryContainer>
       <Styled.StyledSlider {...settings}>
-        {displayImages.map(({ id, imageUrl }) => (
+        {images.map(({ id, imageUrl }) => (
           <Styled.SlideContainer key={id}>
             <Styled.ProductImage
               src={imageUrl}
               alt={`Product Image ${id}`}
-              isDefault={imageUrl === defaultImage}
+              onError={handleError}
             />
           </Styled.SlideContainer>
         ))}

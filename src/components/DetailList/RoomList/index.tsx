@@ -7,7 +7,6 @@ import RoomItem from "../RoomItem";
 import * as Styled from "./RoomList.styles";
 import isInventoryAvailable from "./RoomList.utils";
 import { RoomType } from "./RoomList.types";
-import defaultImage from "../../../assets/image/no-image.png";
 
 const RoomList = ({ rooms }: { rooms: RoomType[] }) => {
   const checkInDate = useRecoilValue(checkInDateState) || new Date();
@@ -29,9 +28,7 @@ const RoomList = ({ rooms }: { rooms: RoomType[] }) => {
             capacity={room.capacity}
             RoomInventory={room.RoomInventory}
             roomImages={
-              room.roomImages.length > 0
-                ? room.roomImages[0].imageUrl
-                : defaultImage
+              room.roomImages.length > 0 ? room.roomImages[0].imageUrl : ""
             }
             checkInDate={checkInDate}
             checkOutDate={checkOutDate}

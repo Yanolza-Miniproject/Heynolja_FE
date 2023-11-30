@@ -17,6 +17,7 @@ import Search from "./pages/Search";
 import SearchList from "./pages/SearchList";
 import MyWishs from "./pages/MyPage/MyWishs";
 import DetailList from "./pages/DetailList";
+import { Loader } from "./components/Common/Loader";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <Loader />
       <Global styles={globalStyle} />
       <RouterProvider router={router} />
     </>

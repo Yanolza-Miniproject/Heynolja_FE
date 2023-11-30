@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import exitLogo from "../../../assets/exit.svg";
-import { useDeleteCartItem } from "../../../hooks/useCartFetch";
+import { authInstance } from "../../../hooks/useAxios";
 import calculateNightCount from "../../../utils/calculateNightCount";
 import formatNumber from "../../../utils/formatNumber";
 import Checkbox from "../Checkbox";
 import * as Styled from "./CartItem.styles";
 import { CartItemProps } from "./CartItem.type";
 import { handeleDelete, handleCheck } from "./CartItems.utils";
+import Empty from "../../../assets/image/empty.png";
 
 const CartItem = ({
   item, // 해당 아이템에 대한 정보
@@ -19,37 +20,39 @@ const CartItem = ({
   setEstimatedPrice,
   setCart,
 }: CartItemProps) => {
-  const deleteCartMutation = useDeleteCartItem();
   const [check, setCheck] = useState(select[index]); // 디자인을 위한 체크 상태 여부
 
   // 장바구니에서 해당 상품 제거
   const fetch = () => {
-    // console.log([item.id]);
-    deleteCartMutation.mutate(
-      { ids: [item.id] },
-      {
-        onSuccess: (responseData) => {
-          console.log(responseData.data);
-          handeleDelete(
-            item,
-            cart,
-            estimatedPrice,
-            index,
-            select,
-            setSelect,
-            setCart,
-            setSelected,
-            setEstimatedPrice,
-          );
-        },
-      },
-    );
+    authInstance
+      .put("/baskets", {
+        ids: [item.id],
+      })
+      .then((res) => {
+        console.log(res.data);
+        handeleDelete(
+          item,
+          cart,
+          estimatedPrice,
+          index,
+          select,
+          setSelect,
+          setCart,
+          setSelected,
+          setEstimatedPrice,
+        );
+      });
   };
 
   // 해당 아이템이 체크 여부 지속적인 확인
   useEffect(() => {
     setCheck(select[index]);
   }, [select, index]);
+
+  // img empty set
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = Empty;
+  };
 
   return (
     <Styled.Container check={check}>
@@ -81,7 +84,9 @@ const CartItem = ({
         />
       </Styled.itemTop>
       <Styled.itemBottom>
-        <Styled.Image></Styled.Image>
+        <Styled.Image>
+          <img src={item.roomUrl} onError={handleError} />
+        </Styled.Image>
         <Styled.Info>
           <p>
             <span>방 타입</span>: {item.roomName}

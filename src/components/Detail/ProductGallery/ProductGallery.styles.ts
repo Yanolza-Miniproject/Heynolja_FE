@@ -2,10 +2,6 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import Slider from "react-slick";
 
-interface ProductImageProps {
-  isDefault: boolean;
-}
-
 export const GalleryContainer = styled(Box)`
   height: 80vh;
 
@@ -24,13 +20,12 @@ export const SlideContainer = styled.div`
   text-align: center;
 `;
 
-export const ProductImage = styled.img<ProductImageProps>`
+export const ProductImage = styled.img`
   margin-left: auto;
   margin-right: auto;
   max-width: 75vw;
   max-height: 90vh;
   object-fit: cover;
-  transform: ${(props) => (props.isDefault ? "translateY(-90px)" : "none")};
 `;
 
 export const StyledSlider = styled(Slider)`

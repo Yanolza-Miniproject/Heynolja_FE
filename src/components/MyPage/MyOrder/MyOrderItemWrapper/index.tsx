@@ -21,19 +21,21 @@ const MyOrderItemWrapper = ({
           결제개수: {totalCount}, 결제가격: ₩ {formatNumber(totalPrice)}
         </Styled.OrderTotalPrice>
       </Styled.Header>
-      {rooms.map((item: MyOrderItemWrapperProps) => (
-        <MyOrderItem
-          key={item.id}
-          id={item.id}
-          name={item.accommodationName}
-          type={item.roomName}
-          checkIn={item.checkInAt}
-          checkOut={item.checkOutAt}
-          guests={item.numberGuests}
-          price={item.price}
-          roomUrl={item.roomUrl}
-        />
-      ))}
+      <Styled.ItemWrapper>
+        {rooms.map((item: MyOrderItemWrapperProps) => (
+          <MyOrderItem
+            key={item.id}
+            id={item.id}
+            name={item.accommodationName}
+            type={item.roomName}
+            checkIn={item.checkInAt}
+            checkOut={item.checkOutAt}
+            guests={item.numberGuests}
+            price={item.price}
+            roomUrl={item.roomUrl}
+          />
+        ))}
+      </Styled.ItemWrapper>
     </Styled.MyOrderItemWrapper>
   );
 };

@@ -5,6 +5,7 @@ import { RoomItemProps } from "./RoomItem.types";
 import personIcon from "../../../assets/svg/person-icon.svg";
 import { formatDateToYYMMDD } from "../../../utils/formatDate";
 import { useLocation, useNavigate } from "react-router-dom";
+import Empty from "../../../assets/image/empty_medium.png";
 
 const RoomItem: React.FC<
   RoomItemProps & { checkInDate: Date; checkOutDate: Date }
@@ -32,10 +33,19 @@ const RoomItem: React.FC<
     navigate(`/detail?accommodation-id=${accommodationId}&room-id=${id}`);
   };
 
+  //img empty set
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = Empty;
+  };
+
   return (
     <Styled.ItemWrapper onClick={handleRoomClick}>
       <Styled.ImageContainer>
-        <Styled.ItemImage src={roomImages} alt={`${name} 이미지`} />
+        <Styled.ItemImage
+          src={roomImages}
+          alt={`${name} 이미지`}
+          onError={handleError}
+        />
       </Styled.ImageContainer>
       <Styled.ItemDetails>
         <Styled.ItemName>{name}</Styled.ItemName>
