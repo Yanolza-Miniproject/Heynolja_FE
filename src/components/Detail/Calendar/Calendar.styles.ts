@@ -16,7 +16,6 @@ export const SelectDatesText = styled.div`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: -0.15rem;
 `;
 
 export const PriceText = styled.div`
@@ -26,5 +25,5 @@ export const PriceText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: -0.04375rem;
+  letter-spacing: -0.02375rem;
 `;
