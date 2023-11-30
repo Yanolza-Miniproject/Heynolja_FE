@@ -10,7 +10,7 @@ const ItemList = () => {
   const [purchaseList] = useRecoilState(purchaseState);
   const orderId = purchaseList.order_id;
   const { data } = useGetOrderList(orderId as number);
-  const orderList: OrderItem[] = data?.data.order_datas;
+  const orderList: OrderItem[] = data?.data.data.rooms;
 
   // authInstance
   //   .get("/orders/9")

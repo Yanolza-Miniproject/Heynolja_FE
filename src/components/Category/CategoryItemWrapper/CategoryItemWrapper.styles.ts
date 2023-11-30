@@ -5,6 +5,4 @@ export const CategoryItemWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-
-  margin-top: 3rem;
 `;

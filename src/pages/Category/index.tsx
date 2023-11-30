@@ -24,11 +24,15 @@ const Category = () => {
         searchFn={handleClickSearch}
       />
       <Styled.ItemWrapper>
-        <CategoryFilter />
-        <CategoryQuery
-          regionNumber={regionNumber}
-          accommodationNumber={accommodationNumber}
-        />
+        <Styled.Main>
+          <CategoryQuery
+            regionNumber={regionNumber}
+            accommodationNumber={accommodationNumber}
+          />
+        </Styled.Main>
+        <Styled.Aside>
+          <CategoryFilter />
+        </Styled.Aside>
       </Styled.ItemWrapper>
     </Styled.CategoryContainer>
   );

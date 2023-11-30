@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseInstance } from "../../hooks/useAxios";
 import { SignInInputs } from "../../pages/Signin/Signin.types";
 import { Inputs } from "../../pages/Signup/Signup.types";
@@ -37,9 +36,7 @@ export type fetchTokenProps = {
 };
 
 export const fetchToken = async (refreshToken: string) => {
-  alert("토큰 함수 호출");
-  alert(refreshToken);
-  const response = await axios.post("/api/refresh", {
+  const response = await baseInstance.post("refresh", {
     refreshToken: refreshToken,
   });
 

@@ -6,5 +6,5 @@ export interface MyOrderItemProps {
   checkOut: string;
   guests: number;
   price: number;
-  room_image_url: string;
+  roomUrl: string;
 }
