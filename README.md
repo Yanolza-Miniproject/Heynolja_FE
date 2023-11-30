@@ -23,26 +23,99 @@
 - 언제라도 꼭 가고 싶은 숙소, ❤️[찜하기] 기능을 이용해보세요.
 
 ## 프로젝트 세부 정보
-### 📍개발 환경 
-<img alt="visualstudiocode" src="https://img.shields.io/badge/visualstudiocode-007ACC.svg?&style=for-the-badge&logo=visualstudiocode&logoColor=white"/> <img alt="git" src="https://img.shields.io/badge/git-F05032.svg?&style=for-the-badge&logo=git&logoColor=white"/> <img alt="github" src="https://img.shields.io/badge/github-181717.svg?&style=for-the-badge&logo=github&logoColor=white"/> <img alt="eslint" src="https://img.shields.io/badge/eslint-58A616.svg?&style=for-the-badge&logo=eslint&logoColor=white"/> <img alt="prettier" src="https://img.shields.io/badge/prettier-F7B93E.svg?&style=for-the-badge&logo=prettier&logoColor=white"/> <img alt="husky" src="https://img.shields.io/badge/husky-FFE033.svg?&style=for-the-badge&logo=husky&logoColor=white"/> <img alt="vite" src="https://img.shields.io/badge/vite-646CFF.svg?&style=for-the-badge&logo=vite&logoColor=white"/>
-### 📍배포
-<img alt="vercel" src="https://img.shields.io/badge/vercel-1BB3A4.svg?&style=for-the-badge&logo=vercel&logoColor=white"/> 
 
-### 📍사용 기술 
+### 📍개발 환경
+
+<img alt="visualstudiocode" src="https://img.shields.io/badge/visualstudiocode-007ACC.svg?&style=for-the-badge&logo=visualstudiocode&logoColor=white"/> <img alt="git" src="https://img.shields.io/badge/git-F05032.svg?&style=for-the-badge&logo=git&logoColor=white"/> <img alt="github" src="https://img.shields.io/badge/github-181717.svg?&style=for-the-badge&logo=github&logoColor=white"/> <img alt="eslint" src="https://img.shields.io/badge/eslint-58A616.svg?&style=for-the-badge&logo=eslint&logoColor=white"/> <img alt="prettier" src="https://img.shields.io/badge/prettier-F7B93E.svg?&style=for-the-badge&logo=prettier&logoColor=white"/> <img alt="husky" src="https://img.shields.io/badge/husky-FFE033.svg?&style=for-the-badge&logo=husky&logoColor=white"/> <img alt="vite" src="https://img.shields.io/badge/vite-646CFF.svg?&style=for-the-badge&logo=vite&logoColor=white"/>
+
+### 📍배포
+
+<img alt="vercel" src="https://img.shields.io/badge/vercel-1BB3A4.svg?&style=for-the-badge&logo=vercel&logoColor=white"/>
+
+### 📍사용 기술
+
 <img alt="react" src="https://img.shields.io/badge/react-61DAFB.svg?&style=for-the-badge&logo=react&logoColor=black"/> <img alt="typescript" src="https://img.shields.io/badge/typescript-3178C6.svg?&style=for-the-badge&logo=typescript&logoColor=white"/> <img alt="reactrouter" src="https://img.shields.io/badge/reactrouter-CA4245.svg?&style=for-the-badge&logo=reactrouter&logoColor=white"/> <img alt="recoil" src="https://img.shields.io/badge/recoil-3578E5.svg?&style=for-the-badge&logo=recoil&logoColor=white"/> <img alt="emotion" src="https://img.shields.io/badge/emotion-D26AC2.svg?&style=for-the-badge&logo=emotion&logoColor=white"/> <img alt="reactquery" src="https://img.shields.io/badge/reactquery-FF4154.svg?&style=for-the-badge&logo=reactquery&logoColor=white"/> <img alt="msw" src="https://img.shields.io/badge/msw-9A8555.svg?&style=for-the-badge&logo=msw&logoColor=white"/> <img alt="jest" src="https://img.shields.io/badge/jest-C21325.svg?&style=for-the-badge&logo=jest&logoColor=white"/>
 
 ### 📍협업 툴
-<img alt="notion" src="https://img.shields.io/badge
 
-### 팀원별 담당 페이지 소개
+<img alt="notion" src="https://img.shields.io/badge/notion-E6E6E6.svg?&style=for-the-badge&logo=notion&logoColor=black"/> <img alt="figma" src="https://img.shields.io/badge/figma-F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/> <img alt="slack" src="https://img.shields.io/badge/slack-4608AD.svg?&style=for-the-badge&logo=slack&logoColor=white"/> <img alt="zep" src="https://img.shields.io/badge/zep-EC008C.svg?&style=for-the-badge&logo=zep&logoColor=white"/>
 
-| 팀원         | 담당 페이지      |
-| ------------ | ---------------- |
-| 이용훈(팀장) | ㅁㄴㅇㄹㄴㅁㄹ   |
-| 김미정       | ㅁㄴㅇㄹㄴㅁㅇㄹ |
-| 김민섭       | ㅁㄴㄹㅇㄴㅁㅇㄹ |
-| 이승연       | ㅁㄴㅇㄹㅁㄴㄹㅇ |
-| 박수연       | ㅁㄴㄹㅇㅁㄴㄹ   |
+## 👪 아버지날보고있다면정답을알려조 팀원 소개
+
+<table>
+  <tr>
+    <td align="center" width="150px">
+      <a href="https://github.com/2YH02" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/125336070?v=4" alt=
+        "이용훈 프로필" />
+      </a>
+    </td>
+    <td align="center" width="150px">
+      <a href="https://github.com/suyeonnnnnnn" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/92326949?v=4" alt="박수연 프로필" />
+      </a>
+    </td>
+    <td align="center" width="150px">
+      <a href="https://github.com/ewinkite" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/139189610?v=4" alt="이승연 프로필" />
+      </a>
+    </td>
+    </td>
+    <td align="center" width="150px">
+      <a href="https://github.com/LikeFireAndSky" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/107862297?v=4"alt="김민섭 프로필" />
+      </a>
+    </td>
+    <td align="center" width="150px">
+      <a href="https://github.com/mysdpy30s" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/137375435?v=4"alt="이연수 프로필" />
+      </a>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center">
+      <a href="https://github.com/2YH02" target="_blank">
+        이용훈<br />
+        Frontend & 팀장
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/suyeonnnnnnn" target="_blank">
+        박수연<br />
+        Frontend
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ewinkite" target="_blank">
+        이승연<br />
+        Frontend
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/LikeFireAndSky" target="_blank">
+        김민섭<br />
+        Frontend
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/mysdpy30s" target="_blank">
+        김미정<br />
+        Frontend
+      </a>
+    </td>
+  </tr>
+</table>
+<br>
+
+## 💻 팀원 별 구현 사항
+
+|  이름  | 역할 |             <div align="center">개발 내용</div>              |
+| :----: | :--: | :----------------------------------------------------------: |
+| 이용훈 | 팀장 |                    장바구니</br>결제 완료                    |
+| 박수연 | 팀원 |               숙소 상세</br>방 타입 상세</br>                |
+| 이승연 | 팀원 |                주문하기</br> 마이페이지</br>                 |
+| 김민섭 | 팀원 |        좋아요 기능 </br> 검색 결과 페이지 </br> 배포         |
+| 김미정 | 팀원 | 공통 컴포넌트 제작 </br> 검색(필터) 페이지 </br> 메인 페이지 |
 
 ### 주요 구현 내용
 
