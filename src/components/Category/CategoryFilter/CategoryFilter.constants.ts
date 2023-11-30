@@ -4,15 +4,15 @@ export const accommoationTypes = [
     value: 99,
   },
   {
-    label: "관광호텔",
+    label: "호텔",
     value: 0,
   },
   {
-    label: "콘도미니엄",
+    label: "콘도",
     value: 1,
   },
   {
-    label: "유스호스텔",
+    label: "호스텔",
     value: 2,
   },
   {
@@ -36,7 +36,7 @@ export const accommoationTypes = [
     value: 7,
   },
   {
-    label: "서비스드레지던스",
+    label: "레지던스",
     value: 8,
   },
   {
@@ -75,7 +75,7 @@ export const regionTypes = [
     value: 5,
   },
   {
-    label: "제주시",
+    label: "제주도",
     value: 6,
   },
 ];
