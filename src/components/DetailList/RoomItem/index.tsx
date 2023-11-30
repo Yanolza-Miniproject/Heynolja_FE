@@ -3,7 +3,8 @@ import * as Styled from "./RoomItem.styles";
 import formatNumber from "../../../utils/formatNumber";
 import { RoomItemProps } from "./RoomItem.types";
 import personIcon from "../../../assets/svg/person-icon.svg";
-import { formatDateToYYMMDD } from "../../../utils/formatDate";
+// import { formatDateToYYMMDD } from "../../../utils/formatDate";
+import { formatDate } from "../../../utils/formatDate";
 import { useLocation, useNavigate } from "react-router-dom";
 import Empty from "../../../assets/image/empty_medium.png";
 
@@ -18,7 +19,7 @@ const RoomItem: React.FC<
   let remainingInventory = "데이터 없음";
 
   if (checkInDate && RoomInventory) {
-    const checkInDateString = formatDateToYYMMDD(checkInDate);
+    const checkInDateString = formatDate(checkInDate);
 
     const inventoryData = RoomInventory.find(
       (inv) => inv.date === checkInDateString,
@@ -26,7 +27,7 @@ const RoomItem: React.FC<
 
     remainingInventory = inventoryData
       ? `${inventoryData.inventory}개`
-      : "데이터 없음";
+      : "확인 불가";
   }
 
   const handleRoomClick = () => {

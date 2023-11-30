@@ -4,5 +4,6 @@ export interface RoomDetails {
     accommodationName: string;
     price: number;
     inventory: number;
+    roomImages: { id: number; imageUrl: string }[];
   };
 }

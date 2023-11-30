@@ -21,11 +21,11 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ images }) => {
   return (
     <Styled.GalleryContainer>
       <Styled.StyledSlider {...settings}>
-        {images.map((image, index) => (
-          <Styled.SlideContainer key={index}>
+        {images.map(({ id, imageUrl }) => (
+          <Styled.SlideContainer key={id}>
             <Styled.ProductImage
-              src={image}
-              alt={`Product Image ${index + 1}`}
+              src={imageUrl}
+              alt={`Product Image ${id}`}
               onError={handleError}
             />
           </Styled.SlideContainer>
