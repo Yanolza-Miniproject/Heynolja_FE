@@ -263,3 +263,5 @@ export const NavButton = styled.button`
   text-align: center;
   color: black;
 `;
+
+export const LoaderWrapper = styled.div``;
