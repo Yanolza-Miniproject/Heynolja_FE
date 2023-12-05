@@ -11,6 +11,7 @@ import * as Styled from "./DetailList.styles.ts";
 import HeartClick from "../../components/Category/HeartClick/index.tsx";
 
 const DetailList = () => {
+  scroll(0, 0);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const accommodationId = queryParams.get("accommodation-id");
