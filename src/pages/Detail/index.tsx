@@ -50,7 +50,7 @@ const Detail = () => {
     setSelectedCheckInDate(checkInDate);
     setSelectedCheckOutDate(checkOutDate);
   };
-  console.log(roomDetails);
+
   return (
     <Styled.container>
       <Styled.Layout>
@@ -60,7 +60,6 @@ const Detail = () => {
             <ProductDetails
               roomName={roomDetails.data.name}
               name={roomDetails.data.accommodationName}
-              price={roomDetails.data.price}
             />
             <StockStatusBanner inventory={roomDetails.data.inventory} />
           </Styled.HorizontalContainer>
@@ -71,7 +70,6 @@ const Detail = () => {
           <QuantitySelector
             initialQuantity={selectedGuests}
             onQuantityChange={(newQuantity) => setSelectedGuests(newQuantity)}
-            price={roomDetails.data.price}
             capacity={roomDetails.data.capacity}
           />
           <PriceDisplay pricePerNight={roomDetails.data.price} />
