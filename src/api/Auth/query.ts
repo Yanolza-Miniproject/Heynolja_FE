@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { SignInInputs } from "../../pages/Signin/Signin.types";
 import { fetchSignin, fetchSignup } from ".";
 import { useNavigate } from "react-router-dom";
-import { Inputs } from "../../pages/Signup/Signup.types";
+import { Requests } from "../../pages/Signup/Signup.types";
 import { userDataAtom } from "../../store/userDataAtom";
 import { useSetRecoilState } from "recoil";
 import { setSessionStorage } from "../../utils/setSessionStorage";
@@ -44,7 +44,7 @@ export const useLogin = () => {
 export const useSignUp = () => {
   const router = useNavigate();
   const mutation = useMutation({
-    mutationFn: (data: Inputs) => fetchSignup(data),
+    mutationFn: (data: Requests) => fetchSignup(data),
     onSuccess: (data) => {
       alert(data.message);
       router("/");
