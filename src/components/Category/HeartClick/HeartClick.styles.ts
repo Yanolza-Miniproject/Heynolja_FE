@@ -22,7 +22,7 @@ export const CategorySvgImage = styled.img`
 `;
 
 export const CategorySvgText = styled.span`
-  font-size: 12px;
+  font-size: 0.8rem;
   font-weight: 400;
 
   color: #ff5100;

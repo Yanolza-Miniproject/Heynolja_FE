@@ -15,6 +15,8 @@ module.exports = {
   // https://jestjs.io/docs/configuration#testmatch-arraystring
   testMatch: ["**/*.test.ts?(x)"],
 
+  transformIgnorePatterns: ["<rootDir>/node_modules/(?!lodash-es)"],
+
   // Jest transformations
   // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
   transform: {

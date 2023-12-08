@@ -7,12 +7,9 @@ import SearchListBanner from "../../components/SearchListBanner";
 const SearchList = () => {
   const validParams = useGetValidParams();
 
-  const firstText = "숙소를";
-  const secondText = "찾으셨나요?";
-
   return (
     <Styled.SearchResultContainer>
-      <CategoryBanner firstText={firstText} secondText={secondText} />
+      <CategoryBanner bannerMainText={"숙소를"} bannerSubText={"찾으셨나요?"} />
       <Styled.ItemWrapper>
         <Styled.Main>
           <CategoryQuery

@@ -6,22 +6,23 @@ import { HeartClickProps } from "./HeartClick.types";
 
 const HeartClick = ({
   likes,
-  likes_clicked,
+  likesClicked,
   accommodationId,
 }: HeartClickProps) => {
-  const [clicked, setClicked] = useState<boolean>(likes_clicked);
+  const [clicked, setClicked] = useState<boolean>(likesClicked);
   const [like, setLike] = useState<number>(likes);
   const postMutation = useWishControl({ queryFnType: "post" });
   const deleteMutation = useWishControl({ queryFnType: "delete" });
 
   const handleHeartClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
-    setClicked((prev) => !prev);
     if (clicked) {
       deleteMutation.mutate(accommodationId);
+      setClicked((prev) => !prev);
       setLike((prev) => prev - 1);
     } else {
       postMutation.mutate(accommodationId);
+      setClicked((prev) => !prev);
       setLike((prev) => prev + 1);
     }
   };

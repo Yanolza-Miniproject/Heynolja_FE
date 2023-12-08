@@ -1,5 +1,5 @@
 export type HeartClickProps = {
   likes: number;
-  likes_clicked: boolean;
+  likesClicked: boolean;
   accommodationId: string;
 };

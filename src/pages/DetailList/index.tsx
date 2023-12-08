@@ -35,7 +35,7 @@ const DetailList = () => {
             />
             <HeartClick
               likes={accommodationDetail.data.data.wishCount}
-              likes_clicked={accommodationDetail.data.data.isWish}
+              likesClicked={accommodationDetail.data.data.isWish}
               accommodationId={accommodationDetail.data.data.id}
             />
           </Styled.HorizontalContainer>

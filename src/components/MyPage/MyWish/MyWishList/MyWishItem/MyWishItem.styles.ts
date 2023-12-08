@@ -76,7 +76,11 @@ export const CategoryTopWrapper = styled.div`
 `;
 
 export const CategoryDescription = styled.span`
-  color: #222222;
+  width: 30%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const CategoryView = styled.span`

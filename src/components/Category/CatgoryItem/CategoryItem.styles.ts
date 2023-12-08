@@ -9,9 +9,6 @@ type CategoryItemContainerProps = {
 export const CategoryItemContainer = styled.div<CategoryItemContainerProps>`
   ${flexCenter};
 
-  width: ${(props) => (props.view ? "195px" : "100%")}
-  height: ${(props) => (props.view ? "290px;" : "auto")}
-
   padding: 1rem;
   position: relative;
 
@@ -20,7 +17,7 @@ export const CategoryItemContainer = styled.div<CategoryItemContainerProps>`
 
   font-size: 0.9rem;
 
-  transition: all 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
@@ -35,15 +32,20 @@ export const CategoryItemWrapper = styled(
   flex-direction: ${(props) => (props.view ? "column" : "row")};
   align-items: center;
 
-  width: 100%;
+  width: ${(props) => (props.view ? "12vw" : "100%")};
+
+  min-width: 195px;
   height: 100%;
 
   gap: 0.5rem;
 `;
 
 export const CategoryImage = styled.img<CategoryItemContainerProps>`
-  width: ${(props) => (props.view ? "10vw" : "10vw")};
-  height: ${(props) => (props.view ? "10vw" : "10vw")};
+  width: 12vw;
+  min-width: 195px;
+
+  height: 10vw;
+  min-height: 100px;
 
   padding: 1rem;
 
@@ -52,8 +54,8 @@ export const CategoryImage = styled.img<CategoryItemContainerProps>`
   object-position: center;
 
   @media (max-width: 768px) {
-    width: ${(props) => (props.view ? "20vw" : "20vw")};
-    height: ${(props) => (props.view ? "20vw" : "20vw")};
+    width: 20vw
+    height: 20vw
   }
 `;
 
@@ -64,7 +66,7 @@ export const CategoryTextWrapper = styled.div<CategoryItemContainerProps>`
 
   position: relative;
 
-  width: ${(props) => (props.view ? "195px" : "90%")};
+  width: 90%;
 
   gap: 1rem;
 `;
