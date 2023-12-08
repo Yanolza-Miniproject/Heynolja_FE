@@ -52,13 +52,13 @@ const Header = () => {
       </Styled.headerLeftWrapper>
 
       <Styled.headerRightWrapper>
+        <Link to="/search">
+          <Tooltip title="숙소 찾기" arrow>
+            <img src={SearchIcon} alt="search" />
+          </Tooltip>
+        </Link>
         {loggedin ? (
           <>
-            <Link to="/search">
-              <Tooltip title="숙소 찾기" arrow>
-                <img src={SearchIcon} alt="search" />
-              </Tooltip>
-            </Link>
             <Link to="/cart" className="submenu">
               <Tooltip title="내 카트" arrow>
                 <img src={CartIcon} alt="cart" />
@@ -77,11 +77,6 @@ const Header = () => {
           </>
         ) : (
           <>
-            <Link to="/search">
-              <Tooltip title="숙소 찾기" arrow>
-                <img src={SearchIcon} alt="search" />
-              </Tooltip>
-            </Link>
             <Link to="signup" className="submenu">
               <Tooltip title="회원가입" arrow>
                 <img src={SignupIcon} alt="signup" />
