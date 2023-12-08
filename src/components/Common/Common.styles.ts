@@ -6,8 +6,8 @@ export const globalStyle = css`
   ${emotionReset}
 
   @font-face {
-    font-family: "Noto Sans KR";
-    src: url("../assets/font/NotoSans-Regular.woff2") format("font-woff2");
+    font-family: "Noto Sans KR", sans-serif;
+    src: url("../assets/font/NotoSans-Regular.woff2") format("woff2");
   }
 
   body {
