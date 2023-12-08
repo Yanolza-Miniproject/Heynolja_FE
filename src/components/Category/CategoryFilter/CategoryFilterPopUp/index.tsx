@@ -14,9 +14,7 @@ const CategoryFilterPopUp = memo(
       setIsOpen((prev) => !prev);
     };
 
-    const categoryClick = (e: React.MouseEvent<HTMLLIElement>) => {
-      const { innerText } = e.target as HTMLLIElement;
-      const { value } = e.target as HTMLLIElement;
+    const categoryClick = (innerText: string, value: number | boolean) => {
       setButtonLabel(innerText);
       setCategoryQuery((prev) => {
         if (buttonText === "원하는 숙소를 찾아보세요") {
@@ -57,7 +55,7 @@ const CategoryFilterPopUp = memo(
               <Styled.CategoryPopUpItem
                 key={type.value}
                 value={type.value}
-                onClick={categoryClick}
+                onClick={() => categoryClick(type.label, type.value)}
                 data-testid="CategoryPopUpItem"
               >
                 {type.label}

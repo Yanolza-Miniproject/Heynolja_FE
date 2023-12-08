@@ -11,7 +11,7 @@ describe("CategoryBanner", () => {
     const secondText = "지금 둘러보세요.";
 
     render(
-      <CategoryBanner firstText={firstText} secondText={secondText} />,
+      <CategoryBanner bannerMainText={firstText} bannerSubText={secondText} />,
 
       { wrapper },
     );
@@ -29,7 +29,7 @@ describe("CategoryBanner", () => {
     const secondText = "지금 둘러보세요.";
 
     render(
-      <CategoryBanner firstText={firstText} secondText={secondText} />,
+      <CategoryBanner bannerMainText={firstText} bannerSubText={secondText} />,
 
       { wrapper },
     );

@@ -29,12 +29,12 @@ const SearchListBanner = ({ validParams }: SearchListBannerProps) => {
         <Styled.SearchListQueryText>보기 방식</Styled.SearchListQueryText>
         <Styled.SearchListButtonWrapper>
           <CategoryFilterViewButton
-            buttonText="바둑판보기"
+            type="Grid"
             isOn={categoryViewState}
             fn={handleClick}
           />
           <CategoryFilterViewButton
-            buttonText="리스트보기"
+            type="List"
             isOn={categoryViewState}
             fn={handleClick}
           />

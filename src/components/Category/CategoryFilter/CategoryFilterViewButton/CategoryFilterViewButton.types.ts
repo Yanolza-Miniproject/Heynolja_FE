@@ -1,5 +1,7 @@
+export type CategoryViewType = "Grid" | "List";
+
 export type CategoryFilterViewButtonProps = {
-  buttonText: string;
+  type: CategoryViewType;
   isOn: boolean;
   fn: () => void;
 };

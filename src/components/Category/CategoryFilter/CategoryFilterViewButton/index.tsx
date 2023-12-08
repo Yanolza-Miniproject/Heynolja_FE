@@ -1,26 +1,29 @@
 import * as Styled from "./CategoryFilterViewButton.styles";
-import { CategoryFilterViewButtonProps } from "./CategoryFilterViewButton.types";
+import {
+  CategoryFilterViewButtonProps,
+  CategoryViewType,
+} from "./CategoryFilterViewButton.types";
 
 const CategoryFilterViewButton = ({
-  buttonText,
   isOn,
+  type,
   fn,
 }: CategoryFilterViewButtonProps) => {
-  const isViewMode = () => {
-    if (buttonText === "바둑판보기") {
-      return isOn;
-    } else {
-      return !isOn;
-    }
+  const isViewMode = (type: CategoryViewType): boolean => {
+    return type === "Grid" ? isOn : !isOn;
+  };
+
+  const isViewType = (type: CategoryViewType): string => {
+    return type === "Grid" ? "바둑판보기" : "리스트보기";
   };
 
   return (
     <Styled.CategoryFilterViewButton
       type="button"
-      view={isViewMode()}
+      view={isViewMode(type)}
       onClick={fn}
     >
-      {buttonText}
+      {isViewType(type)}
     </Styled.CategoryFilterViewButton>
   );
 };

@@ -8,14 +8,9 @@ const mockFn = jest.fn();
 describe("CategoryFilterViewButton", () => {
   it("렌더링 테스트", () => {
     const wrapper = createWrapper();
-    render(
-      <CategoryFilterViewButton
-        buttonText="바둑판보기"
-        isOn={true}
-        fn={mockFn}
-      />,
-      { wrapper },
-    );
+    render(<CategoryFilterViewButton type="Grid" isOn={true} fn={mockFn} />, {
+      wrapper,
+    });
 
     expect(screen.getByText("바둑판보기")).toBeInTheDocument();
   });
@@ -24,14 +19,9 @@ describe("CategoryFilterViewButton", () => {
     const user = userEvent;
     const wrapper = createWrapper();
 
-    render(
-      <CategoryFilterViewButton
-        buttonText="바둑판보기"
-        isOn={true}
-        fn={mockFn}
-      />,
-      { wrapper },
-    );
+    render(<CategoryFilterViewButton type="Grid" isOn={true} fn={mockFn} />, {
+      wrapper,
+    });
 
     const button = screen.getByRole("button");
 
