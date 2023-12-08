@@ -117,9 +117,7 @@ export const headerRightWrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    &:nth-of-type(2)::after,
-    &:nth-of-type(3)::after,
-    &:nth-last-of-type(1)::after {
+    &.submenu::after {
       content: "";
       position: absolute;
       left: -10px;

@@ -59,17 +59,17 @@ const Header = () => {
                 <img src={SearchIcon} alt="search" />
               </Tooltip>
             </Link>
-            <Link to="/cart">
+            <Link to="/cart" className="submenu">
               <Tooltip title="내 카트" arrow>
                 <img src={CartIcon} alt="cart" />
               </Tooltip>
             </Link>{" "}
-            <Link to="/mypage">
+            <Link to="/mypage" className="submenu">
               <Tooltip title="마이페이지" arrow>
                 <img src={UserIcon} alt="mypage" />
               </Tooltip>
             </Link>{" "}
-            <Link to="/signin">
+            <Link to="/signin" className="submenu">
               <Tooltip title="로그아웃" arrow onClick={handleLogout}>
                 <img src={LogoutIcon} alt="logout" />
               </Tooltip>
@@ -82,12 +82,12 @@ const Header = () => {
                 <img src={SearchIcon} alt="search" />
               </Tooltip>
             </Link>
-            <Link to="signup">
+            <Link to="signup" className="submenu">
               <Tooltip title="회원가입" arrow>
                 <img src={SignupIcon} alt="signup" />
               </Tooltip>
             </Link>{" "}
-            <Link to="signin">
+            <Link to="signin" className="submenu">
               <Tooltip title="로그인" arrow>
                 <img src={SigninIcon} alt="signin" />
               </Tooltip>
