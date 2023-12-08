@@ -9,7 +9,7 @@ export const CategorySvgWrapper = styled.div`
   width: 36px;
   height: 36px;
 
-  transition: all 0.3s ease-in-out;
+  transition: scale 0.3s ease-in-out;
 
   &:hover {
     scale: 1.1;

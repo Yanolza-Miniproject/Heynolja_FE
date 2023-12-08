@@ -16,7 +16,7 @@ export const CategoryItemContainer = styled.div`
 
   font-size: 0.9rem;
 
-  transition: all 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;

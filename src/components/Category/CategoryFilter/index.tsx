@@ -26,13 +26,11 @@ const CategoryFilter = () => {
         />
         <Styled.CategoryViewButtonWrapper>
           <CategoryFilterViewButton
-            buttonText="바둑판보기"
             type="Grid"
             isOn={categoryViewState}
             fn={handleClick}
           />
           <CategoryFilterViewButton
-            buttonText="리스트보기"
             type="List"
             isOn={categoryViewState}
             fn={handleClick}

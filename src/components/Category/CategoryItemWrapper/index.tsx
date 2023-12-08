@@ -10,7 +10,7 @@ const CategoryItemWrapper = ({ data }: CategoryItemWrapperProps) => {
 
   return (
     <Styled.CategoryItemWrapper view={categoryViewState}>
-      {data[0].data.length !== 0 ? (
+      {data ? (
         data.map((pageData) => {
           return pageData.data.map((item: CategoryProps) => {
             return <CategoryItem key={item.id} data={item} />;
