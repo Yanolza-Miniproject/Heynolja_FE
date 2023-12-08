@@ -15,9 +15,9 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
   const navigate = useNavigate();
   const [, setPurchaseList] = useRecoilState(purchaseState);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [purchaseId, setPurchaseId] = useState<number[]>([
-    ...estimatedPrice.map((item) => item.id),
-  ]);
+  const [purchaseId, setPurchaseId] = useState<number[]>(
+    estimatedPrice.map((item) => item.id),
+  );
 
   useEffect(() => {
     setPurchaseId([...estimatedPrice.map((item) => item.id)]);
@@ -53,7 +53,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
 
   return (
     <Styled.Container>
-      <Styled.Top>
+      <div>
         {estimatedPrice.map((item) => {
           return (
             <Styled.Item key={item.id} data-testid="estimate-item">
@@ -72,7 +72,7 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
             </Styled.Item>
           );
         })}
-      </Styled.Top>
+      </div>
       <Styled.Line />
       <Styled.Bottom>
         <span>총 합계</span>
@@ -87,7 +87,9 @@ const Estimate = ({ estimatedPrice }: EstimateProps) => {
         onClick={() => {
           if (estimatedPrice.length > 0) {
             fetch();
-          } else alert("선택해주세요");
+          } else {
+            alert("선택해주세요");
+          }
         }}
       />
     </Styled.Container>
