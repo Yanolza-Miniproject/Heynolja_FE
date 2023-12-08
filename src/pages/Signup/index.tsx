@@ -1,7 +1,7 @@
 import InputText from "../../components/Signin/InputText";
 import * as Styled from "./Signup.styles";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Inputs } from "./Signup.types";
+import { Requests } from "./Signup.types";
 import { InputProps } from "./Signup.constant";
 import { useSignUp } from "../../api/Auth/query";
 
@@ -11,9 +11,9 @@ const Signup = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Requests>();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<Requests> = async (data) => {
     mutationSignUp.mutate(data);
   };
 

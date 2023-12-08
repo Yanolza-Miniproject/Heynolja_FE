@@ -3,24 +3,29 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import CategoryItemWrapper from "../CategoryItemWrapper/index";
 import { CategoryQueryProps } from "./CategoryQuery.types";
 
+const IsPropsValid = (props: number | boolean) => {
+  if (props === false) return false;
+  return props;
+};
+
 const CategoryQuery = ({
-  regionNumber = 99,
-  accommodationNumber = 99,
-  categoryParking = 2,
-  categoryCooking = 2,
-  categoryPickup = 2,
+  regionNumber = false,
+  accommodationNumber = false,
+  categoryParking = false,
+  categoryCooking = false,
+  categoryPickup = false,
 }: CategoryQueryProps) => {
   const { data, fetchNextPage, hasNextPage, isLoading } =
     useCategoryInfiniteQuery({
-      region: regionNumber,
-      type: accommodationNumber,
-      categoryParking: categoryParking,
-      categoryCooking: categoryCooking,
-      categoryPickup: categoryPickup,
+      region01: IsPropsValid(regionNumber),
+      type: IsPropsValid(accommodationNumber),
+      categoryParking: IsPropsValid(categoryParking),
+      categoryCooking: IsPropsValid(categoryCooking),
+      categoryPickup: IsPropsValid(categoryPickup),
     });
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <p>Loading...</p>;
   }
 
   return (
