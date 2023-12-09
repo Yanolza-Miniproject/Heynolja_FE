@@ -56,6 +56,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <Loader />
       <Global styles={globalStyle} />
       <RouterProvider router={router} />
     </>
