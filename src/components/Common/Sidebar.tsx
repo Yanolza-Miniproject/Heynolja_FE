@@ -1,6 +1,6 @@
 import * as Styled from "../../components/Common/Common.styles";
 import ScrollToTopIcon from "../../assets/svg/totop-icon.svg";
-import { windowScrollToPolyfill } from "seamless-scroll-polyfill/src/scroll.polyfill";
+import { windowScrollToPolyfill } from "seamless-scroll-polyfill";
 
 function Sidebar() {
   windowScrollToPolyfill();
