@@ -31,9 +31,7 @@ const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
       setCheckInDate(start);
       setCheckOutDate(end);
 
-      if (onDateChange) {
-        onDateChange(start, end);
-      }
+      onDateChange?.(start, end);
     },
     [setCheckInDate, setCheckOutDate, onDateChange],
   );
