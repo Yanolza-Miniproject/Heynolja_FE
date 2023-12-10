@@ -12,7 +12,10 @@ const Category = () => {
 
   return (
     <Styled.CategoryContainer>
-      <CategoryBanner firstText="Hey 놀자!" secondText="지금 둘러보세요." />
+      <CategoryBanner
+        bannerMainText="Hey 놀자!"
+        bannerSubText="지금 둘러보세요."
+      />
       <Styled.ItemWrapper>
         <Styled.Main>
           <CategoryQuery
