@@ -21,7 +21,13 @@ const SearchList = () => {
           />
         </Styled.Main>
         <Styled.Aside>
-          <SearchListBanner validParams={validParams} />
+          <SearchListBanner
+            region01={validParams.region}
+            type={validParams.type}
+            categoryCooking={validParams.categoryCooking}
+            categoryParking={validParams.categoryParking}
+            categoryPickup={validParams.categoryPickup}
+          />
         </Styled.Aside>
       </Styled.ItemWrapper>
     </Styled.SearchResultContainer>

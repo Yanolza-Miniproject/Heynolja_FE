@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import {
-  SearchListBannerProps,
-  filterTextDecoder,
-} from "../../utils/filterTextDecoder";
+import { filterTextDecoder } from "../../utils/filterTextDecoder";
 import * as Styled from "./SearchList.styles";
 import { useRecoilState } from "recoil";
 import { categoryViewAtom } from "../../store/categoryViewAtom";
 import CategoryFilterViewButton from "../Category/CategoryFilter/CategoryFilterViewButton";
+import { CategoryFilterParams } from "../../pages/Category/Category.types";
 
-const SearchListBanner = ({ validParams }: SearchListBannerProps) => {
-  const validArray = filterTextDecoder(validParams);
+const SearchListBanner = (props: CategoryFilterParams) => {
+  const validArray = filterTextDecoder(props);
   const router = useNavigate();
 
   const [categoryViewState, setCategoryViewState] =

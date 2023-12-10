@@ -2,50 +2,56 @@ import {
   accommoationTypes,
   regionTypes,
 } from "../components/Category/CategoryFilter/CategoryFilter.constants";
-import * as _ from "lodash";
+import { find, filter } from "lodash-es";
+import { CategoryFilterParams } from "../pages/Category/Category.types";
 
-export type SearchListBannerProps = {
-  validParams: Param;
+const checkIsValid = (value: number | boolean, min: number, max: number) => {
+  if (typeof value === "number" && min <= value && value <= max) {
+    return true;
+  }
+  return false;
 };
 
-type Param = {
-  region: number;
-  type: number;
-  categoryParking: number;
-  categoryCooking: number;
-  categoryPickup: number;
+const getValidLabel = (
+  array: { label: string; value: number }[],
+  value: number | boolean,
+) => {
+  if (typeof value === "number") {
+    return find(array, { value })?.label || "전체보기";
+  }
+  return "전체보기";
 };
 
-export const filterTextDecoder = (validParams: Param) => {
-  const { region, type, categoryCooking, categoryParking, categoryPickup } =
-    validParams;
+export const filterTextDecoder = (props: CategoryFilterParams) => {
+  const { region01, type, categoryCooking, categoryParking, categoryPickup } =
+    props;
 
   const regionData = {
-    valid: region !== 99 || region === null,
-    label: _.find(regionTypes, { value: region })?.label || "전체보기",
-    url: `&region=${region}`,
+    valid: checkIsValid(region01, 0, 9),
+    label: getValidLabel(regionTypes, region01),
+    url: `&region=${region01}`,
   };
 
   const typeData = {
-    valid: type !== 99 || type === null,
-    label: _.find(accommoationTypes, { value: type })?.label || "전체보기",
+    valid: checkIsValid(type, 0, 6),
+    label: getValidLabel(accommoationTypes, type),
     url: `&type=${type}`,
   };
 
   const cookingData = {
-    valid: categoryCooking !== 2 || categoryCooking === null,
+    valid: checkIsValid(categoryCooking, 0, 1),
     label: categoryCooking === 1 ? "조리가능" : "조리불가능",
     url: `&categoryCooking=${categoryCooking}`,
   };
 
   const parkingData = {
-    valid: categoryParking !== 2 || categoryParking === null,
+    valid: checkIsValid(categoryParking, 0, 1),
     label: categoryParking === 1 ? "주차가능" : "주차불가능",
     url: `&categoryParking=${categoryParking}`,
   };
 
   const pickupData = {
-    valid: categoryPickup !== 2 || categoryPickup === null,
+    valid: checkIsValid(categoryPickup, 0, 1),
     label: categoryPickup === 1 ? "픽업가능" : "픽업불가능",
     url: `&categoryPickup=${categoryPickup}`,
   };
@@ -58,6 +64,6 @@ export const filterTextDecoder = (validParams: Param) => {
     pickupData,
   ];
 
-  const validArray = _.filter(returnArray, (data) => data.valid);
+  const validArray = filter(returnArray, (data) => data.valid);
   return validArray;
 };

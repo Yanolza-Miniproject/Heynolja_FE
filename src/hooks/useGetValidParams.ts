@@ -4,17 +4,17 @@ const useGetValidParams = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
-  const getNumberParam = (param: string, defaultValue: number) => {
+  const getNumberParam = (param: string, defaultValue: number | boolean) => {
     const value = searchParams.get(param);
     return value !== null ? Number(value) : defaultValue;
   };
 
   const validParams = {
-    region: getNumberParam("region", 99),
-    type: getNumberParam("type", 99),
-    categoryCooking: getNumberParam("categoryCooking", 2),
-    categoryParking: getNumberParam("categoryParking", 2),
-    categoryPickup: getNumberParam("categoryPickup", 2),
+    region: getNumberParam("region", false),
+    type: getNumberParam("type", false),
+    categoryCooking: getNumberParam("categoryCooking", false),
+    categoryParking: getNumberParam("categoryParking", false),
+    categoryPickup: getNumberParam("categoryPickup", false),
   };
 
   return validParams;
