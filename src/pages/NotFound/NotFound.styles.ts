@@ -73,7 +73,7 @@ export const TextWrapper = styled.div`
     flex-direction: row;
     gap: 1.8rem;
 
-    button {
+    a {
       padding: 0.5rem;
 
       background-color: transparent;

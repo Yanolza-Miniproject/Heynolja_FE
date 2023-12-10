@@ -24,10 +24,10 @@ const NotFound = () => {
         <span className="main-text">🥲 헉.. 숙소를 찾을 수 없어요!</span>
         <span className="text">다른 도움이 필요하세요?</span>
         <div className="text-btn">
-          <button onClick={handleGoBack}>뒤로가기</button>
-          <a href="/search">
-            <button>다시 검색하기</button>
+          <a href="/" onClick={handleGoBack}>
+            뒤로가기
           </a>
+          <a href="/search">다시 검색하기</a>
         </div>
       </Styled.TextWrapper>
     </Styled.Container>
