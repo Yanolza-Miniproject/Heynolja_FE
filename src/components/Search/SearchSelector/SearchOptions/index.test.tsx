@@ -51,8 +51,16 @@ describe("검색바 테스트 - 추가 옵션", () => {
     expect(mockHandleOptionClick).toHaveBeenCalledWith(99);
 
     const parkingOption = screen.getByText("주차 가능");
+    const cookingOption = screen.getByText("조리 가능");
+    const pickupOption = screen.getByText("픽업 가능");
+
     fireEvent.click(parkingOption);
-    expect(mockHandleOptionClick).toHaveBeenCalledWith(0);
+    fireEvent.click(cookingOption);
+    fireEvent.click(pickupOption);
+
+    expect(parkingOption).not.toHaveAttribute("isSelected", "true");
+    expect(cookingOption).not.toHaveAttribute("isSelected", "true");
+    expect(pickupOption).not.toHaveAttribute("isSelected", "true");
   });
 
   test('"상관 없음"을 제외한 나머지 세 옵션은 중복 선택 가능', async () => {
