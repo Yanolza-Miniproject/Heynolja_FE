@@ -84,7 +84,7 @@ PW : qwert1234
     </td>
     <td align="center" width="150px">
       <a href="https://github.com/mysdpy30s" target="_blank">
-        <img src="https://avatars.githubusercontent.com/u/137375435?v=4"alt="이연수 프로필" />
+        <img src="https://avatars.githubusercontent.com/u/137375435?v=4"alt="김미정 프로필" />
       </a>
     </td>
   </tr>
@@ -189,6 +189,32 @@ headers["access-token"];
 </div>
 </details>
 
+<details>
+<summary style="font-size: 22px">Axios Interceptor로 로딩 애니메이션 추가시 발생한 문제</summary>
+<div markdown="1">
+  
+문제: Axios Interceptor를 활용하여 로딩 애니메이션을 추가하려고 하였으나, 시도해본 방법으로는 로딩 애니메이션이 제대로 출력되지 않았음. Axios Interceptor에 instance 외에도 setIsLoading 상태 값을 필수 parameter로 설정하고 전역적으로 관리하는 등의 방법을 활용해야 했지만, 이미 작업된 컴포넌트 구조 및 시간 관계상 기존 로직 추가 및 변경이 복잡해지는 문제가 있어 다른 방법을 찾아보기로 함.
+
+해결: 모든 컴포넌트가 react-query를 이용해 api data fetching을 진행하고 있다는 점을 활용하기로 하였음. React-query에서 제공하는 기능 중 현재 fetching 중인 쿼리의 개수를 리턴하는 훅인 "useIsFetching"을 이용해, 현재 데이터가 로딩 중인 경우 로딩 애니메이션이 출력될 수 있도록 아래와 같이 코드를 작성함.
+
+```javascript
+export const Loader = () => {
+  const isLoading = useIsFetching();
+
+  return isLoading > 0 ? (
+    <LoaderContainer>
+      <LoaderWrapper>
+        <PacmanLoader color="#FF5000" size={30} />
+        <p>잠시만 기다려주세요.</p>
+      </LoaderWrapper>
+    </LoaderContainer>
+  ) : null;
+};
+```
+
+</div>
+</details>
+
 <br>
 
 ## 🎞️시연 영상
@@ -269,6 +295,9 @@ https://github.com/Yanolza-Miniproject/frontend/assets/125336070/71dece7b-4643-4
 <div markdown="1">
 
 - 느낀점
+  - 프로젝트 초기부터 작업 방식, 컨벤션 등을 꼼꼼하게 세팅해놓은 덕분에, 팀원들간에 서로 일관성 있는 코드 작성을 할 수 있어 정말 좋았습니다.
+  - 이전에는 프로젝트 기능 구현에만 급급하여 한 컴포넌트 안에 대량의 코드를 쌓아두는 안좋은 습관이 있었는데, 이번 프로젝트를 계기로 커스텀 훅 생성이라던가 작은 컴포넌트 단위로 분리하는 연습을 하면서 코드의 효율성 및 가독성을 향상시킬 수 있었습니다.
+  - 함께한 좋은 팀원분들 덕분에 매 순간 새로운 것을 즐겁게 배워나가고 저 스스로도 성장할 수 있는 소중한 계기가 되었습니다. 모두 감사합니다!
 
 </div>
 </details>
