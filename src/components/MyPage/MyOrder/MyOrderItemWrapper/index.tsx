@@ -2,6 +2,7 @@ import * as Styled from "./MyOrderItemWrapper.styles";
 import MyOrderItem from "../MyOrderItem/index";
 import { MyOrderListProps } from "../MyOrderList/MyOrderList.type";
 import { MyOrderItemWrapperProps } from "./MyOrderItemWrapper.types";
+import { formatDateToYYYYMMDDHHMMSS } from "../../../../utils/formatDate";
 
 const MyOrderItemWrapper = ({
   id,
@@ -13,7 +14,7 @@ const MyOrderItemWrapper = ({
     <Styled.MyOrderItemWrapper>
       <Styled.Header>
         <Styled.OrderInfo>
-          No. {id} | 결제 일시 {paymentAt.slice(0, 16).replace("T", " ")}
+          No. {id} | 결제 일시 {formatDateToYYYYMMDDHHMMSS(paymentAt)}
         </Styled.OrderInfo>
         <Styled.OrderTotalPrice>
           총 결제 개수: {totalCount}
