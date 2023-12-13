@@ -6,6 +6,7 @@
 > 나의 소중한 하루를 선사할 곳을 'HEY놀자'에서 만나보세요!
 
 #### ✅ 배포 주소 : https://heynolja-mini-4.vercel.app/
+
 ```
 * 테스트 계정 정보
 ID : admin@admin.com
@@ -118,25 +119,30 @@ PW : qwert1234
 ## 🪄 주요 구현 내용
 
 ### ⭐ 테마별 숙소 추천 로직 구현
+
 - 사용자의 빠른 선택을 도울 수 있도록 GPS 기준 지역별 숙소 추천, 인기 숙소 안내 등의 기능을 제공합니다.
 
 ### ⭐ 회원가입, 로그인 기능 및 인증, 404페이지
+
 - 이메일과 비밀번호 기준으로 회원가입을 진행하며, 이를 기준으로 로그인 할 수 있습니다.
 - 인증이 필요한 페이지의 경우 미인증 회원이 접근할 시 로그인 페이지로 이동됩니다.
 - 접근이 불가한 주소로 이동 시 404페이지로 이동합니다.
 
 ### ⭐ 숙소 조회를 위한 다양한 검색 필터 지원, 개별 상품 페이지 제공
+
 - 숙소 타입, 장소, 추가 옵션별로 원하는 카테고리를 선택하여 숙소를 조회할 수 있습니다.
 - 미선택시 전체 상품 조회가 가능합니다.
 - 특정 숙소 클릭시 해당 숙소에 대한 상세 정보와 품절여부를 확인할 수 있으며 장바구니 담기 및 바로 주문하기를 진행할 수 있습니다.
 
 ### ⭐ 장바구니, 결제하기
+
 - 숙소 상세페이지를 통해 희망하는 날짜/인원수를 설정하여 장바구니에 추가할 수 있습니다.
 - 장바구니에서 결제 진행할 숙소를 선택하고, 결제하기 페이지로 이동할 수 있습니다.
 - 결제하기 페이지내에서 주문하려는 상품을 다시 한 번 확인하고, 만 14세 이상 이용 동의 체크박스를 필수로 입력 받은 후 결제할 수 있습니다.
 - 결제 완료된 경우 완료 페이지내에서 결제한 정보를 확인할 수 있습니다.
 
 ### ⭐ 회원의 경우 결제 이력, 장바구니, 찜목록 관리 기능 제공
+
 - 여태 주문한 모든 주문 이력을 건별로 상세하게 확인할 수 있습니다.
 - 장바구니에 담아둔 상품의 데이터를 보여주며, 실제 결제할 상품을 선택하고 진행할 수 있습니다.
 - 하트 아이콘을 통해 찜목록에 추가했던 숙소들을 확인할 수 있습니다.
@@ -149,22 +155,27 @@ PW : qwert1234
   
 문제: 프로젝트에서 access token을 서버에서 http 헤더에 담아서 보내주는데 배포 환경에서 값을 인식 못하는 문제
 
-해결: 헤더의 키값이 access_token 이라고 되어 있고, 배포 환경에서 nginx에서 헤더의 키값에 _(언더바)가 있으면 자동으로 제거하고 전달하면서 값을 제대로 못받아오는 거여서
+해결: 헤더의 키값이 access*token 이라고 되어 있고, 배포 환경에서 nginx에서 헤더의 키값에 *(언더바)가 있으면 자동으로 제거하고 전달하면서 값을 제대로 못받아오는 거여서
 
 이런식으로 작성되었던 코드를
+
 ```javascript
-headers["access_token"]
+headers["access_token"];
 ```
+
 배포 main브랜치에서 임시로 코드를 아래와 같이 바꿈
+
 ```javascript
-headers["access-token"]
+headers["access-token"];
 ```
+
 </div>
 </details>
 
 <br>
 
 ## 🎞️시연 영상
+
 ### ⭐ 로그인, 메인페이지
 
 https://github.com/Yanolza-Miniproject/frontend/assets/125336070/a68ebb7b-42f5-49dd-bf92-661048600cd6
@@ -177,7 +188,7 @@ https://github.com/Yanolza-Miniproject/frontend/assets/125336070/279724f6-8acc-4
 
 https://github.com/Yanolza-Miniproject/frontend/assets/125336070/67ea045a-cab6-4c6f-9d22-a2b8e1f66e79
 
-### ⭐ 개별 상품 조회 + 상품 옵션 선택 
+### ⭐ 개별 상품 조회 + 상품 옵션 선택
 
 https://github.com/Yanolza-Miniproject/frontend/assets/125336070/c60f2895-c9fb-42c8-bb76-739c079c4463
 
@@ -190,6 +201,7 @@ https://github.com/Yanolza-Miniproject/frontend/assets/125336070/3d6bedc1-ee6f-4
 https://github.com/Yanolza-Miniproject/frontend/assets/125336070/71dece7b-4643-403f-bde9-b610d0eb99f9
 
 ## 개인 역량 회고
+
 <details>
 <summary style="font-size: 18px">이용훈</summary>
 <div markdown="1">
@@ -208,6 +220,8 @@ https://github.com/Yanolza-Miniproject/frontend/assets/125336070/71dece7b-4643-4
 <div markdown="1">
 
 - 느낀점
+  - 백엔드 팀과의 협업을 통해 API 명세서 조정, 커뮤니케이션 방법 등 프로젝트 관리의 다양한 측면을 경험할 수 있었습니다.
+  - 특히 MSW를 활용한 개발 방식을 통해 백엔드 API의 준비 상태에 관계없이 프론트엔드 개발을 지속할 수 있었으며, 이를 통해 유연하고 효율적인 협업 및 개발 방식을 배우고 적용할 수 있었습니다.
 
 </div>
 </details>
@@ -245,6 +259,3 @@ https://github.com/Yanolza-Miniproject/frontend/assets/125336070/71dece7b-4643-4
 </details>
 
 <br>
-
-
-
