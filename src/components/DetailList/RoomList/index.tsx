@@ -5,7 +5,7 @@ import {
 } from "../../../store/checkinCheckOutAtom";
 import RoomItem from "../RoomItem";
 import * as Styled from "./RoomList.styles";
-import isInventoryAvailable from "./RoomList.utils";
+import { isInventoryAvailable } from "./RoomList.utils";
 import { RoomType } from "./RoomList.types";
 
 const RoomList = ({ rooms }: { rooms: RoomType[] }) => {
