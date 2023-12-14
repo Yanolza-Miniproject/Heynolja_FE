@@ -25,6 +25,11 @@ const ActionButtonGroup = ({
   const userData = useRecoilValue(userDataAtom);
   const isLoggedIn = userData.memberId !== "";
 
+  if (!roomId || roomId <= 0) {
+    navigate("/");
+    return null;
+  }
+
   const onAddToCart = () => {
     const formattedCheckInAt = formatDate(new Date(checkInAt));
     const formattedCheckOutAt = formatDate(new Date(checkOutAt));

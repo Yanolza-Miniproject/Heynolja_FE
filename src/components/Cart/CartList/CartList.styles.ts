@@ -72,16 +72,3 @@ export const EstimateWrapper = styled(Wrapper)`
     margin-bottom: 2rem;
   }
 `;
-
-// @media (max-width: 1200px) {
-//   grid-template-columns: ${({ isRandomAccomData }) =>
-//     isRandomAccomData ? "repeat(5, auto)" : "repeat(3, auto)"};
-// }
-
-// @media (max-width: 768px) {
-//   grid-template-columns: repeat(2, auto);
-// }
-
-// @media (max-width: 480px) {
-//   grid-template-columns: repeat(1, auto);
-// }

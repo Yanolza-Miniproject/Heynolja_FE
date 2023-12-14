@@ -29,15 +29,9 @@ const PriceDisplay: React.FC<{ pricePerNight: number }> = ({
 
     setPurchase((prev) => ({
       ...prev,
-      totalPrice: totalPrice,
+      totalPrice,
     }));
   }
-
-  console.log("체크인 날짜:", checkInDate);
-  console.log("체크아웃 날짜:", checkOutDate);
-  // console.log("숙박 일수:", nightCount);
-  console.log("총 가격:", totalPrice);
-  console.log("1박당 가격:", pricePerNight);
 
   return (
     <Styled.PriceContainer>

@@ -20,12 +20,14 @@ const CartList = ({ data }: CartListProps) => {
 
   // 데이터 저장
   useEffect(() => {
-    if (data) {
-      setCart([...data]);
-      setSelected(data.length);
-      setEstimatedPrice([...data]);
-      setSelect(Array.from({ length: data.length }, () => true));
+    if (!data) {
+      return;
     }
+
+    setCart([...data]);
+    setSelected(data.length);
+    setEstimatedPrice([...data]);
+    setSelect(Array.from({ length: data.length }, () => true));
   }, [data]);
 
   useEffect(() => {

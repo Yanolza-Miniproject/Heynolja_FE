@@ -2,6 +2,7 @@ import * as Styled from "./ProductGallery.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ProductGalleryProps } from "./ProductGallery.types";
+import ProductImage from "../ProductImage";
 import Empty from "../../../assets/image/empty_large.png";
 
 const settings = {
@@ -12,11 +13,6 @@ const settings = {
   slidesToScroll: 1,
 };
 
-// img empty set
-const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-  e.currentTarget.src = Empty;
-};
-
 const ProductGallery: React.FC<ProductGalleryProps> = ({ images }) => {
   return (
     <Styled.GalleryContainer>
@@ -24,16 +20,12 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ images }) => {
         {images.length > 0 ? (
           images.map(({ id, imageUrl }) => (
             <Styled.SlideContainer key={id}>
-              <Styled.ProductImage
-                src={imageUrl}
-                alt={`Product Image ${id}`}
-                onError={handleError}
-              />
+              <ProductImage src={imageUrl} alt={`Product Image ${id}`} />
             </Styled.SlideContainer>
           ))
         ) : (
           <Styled.SlideContainer>
-            <Styled.ProductImage src={Empty} alt="이미지 없음" />
+            <ProductImage src={Empty} alt="이미지 없음" />
           </Styled.SlideContainer>
         )}
       </Styled.StyledSlider>

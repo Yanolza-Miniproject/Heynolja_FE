@@ -17,7 +17,7 @@ const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
   const [checkOutDate, setCheckOutDate] = useRecoilState(checkOutDateState);
 
   const isValidDate = (date: Date | null) => {
-    return date instanceof Date && !isNaN(date.getTime());
+    return date instanceof Date && !Number.isNaN(date.getTime());
   };
 
   const validCheckInDate = isValidDate(checkInDate) ? checkInDate : undefined;
@@ -31,9 +31,7 @@ const Calendar: React.FC<CalendarProps> = ({ price, onDateChange }) => {
       setCheckInDate(start);
       setCheckOutDate(end);
 
-      if (onDateChange) {
-        onDateChange(start, end);
-      }
+      onDateChange?.(start, end);
     },
     [setCheckInDate, setCheckOutDate, onDateChange],
   );

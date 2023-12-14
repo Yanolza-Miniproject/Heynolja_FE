@@ -14,4 +14,9 @@ const formatDateToYYMMDD = (date: Date | null): string => {
   return `${year}-${month}-${day}`;
 };
 
-export { formatDate, formatDateToYYMMDD };
+const formatDateToYYYYMMDDHHMMSS = (date: string | null): string => {
+  if (!date) return "";
+  return date.slice(0, 16).replace("T", " ");
+};
+
+export { formatDate, formatDateToYYMMDD, formatDateToYYYYMMDDHHMMSS };

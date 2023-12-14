@@ -65,7 +65,6 @@ describe("MyOrderList 컴포넌트", () => {
 
     render(<MyOrderList />, { wrapper: createWrapper() });
 
-    // "로딩중..." 메시지가 있는지 확인
     const noOrderMessage = screen.queryByText("로딩중...");
 
     // 검증
