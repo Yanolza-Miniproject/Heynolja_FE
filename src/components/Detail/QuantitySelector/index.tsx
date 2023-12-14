@@ -10,7 +10,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   const [quantity, setQuantity] = useState(initialQuantity);
 
   const handleDecrease = () => {
-    const newQuantity = quantity - 1 > 1 ? quantity - 1 : 1;
+    const newQuantity = Math.max(1, quantity - 1);
     setQuantity(newQuantity);
     onQuantityChange(newQuantity);
   };

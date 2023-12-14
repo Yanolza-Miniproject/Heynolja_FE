@@ -29,7 +29,7 @@ const CartItem = ({
       })
       .then((res) => {
         console.log(res.data);
-        handeleDelete(
+        handeleDelete({
           item,
           cart,
           estimatedPrice,
@@ -39,7 +39,7 @@ const CartItem = ({
           setCart,
           setSelected,
           setEstimatedPrice,
-        );
+        });
       });
   };
 
@@ -49,13 +49,13 @@ const CartItem = ({
   }, [select, index]);
 
   return (
-    <Styled.Container check={check}>
-      <Styled.itemTop>
+    <Styled.Container $check={check}>
+      <Styled.ItemTop>
         <Checkbox
           id={item.id.toString()}
           checked={select.length > 0 ? select[index] : false}
           onChange={(event) => {
-            handleCheck(
+            handleCheck({
               event,
               setCheck,
               setSelected,
@@ -64,8 +64,7 @@ const CartItem = ({
               estimatedPrice,
               index,
               setSelect,
-              select,
-            );
+            });
           }}
         />
         <label htmlFor={item.id.toString()}>{item.accommodationName}</label>
@@ -76,10 +75,10 @@ const CartItem = ({
           style={{ cursor: "pointer", scale: "0.7" }}
           onClick={fetch}
         />
-      </Styled.itemTop>
-      <Styled.itemBottom>
+      </Styled.ItemTop>
+      <Styled.ItemBottom>
         <Styled.Image>
-          <img src={item.roomUrl} />
+          <img src={item.roomUrl} alt="room_img_url" />
         </Styled.Image>
         <Styled.Info>
           <p>
@@ -99,7 +98,7 @@ const CartItem = ({
             )}
           </p>
         </Styled.Info>
-      </Styled.itemBottom>
+      </Styled.ItemBottom>
     </Styled.Container>
   );
 };
