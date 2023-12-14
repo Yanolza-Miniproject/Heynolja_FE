@@ -13,15 +13,6 @@ const ItemList = () => {
   console.log(data);
   const orderList: OrderItem[] = data?.data.data.rooms;
 
-  // authInstance
-  //   .get("/orders/9")
-  //   .then((response) => {
-  //     console.log(response);
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
-
   return (
     <Styled.PaymentItemWrapper>
       <Styled.Title>결제 항목 {orderList?.length}</Styled.Title>

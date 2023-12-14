@@ -9,11 +9,13 @@ const StockStatusBanner: React.FC<StockStatusBannerProps> = ({ inventory }) => {
 
   if (inventory <= 0) {
     return <Banner outOfStock>품절</Banner>;
-  } else if (inventory <= lowStockThreshold) {
-    return <Banner lowStock>품절 임박</Banner>;
-  } else {
-    return null;
   }
+
+  if (inventory <= lowStockThreshold) {
+    return <Banner lowStock>품절 임박</Banner>;
+  }
+
+  return null;
 };
 
 export default StockStatusBanner;

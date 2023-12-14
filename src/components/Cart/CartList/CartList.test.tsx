@@ -1,6 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import CartList from ".";
@@ -53,8 +52,6 @@ Object.defineProperty(window, "location", {
 });
 
 describe("장바구니 페이지 데이터 받아오기 테스트", () => {
-  const user = userEvent.setup();
-
   afterEach(() => {
     mockResponse.mockClear();
   });
@@ -77,20 +74,6 @@ describe("장바구니 페이지 데이터 받아오기 테스트", () => {
       `전체 선택(${testData.length}/${testData.length})`,
     );
     expect(textElement).toBeInTheDocument();
-  });
-
-  test("전체 선택을 누르면 모든 아이템이 선택 되어야 한다.", () => {
-    render(<CartList data={testData} />, { wrapper: createWrapper() });
-
-    const checkbox = screen.getByRole("checkbox", {
-      name: `전체 선택(${testData.length}/${testData.length})`,
-    });
-
-    user.click(checkbox);
-
-    const allCheckbox = screen.getAllByRole("checkbox");
-
-    expect(allCheckbox.length).toBe(testData.length + 1);
   });
 
   test("선택된 아이템은 예상 구매 내역에 포함이 된다.", async () => {

@@ -4,16 +4,16 @@ export const Empty = styled.div`
   flex-grow: 1;
 `;
 
-export const Container = styled.div<{ check: boolean }>`
+export const Container = styled.div<{ $check: boolean }>`
   margin-bottom: 1rem;
   padding: 1.2rem;
 
   border-radius: 10px;
   border: ${(props) =>
-    props.check ? "1px solid #ff5100" : "1px solid #e6e6e6"};
+    props.$check ? "1px solid #ff5100" : "1px solid #e6e6e6"};
 `;
 
-export const itemTop = styled.div`
+export const ItemTop = styled.div`
   display: flex;
   align-items: center;
 
@@ -27,7 +27,7 @@ export const itemTop = styled.div`
   }
 `;
 
-export const itemBottom = styled.div`
+export const ItemBottom = styled.div`
   display: flex;
 
   font-weight: normal;

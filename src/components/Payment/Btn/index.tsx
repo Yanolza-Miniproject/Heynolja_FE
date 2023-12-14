@@ -34,9 +34,7 @@ const Btn = () => {
             navigate(`/Complete/${data.data.data}`);
           },
         });
-      } else if (result.isDenied) {
-        return;
-      } else if (result.isDismissed) {
+      } else if (!result.isConfirmed) {
         return;
       }
     });

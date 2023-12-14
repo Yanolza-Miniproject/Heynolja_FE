@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import * as Styled from "./RoomItem.styles";
 import formatNumber from "../../../utils/formatNumber";
 import { RoomItemProps } from "./RoomItem.types";
@@ -16,19 +16,18 @@ const RoomItem: React.FC<
   const queryParams = new URLSearchParams(location.search);
   const accommodationId = queryParams.get("accommodation-id");
 
-  let remainingInventory = "데이터 없음";
+  const remainingInventory = useMemo(() => {
+    if (!checkInDate || !RoomInventory) {
+      return "데이터 없음";
+    }
 
-  if (checkInDate && RoomInventory) {
     const checkInDateString = formatDate(checkInDate);
-
     const inventoryData = RoomInventory.find(
       (inv) => inv.date === checkInDateString,
     );
 
-    remainingInventory = inventoryData
-      ? `${inventoryData.inventory}개`
-      : "확인 불가";
-  }
+    return inventoryData ? `${inventoryData.inventory}개` : "확인 불가";
+  }, [checkInDate, RoomInventory]);
 
   const handleRoomClick = () => {
     navigate(`/detail?accommodation-id=${accommodationId}&room-id=${id}`);

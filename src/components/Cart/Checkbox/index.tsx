@@ -8,7 +8,7 @@ const Checkbox = ({ id, checked, onChange }: CheckboxProps) => {
       id={id}
       checked={checked}
       onChange={onChange}
-    ></Styled.CheckBox>
+    />
   );
 };
 
