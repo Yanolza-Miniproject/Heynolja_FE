@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { searchStateAtom } from "../store/searchSelectorAtom";
+import { defaultSelector, searchStateAtom } from "../store/searchSelectorAtom";
 
 export const useSearchHandlers = () => {
   const [searchState, setSearchState] = useRecoilState(searchStateAtom);
@@ -8,7 +8,7 @@ export const useSearchHandlers = () => {
     setSearchState({
       ...searchState,
       selectedRegion: value,
-      isRegionSelected: value !== 99,
+      isRegionSelected: value !== defaultSelector,
     });
   };
 
@@ -16,25 +16,27 @@ export const useSearchHandlers = () => {
     setSearchState({
       ...searchState,
       selectedType: value,
-      isTypeSelected: value !== 99,
+      isTypeSelected: value !== defaultSelector,
     });
   };
 
   const handleOptionClick = (value: number) => {
     setSearchState((current) => {
-      if (value === 99) {
+      if (value === defaultSelector) {
         return {
           ...current,
-          selectedOptions: [99],
+          selectedOptions: [defaultSelector],
           isOptionsSelected: true,
         };
       } else {
         const newOptions = current.selectedOptions.includes(value)
           ? current.selectedOptions.filter(
-              (option) => option !== value && option !== 99,
+              (option) => option !== value && option !== defaultSelector,
             )
           : [
-              ...current.selectedOptions.filter((option) => option !== 99),
+              ...current.selectedOptions.filter(
+                (option) => option !== defaultSelector,
+              ),
               value,
             ];
 
@@ -91,9 +93,9 @@ export const useSearchHandlers = () => {
 
   const handleResetSearch = () => {
     setSearchState({
-      selectedRegion: 99,
-      selectedType: 99,
-      selectedOptions: [99],
+      selectedRegion: defaultSelector,
+      selectedType: defaultSelector,
+      selectedOptions: [defaultSelector],
       isRegionSelected: false,
       isTypeSelected: false,
       isOptionsSelected: false,

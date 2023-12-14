@@ -51,10 +51,14 @@ export const AccommodationList = ({
               <Styled.ItemInfo>
                 <Styled.ItemInfoFirstColumn>
                   <h3 className="item-name">{item.name}</h3>
-                  <h3 className="item-price">
-                    ₩{item.lowest_price && formatNumber(item.lowest_price)}원
-                    부터
-                  </h3>
+                  {item.lowest_price ? (
+                    <h3 className="item-price">
+                      ₩{formatNumber(item.lowest_price)}
+                      원부터
+                    </h3>
+                  ) : (
+                    <h3 className="item-price">가격 정보 없음</h3>
+                  )}
                 </Styled.ItemInfoFirstColumn>
                 <Styled.ItemInfoSecondColumn>
                   <HeartClick

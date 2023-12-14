@@ -6,8 +6,8 @@ export const globalStyle = css`
   ${emotionReset}
 
   @font-face {
-    font-family: "Noto Sans KR";
-    src: url("../assets/font/NotoSans-Regular.woff2") format("font-woff2");
+    font-family: "Noto Sans KR", sans-serif;
+    src: url("../assets/font/NotoSans-Regular.woff2") format("woff2");
   }
 
   body {
@@ -117,9 +117,7 @@ export const headerRightWrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    &:nth-of-type(2)::after,
-    &:nth-of-type(3)::after,
-    &:nth-last-of-type(1)::after {
+    &.submenu::after {
       content: "";
       position: absolute;
       left: -10px;
