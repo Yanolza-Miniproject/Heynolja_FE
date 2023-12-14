@@ -14,7 +14,7 @@ export const CategoryFilterViewButton = styled.button<CategoryItemWrapperProps>`
 
   color: white;
   background-color: ${(props) => (props.view ? "#191554" : "#646464")};
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;

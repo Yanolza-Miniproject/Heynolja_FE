@@ -10,6 +10,7 @@ import * as Styled from "./DetailList.styles.ts";
 import HeartClick from "../../components/Category/HeartClick/index.tsx";
 
 const DetailList = () => {
+  scroll(0, 0);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const accommodationId = queryParams.get("accommodation-id");
@@ -34,7 +35,7 @@ const DetailList = () => {
             />
             <HeartClick
               likes={accommodationDetail.data.data.wishCount}
-              likes_clicked={accommodationDetail.data.data.isWish}
+              likesClicked={accommodationDetail.data.data.isWish}
               accommodationId={accommodationDetail.data.data.id}
             />
           </Styled.HorizontalContainer>

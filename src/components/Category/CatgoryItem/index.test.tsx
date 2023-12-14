@@ -46,4 +46,18 @@ describe("CategoryItem Test", () => {
       expect(router).toHaveBeenCalledWith(testData.id);
     }
   });
+
+  test("알록달록한 카테고리 아이콘을 누르면 해당 카테고리의 숙소만 보여줍니다.", () => {
+    if ("IntersectionObserver" in window) {
+      const wrapper = createWrapper();
+      render(<CategoryItem data={testData} />, { wrapper });
+
+      const button = screen.getByTestId("category-parking");
+      userEvent.click(button);
+
+      expect(screen.getByTestId("category-parking")).toHaveStyle(
+        "background-color: #ff6b6b",
+      );
+    }
+  });
 });

@@ -171,7 +171,7 @@ PW : qwert1234
 ## ⚒️ 주요 문제 및 해결 방법
 
 <details>
-<summary style="font-size: 16px">MSW를 사용하면서 프론트엔드 프로젝트 파일의 복잡성이 증가</summary>
+<summary>MSW를 사용하면서 프론트엔드 프로젝트 파일의 복잡성이 증가</summary>
 <div markdown="1">
   
 문제: MSW를 사용하면서 프론트엔드 프로젝트 파일의 복잡성이 증가하고, 초기 설정 오류로 인한 시간적인 소요가 컸습니다.
@@ -189,9 +189,8 @@ PW : qwert1234
 </div>
 </details>
 
-<br>
 <details>
-<summary style="font-size: 22px">onError 처리시 event의 target 설정이 되지 않는 문제 </summary>
+<summary>onError 처리시 event의 target 설정이 되지 않는 문제 </summary>
 <div markdown="1">
   
 문제: img태그의 onError로 에러 이미지 처리시 event의 target을 인식하지 못하는 문제 발생
@@ -218,7 +217,7 @@ PW : qwert1234
 </details>
 
 <details>
-<summary style="font-size: 22px">Axios Interceptor로 로딩 애니메이션 추가시 발생한 문제</summary>
+<summary>Axios Interceptor로 로딩 애니메이션 추가시 발생한 문제</summary>
 <div markdown="1">
   
 문제: Axios Interceptor를 활용하여 로딩 애니메이션을 추가하려고 하였으나, 시도해본 방법으로는 로딩 애니메이션이 제대로 출력되지 않았음. Axios Interceptor에 instance 외에도 setIsLoading 상태 값을 필수 parameter로 설정하고 전역적으로 관리하는 등의 방법을 활용해야 했지만, 이미 작업된 컴포넌트 구조 및 시간 관계상 기존 로직 추가 및 변경이 복잡해지는 문제가 있어 다른 방법을 찾아보기로 함.
@@ -238,10 +237,169 @@ export const Loader = () => {
     </LoaderContainer>
   ) : null;
 };
+```
 
 </div>
 </details>
-<br>
+
+<details>
+<summary>객체 내의 여러 값에 접근할 땐 destructuring을 활용</summary>
+<div markdown="1">
+
+문제 : 객체 내의 여러 값에 접근할 때 너무 많은 프로토타입 체인이 필요하다.
+
+해결 : axios의 data를 destructuring을 활용하여 작성하니 코드가 한결 깔끔해진 것 같음 앞으로 axios의 return data에서 많은 프로퍼티에 접근할 때는 destructuring을 사용
+
+```javascript
+export const fetchSignin = async ({ email, password }: SignInInputs) => {
+  const { data, headers } = await baseInstance.post("members/login", {
+    email,
+    password,
+  });
+
+  const returnData = {
+    accessToken: headers["access_token"],
+    refreshToken: headers["refresh_token"],
+    message: data.message,
+    memberId: data.data.memberId,
+    nickname: data.data.nickname,
+  };
+
+  return returnData;
+};
+```
+
+</div>
+</details>
+
+<details>
+<summary>쿼리에 조건부 데이터를 넣어야 할 때</summary>
+<div markdown="1">
+
+문제 : 필요한 쿼리 파라미터만 보내야 하기 때문에 조건부로 query parameter를 넣어주어야 겠다고 생각했습니다. 문자열에 어떤 값이 들어갈 지 도 모르고, 추적도 어려운 것 같습니다. 혹여나 다른 사람이 코드를 수정한다 하더라도 정말 너무 어렵고 주먹구구식으로 작성된 코드라는 것을 알 수 있었습니다. 따라서 axios의 params object를 활용하였습니다.
+
+```javascript
+const data = await authInstance.get(
+  `accommodations?page=${pageParam}${regionUrl}${typeUrl}${categoryParkingUrl}${categoryCookingUrl}${categoryPickupUrl}`,
+);
+```
+
+1. 객체의 Spread Operator를 사용
+
+가장 먼저 params 객체 자체를 만들어주는 방법에 대해서 생각해보았습니다. 조건부에 따라서 params 객체를 반환하는 함수를 만들어서 관리하자는 것이 처음 생각이었습니다.
+
+```javascript
+const validParams = (param: string, value: number | boolean) => {
+  return value === false ? {} : { [param]: String(value) };
+};
+
+export const fetchCatgory = async (
+  pageParam: number,
+  props: CategoryFilterParams,
+) => {
+  const params = {
+    ...validParams("region01", props.region01),
+    ...validParams("type", props.type),
+    ...validParams("categoryParking", props.categoryParking),
+    ...validParams("categoryCooking", props.categoryCooking),
+    ...validParams("categoryPickup", props.categoryPickup),
+  };
+
+  const baseUrl = `accommodations?page=${pageParam}`;
+
+  try {
+    const data = isLoggedIn()
+      ? await authInstance.get(baseUrl, { params })
+      : await baseInstance.get(baseUrl, { params });
+
+    return data.data;
+  } catch (error) {
+    return error;
+  }
+};
+```
+
+해당 과정을 거치니 기존 URL에 잘못된 정보가 들어가거나, 코드의 가독성이 불편한 문제는 어느정도 해결된 것 같았습니다. 그러나 코드가 길어지고 객체를 6개 만들어서 spread operator를 통해 푸는 형식이다 보니까 가독성도 안 좋고, 코드도 길어지는 단점이 있었던 것 같습니다. 또한 코드가 반복되니까 불필요한 코드 작성도 들어간 것 같았습니다..
+
+2. for in을 사용해서 객체에 넣기
+
+객체의 key 값을 순회할 수 있는 for in을 사용해서 객체를 만들기로 하였습니다. props를 분리하고, 필요한 props를 for in으로 순회하면서 유효한 프로퍼티만 params 객체에 추가하려고 하였습니다.
+
+```javascript
+export const fetchCatgory = async (
+  pageParam: number,
+  props: CategoryFilterParams,
+) => {
+
+  type paramsType3 = Record<keyof CategoryFilterParams, string>;
+
+  const params: Partial<paramsType3> = {};
+
+  for (const key in props) {
+    if (props[key as keyof CategoryFilterParams] !== false) {
+      params[key as keyof paramsType3] = String(
+        props[key as keyof CategoryFilterParams],
+      );
+    }
+  }
+
+  const baseUrl = `accommodations?page=${pageParam}`;
+
+  try {
+    const data = isLoggedIn()
+      ? await authInstance.get(baseUrl, { params })
+      : await baseInstance.get(baseUrl, { params });
+
+    return data.data;
+  } catch (error) {
+    return error;
+  }
+};
+```
+
+다음과 같이 코드를 작성하니 불필요한 코드의 수가 줄어들고 가독성 또한 좋아진 느낌이었습니다. 그러나 코드에서 반복문을 사용하면 코드에서 테스트할 경우들이 많아지고 side effect가 발생할 수 도 있다는 것을 배웠습니다. 따라서 이 점을 개선해볼 필요가 있었습니다.
+
+3. Object.entries().reduce 활용
+
+중점은 반복을 돌면서 하나하나 축적해 나아가는 기능이었습니다. 이를 위해서는 reduce 고차함수가 필요했고 reduce를 적용하기 위해서 Object.entries()라는 메서드를 사용할 수 있다는 것을 알 수 있었습니다. 따라서 props를 Object.entries()를 사용해서 배열로 만들고 reduce로 원하는 객체를 만들었습니다.
+
+```javascript
+export const fetchCatgory = async (
+  pageParam: number,
+  props: CategoryFilterParams,
+) => {
+  type paramsType3 = Record<keyof CategoryFilterParams, string>;
+
+  const initialParams: Partial<paramsType3> = {};
+
+  const params: Partial<paramsType3> = Object.entries(props).reduce(
+    (acc, [key, value]) => {
+      if (value !== false) {
+        acc[key as keyof paramsType3] = String(value);
+      }
+      return acc;
+    },
+    initialParams,
+  );
+
+  const baseUrl = `accommodations?page=${pageParam}`;
+
+  try {
+    const data = isLoggedIn()
+      ? await authInstance.get(baseUrl, { params })
+      : await baseInstance.get(baseUrl, { params });
+
+    return data.data;
+  } catch (error) {
+    return error;
+  }
+};
+```
+
+코드가 훨씬 더 가독성이 있고 간결해진 것 같습니다. 고차함수를 사용하다보니 반복문에 대한 부작용을 걱정하지 않아도 되는 것 같습니다.
+
+</div>
+</details>
 
 ## 🎞️시연 영상
 
@@ -316,6 +474,8 @@ https://github.com/Yanolza-Miniproject/frontend/assets/125336070/71dece7b-4643-4
 <div markdown="1">
 
 - 느낀점
+  - 테스트 코드를 왜 작성을 해야하는가에 대해 고민을 해보는 것이 이번 프로젝트의 목표였습니다. 도대체 왜 어려운 TDD를 사용해서 작업을 하는 지 잘 이해가 되지 않았고 막상 테스트 코드를 작성할 때도 같은 의미로 받아들였습니다. 허나 멘토링을 받고 처음 그 이유를 찾았을 때는 "테스트 코드는 미리 에러를 발생시키기 위해서 작성한다." 였습니다. 미리 에러를 발생시켜서 어느 부분에서 문제가 발생할 수 있는 지 확인하는 용도로 사용된다고 느껴졌습니다. 이후 리펙토링을 진행하면서 테스트 코드의 작성의 도움을 상당히 많이 받았습니다. 타입이 틀리거나 잘못된 데이터가 들어갔을 때, 그리고 로직이 제대로 실행되지 않은 체 돌아가는 코드들을 기존보다 쉽게 찾을 수 있었고 상당한 도움이 되었습니다. 이를 통해 테스트 코드가 왜 필요한 지 알 수 있었습니다. 그러나 아직 테스트 코드가 1차원적이라서 이를 위해 더 많은 공부를 해야할 것 같습니다.
+  - 백엔드분들과의 협업을 하면서 어느 부분에서 CORS에러가 나는 지 이해할 수 있었고, 직접 이를 실행시켜봐야 어느 부분에서 이러한 문제가 나는 지 알 수 있었습니다. 미리 이러한 에러들을 마주칠 수 있어서 정말 뜻깊은 시간이었습니다.
 
 </div>
 </details>

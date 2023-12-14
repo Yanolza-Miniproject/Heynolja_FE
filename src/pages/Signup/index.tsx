@@ -1,9 +1,38 @@
 import InputText from "../../components/Signin/InputText";
 import * as Styled from "./Signup.styles";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Inputs } from "./Signup.types";
+import { Requests } from "./Signup.types";
 import { InputProps } from "./Signup.constant";
 import { useSignUp } from "../../api/Auth/query";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const formSchema = z.object({
+  email: z
+    .string()
+    .min(1, { message: "이메일 형식에 맞춰 작성해주세요" })
+    .email(),
+  password: z
+    .string()
+    .min(8, {
+      message: "비밀번호는 8자 이상으로 입력해주세요",
+    })
+    .max(20),
+  nickname: z
+    .string()
+    .min(2, {
+      message: "닉네임은 2자 이상으로 입력해주세요",
+    })
+    .max(20),
+  phone: z
+    .string()
+    .min(10, {
+      message: "알맞은 휴대폰 번호 양식으로 제출해주세요",
+    })
+    .max(11),
+});
+
+export type FormSchema = z.infer<typeof formSchema>;
 
 const Signup = () => {
   const mutationSignUp = useSignUp();
@@ -11,9 +40,11 @@ const Signup = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<FormSchema>({
+    resolver: zodResolver(formSchema),
+  });
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<Requests> = async (data) => {
     mutationSignUp.mutate(data);
   };
 

@@ -4,7 +4,7 @@ import * as Styled from "./CategoryBanner.styles";
 import { CategoryBannerProps } from "./CategoryBanner.types";
 
 const CategoryBanner = memo(
-  ({ firstText, secondText }: CategoryBannerProps) => {
+  ({ bannerMainText, bannerSubText }: CategoryBannerProps) => {
     return (
       <>
         <Styled.Banner>
@@ -16,8 +16,8 @@ const CategoryBanner = memo(
             >
               <div>
                 <Styled.CategoryBannerTextWrapper>
-                  <p>{firstText}</p>
-                  <p>{secondText}</p>
+                  <p>{bannerMainText}</p>
+                  <p>{bannerSubText}</p>
                 </Styled.CategoryBannerTextWrapper>
                 <Styled.CategoryBannerSearchMotion
                   data-testid="search-button"

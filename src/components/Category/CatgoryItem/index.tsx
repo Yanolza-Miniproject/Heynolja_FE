@@ -3,7 +3,7 @@ import HeartClick from "../HeartClick";
 import * as Styled from "./CategoryItem.styles";
 import Empty from "../../../assets/image/empty.png";
 
-import * as _ from "lodash";
+import { truncate } from "lodash-es";
 import { useRef } from "react";
 import { random } from "lodash";
 import { useNavigate } from "react-router-dom";
@@ -53,12 +53,12 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
         </div>
         <Styled.CategoryTextWrapper view={categoryViewState}>
           <Styled.CategoryName view={categoryViewState}>
-            {_.truncate(data.name, { length: categoryViewAtom ? 50 : 20 })}
+            {truncate(data.name, { length: categoryViewAtom ? 50 : 20 })}
           </Styled.CategoryName>
           <Styled.CategoryTopWrapper>
             {!categoryViewState && (
               <Styled.CategoryDescription>
-                {_.truncate(data.infoDetail, {
+                {truncate(data.infoDetail, {
                   length: 40,
                 })}
               </Styled.CategoryDescription>
@@ -73,7 +73,7 @@ const CategoryItem = ({ data }: CategoryItemProps) => {
             </Styled.CategoryPrice>
             <HeartClick
               likes={data.wishCount}
-              likes_clicked={data.isWish}
+              likesClicked={data.isWish}
               accommodationId={data.id}
             />
           </Styled.CategoryDownWrapper>

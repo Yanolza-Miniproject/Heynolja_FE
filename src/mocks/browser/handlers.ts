@@ -13,12 +13,14 @@ export const handlers = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   http.get("/api/accommodations", ({ request }) => {
     const url = new URL(request.url);
+
+    console.log(url);
     const page = Number(url.searchParams.get("page")) || 0;
     const typeParam = url.searchParams.get("type");
     const type =
       typeParam !== null && typeParam !== undefined ? Number(typeParam) : null;
 
-    const regionParam = url.searchParams.get("region");
+    const regionParam = url.searchParams.get("region01");
     const region =
       regionParam !== null && regionParam !== undefined
         ? Number(regionParam)

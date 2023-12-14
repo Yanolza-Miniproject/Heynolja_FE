@@ -8,7 +8,7 @@ export const MyOrderItemWrapper = styled.div`
   border-radius: 1rem;
   padding: 2rem;
   margin-top: 2rem;
-  transition: 0.5s;
+  transition: box-shadow border 0.5s;
 
   &:hover {
     border: 1px solid #ff5100;

@@ -6,6 +6,11 @@ type WishControlParams = {
   queryFnType: "post" | "delete";
 };
 
+export enum QueryFnType {
+  post = "post",
+  delete = "delete",
+}
+
 // postClickHeart, deleteClickHeart 함수를 담은 객체
 const queryFn = {
   post: postClickHeart,
@@ -19,9 +24,6 @@ export const useWishControl = ({ queryFnType }: WishControlParams) => {
     mutationKey: ["wishControl", queryFnType],
     mutationFn: (accommodationId: string) =>
       queryFn[queryFnType](accommodationId),
-    onSuccess: (data: { message: string }) => {
-      console.log(data);
-    },
     onError: (error) => {
       if (error.message === "Request failed with status code 400") {
         alert("이미 즐겨찾기에 추가된 숙소입니다.");

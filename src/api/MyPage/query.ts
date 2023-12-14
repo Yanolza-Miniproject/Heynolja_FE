@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getMyWishList } from "./index";
+import { getMyWishList } from "./";
 
 export const useGetMyWishList = () => {
   const { data, isLoading, error } = useQuery({

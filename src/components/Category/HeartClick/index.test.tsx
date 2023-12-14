@@ -23,7 +23,7 @@ describe("HeartClick test", () => {
 
   test("화면에 props로 받아온 데이터 잘 보여지는 지 test", () => {
     render(
-      <HeartClick likes={5} likes_clicked={false} accommodationId="1101" />,
+      <HeartClick likes={5} likesClicked={false} accommodationId="1101" />,
       {
         wrapper: createWrapper(),
       },
@@ -40,7 +40,7 @@ describe("HeartClick test", () => {
     // given
     const likes = 5;
     render(
-      <HeartClick likes={likes} likes_clicked={false} accommodationId="1101" />,
+      <HeartClick likes={likes} likesClicked={false} accommodationId="1101" />,
       { wrapper },
     );
     const heartClickButton = document.getElementById("button");
@@ -61,7 +61,7 @@ describe("HeartClick test", () => {
     // given
     const likes = 5;
     render(
-      <HeartClick likes={likes} likes_clicked={true} accommodationId="1101" />,
+      <HeartClick likes={likes} likesClicked={true} accommodationId="1101" />,
       { wrapper },
     );
     const heartClickButton = document.getElementById("button");
@@ -89,7 +89,7 @@ describe("HeartClick test", () => {
     // given
     const likes = 5;
     render(
-      <HeartClick likes={likes} likes_clicked={true} accommodationId="1101" />,
+      <HeartClick likes={likes} likesClicked={true} accommodationId="1101" />,
       { wrapper },
     );
     const heartClickButton = document.getElementById("button");

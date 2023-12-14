@@ -1,4 +1,4 @@
-export type Inputs = {
+export type Requests = {
   email: string;
   password: string;
   nickname: string;

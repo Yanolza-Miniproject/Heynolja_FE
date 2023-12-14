@@ -16,7 +16,7 @@ export const CategoryItemContainer = styled.div`
 
   font-size: 0.9rem;
 
-  transition: all 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
@@ -76,7 +76,11 @@ export const CategoryTopWrapper = styled.div`
 `;
 
 export const CategoryDescription = styled.span`
-  color: #222222;
+  width: 30%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const CategoryView = styled.span`

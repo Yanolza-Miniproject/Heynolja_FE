@@ -1,7 +1,7 @@
 export type CategoryQueryProps = {
-  regionNumber: number;
-  accommodationNumber: number;
-  categoryParking?: number;
-  categoryCooking?: number;
-  categoryPickup?: number;
+  regionNumber: number | boolean;
+  accommodationNumber: number | boolean;
+  categoryParking?: number | boolean;
+  categoryCooking?: number | boolean;
+  categoryPickup?: number | boolean;
 };

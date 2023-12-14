@@ -1,10 +1,9 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchCatgory } from "../api/Category";
-import { CategoryFilterParams } from "../utils/filterDecoder";
-import { checkCategoryQueryUrl } from "../utils/filterDecoder";
+import { CategoryFilterParams } from "../pages/Category/Category.types";
 
 export const useCategoryInfiniteQuery = ({
-  region,
+  region01,
   type,
   categoryParking,
   categoryCooking,
@@ -13,22 +12,19 @@ export const useCategoryInfiniteQuery = ({
   const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery({
     queryKey: [
       "category",
-      region,
+      region01,
       type,
       categoryParking,
       categoryCooking,
       categoryPickup,
     ],
     queryFn: ({ pageParam }) =>
-      fetchCatgory({
-        pageParam,
-        ...checkCategoryQueryUrl({
-          region,
-          type,
-          categoryParking,
-          categoryCooking,
-          categoryPickup,
-        }),
+      fetchCatgory(pageParam, {
+        region01,
+        type,
+        categoryParking,
+        categoryCooking,
+        categoryPickup,
       }),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages, lastPageParam) => {

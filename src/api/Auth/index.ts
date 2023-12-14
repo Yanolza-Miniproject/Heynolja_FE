@@ -1,26 +1,26 @@
 import { baseInstance } from "../../hooks/useAxios";
 import { SignInInputs } from "../../pages/Signin/Signin.types";
-import { Inputs } from "../../pages/Signup/Signup.types";
+import { Requests } from "../../pages/Signup/Signup.types";
 import { setSessionStorage } from "../../utils/setSessionStorage";
 
-export const fetchSignin = async (data: SignInInputs) => {
-  const response = await baseInstance.post("members/login", {
-    email: data.email,
-    password: data.password,
+export const fetchSignin = async ({ email, password }: SignInInputs) => {
+  const { data, headers } = await baseInstance.post("members/login", {
+    email,
+    password,
   });
 
   const returnData = {
-    accessToken: response.headers["access-token"],
-    refreshToken: response.headers["refresh-token"],
-    message: response.data.message,
-    memberId: response.data.data.memberId,
-    nickname: response.data.data.nickname,
+    accessToken: headers["access_token"],
+    refreshToken: headers["refresh_token"],
+    message: data.message,
+    memberId: data.data.memberId,
+    nickname: data.data.nickname,
   };
 
   return returnData;
 };
 
-export const fetchSignup = async (data: Inputs) => {
+export const fetchSignup = async (data: Requests) => {
   const response = await baseInstance.post("members/join", {
     email: data.email,
     password: data.password,
