@@ -8,11 +8,13 @@ interface ListDataResponse {
 
 // 받아온 숙소 데이터를 무작위로 셔플
 function shuffleList(array: AccommodationData[]): AccommodationData[] {
-  for (let i = array.length - 1; i > 0; i--) {
+  let arrayCopy = [...array];
+
+  for (let i = arrayCopy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
   }
-  return array;
+  return arrayCopy;
 }
 
 // 내 위치 기반 주변 숙소 리스트 출력
