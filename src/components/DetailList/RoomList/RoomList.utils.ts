@@ -1,6 +1,6 @@
 import { RoomType } from "./RoomList.types";
 
-const isInventoryAvailable = (
+export const isInventoryAvailable = (
   room: RoomType,
   checkInDate: Date,
   checkOutDate: Date,
@@ -25,5 +25,3 @@ const isInventoryAvailable = (
   }
   return true;
 };
-
-export default isInventoryAvailable;
