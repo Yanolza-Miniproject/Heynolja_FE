@@ -173,6 +173,33 @@ PW : qwert1234
 </details>
 
 <br>
+<details>
+<summary style="font-size: 22px">onError 처리시 event의 target 설정이 되지 않는 문제 </summary>
+<div markdown="1">
+  
+문제: img태그의 onError로 에러 이미지 처리시 event의 target을 인식하지 못하는 문제 발생
+
+해결:
+기존에 사용하던 방식은 아래와 같이 event의 타입을 React.ReactEventHandler<HTMLImageElement> 로 설정 후 event타겟의 src를 에러 이미지로 설정하는 형태였다.
+
+```javascript
+  const handleError = (e: React.ReactEventHandler<HTMLImageElement>) => {
+    e.target.src = Empty;
+  };
+```
+
+그러나 위의 방식으로 진행시 target 적용이 되지 않아 event 타입을 React.SyntheticEvent<HTMLImageElement, Event>로 변경하였으며, SyntheticEvent에는 target대신 이벤트가 부착된 부모의 위치를 반환할 수 있는 currentTarget을 활용하였다.
+최종적으로 아래와 같이 코드 수정하여 문제 해결 하였다.
+
+```javascript
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = Empty;
+  };
+```
+
+</div>
+</details>
+<br>
 
 ## 🎞️시연 영상
 
@@ -234,6 +261,8 @@ https://github.com/Yanolza-Miniproject/frontend/assets/125336070/71dece7b-4643-4
 <div markdown="1">
 
 - 느낀점
+  - 필요한 API가 무엇인지 파악하는 능력과 이를 기반으로 백엔드팀과의 소통하는 방법을 터득할 수 있어 매우 뜻깊었습니다.
+  - msw, jest와 같이 처음 사용해보는 기술들이 있어 넓은 방면으로 지식을 쌓을 수 있었다고 생각합니다.
 
 </div>
 </details>
