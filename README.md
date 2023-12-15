@@ -499,3 +499,6 @@ https://github.com/Yanolza-Miniproject/frontend/assets/125336070/71dece7b-4643-4
 
 1. 기존 MSW로 사용하던 목 서버 이외에 express를 통한 목 서버를 추가하였습니다. <br>
    주소: https://github.com/2YH02/mini-mock-server
+2. 유틸 함수를 추가하여 코드의 재사용성을 높였습니다.
+3. 컴포넌트 로딩 방식 변경 및 스크롤 기능 보완을 통해 앱의 성능을 개선하였습니다.
+4. 불필요한 주석 삭제, 기존 코드의 전반적인 로직 정리로 코드의 가독성을 높였습니다.
